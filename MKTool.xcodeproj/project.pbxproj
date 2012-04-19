@@ -58,6 +58,45 @@
 		BAB2F2991540A6B100ECE09A /* MKTRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2951540A6B100ECE09A /* MKTRoute.m */; };
 		BAB2F29F1540A73D00ECE09A /* _MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F29C1540A73D00ECE09A /* _MKTPoint.m */; };
 		BAB2F2A01540A73D00ECE09A /* _MKTRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F29E1540A73D00ECE09A /* _MKTRoute.m */; };
+		BAB2F2A81540A7F800ECE09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1F915409C8C00ECE09A /* UIKit.framework */; };
+		BAB2F2A91540A7F800ECE09A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FB15409C8C00ECE09A /* Foundation.framework */; };
+		BAB2F2AA1540A7F800ECE09A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */; };
+		BAB2F2B01540A7F800ECE09A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2AE1540A7F800ECE09A /* InfoPlist.strings */; };
+		BAB2F2B21540A7F800ECE09A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2B11540A7F800ECE09A /* main.m */; };
+		BAB2F2B61540A7F800ECE09A /* MKTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2B51540A7F800ECE09A /* MKTAppDelegate.m */; };
+		BAB2F2CD1540A83100ECE09A /* libGHUnitIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F2C91540A83100ECE09A /* libGHUnitIOS.a */; };
+		BAB2F2CE1540A94600ECE09A /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */; };
+		BAB2F2CF1540A94600ECE09A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25515409ED700ECE09A /* DDASLLogger.m */; };
+		BAB2F2D01540A94600ECE09A /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25715409ED700ECE09A /* DDFileLogger.m */; };
+		BAB2F2D11540A94600ECE09A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25915409ED700ECE09A /* DDLog.m */; };
+		BAB2F2D21540A94600ECE09A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */; };
+		BAB2F2D31540A94600ECE09A /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */; };
+		BAB2F2D41540A94600ECE09A /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */; };
+		BAB2F2D51540A94D00ECE09A /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24915409E0900ECE09A /* libBlocksKit.a */; };
+		BAB2F2D61540A95300ECE09A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */; };
+		BAB2F2D81540A9DF00ECE09A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26C15409F1600ECE09A /* Security.framework */; };
+		BAB2F2DB1540AA5200ECE09A /* MKTPointTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2DA1540AA5200ECE09A /* MKTPointTest.m */; };
+		BAB2F2DC1540AA6C00ECE09A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24E15409E4500ECE09A /* CoreLocation.framework */; };
+		BAB2F2DD1540AA7800ECE09A /* INIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F27E1540A5B600ECE09A /* INIParser.m */; };
+		BAB2F2DE1540AA7800ECE09A /* INISection.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2801540A5B600ECE09A /* INISection.m */; };
+		BAB2F2DF1540AA7800ECE09A /* InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2821540A5B600ECE09A /* InnerBand.m */; };
+		BAB2F2E01540AA9600ECE09A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24D15409E4500ECE09A /* CoreData.framework */; };
+		BAB2F2E11540AA9600ECE09A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F2861540A5DD00ECE09A /* CoreText.framework */; };
+		BAB2F2E21540AAD300ECE09A /* _MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F29C1540A73D00ECE09A /* _MKTPoint.m */; };
+		BAB2F2E31540AAD300ECE09A /* _MKTRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F29E1540A73D00ECE09A /* _MKTRoute.m */; };
+		BAB2F2E41540AAD300ECE09A /* MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2911540A6B100ECE09A /* MKTPoint.m */; };
+		BAB2F2E51540AAD300ECE09A /* MKTRoute+WPL.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */; };
+		BAB2F2E61540AAD300ECE09A /* MKTRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2951540A6B100ECE09A /* MKTRoute.m */; };
+		BAB2F2E71540AC7E00ECE09A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24B15409E3900ECE09A /* MessageUI.framework */; };
+		BAB2F2E81540ACD300ECE09A /* MKModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */; };
+		BAB2F2EB1540AD7500ECE09A /* INIParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2EA1540AD7500ECE09A /* INIParserTest.m */; };
+		BAB2F2EF1540AD7E00ECE09A /* MKTRoute+Test-Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2EC1540AD7E00ECE09A /* MKTRoute+Test-Test.m */; };
+		BAB2F2F01540AD7E00ECE09A /* MKTRouteTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2ED1540AD7E00ECE09A /* MKTRouteTest2.m */; };
+		BAB2F2F11540AD7E00ECE09A /* MKTRouteWplTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2EE1540AD7E00ECE09A /* MKTRouteWplTest.m */; };
+		BAB2F2F61540AE1700ECE09A /* MKTDropboxBaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F31540AE1700ECE09A /* MKTDropboxBaseTest.m */; };
+		BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */; };
+		BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2F91540AE7000ECE09A /* Test.wpl */; };
+		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +206,41 @@
 		BAB2F29C1540A73D00ECE09A /* _MKTPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MKTPoint.m; sourceTree = "<group>"; };
 		BAB2F29D1540A73D00ECE09A /* _MKTRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MKTRoute.h; sourceTree = "<group>"; };
 		BAB2F29E1540A73D00ECE09A /* _MKTRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MKTRoute.m; sourceTree = "<group>"; };
+		BAB2F2A61540A7F800ECE09A /* MKToolTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKToolTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAB2F2AD1540A7F800ECE09A /* MKToolTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MKToolTests-Info.plist"; sourceTree = "<group>"; };
+		BAB2F2AF1540A7F800ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BAB2F2B11540A7F800ECE09A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BAB2F2B31540A7F800ECE09A /* MKToolTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKToolTests-Prefix.pch"; sourceTree = "<group>"; };
+		BAB2F2B41540A7F800ECE09A /* MKTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTAppDelegate.h; sourceTree = "<group>"; };
+		BAB2F2B51540A7F800ECE09A /* MKTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTAppDelegate.m; sourceTree = "<group>"; };
+		BAB2F2BB1540A83100ECE09A /* GHAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAsyncTestCase.h; sourceTree = "<group>"; };
+		BAB2F2BC1540A83100ECE09A /* GHTest+JUnitXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GHTest+JUnitXML.h"; sourceTree = "<group>"; };
+		BAB2F2BD1540A83100ECE09A /* GHTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTest.h; sourceTree = "<group>"; };
+		BAB2F2BE1540A83100ECE09A /* GHTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestCase.h; sourceTree = "<group>"; };
+		BAB2F2BF1540A83100ECE09A /* GHTestGroup+JUnitXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GHTestGroup+JUnitXML.h"; sourceTree = "<group>"; };
+		BAB2F2C01540A83100ECE09A /* GHTestGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestGroup.h; sourceTree = "<group>"; };
+		BAB2F2C11540A83100ECE09A /* GHTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTesting.h; sourceTree = "<group>"; };
+		BAB2F2C21540A83100ECE09A /* GHTestMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestMacros.h; sourceTree = "<group>"; };
+		BAB2F2C31540A83100ECE09A /* GHTestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestOperation.h; sourceTree = "<group>"; };
+		BAB2F2C41540A83100ECE09A /* GHTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestRunner.h; sourceTree = "<group>"; };
+		BAB2F2C51540A83100ECE09A /* GHTestSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestSuite.h; sourceTree = "<group>"; };
+		BAB2F2C61540A83100ECE09A /* GHUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnit.h; sourceTree = "<group>"; };
+		BAB2F2C71540A83100ECE09A /* GHUnitIPhoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnitIPhoneAppDelegate.h; sourceTree = "<group>"; };
+		BAB2F2C91540A83100ECE09A /* libGHUnitIOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGHUnitIOS.a; sourceTree = "<group>"; };
+		BAB2F2CA1540A83100ECE09A /* NSException+GHTestFailureExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+GHTestFailureExceptions.h"; sourceTree = "<group>"; };
+		BAB2F2CB1540A83100ECE09A /* NSValue+GHValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+GHValueFormatter.h"; sourceTree = "<group>"; };
+		BAB2F2D71540A9AE00ECE09A /* ExternalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalData.h; path = ApplicationBase/ExternalData.h; sourceTree = "<group>"; };
+		BAB2F2DA1540AA5200ECE09A /* MKTPointTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointTest.m; sourceTree = "<group>"; };
+		BAB2F2EA1540AD7500ECE09A /* INIParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIParserTest.m; sourceTree = "<group>"; };
+		BAB2F2EC1540AD7E00ECE09A /* MKTRoute+Test-Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+Test-Test.m"; sourceTree = "<group>"; };
+		BAB2F2ED1540AD7E00ECE09A /* MKTRouteTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTest2.m; sourceTree = "<group>"; };
+		BAB2F2EE1540AD7E00ECE09A /* MKTRouteWplTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteWplTest.m; sourceTree = "<group>"; };
+		BAB2F2F21540AE1700ECE09A /* MKTDropboxBaseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTDropboxBaseTest.h; sourceTree = "<group>"; };
+		BAB2F2F31540AE1700ECE09A /* MKTDropboxBaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTDropboxBaseTest.m; sourceTree = "<group>"; };
+		BAB2F2F41540AE1700ECE09A /* MKTRoute+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTRoute+Test.h"; sourceTree = "<group>"; };
+		BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+Test.m"; sourceTree = "<group>"; };
+		BAB2F2F91540AE7000ECE09A /* Test.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.wpl; sourceTree = "<group>"; };
+		BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestInvalid.wpl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,13 +262,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BAB2F2A31540A7F800ECE09A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB2F2E71540AC7E00ECE09A /* MessageUI.framework in Frameworks */,
+				BAB2F2E01540AA9600ECE09A /* CoreData.framework in Frameworks */,
+				BAB2F2E11540AA9600ECE09A /* CoreText.framework in Frameworks */,
+				BAB2F2DC1540AA6C00ECE09A /* CoreLocation.framework in Frameworks */,
+				BAB2F2D81540A9DF00ECE09A /* Security.framework in Frameworks */,
+				BAB2F2A81540A7F800ECE09A /* UIKit.framework in Frameworks */,
+				BAB2F2A91540A7F800ECE09A /* Foundation.framework in Frameworks */,
+				BAB2F2AA1540A7F800ECE09A /* CoreGraphics.framework in Frameworks */,
+				BAB2F2CD1540A83100ECE09A /* libGHUnitIOS.a in Frameworks */,
+				BAB2F2D51540A94D00ECE09A /* libBlocksKit.a in Frameworks */,
+				BAB2F2D61540A95300ECE09A /* DropboxSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
+				BAB2F2A11540A7B100ECE09A /* New Group */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
+				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
 				BAB2F1F615409C8C00ECE09A /* Products */,
 			);
@@ -204,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				BAB2F1F515409C8C00ECE09A /* MKTool.app */,
+				BAB2F2A61540A7F800ECE09A /* MKToolTests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,6 +449,7 @@
 		BAB2F27B1540A19600ECE09A /* ApplicationBase */ = {
 			isa = PBXGroup;
 			children = (
+				BAB2F2D71540A9AE00ECE09A /* ExternalData.h */,
 				BAB2F20015409C8C00ECE09A /* Supporting Files */,
 				BAB2F20815409C8C00ECE09A /* MKTAppDelegate.h */,
 				BAB2F20915409C8C00ECE09A /* MKTAppDelegate.m */,
@@ -400,6 +496,94 @@
 			name = Generated;
 			sourceTree = "<group>";
 		};
+		BAB2F2A11540A7B100ECE09A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		BAB2F2AB1540A7F800ECE09A /* MKToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F2F81540AE7000ECE09A /* Resources */,
+				BAB2F2F21540AE1700ECE09A /* MKTDropboxBaseTest.h */,
+				BAB2F2F31540AE1700ECE09A /* MKTDropboxBaseTest.m */,
+				BAB2F2F41540AE1700ECE09A /* MKTRoute+Test.h */,
+				BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */,
+				BAB2F2E91540AD7500ECE09A /* INI */,
+				BAB2F2D91540AA5200ECE09A /* Waypoints */,
+				BAB2F2BA1540A83100ECE09A /* libGHUnitIPhone */,
+				BAB2F2B41540A7F800ECE09A /* MKTAppDelegate.h */,
+				BAB2F2B51540A7F800ECE09A /* MKTAppDelegate.m */,
+				BAB2F2AC1540A7F800ECE09A /* Supporting Files */,
+			);
+			path = MKToolTests;
+			sourceTree = "<group>";
+		};
+		BAB2F2AC1540A7F800ECE09A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F2AD1540A7F800ECE09A /* MKToolTests-Info.plist */,
+				BAB2F2AE1540A7F800ECE09A /* InfoPlist.strings */,
+				BAB2F2B11540A7F800ECE09A /* main.m */,
+				BAB2F2B31540A7F800ECE09A /* MKToolTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BAB2F2BA1540A83100ECE09A /* libGHUnitIPhone */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F2BB1540A83100ECE09A /* GHAsyncTestCase.h */,
+				BAB2F2BC1540A83100ECE09A /* GHTest+JUnitXML.h */,
+				BAB2F2BD1540A83100ECE09A /* GHTest.h */,
+				BAB2F2BE1540A83100ECE09A /* GHTestCase.h */,
+				BAB2F2BF1540A83100ECE09A /* GHTestGroup+JUnitXML.h */,
+				BAB2F2C01540A83100ECE09A /* GHTestGroup.h */,
+				BAB2F2C11540A83100ECE09A /* GHTesting.h */,
+				BAB2F2C21540A83100ECE09A /* GHTestMacros.h */,
+				BAB2F2C31540A83100ECE09A /* GHTestOperation.h */,
+				BAB2F2C41540A83100ECE09A /* GHTestRunner.h */,
+				BAB2F2C51540A83100ECE09A /* GHTestSuite.h */,
+				BAB2F2C61540A83100ECE09A /* GHUnit.h */,
+				BAB2F2C71540A83100ECE09A /* GHUnitIPhoneAppDelegate.h */,
+				BAB2F2C91540A83100ECE09A /* libGHUnitIOS.a */,
+				BAB2F2CA1540A83100ECE09A /* NSException+GHTestFailureExceptions.h */,
+				BAB2F2CB1540A83100ECE09A /* NSValue+GHValueFormatter.h */,
+			);
+			name = libGHUnitIPhone;
+			path = Frameworks/libGHUnitIPhone;
+			sourceTree = SOURCE_ROOT;
+		};
+		BAB2F2D91540AA5200ECE09A /* Waypoints */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F2EC1540AD7E00ECE09A /* MKTRoute+Test-Test.m */,
+				BAB2F2ED1540AD7E00ECE09A /* MKTRouteTest2.m */,
+				BAB2F2EE1540AD7E00ECE09A /* MKTRouteWplTest.m */,
+				BAB2F2DA1540AA5200ECE09A /* MKTPointTest.m */,
+			);
+			path = Waypoints;
+			sourceTree = "<group>";
+		};
+		BAB2F2E91540AD7500ECE09A /* INI */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F2EA1540AD7500ECE09A /* INIParserTest.m */,
+			);
+			path = INI;
+			sourceTree = "<group>";
+		};
+		BAB2F2F81540AE7000ECE09A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F2F91540AE7000ECE09A /* Test.wpl */,
+				BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -419,6 +603,23 @@
 			name = MKTool;
 			productName = MKTool;
 			productReference = BAB2F1F515409C8C00ECE09A /* MKTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BAB2F2A51540A7F800ECE09A /* MKToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAB2F2B71540A7F800ECE09A /* Build configuration list for PBXNativeTarget "MKToolTests" */;
+			buildPhases = (
+				BAB2F2A21540A7F800ECE09A /* Sources */,
+				BAB2F2A31540A7F800ECE09A /* Frameworks */,
+				BAB2F2A41540A7F800ECE09A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MKToolTests;
+			productName = MKToolTests;
+			productReference = BAB2F2A61540A7F800ECE09A /* MKToolTests.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -450,6 +651,7 @@
 			targets = (
 				BAB2F1F415409C8C00ECE09A /* MKTool */,
 				BAB2F2881540A66A00ECE09A /* MOGenerator */,
+				BAB2F2A51540A7F800ECE09A /* MKToolTests */,
 			);
 		};
 /* End PBXProject section */
@@ -475,6 +677,16 @@
 				BAB2F21915409C8C00ECE09A /* MKTDetailViewController_iPhone.xib in Resources */,
 				BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */,
 				BAB2F26915409ED700ECE09A /* README.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAB2F2A41540A7F800ECE09A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB2F2B01540A7F800ECE09A /* InfoPlist.strings in Resources */,
+				BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */,
+				BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +733,38 @@
 				BAB2F2991540A6B100ECE09A /* MKTRoute.m in Sources */,
 				BAB2F29F1540A73D00ECE09A /* _MKTPoint.m in Sources */,
 				BAB2F2A01540A73D00ECE09A /* _MKTRoute.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAB2F2A21540A7F800ECE09A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB2F2B21540A7F800ECE09A /* main.m in Sources */,
+				BAB2F2B61540A7F800ECE09A /* MKTAppDelegate.m in Sources */,
+				BAB2F2CE1540A94600ECE09A /* DDAbstractDatabaseLogger.m in Sources */,
+				BAB2F2CF1540A94600ECE09A /* DDASLLogger.m in Sources */,
+				BAB2F2D01540A94600ECE09A /* DDFileLogger.m in Sources */,
+				BAB2F2D11540A94600ECE09A /* DDLog.m in Sources */,
+				BAB2F2D21540A94600ECE09A /* DDTTYLogger.m in Sources */,
+				BAB2F2D31540A94600ECE09A /* ContextFilterLogFormatter.m in Sources */,
+				BAB2F2D41540A94600ECE09A /* DispatchQueueLogFormatter.m in Sources */,
+				BAB2F2DB1540AA5200ECE09A /* MKTPointTest.m in Sources */,
+				BAB2F2DD1540AA7800ECE09A /* INIParser.m in Sources */,
+				BAB2F2DE1540AA7800ECE09A /* INISection.m in Sources */,
+				BAB2F2DF1540AA7800ECE09A /* InnerBand.m in Sources */,
+				BAB2F2E21540AAD300ECE09A /* _MKTPoint.m in Sources */,
+				BAB2F2E31540AAD300ECE09A /* _MKTRoute.m in Sources */,
+				BAB2F2E41540AAD300ECE09A /* MKTPoint.m in Sources */,
+				BAB2F2E51540AAD300ECE09A /* MKTRoute+WPL.m in Sources */,
+				BAB2F2E61540AAD300ECE09A /* MKTRoute.m in Sources */,
+				BAB2F2E81540ACD300ECE09A /* MKModel.xcdatamodeld in Sources */,
+				BAB2F2EB1540AD7500ECE09A /* INIParserTest.m in Sources */,
+				BAB2F2EF1540AD7E00ECE09A /* MKTRoute+Test-Test.m in Sources */,
+				BAB2F2F01540AD7E00ECE09A /* MKTRouteTest2.m in Sources */,
+				BAB2F2F11540AD7E00ECE09A /* MKTRouteWplTest.m in Sources */,
+				BAB2F2F61540AE1700ECE09A /* MKTDropboxBaseTest.m in Sources */,
+				BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +817,14 @@
 				BAB2F21B15409C8D00ECE09A /* en */,
 			);
 			name = MKTDetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		BAB2F2AE1540A7F800ECE09A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAB2F2AF1540A7F800ECE09A /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -689,6 +941,56 @@
 			};
 			name = Release;
 		};
+		BAB2F2B81540A7F800ECE09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
+				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks/libGHUnitIPhone\"",
+					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BAB2F2B91540A7F800ECE09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
+				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks/libGHUnitIPhone\"",
+					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -715,6 +1017,14 @@
 			buildConfigurations = (
 				BAB2F28A1540A66A00ECE09A /* Debug */,
 				BAB2F28B1540A66A00ECE09A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BAB2F2B71540A7F800ECE09A /* Build configuration list for PBXNativeTarget "MKToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAB2F2B81540A7F800ECE09A /* Debug */,
+				BAB2F2B91540A7F800ECE09A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

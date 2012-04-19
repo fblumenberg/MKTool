@@ -75,6 +75,8 @@
     int numberOfPoints=[p getInt:@"NumberOfWaypoints" section:@"General"];
     
     self.name = [p get:@"Name" section:@"General"];
+    if(self.name == nil )
+      self.name = path.lastPathComponent;
     
     [self removePoints:self.points];
     
