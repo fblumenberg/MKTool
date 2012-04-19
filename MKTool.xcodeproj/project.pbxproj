@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BAB2F1FA15409C8C00ECE09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1F915409C8C00ECE09A /* UIKit.framework */; };
+		BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FB15409C8C00ECE09A /* Foundation.framework */; };
+		BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */; };
+		BAB2F20415409C8C00ECE09A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F20215409C8C00ECE09A /* InfoPlist.strings */; };
+		BAB2F20615409C8C00ECE09A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F20515409C8C00ECE09A /* main.m */; };
+		BAB2F20A15409C8C00ECE09A /* MKTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F20915409C8C00ECE09A /* MKTAppDelegate.m */; };
+		BAB2F20D15409C8C00ECE09A /* MKTMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F20C15409C8C00ECE09A /* MKTMasterViewController.m */; };
+		BAB2F21015409C8C00ECE09A /* MKTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F20F15409C8C00ECE09A /* MKTDetailViewController.m */; };
+		BAB2F21315409C8C00ECE09A /* MKTMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F21115409C8C00ECE09A /* MKTMasterViewController_iPhone.xib */; };
+		BAB2F21615409C8C00ECE09A /* MKTMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F21415409C8C00ECE09A /* MKTMasterViewController_iPad.xib */; };
+		BAB2F21915409C8C00ECE09A /* MKTDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F21715409C8C00ECE09A /* MKTDetailViewController_iPhone.xib */; };
+		BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F21A15409C8D00ECE09A /* MKTDetailViewController_iPad.xib */; };
+		BAB2F24A15409E0900ECE09A /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24915409E0900ECE09A /* libBlocksKit.a */; };
+		BAB2F24C15409E3900ECE09A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24B15409E3900ECE09A /* MessageUI.framework */; };
+		BAB2F24F15409E4500ECE09A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24D15409E4500ECE09A /* CoreData.framework */; };
+		BAB2F25015409E4500ECE09A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24E15409E4500ECE09A /* CoreLocation.framework */; };
+		BAB2F26215409ED700ECE09A /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */; };
+		BAB2F26315409ED700ECE09A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25515409ED700ECE09A /* DDASLLogger.m */; };
+		BAB2F26415409ED700ECE09A /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25715409ED700ECE09A /* DDFileLogger.m */; };
+		BAB2F26515409ED700ECE09A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25915409ED700ECE09A /* DDLog.m */; };
+		BAB2F26615409ED700ECE09A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */; };
+		BAB2F26715409ED700ECE09A /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */; };
+		BAB2F26815409ED700ECE09A /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */; };
+		BAB2F26915409ED700ECE09A /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F26115409ED700ECE09A /* README.txt */; };
+		BAB2F26B15409EE700ECE09A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */; };
+		BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26C15409F1600ECE09A /* Security.framework */; };
+		BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F27615409F4A00ECE09A /* libIBAForms.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAB2F27515409F4A00ECE09A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = IBAForms;
+		};
+		BAB2F27715409F5F00ECE09A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = IBAForms;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BAB2F1F515409C8C00ECE09A /* MKTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAB2F1F915409C8C00ECE09A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BAB2F1FB15409C8C00ECE09A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BAB2F20115409C8C00ECE09A /* MKTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MKTool-Info.plist"; path = "ApplicationBase/MKTool-Info.plist"; sourceTree = "<group>"; };
+		BAB2F20315409C8C00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BAB2F20515409C8C00ECE09A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ApplicationBase/main.m; sourceTree = "<group>"; };
+		BAB2F20715409C8C00ECE09A /* MKTool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MKTool-Prefix.pch"; path = "ApplicationBase/MKTool-Prefix.pch"; sourceTree = "<group>"; };
+		BAB2F20815409C8C00ECE09A /* MKTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKTAppDelegate.h; path = ApplicationBase/MKTAppDelegate.h; sourceTree = "<group>"; };
+		BAB2F20915409C8C00ECE09A /* MKTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKTAppDelegate.m; path = ApplicationBase/MKTAppDelegate.m; sourceTree = "<group>"; };
+		BAB2F20B15409C8C00ECE09A /* MKTMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTMasterViewController.h; sourceTree = "<group>"; };
+		BAB2F20C15409C8C00ECE09A /* MKTMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTMasterViewController.m; sourceTree = "<group>"; };
+		BAB2F20E15409C8C00ECE09A /* MKTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTDetailViewController.h; sourceTree = "<group>"; };
+		BAB2F20F15409C8C00ECE09A /* MKTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTDetailViewController.m; sourceTree = "<group>"; };
+		BAB2F21215409C8C00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		BAB2F21515409C8C00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTMasterViewController_iPad.xib; sourceTree = "<group>"; };
+		BAB2F21815409C8C00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		BAB2F21B15409C8D00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		BAB2F22A15409E0900ECE09A /* A2BlockDelegate+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A2BlockDelegate+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F22B15409E0900ECE09A /* A2BlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2BlockDelegate.h; sourceTree = "<group>"; };
+		BAB2F22C15409E0900ECE09A /* A2DynamicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2DynamicDelegate.h; sourceTree = "<group>"; };
+		BAB2F22D15409E0900ECE09A /* BKGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGlobals.h; sourceTree = "<group>"; };
+		BAB2F22E15409E0900ECE09A /* BKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKMacros.h; sourceTree = "<group>"; };
+		BAB2F22F15409E0900ECE09A /* BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocksKit.h; sourceTree = "<group>"; };
+		BAB2F23015409E0900ECE09A /* MFMailComposeViewController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMailComposeViewController+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23115409E0900ECE09A /* MFMessageComposeViewController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMessageComposeViewController+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23215409E0900ECE09A /* NSArray+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23315409E0900ECE09A /* NSCache+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23415409E0900ECE09A /* NSDictionary+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23515409E0900ECE09A /* NSIndexSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23615409E0900ECE09A /* NSInvocation+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23715409E0900ECE09A /* NSMutableArray+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23815409E0900ECE09A /* NSMutableDictionary+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23915409E0900ECE09A /* NSMutableIndexSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23A15409E0900ECE09A /* NSMutableSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23B15409E0900ECE09A /* NSObject+AssociatedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AssociatedObjects.h"; sourceTree = "<group>"; };
+		BAB2F23C15409E0900ECE09A /* NSObject+BlockObservation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockObservation.h"; sourceTree = "<group>"; };
+		BAB2F23D15409E0900ECE09A /* NSObject+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23E15409E0900ECE09A /* NSSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F23F15409E0900ECE09A /* NSTimer+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24015409E0900ECE09A /* NSURLConnection+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24115409E0900ECE09A /* UIActionSheet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24215409E0900ECE09A /* UIAlertView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24315409E0900ECE09A /* UIBarButtonItem+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24415409E0900ECE09A /* UIControl+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24515409E0900ECE09A /* UIGestureRecognizer+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24615409E0900ECE09A /* UIPopoverController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24715409E0900ECE09A /* UIView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24815409E0900ECE09A /* UIWebView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+BlocksKit.h"; sourceTree = "<group>"; };
+		BAB2F24915409E0900ECE09A /* libBlocksKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBlocksKit.a; sourceTree = "<group>"; };
+		BAB2F24B15409E3900ECE09A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BAB2F24D15409E4500ECE09A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BAB2F24E15409E4500ECE09A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BAB2F25215409ED700ECE09A /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		BAB2F25415409ED700ECE09A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		BAB2F25515409ED700ECE09A /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		BAB2F25615409ED700ECE09A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		BAB2F25715409ED700ECE09A /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		BAB2F25815409ED700ECE09A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		BAB2F25915409ED700ECE09A /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		BAB2F25A15409ED700ECE09A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		BAB2F25D15409ED700ECE09A /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		BAB2F25F15409ED700ECE09A /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		BAB2F26115409ED700ECE09A /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Frameworks/DropboxSDK.framework; sourceTree = "<group>"; };
+		BAB2F26C15409F1600ECE09A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = Frameworks/IBAForms/IBAForms.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BAB2F1F215409C8C00ECE09A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */,
+				BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */,
+				BAB2F24F15409E4500ECE09A /* CoreData.framework in Frameworks */,
+				BAB2F25015409E4500ECE09A /* CoreLocation.framework in Frameworks */,
+				BAB2F24C15409E3900ECE09A /* MessageUI.framework in Frameworks */,
+				BAB2F1FA15409C8C00ECE09A /* UIKit.framework in Frameworks */,
+				BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */,
+				BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */,
+				BAB2F24A15409E0900ECE09A /* libBlocksKit.a in Frameworks */,
+				BAB2F26B15409EE700ECE09A /* DropboxSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BAB2F1EA15409C8C00ECE09A = {
+			isa = PBXGroup;
+			children = (
+				BAB2F1FF15409C8C00ECE09A /* MKTool */,
+				BAB2F1F815409C8C00ECE09A /* Frameworks */,
+				BAB2F1F615409C8C00ECE09A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BAB2F1F615409C8C00ECE09A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F1F515409C8C00ECE09A /* MKTool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */,
+				BAB2F25115409ED700ECE09A /* Lumberjack */,
+				BAB2F22715409E0900ECE09A /* BlocksKit */,
+				BAB2F26C15409F1600ECE09A /* Security.framework */,
+				BAB2F24D15409E4500ECE09A /* CoreData.framework */,
+				BAB2F24E15409E4500ECE09A /* CoreLocation.framework */,
+				BAB2F24B15409E3900ECE09A /* MessageUI.framework */,
+				BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */,
+				BAB2F1F915409C8C00ECE09A /* UIKit.framework */,
+				BAB2F1FB15409C8C00ECE09A /* Foundation.framework */,
+				BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAB2F1FF15409C8C00ECE09A /* MKTool */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F27B1540A19600ECE09A /* ApplicationBase */,
+				BAB2F20B15409C8C00ECE09A /* MKTMasterViewController.h */,
+				BAB2F20C15409C8C00ECE09A /* MKTMasterViewController.m */,
+				BAB2F20E15409C8C00ECE09A /* MKTDetailViewController.h */,
+				BAB2F20F15409C8C00ECE09A /* MKTDetailViewController.m */,
+				BAB2F21115409C8C00ECE09A /* MKTMasterViewController_iPhone.xib */,
+				BAB2F21415409C8C00ECE09A /* MKTMasterViewController_iPad.xib */,
+				BAB2F21715409C8C00ECE09A /* MKTDetailViewController_iPhone.xib */,
+				BAB2F21A15409C8D00ECE09A /* MKTDetailViewController_iPad.xib */,
+			);
+			path = MKTool;
+			sourceTree = "<group>";
+		};
+		BAB2F20015409C8C00ECE09A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F20115409C8C00ECE09A /* MKTool-Info.plist */,
+				BAB2F20215409C8C00ECE09A /* InfoPlist.strings */,
+				BAB2F20515409C8C00ECE09A /* main.m */,
+				BAB2F20715409C8C00ECE09A /* MKTool-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BAB2F22715409E0900ECE09A /* BlocksKit */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F22815409E0900ECE09A /* Header */,
+				BAB2F24915409E0900ECE09A /* libBlocksKit.a */,
+			);
+			name = BlocksKit;
+			path = Frameworks/BlocksKit;
+			sourceTree = "<group>";
+		};
+		BAB2F22815409E0900ECE09A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F22915409E0900ECE09A /* BlocksKit */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		BAB2F22915409E0900ECE09A /* BlocksKit */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F22A15409E0900ECE09A /* A2BlockDelegate+BlocksKit.h */,
+				BAB2F22B15409E0900ECE09A /* A2BlockDelegate.h */,
+				BAB2F22C15409E0900ECE09A /* A2DynamicDelegate.h */,
+				BAB2F22D15409E0900ECE09A /* BKGlobals.h */,
+				BAB2F22E15409E0900ECE09A /* BKMacros.h */,
+				BAB2F22F15409E0900ECE09A /* BlocksKit.h */,
+				BAB2F23015409E0900ECE09A /* MFMailComposeViewController+BlocksKit.h */,
+				BAB2F23115409E0900ECE09A /* MFMessageComposeViewController+BlocksKit.h */,
+				BAB2F23215409E0900ECE09A /* NSArray+BlocksKit.h */,
+				BAB2F23315409E0900ECE09A /* NSCache+BlocksKit.h */,
+				BAB2F23415409E0900ECE09A /* NSDictionary+BlocksKit.h */,
+				BAB2F23515409E0900ECE09A /* NSIndexSet+BlocksKit.h */,
+				BAB2F23615409E0900ECE09A /* NSInvocation+BlocksKit.h */,
+				BAB2F23715409E0900ECE09A /* NSMutableArray+BlocksKit.h */,
+				BAB2F23815409E0900ECE09A /* NSMutableDictionary+BlocksKit.h */,
+				BAB2F23915409E0900ECE09A /* NSMutableIndexSet+BlocksKit.h */,
+				BAB2F23A15409E0900ECE09A /* NSMutableSet+BlocksKit.h */,
+				BAB2F23B15409E0900ECE09A /* NSObject+AssociatedObjects.h */,
+				BAB2F23C15409E0900ECE09A /* NSObject+BlockObservation.h */,
+				BAB2F23D15409E0900ECE09A /* NSObject+BlocksKit.h */,
+				BAB2F23E15409E0900ECE09A /* NSSet+BlocksKit.h */,
+				BAB2F23F15409E0900ECE09A /* NSTimer+BlocksKit.h */,
+				BAB2F24015409E0900ECE09A /* NSURLConnection+BlocksKit.h */,
+				BAB2F24115409E0900ECE09A /* UIActionSheet+BlocksKit.h */,
+				BAB2F24215409E0900ECE09A /* UIAlertView+BlocksKit.h */,
+				BAB2F24315409E0900ECE09A /* UIBarButtonItem+BlocksKit.h */,
+				BAB2F24415409E0900ECE09A /* UIControl+BlocksKit.h */,
+				BAB2F24515409E0900ECE09A /* UIGestureRecognizer+BlocksKit.h */,
+				BAB2F24615409E0900ECE09A /* UIPopoverController+BlocksKit.h */,
+				BAB2F24715409E0900ECE09A /* UIView+BlocksKit.h */,
+				BAB2F24815409E0900ECE09A /* UIWebView+BlocksKit.h */,
+			);
+			path = BlocksKit;
+			sourceTree = "<group>";
+		};
+		BAB2F25115409ED700ECE09A /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F25215409ED700ECE09A /* DDAbstractDatabaseLogger.h */,
+				BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */,
+				BAB2F25415409ED700ECE09A /* DDASLLogger.h */,
+				BAB2F25515409ED700ECE09A /* DDASLLogger.m */,
+				BAB2F25615409ED700ECE09A /* DDFileLogger.h */,
+				BAB2F25715409ED700ECE09A /* DDFileLogger.m */,
+				BAB2F25815409ED700ECE09A /* DDLog.h */,
+				BAB2F25915409ED700ECE09A /* DDLog.m */,
+				BAB2F25A15409ED700ECE09A /* DDTTYLogger.h */,
+				BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */,
+				BAB2F25C15409ED700ECE09A /* Extensions */,
+			);
+			name = Lumberjack;
+			path = Frameworks/Lumberjack;
+			sourceTree = "<group>";
+		};
+		BAB2F25C15409ED700ECE09A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F25D15409ED700ECE09A /* ContextFilterLogFormatter.h */,
+				BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */,
+				BAB2F25F15409ED700ECE09A /* DispatchQueueLogFormatter.h */,
+				BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */,
+				BAB2F26115409ED700ECE09A /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BAB2F26F15409F4A00ECE09A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F27615409F4A00ECE09A /* libIBAForms.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAB2F27B1540A19600ECE09A /* ApplicationBase */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F20015409C8C00ECE09A /* Supporting Files */,
+				BAB2F20815409C8C00ECE09A /* MKTAppDelegate.h */,
+				BAB2F20915409C8C00ECE09A /* MKTAppDelegate.m */,
+			);
+			name = ApplicationBase;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BAB2F1F415409C8C00ECE09A /* MKTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAB2F21F15409C8D00ECE09A /* Build configuration list for PBXNativeTarget "MKTool" */;
+			buildPhases = (
+				BAB2F1F115409C8C00ECE09A /* Sources */,
+				BAB2F1F215409C8C00ECE09A /* Frameworks */,
+				BAB2F1F315409C8C00ECE09A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAB2F27815409F5F00ECE09A /* PBXTargetDependency */,
+			);
+			name = MKTool;
+			productName = MKTool;
+			productReference = BAB2F1F515409C8C00ECE09A /* MKTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BAB2F1EC15409C8C00ECE09A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MKT;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = BAB2F1EF15409C8C00ECE09A /* Build configuration list for PBXProject "MKTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BAB2F1EA15409C8C00ECE09A;
+			productRefGroup = BAB2F1F615409C8C00ECE09A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BAB2F26F15409F4A00ECE09A /* Products */;
+					ProjectRef = BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				BAB2F1F415409C8C00ECE09A /* MKTool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BAB2F27615409F4A00ECE09A /* libIBAForms.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libIBAForms.a;
+			remoteRef = BAB2F27515409F4A00ECE09A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BAB2F1F315409C8C00ECE09A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB2F20415409C8C00ECE09A /* InfoPlist.strings in Resources */,
+				BAB2F21315409C8C00ECE09A /* MKTMasterViewController_iPhone.xib in Resources */,
+				BAB2F21615409C8C00ECE09A /* MKTMasterViewController_iPad.xib in Resources */,
+				BAB2F21915409C8C00ECE09A /* MKTDetailViewController_iPhone.xib in Resources */,
+				BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */,
+				BAB2F26915409ED700ECE09A /* README.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BAB2F1F115409C8C00ECE09A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB2F20615409C8C00ECE09A /* main.m in Sources */,
+				BAB2F20A15409C8C00ECE09A /* MKTAppDelegate.m in Sources */,
+				BAB2F20D15409C8C00ECE09A /* MKTMasterViewController.m in Sources */,
+				BAB2F21015409C8C00ECE09A /* MKTDetailViewController.m in Sources */,
+				BAB2F26215409ED700ECE09A /* DDAbstractDatabaseLogger.m in Sources */,
+				BAB2F26315409ED700ECE09A /* DDASLLogger.m in Sources */,
+				BAB2F26415409ED700ECE09A /* DDFileLogger.m in Sources */,
+				BAB2F26515409ED700ECE09A /* DDLog.m in Sources */,
+				BAB2F26615409ED700ECE09A /* DDTTYLogger.m in Sources */,
+				BAB2F26715409ED700ECE09A /* ContextFilterLogFormatter.m in Sources */,
+				BAB2F26815409ED700ECE09A /* DispatchQueueLogFormatter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BAB2F27815409F5F00ECE09A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBAForms;
+			targetProxy = BAB2F27715409F5F00ECE09A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BAB2F20215409C8C00ECE09A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAB2F20315409C8C00ECE09A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BAB2F21115409C8C00ECE09A /* MKTMasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAB2F21215409C8C00ECE09A /* en */,
+			);
+			name = MKTMasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		BAB2F21415409C8C00ECE09A /* MKTMasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAB2F21515409C8C00ECE09A /* en */,
+			);
+			name = MKTMasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		BAB2F21715409C8C00ECE09A /* MKTDetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAB2F21815409C8C00ECE09A /* en */,
+			);
+			name = MKTDetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		BAB2F21A15409C8D00ECE09A /* MKTDetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAB2F21B15409C8D00ECE09A /* en */,
+			);
+			name = MKTDetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BAB2F21D15409C8D00ECE09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BAB2F21E15409C8D00ECE09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BAB2F22015409C8D00ECE09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/BlocksKit/Header";
+				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BAB2F22115409C8D00ECE09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/BlocksKit/Header";
+				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BAB2F1EF15409C8C00ECE09A /* Build configuration list for PBXProject "MKTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAB2F21D15409C8D00ECE09A /* Debug */,
+				BAB2F21E15409C8D00ECE09A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAB2F21F15409C8D00ECE09A /* Build configuration list for PBXNativeTarget "MKTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAB2F22015409C8D00ECE09A /* Debug */,
+				BAB2F22115409C8D00ECE09A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BAB2F1EC15409C8C00ECE09A /* Project object */;
+}
