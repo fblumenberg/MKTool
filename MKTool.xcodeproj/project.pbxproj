@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		BAB2F2881540A66A00ECE09A /* MOGenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = BAB2F2891540A66A00ECE09A /* Build configuration list for PBXAggregateTarget "MOGenerator" */;
+			buildPhases = (
+				BAB2F28C1540A68800ECE09A /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = MOGenerator;
+			productName = MOGenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		BAB2F1FA15409C8C00ECE09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1F915409C8C00ECE09A /* UIKit.framework */; };
 		BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FB15409C8C00ECE09A /* Foundation.framework */; };
@@ -34,6 +48,16 @@
 		BAB2F26B15409EE700ECE09A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */; };
 		BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26C15409F1600ECE09A /* Security.framework */; };
 		BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F27615409F4A00ECE09A /* libIBAForms.a */; };
+		BAB2F2831540A5B600ECE09A /* INIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F27E1540A5B600ECE09A /* INIParser.m */; };
+		BAB2F2841540A5B600ECE09A /* INISection.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2801540A5B600ECE09A /* INISection.m */; };
+		BAB2F2851540A5B600ECE09A /* InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2821540A5B600ECE09A /* InnerBand.m */; };
+		BAB2F2871540A5DD00ECE09A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F2861540A5DD00ECE09A /* CoreText.framework */; };
+		BAB2F2961540A6B100ECE09A /* MKModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */; };
+		BAB2F2971540A6B100ECE09A /* MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2911540A6B100ECE09A /* MKTPoint.m */; };
+		BAB2F2981540A6B100ECE09A /* MKTRoute+WPL.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */; };
+		BAB2F2991540A6B100ECE09A /* MKTRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2951540A6B100ECE09A /* MKTRoute.m */; };
+		BAB2F29F1540A73D00ECE09A /* _MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F29C1540A73D00ECE09A /* _MKTPoint.m */; };
+		BAB2F2A01540A73D00ECE09A /* _MKTRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F29E1540A73D00ECE09A /* _MKTRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +149,24 @@
 		BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Frameworks/DropboxSDK.framework; sourceTree = "<group>"; };
 		BAB2F26C15409F1600ECE09A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = Frameworks/IBAForms/IBAForms.xcodeproj; sourceTree = "<group>"; };
+		BAB2F27D1540A5B600ECE09A /* INIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIParser.h; sourceTree = "<group>"; };
+		BAB2F27E1540A5B600ECE09A /* INIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIParser.m; sourceTree = "<group>"; };
+		BAB2F27F1540A5B600ECE09A /* INISection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INISection.h; sourceTree = "<group>"; };
+		BAB2F2801540A5B600ECE09A /* INISection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INISection.m; sourceTree = "<group>"; };
+		BAB2F2811540A5B600ECE09A /* InnerBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerBand.h; sourceTree = "<group>"; };
+		BAB2F2821540A5B600ECE09A /* InnerBand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerBand.m; sourceTree = "<group>"; };
+		BAB2F2861540A5DD00ECE09A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		BAB2F28F1540A6B100ECE09A /* MKModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MKModel.xcdatamodel; sourceTree = "<group>"; };
+		BAB2F2901540A6B100ECE09A /* MKTPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPoint.h; sourceTree = "<group>"; };
+		BAB2F2911540A6B100ECE09A /* MKTPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPoint.m; sourceTree = "<group>"; };
+		BAB2F2921540A6B100ECE09A /* MKTRoute+WPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTRoute+WPL.h"; sourceTree = "<group>"; };
+		BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+WPL.m"; sourceTree = "<group>"; };
+		BAB2F2941540A6B100ECE09A /* MKTRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRoute.h; sourceTree = "<group>"; };
+		BAB2F2951540A6B100ECE09A /* MKTRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRoute.m; sourceTree = "<group>"; };
+		BAB2F29B1540A73D00ECE09A /* _MKTPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MKTPoint.h; sourceTree = "<group>"; };
+		BAB2F29C1540A73D00ECE09A /* _MKTPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MKTPoint.m; sourceTree = "<group>"; };
+		BAB2F29D1540A73D00ECE09A /* _MKTRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MKTRoute.h; sourceTree = "<group>"; };
+		BAB2F29E1540A73D00ECE09A /* _MKTRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MKTRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB2F2871540A5DD00ECE09A /* CoreText.framework in Frameworks */,
 				BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */,
 				BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */,
 				BAB2F24F15409E4500ECE09A /* CoreData.framework in Frameworks */,
@@ -175,6 +218,7 @@
 				BAB2F24D15409E4500ECE09A /* CoreData.framework */,
 				BAB2F24E15409E4500ECE09A /* CoreLocation.framework */,
 				BAB2F24B15409E3900ECE09A /* MessageUI.framework */,
+				BAB2F2861540A5DD00ECE09A /* CoreText.framework */,
 				BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */,
 				BAB2F1F915409C8C00ECE09A /* UIKit.framework */,
 				BAB2F1FB15409C8C00ECE09A /* Foundation.framework */,
@@ -186,6 +230,8 @@
 		BAB2F1FF15409C8C00ECE09A /* MKTool */ = {
 			isa = PBXGroup;
 			children = (
+				BAB2F28D1540A6B100ECE09A /* CoreData */,
+				BAB2F27C1540A5B600ECE09A /* OtherSources */,
 				BAB2F27B1540A19600ECE09A /* ApplicationBase */,
 				BAB2F20B15409C8C00ECE09A /* MKTMasterViewController.h */,
 				BAB2F20C15409C8C00ECE09A /* MKTMasterViewController.m */,
@@ -315,6 +361,45 @@
 			name = ApplicationBase;
 			sourceTree = "<group>";
 		};
+		BAB2F27C1540A5B600ECE09A /* OtherSources */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F27D1540A5B600ECE09A /* INIParser.h */,
+				BAB2F27E1540A5B600ECE09A /* INIParser.m */,
+				BAB2F27F1540A5B600ECE09A /* INISection.h */,
+				BAB2F2801540A5B600ECE09A /* INISection.m */,
+				BAB2F2811540A5B600ECE09A /* InnerBand.h */,
+				BAB2F2821540A5B600ECE09A /* InnerBand.m */,
+			);
+			path = OtherSources;
+			sourceTree = "<group>";
+		};
+		BAB2F28D1540A6B100ECE09A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F29A1540A72F00ECE09A /* Generated */,
+				BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */,
+				BAB2F2901540A6B100ECE09A /* MKTPoint.h */,
+				BAB2F2911540A6B100ECE09A /* MKTPoint.m */,
+				BAB2F2921540A6B100ECE09A /* MKTRoute+WPL.h */,
+				BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */,
+				BAB2F2941540A6B100ECE09A /* MKTRoute.h */,
+				BAB2F2951540A6B100ECE09A /* MKTRoute.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		BAB2F29A1540A72F00ECE09A /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F29B1540A73D00ECE09A /* _MKTPoint.h */,
+				BAB2F29C1540A73D00ECE09A /* _MKTPoint.m */,
+				BAB2F29D1540A73D00ECE09A /* _MKTRoute.h */,
+				BAB2F29E1540A73D00ECE09A /* _MKTRoute.m */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -364,6 +449,7 @@
 			projectRoot = "";
 			targets = (
 				BAB2F1F415409C8C00ECE09A /* MKTool */,
+				BAB2F2881540A66A00ECE09A /* MOGenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -394,6 +480,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BAB2F28C1540A68800ECE09A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR/MKTool/CoreData\"\nmogenerator -m MKModel.xcdatamodeld/MKModel.xcdatamodel/ --template-var arc=true\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BAB2F1F115409C8C00ECE09A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -410,6 +512,15 @@
 				BAB2F26615409ED700ECE09A /* DDTTYLogger.m in Sources */,
 				BAB2F26715409ED700ECE09A /* ContextFilterLogFormatter.m in Sources */,
 				BAB2F26815409ED700ECE09A /* DispatchQueueLogFormatter.m in Sources */,
+				BAB2F2831540A5B600ECE09A /* INIParser.m in Sources */,
+				BAB2F2841540A5B600ECE09A /* INISection.m in Sources */,
+				BAB2F2851540A5B600ECE09A /* InnerBand.m in Sources */,
+				BAB2F2961540A6B100ECE09A /* MKModel.xcdatamodeld in Sources */,
+				BAB2F2971540A6B100ECE09A /* MKTPoint.m in Sources */,
+				BAB2F2981540A6B100ECE09A /* MKTRoute+WPL.m in Sources */,
+				BAB2F2991540A6B100ECE09A /* MKTRoute.m in Sources */,
+				BAB2F29F1540A73D00ECE09A /* _MKTPoint.m in Sources */,
+				BAB2F2A01540A73D00ECE09A /* _MKTRoute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +675,20 @@
 			};
 			name = Release;
 		};
+		BAB2F28A1540A66A00ECE09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BAB2F28B1540A66A00ECE09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,7 +710,28 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		BAB2F2891540A66A00ECE09A /* Build configuration list for PBXAggregateTarget "MOGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAB2F28A1540A66A00ECE09A /* Debug */,
+				BAB2F28B1540A66A00ECE09A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BAB2F28F1540A6B100ECE09A /* MKModel.xcdatamodel */,
+			);
+			currentVersion = BAB2F28F1540A6B100ECE09A /* MKModel.xcdatamodel */;
+			path = MKModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BAB2F1EC15409C8C00ECE09A /* Project object */;
 }
