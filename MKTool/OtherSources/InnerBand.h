@@ -19,7 +19,7 @@
 @class CoreDataStore;
 
 
-
+  
 
 
 NSNumber *BOX_BOOL(BOOL x);
@@ -225,6 +225,11 @@ CG_EXTERN void CGContextAddRoundedRectComplex(CGContextRef ccontext, CGRect rect
 #define SEL(x) @selector(x)
 #define L(key) (NSLocalizedString((key), nil))
 
+#define DECLARE_STRING( name ) extern NSString * const name;
+#define DEFINE_STRING( name, value ) NSString * const name = value;
+#define DECLARE_KEY( key ) extern NSString * const key;
+#define DEFINE_KEY( key ) NSString * const key = @ #key;
+#define DEFINE_KEY_WITH_VALUE( key, value ) NSString * const key = value;
 
 
 typedef NSInteger (^ib_enum_bool_t)(id);
