@@ -1,0 +1,3 @@
+[submodule "Frameworks/YelpKit"]
+	path = Frameworks/YelpKit
+	url = https://github.com/Yelp/YelpKit.git

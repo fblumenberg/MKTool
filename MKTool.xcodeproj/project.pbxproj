@@ -113,6 +113,8 @@
 		BAD5016B1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */; };
 		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
 		BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */; };
+		BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */; };
+		BAEE75D91543EB8500A92FA4 /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +290,9 @@
 		BAEE75CA1542D59600A92FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteContainerViewController.h; sourceTree = "<group>"; };
 		BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteContainerViewController.m; sourceTree = "<group>"; };
+		BAEE75D51543EB8400A92FA4 /* MKTRouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteMapViewController.h; sourceTree = "<group>"; };
+		BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteMapViewController.m; sourceTree = "<group>"; };
+		BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKTRouteMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -699,6 +704,9 @@
 				BAA229FB1541F811004F92AA /* MKTRouteListViewController.m */,
 				BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */,
 				BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */,
+				BAEE75D51543EB8400A92FA4 /* MKTRouteMapViewController.h */,
+				BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */,
+				BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */,
 			);
 			name = Route;
 			sourceTree = "<group>";
@@ -796,6 +804,7 @@
 				BAB2F21915409C8C00ECE09A /* MKTDetailViewController_iPhone.xib in Resources */,
 				BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */,
 				BAB2F26915409ED700ECE09A /* README.txt in Resources */,
+				BAEE75D91543EB8500A92FA4 /* MKTRouteMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +876,7 @@
 				BAA22A0F1541FB49004F92AA /* StringToNumberTransformer.m in Sources */,
 				BAA22A101541FB49004F92AA /* WPCamAngleTransformer.m in Sources */,
 				BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */,
+				BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
