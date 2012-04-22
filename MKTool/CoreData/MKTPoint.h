@@ -23,6 +23,8 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+
 #import "_MKTPoint.h"
 
 typedef enum {
@@ -32,7 +34,7 @@ typedef enum {
 } MKTPointType;
 
 
-@interface MKTPoint : _MKTPoint {
+@interface MKTPoint : _MKTPoint<MKAnnotation> {
 }
 
 @property(readonly, copy) NSString *name;

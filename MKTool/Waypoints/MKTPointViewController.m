@@ -38,6 +38,7 @@
   if ((self = [super initWithNibName:nil bundle:nil formDataSource:dataSource])) {
     self.hidesBottomBarWhenPushed = NO;
     self.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Waypoint", @"Waypoint view title"), theWayPoint.name];
+    self.contentSizeForViewInPopover = CGSizeMake(320, 550);
   }
   return self;
 }

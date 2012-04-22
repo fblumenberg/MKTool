@@ -154,21 +154,25 @@
   [[CoreDataStore mainStore] save];
 }
 
-- (void)deletePointAtIndexPath:(NSIndexPath *)indexPath {
-  MKTPoint *p = [[self orderedPoints] objectAtIndex:indexPath.row];
-  NSLog(@"%@", p);
-
+- (void)deletePoint:(MKTPoint*)p{
+  
   int oldIndex = p.indexValue;
   [p destroy];
-
+  
   for (MKTPoint *p in [self orderedPoints]) {
     if (p.headingValue < 0 && p.headingValue == -oldIndex) {
       p.headingValue = 0;
     }
   }
-
+  
   [self updatePointsOrder];
   [[CoreDataStore mainStore] save];
+}
+
+- (void)deletePointAtIndexPath:(NSIndexPath *)indexPath {
+  MKTPoint *p = [[self orderedPoints] objectAtIndex:indexPath.row];
+  NSLog(@"%@", p);
+  [self deletePoint:p];
 }
 
 
@@ -192,6 +196,14 @@
 
   [self updatePointsOrder];
   [[CoreDataStore mainStore] save];
+}
+
+- (MKTPoint *)pointWithIndexx:(int)index{
+  NSArray* orderedPoints = [self orderedPoints];
+  if(index<1 || index >= orderedPoints.count)
+    return nil;
+  
+  return [orderedPoints objectAtIndex:index-1];
 }
 
 

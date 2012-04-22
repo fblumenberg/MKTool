@@ -50,6 +50,10 @@
   return [NSString stringWithFormat:NSLocalizedString(@"Invalid - Index %@", @"INvalid WP Annotation callout"), self.name];
 }
 
+- (NSString*)subtitle{
+  return nil;
+}
+
 - (NSString *)formatHeading {
   int heading = self.headingValue;
 

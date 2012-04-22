@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// ///////////////////////////////////////////////////////////////////////////////
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,11 +20,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-/////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
-#import "GHUnitIPhoneAppDelegate.h"
 
-@interface MKTTestAppDelegate : GHUnitIPhoneAppDelegate
+#import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
+
+@class HeadingOverlay;
+
+@interface HeadingOverlayView : MKCircleView {
+
+}
+
+@property(readonly) HeadingOverlay *overlay;
+
+- (id)initWithHeadingOverlay:(HeadingOverlay *)overlay;
 
 @end

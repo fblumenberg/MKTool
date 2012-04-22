@@ -24,11 +24,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MKTAppDelegate.h"
+#import "MKTTestAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
   @autoreleasepool {
-      return UIApplicationMain(argc, argv, nil, NSStringFromClass([MKTAppDelegate class]));
+      return UIApplicationMain(argc, argv, nil, NSStringFromClass([MKTTestAppDelegate class]));
   }
 }

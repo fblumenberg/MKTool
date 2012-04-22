@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,15 +21,49 @@
 // THE SOFTWARE.
 //
 // ///////////////////////////////////////////////////////////////////////////////
-#import <MapKit/MapKit.h>
 
-#import "MKTPoint.h"
 
-@interface MKTPointAnnotationView : MKPinAnnotationView
+#import "HeadingOverlay.h"
 
-@property(readonly,strong) MKTPoint* point;
+@implementation HeadingOverlay
 
-+ (NSString *)viewReuseIdentifier;
-- (id)initWithPoint:(MKTPoint*)point;
+@synthesize circle;
+@synthesize coordinate;
+@synthesize boundingMapRect;
+@synthesize angle;
+
+- (CLLocationCoordinate2D)coordinate {
+  return circle.coordinate;
+}
+
+- (MKMapRect)boundingMapRect {
+  return circle.boundingMapRect;
+}
+
+
++ (HeadingOverlay *)headingWithCenterCoordinate:(CLLocationCoordinate2D)coord
+                                         radius:(CLLocationDistance)radius
+                                          angle:(double)angle {
+
+  HeadingOverlay *overlay = [[HeadingOverlay alloc] initWithCenterCoordinate:coord radius:radius angle:angle];
+  return overlay;
+}
+
+- (id)initWithCenterCoordinate:(CLLocationCoordinate2D)coord
+                        radius:(CLLocationDistance)radius
+                         angle:(double)theAngle {
+
+  self = [super init];
+  if (self) {
+    circle = [MKCircle circleWithCenterCoordinate:coord radius:radius];
+    angle = theAngle;
+  }
+
+  return self;
+}
+
+- (void)dealloc {
+  circle = nil;
+}
 
 @end

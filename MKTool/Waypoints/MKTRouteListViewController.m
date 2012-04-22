@@ -30,6 +30,7 @@
 #import "MKTPointViewController.h"
 #import "MKTPointBulkViewController.h"
 #import "MKTPoint.h"
+#import "NSArray+BlocksKit.h"
 
 #import "UIViewController+MGSplitViewController.h"
 
@@ -74,7 +75,7 @@
 
 - (NSIndexPath *)correctedIndexPath:(NSIndexPath *)indexPath;
 
-- (void)showViewControllerForPoint:(MKTPoint *)point scrollToBottom:(BOOL)scroll;
+- (void)showViewControllerForPoint:(MKTPoint *)point;
 
 @end
 
@@ -100,7 +101,6 @@
 @synthesize route = _route;
 @synthesize delegate = _delegate;
 
-//@synthesize surrogateParent;
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 #pragma mark - Initializing
@@ -235,6 +235,8 @@
   self.tableView.allowsMultipleSelectionDuringEditing = NO;
   [super setEditing:NO animated:NO];
   [self.tableView setEditing:NO animated:NO];
+  
+  [[CoreDataStore mainStore] save];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -390,7 +392,7 @@
       [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
       MKTPoint *p = [self.fetchedResultsController objectAtIndexPath:[self correctedIndexPath:indexPath]];
-      [self showViewControllerForPoint:p scrollToBottom:NO];
+      [self showViewControllerForPoint:p];
     }
   }
   [self updateToolbarState];
@@ -560,12 +562,24 @@
 #pragma mark - 
 ///////////////////////////////////////////////////////////////////////////////////
 
-- (void)addPoint {
-  MKTPoint* newPoint = [self.route addPointAtCenter];
-  
+- (void) addedPoint:(MKTPoint*)newPoint{
   NSIndexPath *indexPath =[self.fetchedResultsController indexPathForObject:newPoint];
   indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
-  [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
+  
+  
+  if( [[self.tableView indexPathsForVisibleRows] match:^BOOL(NSIndexPath* i){
+    return [i isEqual:indexPath];
+  }]){
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+  }
+  else {
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
+  }
+}
+
+- (void)addPoint {
+  MKTPoint* newPoint = [self.route addPointAtCenter];
+  [self addedPoint:newPoint];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
@@ -613,7 +627,7 @@
 }
 
 
-- (void)showViewControllerForPoint:(MKTPoint *)point scrollToBottom:(BOOL)scroll{
+- (void)showViewControllerForPoint:(MKTPoint *)point{
   
   MKTPointViewController *controller = [[MKTPointViewController alloc] initWithPoint:point];
   
@@ -622,9 +636,6 @@
     NSIndexPath *indexPath =[self.fetchedResultsController indexPathForObject:point];
     indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
     
-//    if(scroll)
-//      [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-
     [self.popoverController dismissPopoverAnimated:NO];
     
     self.popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
@@ -660,9 +671,7 @@
   [self.lm stopUpdatingLocation];
   
   MKTPoint* newPoint = [self.route addPointAtCoordinate:newLocation.coordinate];
-  NSIndexPath *indexPath =[self.fetchedResultsController indexPathForObject:newPoint];
-  indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
-  [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
+  [self addedPoint:newPoint];
 }
 
 - (void)locationManager:(CLLocationManager *)manager

@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,15 +21,51 @@
 // THE SOFTWARE.
 //
 // ///////////////////////////////////////////////////////////////////////////////
-#import <MapKit/MapKit.h>
 
-#import "MKTPoint.h"
 
-@interface MKTPointAnnotationView : MKPinAnnotationView
+#import "HeadingOverlayView.h"
+#import "HeadingOverlay.h"
+//#import "Common.h"
+#import "InnerBand.h"
 
-@property(readonly,strong) MKTPoint* point;
+@implementation HeadingOverlayView
 
-+ (NSString *)viewReuseIdentifier;
-- (id)initWithPoint:(MKTPoint*)point;
+@synthesize overlay;
+
+- (id)initWithHeadingOverlay:(HeadingOverlay *)theOverlay {
+  self = [super initWithCircle:overlay.circle];
+  if (self) {
+    overlay = theOverlay;
+  }
+  return self;
+}
+
+- (void)dealloc
+{
+}
+
+- (void)createPath {
+
+  CGMutablePathRef path = CGPathCreateMutable();
+
+  CGFloat arcRadius = MIN(self.bounds.size.width, self.bounds.size.height);
+
+  CGFloat angle = DEG_TO_RAD(self.overlay.angle);
+  CGFloat startAngle = angle - DEG_TO_RAD(15);
+  CGFloat endAngle = angle + DEG_TO_RAD(15);
+
+  CGPoint center = [self pointForMapPoint:MKMapPointForCoordinate(self.overlay.coordinate)];
+
+  CGPathMoveToPoint(path, NULL, center.x, center.y);
+
+  CGPathAddArc(path, NULL, center.x, center.y, arcRadius,
+          startAngle, endAngle, 0);
+
+  CGPathCloseSubpath(path);
+
+  self.path = path;
+
+  CFRelease(path);
+}
 
 @end

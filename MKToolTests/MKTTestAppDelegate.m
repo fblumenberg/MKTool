@@ -22,7 +22,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-#import "MKTAppDelegate.h"
+#import "MKTTestAppDelegate.h"
 #import "GHUnit.h"
 
 #import "DropboxSDK/DropboxSDK.h"
@@ -42,12 +42,12 @@
 #endif
 
 
-@interface MKTAppDelegate () <DBSessionDelegate>
+@interface MKTTestAppDelegate () <DBSessionDelegate>
 
 @end
 
 
-@implementation MKTAppDelegate
+@implementation MKTTestAppDelegate
 
 @synthesize window = _window;
 
