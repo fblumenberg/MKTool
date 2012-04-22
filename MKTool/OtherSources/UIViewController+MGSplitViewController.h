@@ -23,9 +23,13 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 #import <UIKit/UIKit.h>
+#import "MGSplitViewController.h"
 
-@interface MKTAppDelegate : UIResponder <UIApplicationDelegate>
+@interface UIViewController (MGSplitViewController)
 
-@property(strong, nonatomic) UIWindow *window;
+@property(nonatomic,readonly) MGSplitViewController* splitViewController;
+@property(nonatomic,readonly) UINavigationController* detailViewController;
+@property(nonatomic,readonly) UINavigationController* rootViewController;
+
 
 @end

@@ -22,10 +22,36 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
+#import "UIViewController+MGSplitViewController.h"
 
-@interface MKTAppDelegate : UIResponder <UIApplicationDelegate>
+@implementation UIViewController (MGSplitViewController)
 
-@property(strong, nonatomic) UIWindow *window;
+-(MGSplitViewController*)splitViewController{
+  UIViewController* controller=[UIApplication sharedApplication].keyWindow.rootViewController;
+  if( [controller isKindOfClass:[MGSplitViewController class]] ){
+    return (MGSplitViewController*)controller;
+  }
+  return nil;
+}
+
+-(UINavigationController*)detailViewController{
+  UIViewController* controller=[self splitViewController].detailViewController;
+  if( [controller isKindOfClass:[UINavigationController class]] ){
+    return (UINavigationController*)controller;
+  }
+  return nil;
+}
+
+-(UINavigationController*)rootViewController{
+  UIViewController* controller=[self splitViewController].masterViewController;
+  if( [controller isKindOfClass:[UINavigationController class]] ){
+    return (UINavigationController*)controller;
+  }
+  return nil;
+}
+
+-(BOOL) isRootForDetailViewController{
+  return (self.detailViewController.topViewController == [self.detailViewController.viewControllers objectAtIndex:0] );
+}
 
 @end

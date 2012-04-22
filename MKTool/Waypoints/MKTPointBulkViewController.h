@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,10 +22,10 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
+#import <IBAForms/IBAFormViewController.h>
 
-@interface MKTAppDelegate : UIResponder <UIApplicationDelegate>
+@interface MKTPointBulkViewController : IBAFormViewController
 
-@property(strong, nonatomic) UIWindow *window;
+- (id)initWithPoints:(NSArray *)points;
 
 @end

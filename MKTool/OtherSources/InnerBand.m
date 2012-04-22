@@ -16,8 +16,9 @@
 //  limitations under the License.
 //
 
-#import "InnerBand.h"
+#import <CoreLocation/CoreLocation.h>
 
+#import "InnerBand.h"
 
 
 @implementation IBAlertView
@@ -1015,33 +1016,15 @@ BOOL IS_GPS_ENABLED(void) {
 }
 
 BOOL IS_GPS_ENABLED_ON_DEVICE(void) {
-    BOOL isLocationServicesEnabled;
-    
-    Class locationClass = NSClassFromString(@"CLLocationManager");
-    NSMethodSignature *signature = [locationClass instanceMethodSignatureForSelector:@selector(locationServicesEnabled)];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-    
-    [invocation invoke];
-    [invocation getReturnValue:&isLocationServicesEnabled];
-    
-    return locationClass && isLocationServicesEnabled;    
+  return [CLLocationManager locationServicesEnabled];
 }
 
 BOOL IS_GPS_ENABLED_FOR_APP(void) {
     // for 4.2+ only, we can check down to the app level
     #ifdef kCLAuthorizationStatusAuthorized
-        Class locationClass = NSClassFromString(@"CLLocationManager");
-    
-        if ([locationClass respondsToSelector:@selector(authorizationStatus)]) {
-            NSInteger authorizationStatus;
-            
-            NSMethodSignature *signature = [locationClass instanceMethodSignatureForSelector:@selector(authorizationStatus)];
-            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-            
-            [invocation invoke];
-            [invocation getReturnValue:&authorizationStatus];
-            
-            return locationClass && (authorizationStatus == kCLAuthorizationStatusAuthorized);    
+        if ([CLLocationManager respondsToSelector:@selector(authorizationStatus)]) {
+          CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+          return (status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusNotDetermined);
         }
     #endif
     

@@ -22,10 +22,47 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
+#import "MKTPointViewController.h"
+#import "MKTPointViewDataSource.h"
+#import "MKTPoint.h"
 
-@interface MKTAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property(strong, nonatomic) UIWindow *window;
+@implementation MKTPointViewController
+
+#pragma mark -
+
+- (id)initWithPoint:(MKTPoint *)theWayPoint {
+
+  MKTPointViewDataSource *dataSource = [[MKTPointViewDataSource alloc] initWithModel:theWayPoint];
+
+  if ((self = [super initWithNibName:nil bundle:nil formDataSource:dataSource])) {
+    self.hidesBottomBarWhenPushed = NO;
+    self.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Waypoint", @"Waypoint view title"), theWayPoint.name];
+  }
+  return self;
+}
+
+
+#pragma mark -
+
+- (void)loadView {
+  [super loadView];
+
+  UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+
+  UITableView *formTableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStyleGrouped];
+  [formTableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+  [self setTableView:formTableView];
+
+  [view addSubview:formTableView];
+  [self setView:view];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+  return YES;
+}
+
 
 @end
+

@@ -22,10 +22,15 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+
+#import "MGSplitViewController.h"
+
 #import "MKTAppDelegate.h"
 
 #import "MKTMasterViewController.h"
 #import "MKTDetailViewController.h"
+
+#import "MKTRoutesListViewController.h"
 
 #import "BlocksKit.h"
 
@@ -45,6 +50,9 @@
 
 @interface MKTAppDelegate () <DBSessionDelegate>
 
+@property(strong, nonatomic) UINavigationController *navigationController;
+@property(strong, nonatomic) MGSplitViewController *splitViewController;
+
 @end
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -56,23 +64,29 @@
 @synthesize splitViewController = _splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
   // Override point for customization after application launch.
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    MKTMasterViewController *masterViewController = [[MKTMasterViewController alloc] initWithNibName:@"MKTMasterViewController_iPhone" bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+//    MKTMasterViewController *masterViewController = [[MKTMasterViewController alloc] initWithNibName:@"MKTMasterViewController_iPhone" bundle:nil];
+    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:routesViewControler];
     self.window.rootViewController = self.navigationController;
-  } else {
-    MKTMasterViewController *masterViewController = [[MKTMasterViewController alloc] initWithNibName:@"MKTMasterViewController_iPad" bundle:nil];
-    UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+  }
+  else {
+//    MKTMasterViewController *masterViewController = [[MKTMasterViewController alloc] initWithNibName:@"MKTMasterViewController_iPad" bundle:nil];
+
+    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:routesViewControler];
 
     MKTDetailViewController *detailViewController = [[MKTDetailViewController alloc] initWithNibName:@"MKTDetailViewController_iPad" bundle:nil];
     UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
 
-    masterViewController.detailViewController = detailViewController;
+//    masterViewController.detailViewController = detailViewController;
 
-    self.splitViewController = [[UISplitViewController alloc] init];
-    self.splitViewController.delegate = detailViewController;
+    self.splitViewController = [[MGSplitViewController alloc] init];
+//    self.splitViewController.delegate = detailViewController;
     self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
 
     self.window.rootViewController = self.splitViewController;
@@ -106,7 +120,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

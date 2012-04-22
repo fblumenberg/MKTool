@@ -360,6 +360,31 @@
 
 }
 
+- (void)testThumbnail {
+  CoreDataStore *store = [CoreDataStore mainStore];
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"Test";
+  
+  [store save];
+  
+  UIImage* img1 = [UIImage imageNamed:@"icon-calculate@2x.png"];
+  GHAssertNotNil(img1,nil);
+  
+  r.thumbnail = img1;
+
+  GHAssertNotNil(r.thumbnail,nil);
+  
+  MKTRoute *r2 = [[MKTRoute allForPredicate:[NSPredicate predicateWithFormat:@"name=%@",r.name]] firstObject];
+  
+  GHAssertNotNil(r2,nil);
+  
+  NSData* imgData1 = UIImagePNGRepresentation(img1);
+  NSData* imgData2 = UIImagePNGRepresentation(r2.thumbnail);
+  
+  GHAssertEqualObjects(imgData1, imgData2, nil);
+  
+}
+
 
 - (MKTRoute *)addRouteWithName:(NSString *)name {
   return [self addRouteWithName:name numberOfPoints:10 prefix:@"T"];

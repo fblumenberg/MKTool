@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// ///////////////////////////////////////////////////////////////////////////////
+// Copyright (C) 2010, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,12 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-/////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////
 
 #import <UIKit/UIKit.h>
+#import "MKTRoute.h"
 
-@interface MKTAppDelegate : UIResponder <UIApplicationDelegate>
+@interface MKTRouteContainerViewController : UIViewController
 
-@property(strong, nonatomic) UIWindow *window;
+- (id)initWithRoute:(MKTRoute *)route;
 
 @end

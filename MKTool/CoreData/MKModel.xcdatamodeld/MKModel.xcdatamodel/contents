@@ -23,10 +23,15 @@
         <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" minValueString="1" syncable="YES"/>
         <attribute name="parentRev" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="UIImage"/>
+            </userInfo>
+        </attribute>
         <relationship name="points" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MKTPoint" inverseName="route" inverseEntity="MKTPoint" syncable="YES"/>
     </entity>
     <elements>
         <element name="MKTPoint" positionX="-1404" positionY="-615" width="128" height="270"/>
-        <element name="MKTRoute" positionX="-1422" positionY="-711" width="128" height="135"/>
+        <element name="MKTRoute" positionX="-1422" positionY="-711" width="128" height="150"/>
     </elements>
 </model>

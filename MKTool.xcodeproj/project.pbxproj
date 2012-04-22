@@ -21,6 +21,16 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		BAA229E41541F02C004F92AA /* icon-calculate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA229E31541F02C004F92AA /* icon-calculate@2x.png */; };
+		BAA229FE1541F811004F92AA /* MKTPointBulkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229F51541F811004F92AA /* MKTPointBulkViewController.m */; };
+		BAA229FF1541F811004F92AA /* MKTPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229F71541F811004F92AA /* MKTPointViewController.m */; };
+		BAA22A001541F811004F92AA /* MKTPointViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229F91541F811004F92AA /* MKTPointViewDataSource.m */; };
+		BAA22A011541F811004F92AA /* MKTRouteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229FB1541F811004F92AA /* MKTRouteListViewController.m */; };
+		BAA22A021541F811004F92AA /* MKTRoutesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229FD1541F811004F92AA /* MKTRoutesListViewController.m */; };
+		BAA22A0D1541FB49004F92AA /* SettingsButtonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA22A061541FB49004F92AA /* SettingsButtonStyle.m */; };
+		BAA22A0E1541FB49004F92AA /* SettingsFieldStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA22A081541FB49004F92AA /* SettingsFieldStyle.m */; };
+		BAA22A0F1541FB49004F92AA /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA22A0A1541FB49004F92AA /* StringToNumberTransformer.m */; };
+		BAA22A101541FB49004F92AA /* WPCamAngleTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA22A0C1541FB49004F92AA /* WPCamAngleTransformer.m */; };
 		BAB2F1FA15409C8C00ECE09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1F915409C8C00ECE09A /* UIKit.framework */; };
 		BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FB15409C8C00ECE09A /* Foundation.framework */; };
 		BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */; };
@@ -97,6 +107,12 @@
 		BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */; };
 		BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2F91540AE7000ECE09A /* Test.wpl */; };
 		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
+		BAD501661541DA63004BA9A6 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501611541DA63004BA9A6 /* MGSplitCornersView.m */; };
+		BAD501671541DA63004BA9A6 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501631541DA63004BA9A6 /* MGSplitDividerView.m */; };
+		BAD501681541DA63004BA9A6 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501651541DA63004BA9A6 /* MGSplitViewController.m */; };
+		BAD5016B1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */; };
+		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
+		BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +133,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BAA229E31541F02C004F92AA /* icon-calculate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-calculate@2x.png"; sourceTree = "<group>"; };
+		BAA229F41541F811004F92AA /* MKTPointBulkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointBulkViewController.h; sourceTree = "<group>"; };
+		BAA229F51541F811004F92AA /* MKTPointBulkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointBulkViewController.m; sourceTree = "<group>"; };
+		BAA229F61541F811004F92AA /* MKTPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointViewController.h; sourceTree = "<group>"; };
+		BAA229F71541F811004F92AA /* MKTPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointViewController.m; sourceTree = "<group>"; };
+		BAA229F81541F811004F92AA /* MKTPointViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointViewDataSource.h; sourceTree = "<group>"; };
+		BAA229F91541F811004F92AA /* MKTPointViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointViewDataSource.m; sourceTree = "<group>"; };
+		BAA229FA1541F811004F92AA /* MKTRouteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteListViewController.h; sourceTree = "<group>"; };
+		BAA229FB1541F811004F92AA /* MKTRouteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteListViewController.m; sourceTree = "<group>"; };
+		BAA229FC1541F811004F92AA /* MKTRoutesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRoutesListViewController.h; sourceTree = "<group>"; };
+		BAA229FD1541F811004F92AA /* MKTRoutesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRoutesListViewController.m; sourceTree = "<group>"; };
+		BAA22A031541FA75004F92AA /* MKTRouteViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteViewControllerDelegate.h; sourceTree = "<group>"; };
+		BAA22A051541FB49004F92AA /* SettingsButtonStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsButtonStyle.h; sourceTree = "<group>"; };
+		BAA22A061541FB49004F92AA /* SettingsButtonStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsButtonStyle.m; sourceTree = "<group>"; };
+		BAA22A071541FB49004F92AA /* SettingsFieldStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsFieldStyle.h; sourceTree = "<group>"; };
+		BAA22A081541FB49004F92AA /* SettingsFieldStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsFieldStyle.m; sourceTree = "<group>"; };
+		BAA22A091541FB49004F92AA /* StringToNumberTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringToNumberTransformer.h; sourceTree = "<group>"; };
+		BAA22A0A1541FB49004F92AA /* StringToNumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToNumberTransformer.m; sourceTree = "<group>"; };
+		BAA22A0B1541FB49004F92AA /* WPCamAngleTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCamAngleTransformer.h; sourceTree = "<group>"; };
+		BAA22A0C1541FB49004F92AA /* WPCamAngleTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCamAngleTransformer.m; sourceTree = "<group>"; };
 		BAB2F1F515409C8C00ECE09A /* MKTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB2F1F915409C8C00ECE09A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BAB2F1FB15409C8C00ECE09A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -241,6 +277,17 @@
 		BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+Test.m"; sourceTree = "<group>"; };
 		BAB2F2F91540AE7000ECE09A /* Test.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.wpl; sourceTree = "<group>"; };
 		BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestInvalid.wpl; sourceTree = "<group>"; };
+		BAD501601541DA63004BA9A6 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		BAD501611541DA63004BA9A6 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		BAD501621541DA63004BA9A6 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		BAD501631541DA63004BA9A6 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		BAD501641541DA63004BA9A6 /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		BAD501651541DA63004BA9A6 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+		BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MGSplitViewController.m"; sourceTree = "<group>"; };
+		BAD5016C1541E02A004BA9A6 /* UIViewController+MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MGSplitViewController.h"; sourceTree = "<group>"; };
+		BAEE75CA1542D59600A92FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteContainerViewController.h; sourceTree = "<group>"; };
+		BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteContainerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */,
 				BAB2F2871540A5DD00ECE09A /* CoreText.framework in Frameworks */,
 				BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */,
 				BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */,
@@ -283,10 +331,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAA229F31541F811004F92AA /* Waypoints */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE75D315431CC600A92FA4 /* Point */,
+				BAEE75D415431CE000A92FA4 /* Route */,
+				BAA229FC1541F811004F92AA /* MKTRoutesListViewController.h */,
+				BAA229FD1541F811004F92AA /* MKTRoutesListViewController.m */,
+			);
+			path = Waypoints;
+			sourceTree = "<group>";
+		};
+		BAA22A041541FB48004F92AA /* IBAFormsHelper */ = {
+			isa = PBXGroup;
+			children = (
+				BAA22A051541FB49004F92AA /* SettingsButtonStyle.h */,
+				BAA22A061541FB49004F92AA /* SettingsButtonStyle.m */,
+				BAA22A071541FB49004F92AA /* SettingsFieldStyle.h */,
+				BAA22A081541FB49004F92AA /* SettingsFieldStyle.m */,
+				BAA22A091541FB49004F92AA /* StringToNumberTransformer.h */,
+				BAA22A0A1541FB49004F92AA /* StringToNumberTransformer.m */,
+				BAA22A0B1541FB49004F92AA /* WPCamAngleTransformer.h */,
+				BAA22A0C1541FB49004F92AA /* WPCamAngleTransformer.m */,
+			);
+			path = IBAFormsHelper;
+			sourceTree = "<group>";
+		};
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
-				BAB2F2A11540A7B100ECE09A /* New Group */,
+				BAEE75CA1542D59600A92FA4 /* MapKit.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
@@ -325,6 +399,7 @@
 		BAB2F1FF15409C8C00ECE09A /* MKTool */ = {
 			isa = PBXGroup;
 			children = (
+				BAA229F31541F811004F92AA /* Waypoints */,
 				BAB2F28D1540A6B100ECE09A /* CoreData */,
 				BAB2F27C1540A5B600ECE09A /* OtherSources */,
 				BAB2F27B1540A19600ECE09A /* ApplicationBase */,
@@ -460,10 +535,11 @@
 		BAB2F27C1540A5B600ECE09A /* OtherSources */ = {
 			isa = PBXGroup;
 			children = (
-				BAB2F27D1540A5B600ECE09A /* INIParser.h */,
-				BAB2F27E1540A5B600ECE09A /* INIParser.m */,
-				BAB2F27F1540A5B600ECE09A /* INISection.h */,
-				BAB2F2801540A5B600ECE09A /* INISection.m */,
+				BAA22A041541FB48004F92AA /* IBAFormsHelper */,
+				BAD5016C1541E02A004BA9A6 /* UIViewController+MGSplitViewController.h */,
+				BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */,
+				BAD5015F1541DA63004BA9A6 /* MGSplitView */,
+				BAD501691541DFFA004BA9A6 /* INIFile */,
 				BAB2F2811540A5B600ECE09A /* InnerBand.h */,
 				BAB2F2821540A5B600ECE09A /* InnerBand.m */,
 			);
@@ -494,13 +570,6 @@
 				BAB2F29E1540A73D00ECE09A /* _MKTRoute.m */,
 			);
 			name = Generated;
-			sourceTree = "<group>";
-		};
-		BAB2F2A11540A7B100ECE09A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		BAB2F2AB1540A7F800ECE09A /* MKToolTests */ = {
@@ -578,10 +647,60 @@
 		BAB2F2F81540AE7000ECE09A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAA229E31541F02C004F92AA /* icon-calculate@2x.png */,
 				BAB2F2F91540AE7000ECE09A /* Test.wpl */,
 				BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BAD5015F1541DA63004BA9A6 /* MGSplitView */ = {
+			isa = PBXGroup;
+			children = (
+				BAD501601541DA63004BA9A6 /* MGSplitCornersView.h */,
+				BAD501611541DA63004BA9A6 /* MGSplitCornersView.m */,
+				BAD501621541DA63004BA9A6 /* MGSplitDividerView.h */,
+				BAD501631541DA63004BA9A6 /* MGSplitDividerView.m */,
+				BAD501641541DA63004BA9A6 /* MGSplitViewController.h */,
+				BAD501651541DA63004BA9A6 /* MGSplitViewController.m */,
+			);
+			path = MGSplitView;
+			sourceTree = "<group>";
+		};
+		BAD501691541DFFA004BA9A6 /* INIFile */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2F27D1540A5B600ECE09A /* INIParser.h */,
+				BAB2F27E1540A5B600ECE09A /* INIParser.m */,
+				BAB2F27F1540A5B600ECE09A /* INISection.h */,
+				BAB2F2801540A5B600ECE09A /* INISection.m */,
+			);
+			name = INIFile;
+			sourceTree = "<group>";
+		};
+		BAEE75D315431CC600A92FA4 /* Point */ = {
+			isa = PBXGroup;
+			children = (
+				BAA229F41541F811004F92AA /* MKTPointBulkViewController.h */,
+				BAA229F51541F811004F92AA /* MKTPointBulkViewController.m */,
+				BAA229F61541F811004F92AA /* MKTPointViewController.h */,
+				BAA229F71541F811004F92AA /* MKTPointViewController.m */,
+				BAA229F81541F811004F92AA /* MKTPointViewDataSource.h */,
+				BAA229F91541F811004F92AA /* MKTPointViewDataSource.m */,
+			);
+			name = Point;
+			sourceTree = "<group>";
+		};
+		BAEE75D415431CE000A92FA4 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				BAA22A031541FA75004F92AA /* MKTRouteViewControllerDelegate.h */,
+				BAA229FA1541F811004F92AA /* MKTRouteListViewController.h */,
+				BAA229FB1541F811004F92AA /* MKTRouteListViewController.m */,
+				BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */,
+				BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */,
+			);
+			name = Route;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -687,6 +806,7 @@
 				BAB2F2B01540A7F800ECE09A /* InfoPlist.strings in Resources */,
 				BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */,
 				BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */,
+				BAA229E41541F02C004F92AA /* icon-calculate@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +853,20 @@
 				BAB2F2991540A6B100ECE09A /* MKTRoute.m in Sources */,
 				BAB2F29F1540A73D00ECE09A /* _MKTPoint.m in Sources */,
 				BAB2F2A01540A73D00ECE09A /* _MKTRoute.m in Sources */,
+				BAD501661541DA63004BA9A6 /* MGSplitCornersView.m in Sources */,
+				BAD501671541DA63004BA9A6 /* MGSplitDividerView.m in Sources */,
+				BAD501681541DA63004BA9A6 /* MGSplitViewController.m in Sources */,
+				BAD5016B1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m in Sources */,
+				BAA229FE1541F811004F92AA /* MKTPointBulkViewController.m in Sources */,
+				BAA229FF1541F811004F92AA /* MKTPointViewController.m in Sources */,
+				BAA22A001541F811004F92AA /* MKTPointViewDataSource.m in Sources */,
+				BAA22A011541F811004F92AA /* MKTRouteListViewController.m in Sources */,
+				BAA22A021541F811004F92AA /* MKTRoutesListViewController.m in Sources */,
+				BAA22A0D1541FB49004F92AA /* SettingsButtonStyle.m in Sources */,
+				BAA22A0E1541FB49004F92AA /* SettingsFieldStyle.m in Sources */,
+				BAA22A0F1541FB49004F92AA /* StringToNumberTransformer.m in Sources */,
+				BAA22A101541FB49004F92AA /* WPCamAngleTransformer.m in Sources */,
+				BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,7 +967,7 @@
 		BAB2F21D15409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
@@ -850,7 +984,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -860,7 +994,7 @@
 		BAB2F21E15409C8D00ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
@@ -870,7 +1004,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
 				SDKROOT = iphoneos;
@@ -888,7 +1022,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/BlocksKit/Header";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/BlocksKit/Header",
+					"\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"",
+				);
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -912,7 +1049,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/BlocksKit/Header";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/BlocksKit/Header",
+					"\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"",
+				);
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -962,6 +1102,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -987,6 +1128,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1019,6 +1161,7 @@
 				BAB2F28B1540A66A00ECE09A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAB2F2B71540A7F800ECE09A /* Build configuration list for PBXNativeTarget "MKToolTests" */ = {
 			isa = XCConfigurationList;
@@ -1027,6 +1170,7 @@
 				BAB2F2B91540A7F800ECE09A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

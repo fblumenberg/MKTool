@@ -10,6 +10,7 @@ extern const struct MKTRouteAttributes {
 	__unsafe_unretained NSString *lastUpdated;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *parentRev;
+	__unsafe_unretained NSString *thumbnail;
 } MKTRouteAttributes;
 
 extern const struct MKTRouteRelationships {
@@ -26,6 +27,7 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
+@class UIImage;
 
 @interface MKTRouteID : NSManagedObjectID {}
 @end
@@ -83,6 +85,14 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
+@property (nonatomic, strong) UIImage *thumbnail;
+
+
+//- (BOOL)validateThumbnail:(id*)value_ error:(NSError**)error_;
+
+
+
+
 
 @property (nonatomic, strong) NSSet* points;
 
@@ -135,6 +145,12 @@ extern const struct MKTRouteFetchedProperties {
 
 - (NSString *)primitiveParentRev;
 - (void)setPrimitiveParentRev:(NSString *)value;
+
+
+
+
+- (UIImage *)primitiveThumbnail;
+- (void)setPrimitiveThumbnail:(UIImage *)value;
 
 
 

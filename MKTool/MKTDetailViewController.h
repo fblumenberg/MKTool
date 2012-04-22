@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
+- (IBAction)showNext:(id)sender; 
+
 @end

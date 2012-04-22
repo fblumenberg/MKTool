@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// ///////////////////////////////////////////////////////////////////////////////
+// Copyright (C) 2010, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,12 +20,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-/////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
+#import <IBAForms/IBAFormFieldStyle.h>
 
-@interface MKTAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SettingsFieldStyle : IBAFormFieldStyle 
++(id)style;
+@end
 
-@property(strong, nonatomic) UIWindow *window;
+@interface SettingsFieldStyleStepper : IBAFormFieldStyle 
++(id)style;
+@end
 
+@interface SettingsFieldStyleDisabled : IBAFormFieldStyle
++(id)style;
+@end
+
+@interface SettingsFieldStyleSwitch : IBAFormFieldStyle 
++(id)style;
+@end
+
+@interface SettingsFieldStyleText : IBAFormFieldStyle 
++(id)style;
 @end

@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// ///////////////////////////////////////////////////////////////////////////////
+// Copyright (C) 2010, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,12 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-/////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////
 
 #import <UIKit/UIKit.h>
+#import <IBAForms/IBAForms.h>
 
-@interface MKTAppDelegate : UIResponder <UIApplicationDelegate>
+#import "MKTRouteViewControllerDelegate.h"
+#import "MKTRoute.h"
 
-@property(strong, nonatomic) UIWindow *window;
+@interface MKTRouteListViewController : IBAFormViewController
+
+@property(weak) id <MKTRouteViewControllerDelegate> delegate;
+@property(retain) MKTRoute *route;
+
+- (id)initWithRoute:(MKTRoute *)route;
+- (id)initWithRoute:(MKTRoute *)route delegate:(id <MKTRouteViewControllerDelegate>)delegate;
+
+- (void)addPoint;
 
 @end

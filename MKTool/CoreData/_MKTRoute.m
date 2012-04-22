@@ -9,6 +9,7 @@ const struct MKTRouteAttributes MKTRouteAttributes = {
 	.lastUpdated = @"lastUpdated",
 	.name = @"name",
 	.parentRev = @"parentRev",
+	.thumbnail = @"thumbnail",
 };
 
 const struct MKTRouteRelationships MKTRouteRelationships = {
@@ -103,6 +104,13 @@ const struct MKTRouteFetchedProperties MKTRouteFetchedProperties = {
 
 
 @dynamic parentRev;
+
+
+
+
+
+
+@dynamic thumbnail;
 
 
 
