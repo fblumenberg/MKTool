@@ -81,8 +81,8 @@
 
 - (void)changeMapViewType {
   [self.mapView setMapType:(MKMapType)self.segmentedControl.selectedSegmentIndex];
-  [self.curlBarItem curlViewDown];
-  [[NSUserDefaults standardUserDefaults] setInteger:self.segmentedControl.selectedSegmentIndex forKey:@"RouteMapViewType"];
+//  [self.curlBarItem curlViewDown];
+//  [[NSUserDefaults standardUserDefaults] setInteger:self.segmentedControl.selectedSegmentIndex forKey:@"RouteMapViewType"];
 }
 
 

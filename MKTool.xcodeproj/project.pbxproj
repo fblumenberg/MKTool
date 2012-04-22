@@ -115,6 +115,13 @@
 		BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */; };
 		BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */; };
 		BAEE75D91543EB8500A92FA4 /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */; };
+		BAEE75EB1543FDB000A92FA4 /* list-mode.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75E71543FDB000A92FA4 /* list-mode.png */; };
+		BAEE75EC1543FDB000A92FA4 /* list-mode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75E81543FDB000A92FA4 /* list-mode@2x.png */; };
+		BAEE75ED1543FDB000A92FA4 /* map-mode.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75E91543FDB000A92FA4 /* map-mode.png */; };
+		BAEE75EE1543FDB000A92FA4 /* map-mode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75EA1543FDB000A92FA4 /* map-mode@2x.png */; };
+		BAEE75EF1543FE8700A92FA4 /* libYelpKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75E21543F91F00A92FA4 /* libYelpKit.a */; };
+		BAEE75F11543FEA000A92FA4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */; };
+		BAEE75F31543FEE300A92FA4 /* GHKitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F21543FEE300A92FA4 /* GHKitIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +138,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = IBAForms;
+		};
+		BAEE75E11543F91F00A92FA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAEE75DA1543F91E00A92FA4 /* YelpKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 005592E8140B0085001E9C43;
+			remoteInfo = YelpKit;
+		};
+		BAEE75E31543F93600A92FA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAEE75DA1543F91E00A92FA4 /* YelpKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 005592E7140B0085001E9C43;
+			remoteInfo = YelpKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -293,6 +314,13 @@
 		BAEE75D51543EB8400A92FA4 /* MKTRouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteMapViewController.h; sourceTree = "<group>"; };
 		BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteMapViewController.m; sourceTree = "<group>"; };
 		BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKTRouteMapViewController.xib; sourceTree = "<group>"; };
+		BAEE75DA1543F91E00A92FA4 /* YelpKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YelpKit.xcodeproj; path = Frameworks/YelpKit/YelpKit.xcodeproj; sourceTree = "<group>"; };
+		BAEE75E71543FDB000A92FA4 /* list-mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-mode.png"; sourceTree = "<group>"; };
+		BAEE75E81543FDB000A92FA4 /* list-mode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-mode@2x.png"; sourceTree = "<group>"; };
+		BAEE75E91543FDB000A92FA4 /* map-mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-mode.png"; sourceTree = "<group>"; };
+		BAEE75EA1543FDB000A92FA4 /* map-mode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-mode@2x.png"; sourceTree = "<group>"; };
+		BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BAEE75F21543FEE300A92FA4 /* GHKitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHKitIOS.framework; path = Frameworks/YelpKit/Libraries/GHKitIOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +328,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAEE75F11543FEA000A92FA4 /* QuartzCore.framework in Frameworks */,
+				BAEE75EF1543FE8700A92FA4 /* libYelpKit.a in Frameworks */,
 				BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */,
 				BAB2F2871540A5DD00ECE09A /* CoreText.framework in Frameworks */,
 				BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */,
@@ -312,6 +342,7 @@
 				BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */,
 				BAB2F24A15409E0900ECE09A /* libBlocksKit.a in Frameworks */,
 				BAB2F26B15409EE700ECE09A /* DropboxSDK.framework in Frameworks */,
+				BAEE75F31543FEE300A92FA4 /* GHKitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +396,6 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
-				BAEE75CA1542D59600A92FA4 /* MapKit.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
@@ -385,6 +415,10 @@
 		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */,
+				BAEE75CA1542D59600A92FA4 /* MapKit.framework */,
+				BAEE75F21543FEE300A92FA4 /* GHKitIOS.framework */,
+				BAEE75DA1543F91E00A92FA4 /* YelpKit.xcodeproj */,
 				BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */,
 				BAB2F25115409ED700ECE09A /* Lumberjack */,
 				BAB2F22715409E0900ECE09A /* BlocksKit */,
@@ -404,6 +438,7 @@
 		BAB2F1FF15409C8C00ECE09A /* MKTool */ = {
 			isa = PBXGroup;
 			children = (
+				BAEE75E51543FDB000A92FA4 /* Resources */,
 				BAA229F31541F811004F92AA /* Waypoints */,
 				BAB2F28D1540A6B100ECE09A /* CoreData */,
 				BAB2F27C1540A5B600ECE09A /* OtherSources */,
@@ -711,6 +746,33 @@
 			name = Route;
 			sourceTree = "<group>";
 		};
+		BAEE75DB1543F91E00A92FA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE75E21543F91F00A92FA4 /* libYelpKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAEE75E51543FDB000A92FA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE75E61543FDB000A92FA4 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BAEE75E61543FDB000A92FA4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE75E71543FDB000A92FA4 /* list-mode.png */,
+				BAEE75E81543FDB000A92FA4 /* list-mode@2x.png */,
+				BAEE75E91543FDB000A92FA4 /* map-mode.png */,
+				BAEE75EA1543FDB000A92FA4 /* map-mode@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -725,6 +787,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BAEE75E41543F93600A92FA4 /* PBXTargetDependency */,
 				BAB2F27815409F5F00ECE09A /* PBXTargetDependency */,
 			);
 			name = MKTool;
@@ -773,6 +836,10 @@
 					ProductGroup = BAB2F26F15409F4A00ECE09A /* Products */;
 					ProjectRef = BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */;
 				},
+				{
+					ProductGroup = BAEE75DB1543F91E00A92FA4 /* Products */;
+					ProjectRef = BAEE75DA1543F91E00A92FA4 /* YelpKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -791,6 +858,13 @@
 			remoteRef = BAB2F27515409F4A00ECE09A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		BAEE75E21543F91F00A92FA4 /* libYelpKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libYelpKit.a;
+			remoteRef = BAEE75E11543F91F00A92FA4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -805,6 +879,10 @@
 				BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */,
 				BAB2F26915409ED700ECE09A /* README.txt in Resources */,
 				BAEE75D91543EB8500A92FA4 /* MKTRouteMapViewController.xib in Resources */,
+				BAEE75EB1543FDB000A92FA4 /* list-mode.png in Resources */,
+				BAEE75EC1543FDB000A92FA4 /* list-mode@2x.png in Resources */,
+				BAEE75ED1543FDB000A92FA4 /* map-mode.png in Resources */,
+				BAEE75EE1543FDB000A92FA4 /* map-mode@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +998,11 @@
 			name = IBAForms;
 			targetProxy = BAB2F27715409F5F00ECE09A /* PBXContainerItemProxy */;
 		};
+		BAEE75E41543F93600A92FA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YelpKit;
+			targetProxy = BAEE75E31543F93600A92FA4 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1029,6 +1112,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
+					"\"$(SRCROOT)/Frameworks/YelpKit/Libraries/\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
@@ -1056,6 +1140,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
+					"\"$(SRCROOT)/Frameworks/YelpKit/Libraries/\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";

@@ -26,6 +26,7 @@
 #import "MKTRouteViewControllerDelegate.h"
 
 #import "MKTRouteListViewController.h"
+#import "MKTRouteMapViewController.h"
 
 @interface PageViewController : UIViewController
 
@@ -57,10 +58,9 @@
 
 - (void)loadView {
   
-  MKTRouteListViewController *page1 = [[MKTRouteListViewController alloc] initWithRoute:_route];
-  page1.delegate = self;
+  MKTRouteListViewController *page1 = [[MKTRouteListViewController alloc] initWithRoute:_route delegate:self];
   
-  PageViewController *page2 = [[PageViewController alloc] init];
+  MKTRouteMapViewController *page2 = [[MKTRouteMapViewController alloc] initWithRoute:_route delegate:self];
 
   self.subViewControllers = [NSArray arrayWithObjects:page1,page2, nil];
 
