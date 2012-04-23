@@ -35,6 +35,11 @@
   return (MKTPoint*)self.annotation;
 }
 
+- (void)setPoint:(MKTPoint *)point{
+  self.annotation = point;
+  self.pinColor = point.typeValue == MKTPointTypeWP ? MKPinAnnotationColorGreen : MKPinAnnotationColorPurple;
+}
+
 + (NSString *)viewReuseIdentifier{
   return @"MKTPointAnnotationView";
 }

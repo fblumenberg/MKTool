@@ -38,4 +38,7 @@
 
 - (void)addPoint;
 
+- (void)showViewControllerForPoint:(MKTPoint *)point;
+
+
 @end

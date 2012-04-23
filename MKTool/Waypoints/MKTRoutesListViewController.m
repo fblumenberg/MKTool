@@ -28,6 +28,8 @@
 #import "MKTRoutesListViewController.h"
 
 #import "MKTRouteContainerViewController.h"
+#import "MKTRouteMasterViewController.h"
+
 #import "MKTRouteListViewController.h"
 
 #import "InnerBand.h"
@@ -48,7 +50,7 @@
 @implementation MKTRoutesListViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
-@synthesize detailViewController = _detailViewController;
+//@synthesize detailViewController = _detailViewController;
 
 - (id)init {
   self = [super initWithStyle:UITableViewStylePlain];
@@ -236,7 +238,7 @@
     MKTRoute *route = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     if(IS_IPAD()){
-      MKTRouteListViewController *routeController = [[MKTRouteListViewController alloc] initWithRoute:route];
+      MKTRouteMasterViewController *routeController = [[MKTRouteMasterViewController alloc] initWithRoute:route];
       [self.navigationController pushViewController:routeController animated:YES];
     }
     else       {

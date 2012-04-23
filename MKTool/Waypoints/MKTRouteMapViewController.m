@@ -32,6 +32,7 @@
 #import "MKTPointViewController.h"
 
 #import "InnerBand.h"
+#import "BKMacros.h"
 #import "FDCurlViewControl.h"
 
 #import "MKTPoint.h"
@@ -234,6 +235,7 @@ DEFINE_KEY(MKTRouteMapViewType);
 
   if(IS_IPAD()){
 
+    [self clearAllSelections];
     [self.popoverController dismissPopoverAnimated:NO];
     self.popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
 
@@ -249,6 +251,14 @@ DEFINE_KEY(MKTRouteMapViewType);
 }
 
 
+- (void) clearAllSelections{
+  
+  [self.mapView.annotations each:^(id<MKAnnotation> a){
+    [self.mapView deselectAnnotation:a animated:YES];
+  }];
+}
+
+
 #pragma mark - Updating the map view
 
 - (void)updateMapView {
@@ -259,7 +269,7 @@ DEFINE_KEY(MKTRouteMapViewType);
 
   [self.mapView removeAnnotations:self.mapView.annotations];
   [self.mapView addAnnotations:[sectionInfo objects]];
- [self updateRouteOverlay];
+  [self updateRouteOverlay];
   
   if (numberOfpoints> 1) {
     
@@ -318,6 +328,8 @@ DEFINE_KEY(MKTRouteMapViewType);
     annotationView = (MKTPointAnnotationView*)[theMapView dequeueReusableAnnotationViewWithIdentifier:[MKTPointAnnotationView viewReuseIdentifier]];
     if (annotationView == nil)
       annotationView = [[MKTPointAnnotationView alloc] initWithPoint:(MKTPoint*)annotation];
+    else
+      annotationView.point = annotation;
 
     return annotationView;
   }
@@ -443,7 +455,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 
 #pragma mark Overlays
 
-- (void)updateRouteOverlay {
+- (void)doUpdateRouteOverlay {
   CLLocationCoordinate2D coordinates[[self.route.points count]];
   
   [self.mapView removeOverlays:self.mapView.overlays];
@@ -462,10 +474,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
       [self.mapView addOverlay:c];
       
       BOOL createOverlay = YES;
-      if (p.heading != 0) {
+      if (p.headingValue != 0) {
         
         double angle = p.headingValue;
-        if (p.heading < 0) {
+        if (p.headingValue < 0) {
           
           int idx = (-p.headingValue) - 1;
           if (idx >= 0 && idx < orderedPoints.count) {
@@ -504,6 +516,19 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 }
 
 
+- (void)updateAnnotations{
+  id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
+
+  [self.mapView removeAnnotations:self.mapView.annotations];
+  [self.mapView addAnnotations:[sectionInfo objects]];
+  [self doUpdateRouteOverlay];
+}
+
+- (void)updateRouteOverlay {
+  [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doUpdateRouteOverlay) object: self];
+  [self performSelector:@selector(doUpdateRouteOverlay) withObject:self afterDelay:0.5];
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Fetched results controller delegate
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -538,6 +563,9 @@ didChangeDragState:(MKAnnotationViewDragState)newState
       break;
 
     case NSFetchedResultsChangeUpdate:
+      NSLog(@"%@",anObject);
+      [self.mapView removeAnnotation:(id<MKAnnotation>)anObject];
+      [self.mapView addAnnotation:(id<MKAnnotation>)anObject];
       break;
       
     case NSFetchedResultsChangeMove:

@@ -75,7 +75,6 @@
 
 - (NSIndexPath *)correctedIndexPath:(NSIndexPath *)indexPath;
 
-- (void)showViewControllerForPoint:(MKTPoint *)point;
 
 @end
 
@@ -609,6 +608,12 @@
   MKTPointBulkViewController *controller = [[MKTPointBulkViewController alloc] initWithPoints:pointsToChange];
   UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
 
+  [[self.tableView indexPathsForSelectedRows] each:^(NSIndexPath* indexPath){
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+  }];
+  
+  [self updateToolbarState];
+  
   if (IS_IPAD()) {
     aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self.splitViewController presentModalViewController:aNavController animated:YES];

@@ -35,4 +35,6 @@
 - (id)initWithRoute:(MKTRoute *)route;
 - (id)initWithRoute:(MKTRoute *)route delegate:(id <MKTRouteViewControllerDelegate>)delegate;
 
+- (void) clearAllSelections;
+
 @end

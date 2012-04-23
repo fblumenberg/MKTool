@@ -47,8 +47,13 @@
 - (id)initWithPoints:(NSArray *)points {
 
   NSMutableDictionary *model = [[MKTPoint attributesForPoint] mutableCopy];
+
+  NSArray* keys = [NSArray arrayWithObjects:@"index",@"latitude",@"longitude",nil];
+  [keys each:^(NSString* key){
+    [model removeObjectForKey:key];
+  }];
   
-  NSArray* keys = SELECT([model allKeys],(![obj isEqualToString:@"index"]));
+  keys = [model allKeys];
   [model removeAllObjects];
   
   if (points.count > 0) {

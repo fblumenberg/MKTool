@@ -27,7 +27,7 @@
 
 @interface MKTPointAnnotationView : MKPinAnnotationView
 
-@property(readonly,strong) MKTPoint* point;
+@property(nonatomic,strong) MKTPoint* point;
 
 + (NSString *)viewReuseIdentifier;
 - (id)initWithPoint:(MKTPoint*)point;
