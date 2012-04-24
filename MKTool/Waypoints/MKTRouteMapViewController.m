@@ -46,7 +46,9 @@ DEFINE_KEY(MKTRouteMapViewType);
 #pragma mark -
 ///////////////////////////////////////////////////////////////////////////////////
 
-@interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, NSFetchedResultsControllerDelegate>
+@interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, NSFetchedResultsControllerDelegate>{
+  BOOL userDrivenDataModelChange;
+}
 
 @property(nonatomic,strong) IBOutlet MKMapView *mapView;
 
@@ -364,10 +366,19 @@ DEFINE_KEY(MKTRouteMapViewType);
 didChangeDragState:(MKAnnotationViewDragState)newState
    fromOldState:(MKAnnotationViewDragState)oldState {
   
-  if (newState == MKAnnotationViewDragStateEnding || newState == MKAnnotationViewDragStateDragging) {
+  
+  if (newState == MKAnnotationViewDragStateEnding) {
     [[CoreDataStore mainStore] save];
-//    [self updateRouteOverlay];
-//    [Route sendChangedNotification:self];
+    [self updateRouteOverlay];
+    
+//    [self performSelector:@selector(clearAllSelections) withObject:self afterDelay:0.1];
+
+    NSLog(@"MKAnnotationViewDragStateEnding %@",[(MKTPoint*)view.annotation name]);
+
+    userDrivenDataModelChange=NO;
+  }
+  else if (newState == MKAnnotationViewDragStateStarting) {
+    userDrivenDataModelChange=YES;
   }
 }
 
@@ -533,25 +544,13 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 #pragma mark - Fetched results controller delegate
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-  
-  switch (type) {
-    case NSFetchedResultsChangeInsert:
-      break;
-      
-    case NSFetchedResultsChangeDelete:
-      break;
-  }
-}
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
 
+  if(userDrivenDataModelChange) return;
+  
   switch (type) {
       
     case NSFetchedResultsChangeInsert:
@@ -563,7 +562,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
       break;
 
     case NSFetchedResultsChangeUpdate:
-      NSLog(@"%@",anObject);
+      NSLog(@"NSFetchedResultsChangeUpdate %@",[anObject name]);
       [self.mapView removeAnnotation:(id<MKAnnotation>)anObject];
       [self.mapView addAnnotation:(id<MKAnnotation>)anObject];
       break;
@@ -574,6 +573,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+  if(userDrivenDataModelChange) return;
   [self updateRouteOverlay];
 }
 
