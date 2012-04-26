@@ -40,6 +40,8 @@
       MKTPoint* p2 = [r2 objectAtIndex:i];
       for (NSString* key in [MKTPoint attributesForPoint].allKeys) {
         result = result && [[p1 valueForKey:key] isEqual:[p2 valueForKey:key]];
+        if(!result)
+          NSLog(@"Result is false for %@",key);
       }
     }
   }

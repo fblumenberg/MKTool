@@ -127,6 +127,10 @@ DEFINE_KEY(MKTRouteMapViewType);
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  
+  if(IS_IPAD())
+    self.navigationItem.hidesBackButton=YES;
+  
   [self updateToolbar];
   
   [self updateMapView];

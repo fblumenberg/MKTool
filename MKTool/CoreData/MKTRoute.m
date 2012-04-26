@@ -53,7 +53,6 @@
     if([self.changedValues objectForKey:@"lastUpdated"]==nil){
       NSTimeInterval t=(NSTimeInterval)((NSInteger)[[NSDate date] timeIntervalSinceReferenceDate]);
       NSDate* d = [NSDate dateWithTimeIntervalSinceReferenceDate:t];
-      NSLog(@"=================> Change lastUpdated to %@",d);
       [self setPrimitiveLastUpdated:d];
     }
   }
@@ -91,6 +90,17 @@
   MKTPoint *p = [MKTPoint create];
   p.coordinate = coordinate;
   p.indexValue = 9999;
+  p.headingValue = 0; 
+  p.altitudeValue = [[[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultAltitude"] integerValue];
+  p.toleranceRadiusValue = [[[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultToleranceRadius"] integerValue];
+  p.holdTimeValue = [[[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultHoldTime"] integerValue];
+  p.typeValue = MKTPointTypeWP;                
+  p.eventChannelValueValue = 0;
+  p.altitudeRateValue = [[[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultAltitudeRate"] integerValue];
+  p.speedValue = [[[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultSpeed"] integerValue];
+  p.cameraAngleValue = [[[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultCamAngle"] integerValue];;
+  p.eventFlagValue = 0;          
+  p.prefix = [[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultPrefix"];
 
   [self addPointsObject:p];
   [self updatePointsOrder];
@@ -171,7 +181,6 @@
 
 - (void)deletePointAtIndexPath:(NSIndexPath *)indexPath {
   MKTPoint *p = [[self orderedPoints] objectAtIndex:indexPath.row];
-  NSLog(@"%@", p);
   [self deletePoint:p];
 }
 

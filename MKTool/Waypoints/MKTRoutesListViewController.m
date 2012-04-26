@@ -25,6 +25,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+#import "IASKAppSettingsViewController.h"
+#import "MBProgressHUD.h"
+
+#import "UIActionSheet+BlocksKit.h"
+
+#import "UIViewController+MGSplitViewController.h"
+
+#import "MKTRouteDropboxController.h"
 #import "MKTRoutesListViewController.h"
 
 #import "MKTRouteContainerViewController.h"
@@ -36,7 +44,7 @@
 #import "MKTRoute.h"
 #import "MKTPoint.h"
 
-@interface MKTRoutesListViewController () <NSFetchedResultsControllerDelegate> {
+@interface MKTRoutesListViewController () <NSFetchedResultsControllerDelegate,IASKSettingsDelegate,MKTRouteDropboxControllerDelegate> {
   NSMutableArray *_objects;
   BOOL userDrivenDataModelChange;
 }
@@ -45,12 +53,23 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
+- (void)addNewRoute;
+- (void)showRouteViewController:(MKTRoute *)route;
+
+- (void)showSettingsModal;
+- (void)syncRoutes;
+
+@property(nonatomic, strong) UIBarButtonItem *spacer;
+@property(nonatomic, strong) UIBarButtonItem *addButton;
+@property(nonatomic, strong) UIBarButtonItem *settingsButton;
+@property(nonatomic, strong) UIBarButtonItem *syncButton;
+
 @end
 
 @implementation MKTRoutesListViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
-//@synthesize detailViewController = _detailViewController;
+@synthesize spacer,settingsButton,syncButton,addButton;
 
 - (id)init {
   self = [super initWithStyle:UITableViewStylePlain];
@@ -66,20 +85,45 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
-  self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-  UIBarButtonItem *reindexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                 target:self
-                                                                                 action:@selector(manualMove:)];
-
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+  self.navigationItem.title = self.title;
+  
+  self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                              target:self
-                                                                             action:@selector(insertNewObject:)];
-  self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton, reindexButton, nil];
+                                                                             action:@selector(addNewRoute)];
+  self.addButton.style = UIBarButtonItemStyleBordered;
 
-  self.tableView.allowsMultipleSelectionDuringEditing = YES;
+  
+  self.syncButton = [[UIBarButtonItem alloc]
+                      initWithImage:[UIImage imageNamed:@"icon-backforth.png"]
+                      style:UIBarButtonItemStyleBordered
+                      target:self
+                      action:@selector(syncRoutes)];
 
+  self.settingsButton = [[UIBarButtonItem alloc]
+                      initWithImage:[UIImage imageNamed:@"icon-settings3.png"]
+                      style:UIBarButtonItemStyleBordered
+                      target:self
+                      action:@selector(showSettingsModal)];
+  
+  self.spacer = [[UIBarButtonItem alloc]
+                   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                   target:nil action:nil];
+
+  [self setToolbarItems:[NSArray arrayWithObjects:
+                         self.editButtonItem,
+                         self.spacer,
+                         self.syncButton,
+                         self.spacer,
+                         self.addButton,
+                         nil]];
+
+  self.navigationItem.rightBarButtonItem = self.settingsButton;
+  
+  self.navigationController.toolbarHidden =NO;
+//  self.tableView.allowsMultipleSelectionDuringEditing = YES;
+  self.tableView.allowsSelectionDuringEditing = NO;
+  
 }
 
 - (void)viewDidUnload {
@@ -95,55 +139,55 @@
   }
 }
 
-- (void)insertNewObject:(id)sender {
-  MKTRoute *r = [MKTRoute create];
-  r.name = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
-  r.indexValue = [MKTRoute count];
 
-  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(50.123456, 9.123456);
-  for (int i = 1; i < 10; i++) {
-    MKTPoint *p = [r addPointAtCoordinate:coordinate];
-    p.prefix = @"T";
-    p.indexValue = i;
-    p.altitudeValue = i;
-  }
+- (void)addNewRoute{
+
+  MKTRoute *r = [MKTRoute create];
+  r.name = NSLocalizedString(@"Route", @"Route default name");
 
   [[CoreDataStore mainStore] save];
+  
+  [self showRouteViewController:r];
+  
 }
 
-- (void)doReindex {
 
+- (void)showSettingsModal{
+  IASKAppSettingsViewController* controller = [[IASKAppSettingsViewController alloc] initWithNibName:@"IASKAppSettingsView" bundle:nil];
+  
+  UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
+  controller.showDoneButton = YES;
+  controller.file = @"waypoints";
+  controller.delegate = self;
+  
+  if (IS_IPAD()) {
+    aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self.splitViewController presentModalViewController:aNavController animated:YES];
+  }
+  else
+    [self presentModalViewController:aNavController animated:YES];
+
+}
+
+- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender{
+  if (IS_IPAD())
+    [self.splitViewController dismissModalViewControllerAnimated:YES];
+  else
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+- (void)doReindex {
+  
   int i = 0;
   for (MKTRoute *r in [MKTRoute allOrderedBy:@"index" ascending:YES]) {
     r.indexValue = ++i;
   }
 }
 
-- (void)reindex:(id)sender {
-  userDrivenDataModelChange = YES;
-  [self doReindex];
-  [[CoreDataStore mainStore] save];
-  userDrivenDataModelChange = NO;
-
-  [self.tableView reloadData];
-}
-
-- (void)manualMove:(id)sender {
-  NSMutableArray *array = [[self.fetchedResultsController fetchedObjects] mutableCopy];
-
-  id objectToMove = [array objectAtIndex:1];
-  [array removeObjectAtIndex:1];
-  [array insertObject:objectToMove atIndex:3];
-
-  int i = 0;
-  for (MKTRoute *r in array) {
-    r.indexValue = ++i;
-  }
-
-  [[CoreDataStore mainStore] save];
-}
-
+///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Table View
+///////////////////////////////////////////////////////////////////////////////////
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return [[self.fetchedResultsController sections] count];
@@ -232,24 +276,30 @@
 }
 
 
+- (void)showRouteViewController:(MKTRoute *)route {
+    if(IS_IPAD()){
+        MKTRouteMasterViewController *routeController = [[MKTRouteMasterViewController alloc] initWithRoute:route];
+        [self.navigationController pushViewController:routeController animated:YES];
+    }
+    else       {
+        MKTRouteContainerViewController *routeController = [[MKTRouteContainerViewController alloc] initWithRoute:route];
+        [self.navigationController pushViewController:routeController animated:YES];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
   if (!tableView.isEditing) {
     MKTRoute *route = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    if(IS_IPAD()){
-      MKTRouteMasterViewController *routeController = [[MKTRouteMasterViewController alloc] initWithRoute:route];
-      [self.navigationController pushViewController:routeController animated:YES];
-    }
-    else       {
-      MKTRouteContainerViewController *routeController = [[MKTRouteContainerViewController alloc] initWithRoute:route];
-      [self.navigationController pushViewController:routeController animated:YES];
-    }
+      [self showRouteViewController:route];
   }
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Fetched results controller delegate
+///////////////////////////////////////////////////////////////////////////////////
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
   if (userDrivenDataModelChange) return;
@@ -304,7 +354,9 @@
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Fetched results controller
+///////////////////////////////////////////////////////////////////////////////////
 
 - (NSFetchedResultsController *)fetchedResultsController {
 
@@ -321,6 +373,89 @@
   }
 
   return _fetchedResultsController;
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Synchronizing
+///////////////////////////////////////////////////////////////////////////////////
+
+- (void)syncRoutes {
+  
+  // No need to retain (just a local variable)
+  
+  
+  [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+
+  [MKTRouteDropboxController sharedController].delegate = self;
+  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadata];  
+}
+
+- (void)doRestore:(id)sender {
+}
+
+- (void)doBackup:(id)sender {
+}
+
+- (void)doSynchronize:(id)sender {
+}
+
+
+- (void)dropboxReady:(MKTRouteDropboxController*)controller{
+  
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+  
+  UIActionSheet *sheet = [UIActionSheet actionSheetWithTitle:NSLocalizedString(@"Routes Syncronisation", @"Routes Sync Title")];
+  
+  [sheet addButtonWithTitle:NSLocalizedString(@"Restore", @"Restore Button") handler:^{ 
+    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
+    hud.progress = 0.0;
+    hud.mode = MBProgressHUDModeDeterminate;
+    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal];
+  }];
+  
+  [sheet addButtonWithTitle:NSLocalizedString(@"Backup", @"Backup Button") handler:^{ 
+    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
+    hud.progress = 0.0;
+    hud.mode = MBProgressHUDModeDeterminate;
+    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote];
+  }];
+  
+  [sheet addButtonWithTitle:NSLocalizedString(@"Synchronize", @"Restore Button") handler:^{ 
+    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
+    hud.progress = 0.0;
+    hud.mode = MBProgressHUDModeDeterminate;
+    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder];
+  }];
+  
+  [sheet setCancelButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel Button") handler:^{ }];
+  
+  [sheet showFromToolbar:self.navigationController.toolbar];
+}
+
+- (void)controller:(MKTRouteDropboxController*)crontroller dropboxInitFailedWithError:(NSError*)error{
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+  [MKTRouteDropboxController showError:error withTitle:NSLocalizedString(@"Getting the Route data folder failed", @"Getting Data Folder Error Title")];
+}
+
+
+- (void)controllerSyncCompleted:(MKTRouteDropboxController*)crontroller{
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+}
+
+- (void)controller:(MKTRouteDropboxController*)crontroller syncFailedWithError:(NSError*)error{
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+  [MKTRouteDropboxController showError:error withTitle:NSLocalizedString(@"Synchronization failed", @"Routes Restore Error Title")];
+}
+
+- (void)controller:(MKTRouteDropboxController *)crontroller syncProgress:(CGFloat)progress{
+  MBProgressHUD* hud = [MBProgressHUD HUDForView:self.view.window];
+  hud.progress = progress;
+  if(progress==1.0)
+    hud.mode = MBProgressHUDModeIndeterminate;
+    
 }
 
 @end

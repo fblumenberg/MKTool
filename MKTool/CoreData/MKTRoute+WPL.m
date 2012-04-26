@@ -74,9 +74,10 @@
   if(result){
     int numberOfPoints=[p getInt:@"NumberOfWaypoints" section:@"General"];
     
+    self.fileName = path.lastPathComponent;
     self.name = [p get:@"Name" section:@"General"];
     if(self.name == nil )
-      self.name = path.lastPathComponent;
+      self.name = [self.fileName stringByDeletingPathExtension];
     
     [self removePoints:self.points];
     

@@ -44,6 +44,8 @@
     self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];
     self.valueFont = [UIFont systemFontOfSize:16];
     self.valueFrame = CGRectMake(110, 13, 200, IBAFormFieldValueHeight);
+    self.valueAutoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+
     self.activeColor = [UIColor whiteColor];
   }
   return self;

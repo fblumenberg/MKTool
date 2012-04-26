@@ -10,10 +10,4 @@
 
 @interface MKTDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
-
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-
-- (IBAction)showNext:(id)sender; 
-
 @end

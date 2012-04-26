@@ -27,13 +27,17 @@
 
 #import "MKTAppDelegate.h"
 
-#import "MKTMasterViewController.h"
 #import "MKTDetailViewController.h"
 
 #import "MKTRoutesListViewController.h"
 
 #import "BlocksKit.h"
 #import "InnerBand.h"
+
+#import "MBProgressHUD.h"
+
+#import "DDLog.h"
+#import "DDTTYLogger.h"
 
 #import "DropboxSDK/DropboxSDK.h"
 
@@ -66,34 +70,50 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+  
+  [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {
+    [DDLog setLogLevel:LOG_LEVEL_VERBOSE forClassWithName:class];
+  }];
+  
+  [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
   // Override point for customization after application launch.
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-//    MKTMasterViewController *masterViewController = [[MKTMasterViewController alloc] initWithNibName:@"MKTMasterViewController_iPhone" bundle:nil];
-    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] initWithStyle:UITableViewStylePlain];
+    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:routesViewControler];
     self.window.rootViewController = self.navigationController;
   }
   else {
-//    MKTMasterViewController *masterViewController = [[MKTMasterViewController alloc] initWithNibName:@"MKTMasterViewController_iPad" bundle:nil];
 
-    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] initWithStyle:UITableViewStylePlain];
+    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] init];
     UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:routesViewControler];
 
     MKTDetailViewController *detailViewController = [[MKTDetailViewController alloc] initWithNibName:@"MKTDetailViewController_iPad" bundle:nil];
     UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
 
-//    masterViewController.detailViewController = detailViewController;
-
     self.splitViewController = [[MGSplitViewController alloc] init];
-//    self.splitViewController.delegate = detailViewController;
+    self.splitViewController.showsMasterInPortrait=YES;
+    self.splitViewController.showsMasterInLandscape=YES;
+    
     self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
 
     self.window.rootViewController = self.splitViewController;
   }
+
   [self.window makeKeyAndVisible];
 
+  // Load the default values for the user defaults
+  NSString *pathToUserDefaultsValues = [[NSBundle mainBundle]
+                                        pathForResource:@"userDefaults"
+                                        ofType:@"plist"];
+  NSDictionary *userDefaultsValues = [NSDictionary dictionaryWithContentsOfFile:pathToUserDefaultsValues];
+  
+  // Set them in the standard user defaults
+  [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsValues];
+
+  
   // Initialize the Dropbox support
   // Set these variables before launching the app
   NSString *appKey = kDROPBOX_APP_KEY;
@@ -116,8 +136,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-  // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-  // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+  [MBProgressHUD hideAllHUDsForView:self.window animated:NO];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

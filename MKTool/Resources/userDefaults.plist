@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WpDefaultAltitude</key>
+	<integer>15</integer>
+	<key>WpDefaultHoldTime</key>
+	<integer>5</integer>
+	<key>WpDefaultCoordLat</key>
+	<string>49.860348</string>
+	<key>WpDefaultCoordLong</key>
+	<string>8.686227</string>
+	<key>WpDefaultToleranceRadius</key>
+	<integer>5</integer>
+	<key>WpDefaultAltitudeRate</key>
+	<integer>20</integer>
+	<key>WpDefaultPrefix</key>
+	<string>P</string>
+	<key>WpDefaultSpeed</key>
+	<integer>30</integer>
+	<key>FollowMeHeigth</key>
+	<integer>1</integer>
+	<key>WpDefaultCamOrientation</key>
+	<integer>0</integer>
+	<key>FollowMeCameraNick</key>
+	<true/>
+	<key>FollowMeAccuracyBestForNavigation</key>
+	<false/>
+	<key>IKOSDSoundActive</key>
+	<true/>
+</dict>
+</plist>
