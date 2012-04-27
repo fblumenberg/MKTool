@@ -1,0 +1,204 @@
+/* Localizable.strings
+  MKTool
+
+  Created by Frank Blumenberg on 27.04.12.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved. */
+
+/* Sync Error */
+"" = "";
+
+/* WP Numbers */
+"#WP-X" = "#WP-X";
+
+/* WP Numbers */
+"#WP-Y" = "#WP-Y";
+
+/* WP Numbers */
+"#WP" = "#WP";
+
+/* POI cell */
+"%@ - POI" = "%@ - POI";
+
+/* Waypoint cell */
+"%@ - Waypoint" = "%@ - Waypoint";
+
+/* Access Denied */
+"Access Denied" = "Access Denied";
+
+/* WPclosed */
+"Add Point To close" = "Add Point To close";
+
+/* WP Altitude title */
+"Altitude" = "Altitude [m]";
+
+/* DB Login Err Unknown Msg */
+"An unknown error has occurred." = "An unknown error has occurred.";
+
+/* WP CamAngle auto mode */
+"AUTO" = "AUTO";
+
+/* Backup Button */
+"Backup" = "Backup";
+
+/* WP event title */
+"Camera nick angle" = "Cam-Nick [°]";
+
+/* cameraNickControl title */
+"Camera nick control" = "Camera nick control";
+
+/* Cancel Button
+   Cancel bar button */
+"Cancel" = "Cancel";
+
+/* Change points toolbar button
+   Change toolbar button */
+"Change" = "Change";
+
+/* Change toolbar button */
+"Change(%d)" = "Change(%d)";
+
+/* WPclearWpList title */
+"Clear Waipoints" = "Clear existing WP";
+
+/* WP event title */
+"Climb rate" = "Climb Rate [0.1 m/s]";
+
+/* WPclockwise */
+"Clockwise" = "Clockwise";
+
+/* Delete toolbar button */
+"Delete" = "Delete";
+
+/* Delete toolbar button */
+"Delete(%d)" = "Delete(%d)";
+
+/* No comment provided by engineer. */
+"Dismiss" = "Dismiss";
+
+/* Error getting Location */
+"Error getting Location" = "Error getting Location";
+
+/* Error loading map */
+"Error loading map" = "Error loading map";
+
+/* WP event title */
+"Event" = "Event";
+
+/* Gernerate WP */
+"Generate" = "Generate";
+
+/* Getting Data Folder Error Title */
+"Getting the Route data folder failed" = "Getting the Route data folder failed";
+
+/* WP holdTime title */
+"HaltTime" = "Delay Time [s]";
+
+/* WP Heading title */
+"Heading" = "Heading[°]";
+
+/* INvalid WP Annotation callout */
+"Invalid - Index %@" = "Invalid - Index %@";
+
+/* WP Latitude title */
+"Lat." = "Lat.";
+
+/* WP Longitude title */
+"Long." = "Long.";
+
+/* InAppSettingsKit */
+"Mail not configured" = "Mail not configured";
+
+/* No comment provided by engineer. */
+"Master" = "Master";
+
+/* WP Route name */
+"Name" = "Name";
+
+/* RC-Channel */
+"Off" = "Off";
+
+/* InAppSettingsKit */
+"OK" = "OK";
+
+/* Okay */
+"Okay" = "Okay";
+
+/* POI Annotation callout */
+"POI - Index %@" = "POI - Index %@";
+
+/* No comment provided by engineer. */
+"POI" = "POI";
+
+/* WP Pos Title */
+"Position" = "Position";
+
+/* WP Prefix */
+"Prefix" = "Prefix";
+
+/* WP toleranceRadius title */
+"Radius" = "Radius [m]";
+
+/* RC-Channel */
+"RC Channel %d" = "RC Channel %d";
+
+/* Restore Button */
+"Restore" = "Restore";
+
+/* Route default name
+   Waypoint Lists title */
+"Route" = "Route";
+
+/* Routes Sync Title */
+"Routes Syncronisation" = "Routes Syncronisation";
+
+/* Routes Master title */
+"Routes" = "Routes";
+
+/* Save bar button */
+"Save" = "Save";
+
+/* RC-Channel */
+"Serial Channel %d" = "Serial Channel %d";
+
+/* No comment provided by engineer. */
+"Settings" = "Settings";
+
+/* WP event title */
+"Speed" = "Speed [0.1 m/s]";
+
+/* Routes Restore Error Title */
+"Synchronization failed" = "Synchronization failed";
+
+/* Restore Button */
+"Synchronize" = "Synchronize";
+
+/* DB Sync routes HUD */
+"Syncing" = "Syncing";
+
+/* DB Login Err Msg */
+"There was an error connecting to Dropbox." = "There was an error connecting to Dropbox.";
+
+/* InAppSettingsKit */
+"This device is not configured for sending Email. Please configure the Mail settings in the Settings app." = "This device is not configured for sending Email. Please configure the Mail settings in the Settings app.";
+
+/* type title */
+"Type" = "Type";
+
+/* Unknown Error */
+"Unknown Error" = "Unknown Error";
+
+/* WP Annotation callout */
+"Waypoint - %@" = "Waypoint - %@";
+
+/* Waypoint view title */
+"Waypoint" = "Waypoint";
+
+/* Waypoint bulk view title */
+"Waypoints" = "Waypoints";
+
+/* RC-Channel */
+"WP Event Channel" = "WP Event Channel";
+
+/* WP Defaults Dialog title */
+"Waypoint Defaults" = "Waypoint Defaults";
+

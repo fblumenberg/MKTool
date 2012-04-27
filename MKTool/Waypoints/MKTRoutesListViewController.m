@@ -154,8 +154,8 @@
 
 - (void)showSettingsModal{
   IASKAppSettingsViewController* controller = [[IASKAppSettingsViewController alloc] initWithNibName:@"IASKAppSettingsView" bundle:nil];
-  
   UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
+  controller.title=NSLocalizedString(@"Waypoint Defaults", @"WP Defaults Dialog title");
   controller.showDoneButton = YES;
   controller.file = @"waypoints";
   controller.delegate = self;

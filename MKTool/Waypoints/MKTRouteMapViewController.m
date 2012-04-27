@@ -448,7 +448,7 @@ DEFINE_KEY(MKTRouteMapViewType);
 - (void)mapViewDidFailLoadingMap:(MKMapView *)theMapView withError:(NSError *)error {
   UIAlertView *alert = [[UIAlertView alloc]
                         initWithTitle:NSLocalizedString(@"Error loading map", @"Error loading map") message:[error localizedDescription]
-                        delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay", @"Okay") otherButtonTitles:nil];
+                        delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"Okay") otherButtonTitles:nil];
   [alert show];
 }
 

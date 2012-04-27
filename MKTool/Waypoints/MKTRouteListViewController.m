@@ -709,7 +709,7 @@
   UIAlertView *alert = [[UIAlertView alloc]
                         initWithTitle:NSLocalizedString(@"Error getting Location", @"Error getting Location") message:errorType
                         delegate:self
-                        cancelButtonTitle:NSLocalizedString(@"Okay", @"Okay") otherButtonTitles:nil];
+                        cancelButtonTitle:NSLocalizedString(@"OK", @"Okay") otherButtonTitles:nil];
   [alert show];
   
   self.addWithGpsButton.enabled = IS_GPS_ENABLED();
