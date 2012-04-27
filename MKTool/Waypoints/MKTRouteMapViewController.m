@@ -40,13 +40,18 @@
 #import "HeadingOverlay.h"
 #import "HeadingOverlayView.h"
 
+#import "WPGenAreaViewController.h"
+#import "WPGenCircleViewController.h"
+#import "WPGenPanoViewController.h"
+
 DEFINE_KEY(MKTRouteMapViewType);
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 ///////////////////////////////////////////////////////////////////////////////////
 
-@interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, NSFetchedResultsControllerDelegate>{
+@interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, 
+                                         WPGenBaseViewControllerDelegate, NSFetchedResultsControllerDelegate>{
   BOOL userDrivenDataModelChange;
 }
 
@@ -57,6 +62,15 @@ DEFINE_KEY(MKTRouteMapViewType);
 @property(nonatomic, strong) UIBarButtonItem *addButton;
 @property(nonatomic, strong) UIBarButtonItem *addWithGpsButton;
 
+@property(nonatomic, strong) WPGenBaseViewController *wpgenController;
+@property(nonatomic, strong) UISegmentedControl *wpGeneratorSelection;
+@property(nonatomic, strong) UIBarButtonItem *wpGenerateItem;
+@property(nonatomic, strong) UIBarButtonItem *wpGenButton;
+
+@property(nonatomic, strong) UIBarButtonItem *wpGeneratorSelectionButton;
+@property(nonatomic, strong) UIBarButtonItem *wpGenerateConfigItem;
+
+
 @property(nonatomic,strong) IBOutlet UISegmentedControl *segmentedControl;
 @property(nonatomic,strong) IBOutlet UILabel *scaleLabel;
 
@@ -65,6 +79,13 @@ DEFINE_KEY(MKTRouteMapViewType);
 - (void)initToolbar;
 
 - (IBAction)changeMapViewType;
+
+- (void)showWpGenerator;
+
+- (void)showWpGen:(id)sender;
+- (void)generateWayPoints;
+- (void)configWayPoints:(id)sender;
+- (void)dismiss;
 
 @property(nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
@@ -82,9 +103,21 @@ DEFINE_KEY(MKTRouteMapViewType);
 
 @synthesize popoverController;
 @synthesize mapView = _mapView;
-@synthesize curlBarItem,spacer,addButton,addWithGpsButton;
+@synthesize curlBarItem;
+@synthesize spacer;
+@synthesize addButton;
+@synthesize addWithGpsButton;
 @synthesize segmentedControl;
 @synthesize scaleLabel;
+
+@synthesize forWpGenModal;
+@synthesize wpgenController;
+@synthesize wpGenerateItem;
+@synthesize wpGenButton;
+
+@synthesize wpGeneratorSelection;
+@synthesize wpGeneratorSelectionButton;
+@synthesize wpGenerateConfigItem;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -123,6 +156,21 @@ DEFINE_KEY(MKTRouteMapViewType);
 {
   [super viewDidUnload];
   self.route = nil;
+
+  self.mapView = nil;
+  self.curlBarItem = nil;
+  self.spacer = nil;
+  self.addButton = nil;
+  self.addWithGpsButton = nil;
+  self.segmentedControl = nil;
+  self.scaleLabel = nil;
+  self.wpgenController = nil;
+  self.wpGenerateItem = nil;
+  self.wpGeneratorSelection = nil;
+  self.wpGeneratorSelectionButton = nil;
+  self.wpGenerateConfigItem = nil;
+  self.wpGenButton = nil;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -187,6 +235,48 @@ DEFINE_KEY(MKTRouteMapViewType);
                            style:UIBarButtonItemStyleBordered
                            target:nil
                            action:@selector(addPointWithGps)];
+
+  
+  self.wpGenerateItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Generate", @"Gernerate WP") style:UIBarButtonItemStyleBordered
+                                                         target:self action:@selector(generateWayPoints)];
+  
+  
+  self.wpGenerateConfigItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon-settings3.png"]
+                                                                style:UIBarButtonItemStyleBordered
+                                                               target:self action:@selector(configWayPoints:)];
+  
+  NSArray *segmentItems = [NSArray arrayWithObjects:@"AREA", @"CIRCLE", @"PANO", nil];
+  
+  self.wpGeneratorSelection = [[UISegmentedControl alloc] initWithItems:segmentItems];
+  self.wpGeneratorSelection.segmentedControlStyle = UISegmentedControlStyleBar;
+  
+  [self.wpGeneratorSelection setImage:[UIImage imageNamed:@"wpgen-area.png"] forSegmentAtIndex:0];
+  [self.wpGeneratorSelection setImage:[UIImage imageNamed:@"wpgen-circle.png"] forSegmentAtIndex:1];
+  [self.wpGeneratorSelection setImage:[UIImage imageNamed:@"wpgen-pano.png"] forSegmentAtIndex:2];
+  
+  self.wpGeneratorSelection.momentary = YES;
+  
+  [self.wpGeneratorSelection addTarget:self
+                                action:@selector(showWpGen:)
+                      forControlEvents:UIControlEventValueChanged];
+  
+  self.wpGeneratorSelectionButton = [[UIBarButtonItem alloc]
+                    initWithCustomView:self.wpGeneratorSelection];
+
+  self.wpGenButton = [[UIBarButtonItem alloc] initWithTitle:@"WP" 
+                                                       style:UIBarButtonItemStyleBordered 
+                                                      target:self action:@selector(showWpGenerator)];
+
+  
+  if(self.forWpGenModal) {
+    self.navigationItem.hidesBackButton = YES;
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                 target:self
+                                                                                 action:@selector(dismiss)];
+    
+    self.navigationItem.leftBarButtonItem = doneButton;
+  }
+
 }
 
 - (void)updateToolbar {
@@ -196,9 +286,18 @@ DEFINE_KEY(MKTRouteMapViewType);
   [tbArray addObject:self.curlBarItem];
   [tbArray addObject:self.spacer];
   
+  if(IS_IPAD() || self.forWpGenModal){
+
+    [tbArray addObject:self.wpGenerateConfigItem];
+    [tbArray addObject:self.wpGenerateItem];
+    [tbArray addObject:self.wpGeneratorSelectionButton];
+
+  }
+  else{
+    [tbArray addObject:self.wpGenButton];
     [tbArray addObject:self.addWithGpsButton];
     [tbArray addObject:self.addButton];
-  
+  }
   if (self.delegate) {
     
     self.toolbarItems = tbArray;
@@ -214,7 +313,10 @@ DEFINE_KEY(MKTRouteMapViewType);
 }
 
 - (void)updateToolbarState{
-  
+  BOOL wpgen = self.wpgenController != nil;
+  self.wpGenerateItem.enabled = wpgen;
+  self.wpGenerateConfigItem.enabled = wpgen;
+  self.wpGeneratorSelection.enabled = !wpgen;
 }
 
 
@@ -601,5 +703,96 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   return _fetchedResultsController;
 }
 
+///////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Wayponint generation
+
+- (void)showWpGen:(id)sender {
+  
+  switch (self.wpGeneratorSelection.selectedSegmentIndex) {
+    case 0:
+      self.wpgenController = [[WPGenAreaViewController alloc] initForMapView:self.mapView];
+      break;
+      
+    case 1:
+      self.wpgenController = [[WPGenCircleViewController alloc] initForMapView:self.mapView];
+      break;
+      
+    case 2:
+      self.wpgenController = [[WPGenPanoViewController alloc] initForMapView:self.mapView];
+      break;
+      
+    default:
+      self.wpgenController = nil;
+      break;
+  }
+  self.wpgenController.delegate = self;
+  self.wpgenController.parentController = self;
+  
+  [self updateToolbarState];
+  [self.mapView addSubview:self.wpgenController.view];
+  
+}
+
+- (void)generateWayPoints {
+  [self.wpgenController generatePoints:self];
+}
+
+- (void)configWayPoints:(id)sender {
+  [self.wpgenController showConfig:sender];
+}
+
+- (void)showWpGenerator{
+  if(IS_IPHONE()){
+    
+    MKTRouteMapViewController* controller = [[MKTRouteMapViewController alloc] initWithRoute:self.route];
+    
+    controller.forWpGenModal = YES;
+    
+    UINavigationController *modalNavController = [[UINavigationController alloc]
+                                                  initWithRootViewController:controller];
+    
+    [self.navigationController presentModalViewController:modalNavController
+                                                 animated:YES];
+  }
+}
+
+
+- (void)dismiss{
+  [self.navigationController dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - Waypoint Generator Delegate
+
+- (void)controllerWillClose:(WPGenBaseViewController *)controller {
+  self.wpgenController = nil;
+  [self updateToolbarState];
+}
+
+- (void)controller:(WPGenBaseViewController *)controller generatedPoints:(NSArray *)points clearList:(BOOL)clear {
+  
+  if (clear)
+   [self.route removeAllPoints];
+  
+  [self.route addPointsFromArray:points];
+  
+//  
+//  id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
+//  
+//  NSUInteger numberOfpoints = [sectionInfo numberOfObjects];
+//  
+//  [self.mapView removeAnnotations:self.mapView.annotations];
+//  [self.mapView addAnnotations:[sectionInfo objects]];
+//  [self updateRouteOverlay];
+//
+//  
+//  [self.mapView removeAnnotations:self.mapView.annotations];
+//  [self.mapView addAnnotations:route.points];
+//  [self updateRouteOverlay];
+//  
+//  [Route sendChangedNotification:self];
+  
+  [[CoreDataStore mainStore] save];
+  
+}
 
 @end

@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2010, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,63 +22,38 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import "StringToNumberTransformer.h"
+#import "WPGenConfigViewController.h"
 
-@implementation StringToNumberTransformer
-
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
-
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
-
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [NSNumber numberWithInteger:[value integerValue]];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [value stringValue];
-}
+@interface WPGenConfigViewController ()
 
 @end
 
-@implementation StringToDoubleNumberTransformer
+@implementation WPGenConfigViewController
 
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
-
-- (id)init {
-  self = [super init];
-  if (self) {
-    formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:6];
-    [formatter setMinimumFractionDigits:6];
+- (id)initWithFormDataSource:(IBAFormDataSource *)formDataSource {
+  if ((self = [super initWithNibName:nil bundle:nil formDataSource:formDataSource])) {
+    self.title = NSLocalizedString(@"Waypoint", @"Waypoint view title");
   }
   return self;
 }
 
-+ (BOOL)allowsReverseTransformation {
+- (void)loadView {
+  [super loadView];
+
+  UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+
+  UITableView *formTableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStyleGrouped];
+  [formTableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+  [self setTableView:formTableView];
+
+  [view addSubview:formTableView];
+  [self setView:view];
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return YES;
-}
-
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [formatter numberFromString:value];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [formatter stringFromNumber:value];
 }
 
 @end

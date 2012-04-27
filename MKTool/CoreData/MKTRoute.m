@@ -216,7 +216,17 @@
 }
 
 
+- (void)addPointsFromArray:(NSArray*)array{
+  
+  for (MKTPoint* p in array) {
+    [self addPointsObject:p];
+    [self updatePointsOrder];
+  }
+}
 
+- (void)removeAllPoints{
+  [self removePoints:self.points];
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - 

@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,63 +22,60 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import "StringToNumberTransformer.h"
 
-@implementation StringToNumberTransformer
+#import "WPGenBaseView.h"
 
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
-
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
-
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [NSNumber numberWithInteger:[value integerValue]];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [value stringValue];
-}
+@interface WPGenBaseView ()
 
 @end
 
-@implementation StringToDoubleNumberTransformer
+@implementation WPGenBaseView
 
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
+@synthesize points = _points;
+@synthesize wpTextFont = _wpTextFont;
+@synthesize wpColor = _wpColor;
 
-- (id)init {
-  self = [super init];
+- (id)initWithFrame:(CGRect)frame {
+  self = [super initWithFrame:frame];
   if (self) {
-    formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:6];
-    [formatter setMinimumFractionDigits:6];
+    self.backgroundColor = [UIColor clearColor];
+    self.wpTextFont = [UIFont boldSystemFontOfSize:10];
+    self.wpColor = [UIColor colorWithRed:0.0 green:0.5 blue:0.25 alpha:1.0];
   }
   return self;
 }
 
-+ (BOOL)allowsReverseTransformation {
-  return YES;
+- (void)dealloc {
+  self.wpColor = nil;
+  self.wpTextFont = nil;
+  self.points = nil;
 }
 
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
+- (void)drawWaypointAt:(CGPoint)p index:(NSUInteger)idx withContext:(CGContextRef)context {
 
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [formatter numberFromString:value];
-}
+  CGContextSaveGState(context);
 
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [formatter stringFromNumber:value];
+  CGRect pointRect = CGRectMake(p.x - 7, p.y - 7, 14, 14);
+  if (idx == 0)
+    [[UIColor redColor] set];
+  else
+    [self.wpColor set];
+
+  CGContextFillEllipseInRect(context, pointRect);
+
+  [[UIColor whiteColor] set];
+  CGContextAddEllipseInRect(context, pointRect);
+  CGContextStrokePath(context);
+  NSString *text = [NSString stringWithFormat:@"%d", idx + 1];
+
+  CGSize textSize = [text sizeWithFont:self.wpTextFont];
+  CGRect textRect = CGRectMake(p.x, p.y, textSize.width, textSize.height);
+
+  textRect = CGRectOffset(textRect, -textSize.width / 2, -textSize.height / 2);
+
+  [text drawAtPoint:textRect.origin withFont:self.wpTextFont];
+
+  CGContextRestoreGState(context);
 }
 
 @end

@@ -42,6 +42,9 @@
 - (MKTPoint *)addPointAtCenter;
 - (MKTPoint *)addPointAtCoordinate:(CLLocationCoordinate2D)coordinate;
 
+- (void)addPointsFromArray:(NSArray*)array;
+- (void)removeAllPoints;
+
 - (MKTPoint *)pointWithIndexx:(int)index;
 
 - (void)movePointAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;

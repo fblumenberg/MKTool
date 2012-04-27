@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,63 +22,23 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import "StringToNumberTransformer.h"
+#import <IBAForms/IBAFormDataSource.h>
 
-@implementation StringToNumberTransformer
+@protocol WPGenBaseDataSourceDelegate;
 
-+ (id)instance {
-  return [[[self class] alloc] init];
+@interface WPGenBaseDataSource : IBAFormDataSource {
+
 }
 
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
+- (void)addAttributeSection;
 
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [NSNumber numberWithInteger:[value integerValue]];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [value stringValue];
-}
+@property(nonatomic, assign) id <WPGenBaseDataSourceDelegate> delegate;
 
 @end
 
-@implementation StringToDoubleNumberTransformer
+@protocol WPGenBaseDataSourceDelegate
 
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
+- (void)dataSource:(WPGenBaseDataSource *)changed;
 
-- (id)init {
-  self = [super init];
-  if (self) {
-    formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:6];
-    [formatter setMinimumFractionDigits:6];
-  }
-  return self;
-}
-
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
-
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [formatter numberFromString:value];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [formatter stringFromNumber:value];
-}
 
 @end

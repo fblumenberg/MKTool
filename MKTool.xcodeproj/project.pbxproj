@@ -21,6 +21,22 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		76DB5A49154A7E47002FFA78 /* WPGenAreaDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A2F154A7E47002FFA78 /* WPGenAreaDataSource.m */; };
+		76DB5A4A154A7E47002FFA78 /* WPGenAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A31154A7E47002FFA78 /* WPGenAreaView.m */; };
+		76DB5A4B154A7E47002FFA78 /* WPGenAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A33154A7E47002FFA78 /* WPGenAreaViewController.m */; };
+		76DB5A4C154A7E47002FFA78 /* WPGenBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A35154A7E47002FFA78 /* WPGenBaseDataSource.m */; };
+		76DB5A4D154A7E47002FFA78 /* WPGenBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A37154A7E47002FFA78 /* WPGenBaseView.m */; };
+		76DB5A4E154A7E47002FFA78 /* WPGenBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A39154A7E47002FFA78 /* WPGenBaseViewController.m */; };
+		76DB5A4F154A7E47002FFA78 /* WPGenBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76DB5A3A154A7E47002FFA78 /* WPGenBaseViewController.xib */; };
+		76DB5A50154A7E47002FFA78 /* WPGenCircleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A3C154A7E47002FFA78 /* WPGenCircleDataSource.m */; };
+		76DB5A51154A7E47002FFA78 /* WPGenCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A3E154A7E47002FFA78 /* WPGenCircleView.m */; };
+		76DB5A52154A7E47002FFA78 /* WPGenCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A40154A7E47002FFA78 /* WPGenCircleViewController.m */; };
+		76DB5A53154A7E47002FFA78 /* WPGenConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A42154A7E47002FFA78 /* WPGenConfigViewController.m */; };
+		76DB5A54154A7E47002FFA78 /* WPGenPanoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A44154A7E47002FFA78 /* WPGenPanoDataSource.m */; };
+		76DB5A55154A7E47002FFA78 /* WPGenPanoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A46154A7E47002FFA78 /* WPGenPanoView.m */; };
+		76DB5A56154A7E47002FFA78 /* WPGenPanoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A48154A7E47002FFA78 /* WPGenPanoViewController.m */; };
+		76DB5A59154A824A002FFA78 /* IBAFormSection+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A58154A824A002FFA78 /* IBAFormSection+Create.m */; };
+		76DB5A5C154A8302002FFA78 /* MKParamPotiValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A5B154A8302002FFA78 /* MKParamPotiValueTransformer.m */; };
 		BAA229E41541F02C004F92AA /* icon-calculate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA229E31541F02C004F92AA /* icon-calculate@2x.png */; };
 		BAA229FE1541F811004F92AA /* MKTPointBulkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229F51541F811004F92AA /* MKTPointBulkViewController.m */; };
 		BAA229FF1541F811004F92AA /* MKTPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229F71541F811004F92AA /* MKTPointViewController.m */; };
@@ -204,6 +220,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76DB5A2E154A7E47002FFA78 /* WPGenAreaDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenAreaDataSource.h; sourceTree = "<group>"; };
+		76DB5A2F154A7E47002FFA78 /* WPGenAreaDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenAreaDataSource.m; sourceTree = "<group>"; };
+		76DB5A30154A7E47002FFA78 /* WPGenAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenAreaView.h; sourceTree = "<group>"; };
+		76DB5A31154A7E47002FFA78 /* WPGenAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenAreaView.m; sourceTree = "<group>"; };
+		76DB5A32154A7E47002FFA78 /* WPGenAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenAreaViewController.h; sourceTree = "<group>"; };
+		76DB5A33154A7E47002FFA78 /* WPGenAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenAreaViewController.m; sourceTree = "<group>"; };
+		76DB5A34154A7E47002FFA78 /* WPGenBaseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenBaseDataSource.h; sourceTree = "<group>"; };
+		76DB5A35154A7E47002FFA78 /* WPGenBaseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenBaseDataSource.m; sourceTree = "<group>"; };
+		76DB5A36154A7E47002FFA78 /* WPGenBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenBaseView.h; sourceTree = "<group>"; };
+		76DB5A37154A7E47002FFA78 /* WPGenBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenBaseView.m; sourceTree = "<group>"; };
+		76DB5A38154A7E47002FFA78 /* WPGenBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenBaseViewController.h; sourceTree = "<group>"; };
+		76DB5A39154A7E47002FFA78 /* WPGenBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenBaseViewController.m; sourceTree = "<group>"; };
+		76DB5A3A154A7E47002FFA78 /* WPGenBaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPGenBaseViewController.xib; sourceTree = "<group>"; };
+		76DB5A3B154A7E47002FFA78 /* WPGenCircleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenCircleDataSource.h; sourceTree = "<group>"; };
+		76DB5A3C154A7E47002FFA78 /* WPGenCircleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenCircleDataSource.m; sourceTree = "<group>"; };
+		76DB5A3D154A7E47002FFA78 /* WPGenCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenCircleView.h; sourceTree = "<group>"; };
+		76DB5A3E154A7E47002FFA78 /* WPGenCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenCircleView.m; sourceTree = "<group>"; };
+		76DB5A3F154A7E47002FFA78 /* WPGenCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenCircleViewController.h; sourceTree = "<group>"; };
+		76DB5A40154A7E47002FFA78 /* WPGenCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenCircleViewController.m; sourceTree = "<group>"; };
+		76DB5A41154A7E47002FFA78 /* WPGenConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenConfigViewController.h; sourceTree = "<group>"; };
+		76DB5A42154A7E47002FFA78 /* WPGenConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenConfigViewController.m; sourceTree = "<group>"; };
+		76DB5A43154A7E47002FFA78 /* WPGenPanoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenPanoDataSource.h; sourceTree = "<group>"; };
+		76DB5A44154A7E47002FFA78 /* WPGenPanoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenPanoDataSource.m; sourceTree = "<group>"; };
+		76DB5A45154A7E47002FFA78 /* WPGenPanoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenPanoView.h; sourceTree = "<group>"; };
+		76DB5A46154A7E47002FFA78 /* WPGenPanoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenPanoView.m; sourceTree = "<group>"; };
+		76DB5A47154A7E47002FFA78 /* WPGenPanoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenPanoViewController.h; sourceTree = "<group>"; };
+		76DB5A48154A7E47002FFA78 /* WPGenPanoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenPanoViewController.m; sourceTree = "<group>"; };
+		76DB5A57154A824A002FFA78 /* IBAFormSection+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IBAFormSection+Create.h"; path = "MKTool/OtherSources/IBAFormsHelper/IBAFormSection+Create.h"; sourceTree = SOURCE_ROOT; };
+		76DB5A58154A824A002FFA78 /* IBAFormSection+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IBAFormSection+Create.m"; path = "MKTool/OtherSources/IBAFormsHelper/IBAFormSection+Create.m"; sourceTree = SOURCE_ROOT; };
+		76DB5A5A154A8302002FFA78 /* MKParamPotiValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParamPotiValueTransformer.h; sourceTree = "<group>"; };
+		76DB5A5B154A8302002FFA78 /* MKParamPotiValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParamPotiValueTransformer.m; sourceTree = "<group>"; };
 		BAA229E31541F02C004F92AA /* icon-calculate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-calculate@2x.png"; sourceTree = "<group>"; };
 		BAA229F41541F811004F92AA /* MKTPointBulkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointBulkViewController.h; sourceTree = "<group>"; };
 		BAA229F51541F811004F92AA /* MKTPointBulkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointBulkViewController.m; sourceTree = "<group>"; };
@@ -498,9 +545,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76DB5A2D154A7E47002FFA78 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				76DB5A2E154A7E47002FFA78 /* WPGenAreaDataSource.h */,
+				76DB5A2F154A7E47002FFA78 /* WPGenAreaDataSource.m */,
+				76DB5A30154A7E47002FFA78 /* WPGenAreaView.h */,
+				76DB5A31154A7E47002FFA78 /* WPGenAreaView.m */,
+				76DB5A32154A7E47002FFA78 /* WPGenAreaViewController.h */,
+				76DB5A33154A7E47002FFA78 /* WPGenAreaViewController.m */,
+				76DB5A34154A7E47002FFA78 /* WPGenBaseDataSource.h */,
+				76DB5A35154A7E47002FFA78 /* WPGenBaseDataSource.m */,
+				76DB5A36154A7E47002FFA78 /* WPGenBaseView.h */,
+				76DB5A37154A7E47002FFA78 /* WPGenBaseView.m */,
+				76DB5A38154A7E47002FFA78 /* WPGenBaseViewController.h */,
+				76DB5A39154A7E47002FFA78 /* WPGenBaseViewController.m */,
+				76DB5A3A154A7E47002FFA78 /* WPGenBaseViewController.xib */,
+				76DB5A3B154A7E47002FFA78 /* WPGenCircleDataSource.h */,
+				76DB5A3C154A7E47002FFA78 /* WPGenCircleDataSource.m */,
+				76DB5A3D154A7E47002FFA78 /* WPGenCircleView.h */,
+				76DB5A3E154A7E47002FFA78 /* WPGenCircleView.m */,
+				76DB5A3F154A7E47002FFA78 /* WPGenCircleViewController.h */,
+				76DB5A40154A7E47002FFA78 /* WPGenCircleViewController.m */,
+				76DB5A41154A7E47002FFA78 /* WPGenConfigViewController.h */,
+				76DB5A42154A7E47002FFA78 /* WPGenConfigViewController.m */,
+				76DB5A43154A7E47002FFA78 /* WPGenPanoDataSource.h */,
+				76DB5A44154A7E47002FFA78 /* WPGenPanoDataSource.m */,
+				76DB5A45154A7E47002FFA78 /* WPGenPanoView.h */,
+				76DB5A46154A7E47002FFA78 /* WPGenPanoView.m */,
+				76DB5A47154A7E47002FFA78 /* WPGenPanoViewController.h */,
+				76DB5A48154A7E47002FFA78 /* WPGenPanoViewController.m */,
+			);
+			path = Generator;
+			sourceTree = "<group>";
+		};
 		BAA229F31541F811004F92AA /* Waypoints */ = {
 			isa = PBXGroup;
 			children = (
+				76DB5A2D154A7E47002FFA78 /* Generator */,
 				BAF0CA871549D1D800C31A02 /* Synchronization */,
 				BAEE75D315431CC600A92FA4 /* Point */,
 				BAEE75D415431CE000A92FA4 /* Route */,
@@ -513,6 +595,10 @@
 		BAA22A041541FB48004F92AA /* IBAFormsHelper */ = {
 			isa = PBXGroup;
 			children = (
+				76DB5A5A154A8302002FFA78 /* MKParamPotiValueTransformer.h */,
+				76DB5A5B154A8302002FFA78 /* MKParamPotiValueTransformer.m */,
+				76DB5A57154A824A002FFA78 /* IBAFormSection+Create.h */,
+				76DB5A58154A824A002FFA78 /* IBAFormSection+Create.m */,
 				BAA22A051541FB49004F92AA /* SettingsButtonStyle.h */,
 				BAA22A061541FB49004F92AA /* SettingsButtonStyle.m */,
 				BAA22A071541FB49004F92AA /* SettingsFieldStyle.h */,
@@ -533,7 +619,9 @@
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
 				BAB2F1F615409C8C00ECE09A /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		BAB2F1F615409C8C00ECE09A /* Products */ = {
 			isa = PBXGroup;
@@ -1175,6 +1263,7 @@
 				BAF0CA76154885B900C31A02 /* IASKSpecifierValuesView.xib in Resources */,
 				BAF0CA781548863F00C31A02 /* Settings.bundle in Resources */,
 				BAF0CA991549F5E500C31A02 /* white_texture.png in Resources */,
+				76DB5A4F154A7E47002FFA78 /* WPGenBaseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1269,6 +1358,21 @@
 				BAF0CA861549D03500C31A02 /* MBProgressHUD.m in Sources */,
 				BAF0CA8C1549D1F400C31A02 /* MKTRouteDropboxController.m in Sources */,
 				BAF0CA8D1549D1F400C31A02 /* MKTRouteSyncModel.m in Sources */,
+				76DB5A49154A7E47002FFA78 /* WPGenAreaDataSource.m in Sources */,
+				76DB5A4A154A7E47002FFA78 /* WPGenAreaView.m in Sources */,
+				76DB5A4B154A7E47002FFA78 /* WPGenAreaViewController.m in Sources */,
+				76DB5A4C154A7E47002FFA78 /* WPGenBaseDataSource.m in Sources */,
+				76DB5A4D154A7E47002FFA78 /* WPGenBaseView.m in Sources */,
+				76DB5A4E154A7E47002FFA78 /* WPGenBaseViewController.m in Sources */,
+				76DB5A50154A7E47002FFA78 /* WPGenCircleDataSource.m in Sources */,
+				76DB5A51154A7E47002FFA78 /* WPGenCircleView.m in Sources */,
+				76DB5A52154A7E47002FFA78 /* WPGenCircleViewController.m in Sources */,
+				76DB5A53154A7E47002FFA78 /* WPGenConfigViewController.m in Sources */,
+				76DB5A54154A7E47002FFA78 /* WPGenPanoDataSource.m in Sources */,
+				76DB5A55154A7E47002FFA78 /* WPGenPanoView.m in Sources */,
+				76DB5A56154A7E47002FFA78 /* WPGenPanoViewController.m in Sources */,
+				76DB5A59154A824A002FFA78 /* IBAFormSection+Create.m in Sources */,
+				76DB5A5C154A8302002FFA78 /* MKParamPotiValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,4 +37,6 @@
 
 - (void) clearAllSelections;
 
+@property(assign) BOOL forWpGenModal;
+
 @end

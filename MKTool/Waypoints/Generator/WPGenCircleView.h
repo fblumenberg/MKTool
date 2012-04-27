@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,63 +22,18 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import "StringToNumberTransformer.h"
 
-@implementation StringToNumberTransformer
+#import <UIKit/UIKit.h>
 
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
+#import "WPGenBaseView.h"
 
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
+@interface WPGenCircleView : WPGenBaseView
 
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
+@property(assign) NSInteger noPoints;
+@property(assign) BOOL clockwise;
+@property(assign) BOOL closed;
 
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [NSNumber numberWithInteger:[value integerValue]];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [value stringValue];
-}
-
-@end
-
-@implementation StringToDoubleNumberTransformer
-
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
-
-- (id)init {
-  self = [super init];
-  if (self) {
-    formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:6];
-    [formatter setMinimumFractionDigits:6];
-  }
-  return self;
-}
-
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
-
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [formatter numberFromString:value];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [formatter stringFromNumber:value];
-}
+-(void) updatePoints;
+-(CGPoint)poi;
 
 @end

@@ -27,6 +27,7 @@
 
 #import "InnerBand.h"
 #import "MKTRouteListViewController.h"
+#import "MKTRouteMapViewController.h"
 #import "MKTPointViewController.h"
 #import "MKTPointBulkViewController.h"
 #import "MKTPoint.h"
@@ -249,12 +250,16 @@
   [tbArray addObject:self.editButtonItem];
   [tbArray addObject:self.spacer];
 
+  
   if (self.tableView.isEditing) {
     [tbArray addObject:self.updateButton];
     [tbArray addObject:self.spacer];
     [tbArray addObject:self.deleteButton];
   }
   else {
+    if(IS_IPHONE()){
+      [tbArray addObject:self.wpGenButton];
+    }
     [tbArray addObject:self.addWithGpsButton];
     [tbArray addObject:self.addButton];
   }
@@ -660,6 +665,21 @@
   }
   else {
     [self.navigationController pushViewController:controller animated:YES];
+  }
+}
+
+- (void)showWpGenerator{
+  if(IS_IPHONE()){
+    
+    MKTRouteMapViewController* controller = [[MKTRouteMapViewController alloc] initWithRoute:self.route];
+    
+    controller.forWpGenModal = YES;
+    
+    UINavigationController *modalNavController = [[UINavigationController alloc]
+                                                  initWithRootViewController:controller];
+    
+    [self.navigationController presentModalViewController:modalNavController
+                                                 animated:YES];
   }
 }
 

@@ -22,63 +22,20 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import "StringToNumberTransformer.h"
+#import <IBAForms/IBAForms.h>
 
-@implementation StringToNumberTransformer
+@interface IBAFormSection (Creation)
 
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
+- (IBAStepperFormField*)addStepperFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (IBATextFormField*)addNumberFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (void)addSwitchFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (void)addSwitchFieldForKeyPath:(NSString *)keyPath title:(NSString *)title style:(IBAFormFieldStyle *)style;
+- (void)addTextFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (void)addPotiFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (void)addPotiFieldWithOutForKeyPath:(NSString *)keyPath title:(NSString *)title;
 
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
+- (void)addChannelsForKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (void)addChannelsPlusForKeyPath:(NSString *)keyPath title:(NSString *)title;
 
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [NSNumber numberWithInteger:[value integerValue]];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [value stringValue];
-}
-
-@end
-
-@implementation StringToDoubleNumberTransformer
-
-+ (id)instance {
-  return [[[self class] alloc] init];
-}
-
-- (id)init {
-  self = [super init];
-  if (self) {
-    formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:6];
-    [formatter setMinimumFractionDigits:6];
-  }
-  return self;
-}
-
-+ (BOOL)allowsReverseTransformation {
-  return YES;
-}
-
-+ (Class)transformedValueClass {
-  return [NSNumber class];
-}
-
-- (NSNumber *)transformedValue:(NSString *)value {
-  return [formatter numberFromString:value];
-}
-
-- (NSString *)reverseTransformedValue:(NSNumber *)value {
-  return [formatter stringFromNumber:value];
-}
 
 @end
