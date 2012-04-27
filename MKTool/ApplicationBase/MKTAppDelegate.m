@@ -23,6 +23,8 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 
+#import "TestFlight.h"
+
 #import "MGSplitViewController.h"
 
 #import "MKTAppDelegate.h"
@@ -52,6 +54,12 @@
 #define kDROPBOX_APP_SECRET @"<YOUR CONSUMER SECRET>"
 #endif
 
+#ifndef kTESTFLIGHTTOKEN
+#define kTESTFLIGHTTOKEN @"<YOUR TOKEN>"
+#endif
+
+#define TESTING 1
+
 
 @interface MKTAppDelegate () <DBSessionDelegate>
 
@@ -69,6 +77,12 @@
 @synthesize splitViewController = _splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+  [TestFlight takeOff:kTESTFLIGHTTOKEN];
+  
+#ifdef TESTING
+  [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+#endif
 
   
   [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {

@@ -18,7 +18,6 @@
 		<string>Icon-iPad@2x.png</string>
 		<string>Icon-iPhone.png</string>
 		<string>Icon-iPhone@2x.png</string>
-		<string>iTunesArtwork</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>de.frankblumenberg.mktool</string>

@@ -37,6 +37,8 @@
 		76DB5A56154A7E47002FFA78 /* WPGenPanoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A48154A7E47002FFA78 /* WPGenPanoViewController.m */; };
 		76DB5A59154A824A002FFA78 /* IBAFormSection+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A58154A824A002FFA78 /* IBAFormSection+Create.m */; };
 		76DB5A5C154A8302002FFA78 /* MKParamPotiValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A5B154A8302002FFA78 /* MKParamPotiValueTransformer.m */; };
+		BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41B154B1297005C882A /* libTestFlight.a */; };
+		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
 		BAA229E41541F02C004F92AA /* icon-calculate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA229E31541F02C004F92AA /* icon-calculate@2x.png */; };
 		BAA229FE1541F811004F92AA /* MKTPointBulkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229F51541F811004F92AA /* MKTPointBulkViewController.m */; };
 		BAA229FF1541F811004F92AA /* MKTPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA229F71541F811004F92AA /* MKTPointViewController.m */; };
@@ -251,6 +253,9 @@
 		76DB5A58154A824A002FFA78 /* IBAFormSection+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IBAFormSection+Create.m"; path = "MKTool/OtherSources/IBAFormsHelper/IBAFormSection+Create.m"; sourceTree = SOURCE_ROOT; };
 		76DB5A5A154A8302002FFA78 /* MKParamPotiValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParamPotiValueTransformer.h; sourceTree = "<group>"; };
 		76DB5A5B154A8302002FFA78 /* MKParamPotiValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParamPotiValueTransformer.m; sourceTree = "<group>"; };
+		BA18C41B154B1297005C882A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		BA18C41C154B1297005C882A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BAA229E31541F02C004F92AA /* icon-calculate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-calculate@2x.png"; sourceTree = "<group>"; };
 		BAA229F41541F811004F92AA /* MKTPointBulkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointBulkViewController.h; sourceTree = "<group>"; };
 		BAA229F51541F811004F92AA /* MKTPointBulkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointBulkViewController.m; sourceTree = "<group>"; };
@@ -506,6 +511,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA18C41F154B1301005C882A /* libz.dylib in Frameworks */,
 				BAEE75F11543FEA000A92FA4 /* QuartzCore.framework in Frameworks */,
 				BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */,
 				BAB2F2871540A5DD00ECE09A /* CoreText.framework in Frameworks */,
@@ -521,6 +527,7 @@
 				BAB2F26B15409EE700ECE09A /* DropboxSDK.framework in Frameworks */,
 				BAEE75F51544064300A92FA4 /* GHKitIOS.framework in Frameworks */,
 				BAF0C9EB15444A7000C31A02 /* YelpKit-FB.framework in Frameworks */,
+				BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +586,16 @@
 			path = Generator;
 			sourceTree = "<group>";
 		};
+		BA18C41A154B1297005C882A /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				BA18C41B154B1297005C882A /* libTestFlight.a */,
+				BA18C41C154B1297005C882A /* TestFlight.h */,
+			);
+			name = TestFlight;
+			path = Frameworks/TestFlight;
+			sourceTree = "<group>";
+		};
 		BAA229F31541F811004F92AA /* Waypoints */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +631,7 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
+				BA18C41E154B1301005C882A /* libz.dylib */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
@@ -635,6 +653,7 @@
 		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA18C41A154B1297005C882A /* TestFlight */,
 				BAB2F22715409E0900ECE09A /* BlocksKit */,
 				BAB2F24D15409E4500ECE09A /* CoreData.framework */,
 				BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */,
@@ -1510,7 +1529,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1544,6 +1563,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
+					"\"$(SRCROOT)/Frameworks/TestFlight\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1573,6 +1593,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
+					"\"$(SRCROOT)/Frameworks/TestFlight\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
