@@ -1,7 +1,138 @@
-/* 
-  Localizable.strings
+/* Localizable.strings
   MKTool
 
   Created by Frank Blumenberg on 27.04.12.
-  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-*/
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved. */
+
+/* POI cell */
+"%@ - POI" = "%@ - POI";
+
+/* Waypoint cell */
+"%@ - Waypoint" = "%@ - Wegpunkt";
+
+/* WPclosed */
+"Add Point To close" = "Extra WP zum schließen";
+
+/* WP Altitude title */
+"Altitude" = "Höhe [m]";
+
+/* DB Login Err Unknown Msg */
+"An unknown error has occurred." = "Es ist ein unbekannter Fehler aufgetreten.";
+
+/* WP event title */
+"Camera nick angle" = "Kamerawinkel[°]";
+
+/* Cancel Button
+   Cancel bar button */
+"Cancel" = "Abbrechen";
+
+/* Change points toolbar button
+   Change toolbar button */
+"Change" = "Ändern";
+
+/* Change toolbar button */
+"Change(%d)" = "Ändern(%d)";
+
+/* WPclearWpList title */
+"Clear Waipoints" = "Lösche existierende WP";
+
+/* WP event title */
+"Climb rate" = "Steigrate[0,1 m/s]";
+
+/* WPclockwise */
+"Clockwise" = "Im Uhrzeigersinn";
+
+/* Delete toolbar button */
+"Delete" = "Löschen";
+
+/* Delete toolbar button */
+"Delete(%d)" = "Löschen(%d)";
+
+/* Error getting Location */
+"Error getting Location" = "Die aktuelle Position kann nicht ermittelt werden";
+
+/* Error loading map */
+"Error loading map" = "Die Karte kann nicht geladen werden";
+
+/* WP event title */
+"Event" = "Ereignis";
+
+/* Gernerate WP */
+"Generate" = "Erstellen";
+
+/* Getting Data Folder Error Title */
+"Getting the Route data folder failed" = "Das Datenverzeichnis für die Routen konnte nicht geladen werden";
+
+/* WP holdTime title */
+"HaltTime" = "Wartezeit [s]";
+
+/* WP Heading title */
+"Heading" = "Richtung[°]";
+
+/* INvalid WP Annotation callout */
+"Invalid - Index %@" = "Ungültig - Index %d";
+
+/* WP Latitude title */
+"Lat." = "Breite";
+
+/* WP Longitude title */
+"Long." = "Länge";
+
+/* WP Route name */
+"Name" = "Name";
+
+/* WP Pos Title */
+"Position" = "Position";
+
+/* WP Prefix */
+"Prefix" = "Prefix";
+
+/* WP toleranceRadius title */
+"Radius" = "Radius [m]";
+
+/* Restore Button */
+"Restore" = "Wiederherstellen";
+
+/* Route default name
+   Waypoint Lists title */
+"Route" = "Route";
+
+/* Routes Sync Title */
+"Routes Syncronisation" = "Routen synchronisieren";
+
+/* Routes Master title */
+"Routes" = "Routen";
+
+/* Save bar button */
+"Save" = "Speichern";
+
+/* No comment provided by engineer. */
+"Settings" = "Einstellungen";
+
+/* WP event title */
+"Speed" = "Geschwindigkeit[0,1 m/s]";
+
+/* Routes Restore Error Title */
+"Synchronization failed" = "Synchronisierung fehlgeschlagen";
+
+/* Restore Button */
+"Synchronize" = "Synchronisieren";
+
+/* DB Sync routes HUD */
+"Syncing" = "Synchronisieren...";
+
+/* DB Login Err Msg */
+"There was an error connecting to Dropbox." = "Bei der Herstellung der Verbindung zu Dropbox ist ein Fehler aufgetreten.";
+
+/* Unknown Error */
+"Unknown Error" = "Unbekannter Fehler";
+
+/* Waypoint view title */
+"Waypoint" = "Wegpunkt";
+
+/* Waypoint bulk view title */
+"Waypoints" = "Wegpunkte";
+
+/* WP Defaults Dialog title */
+"Waypoint Defaults" = "Wegpunktvorgaben";
+
