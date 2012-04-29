@@ -49,7 +49,6 @@
 @interface MKTRouteListViewController () <UITableViewDataSource, UITextFieldDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate> {
 
   BOOL userDrivenDataModelChange;
-  NSUInteger pointsSection;
 }
 
 @property(nonatomic, strong) CLLocationManager *lm;
@@ -134,16 +133,6 @@
 
 - (void)loadView {
   [super loadView];
-
-  UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-
-  UITableView *formTableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStyleGrouped];
-  [formTableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-  [self setTableView:formTableView];
-
-  [view addSubview:formTableView];
-  [self setView:view];
 }
 
 
@@ -196,12 +185,6 @@
   [super viewDidLoad];
 
   [self initToolbarButtons];
-
-  pointsSection = 1;
-//  [self.formDataSource numberOfSectionsInTableView:self.tableView];
-//  self.tableView.dataSource = self;
-  //  self.tableView.allowsSelectionDuringEditing = NO;
-  //self.tableView.allowsMultipleSelectionDuringEditing = YES;
 }
 
 - (void)viewDidUnload {
@@ -402,7 +385,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (!tableView.isEditing) {
-    if (indexPath.section != pointsSection)
+    if (indexPath.section == 0)
       [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     else {
       [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -417,7 +400,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-  return (indexPath.section == pointsSection);
+  return (indexPath.section > 0);
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -466,7 +449,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-  return (indexPath.section == pointsSection);
+  return (indexPath.section > 0);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

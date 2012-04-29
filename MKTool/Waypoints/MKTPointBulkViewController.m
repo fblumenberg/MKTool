@@ -64,6 +64,7 @@
   }
 
   MKTPointViewDataSource *dataSource = [[MKTPointViewDataSource alloc] initWithModel:model];
+  [dataSource.sections removeObjectAtIndex:0];
 
   if ((self = [super initWithNibName:nil bundle:nil formDataSource:dataSource])) {
     self.points = points;
