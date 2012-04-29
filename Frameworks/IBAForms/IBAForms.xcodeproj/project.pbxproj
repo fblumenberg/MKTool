@@ -246,22 +246,22 @@
 		7512408113A8F6BE007BF2B5 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA3472E4150AB5F30097A06F /* IBAStepperFormField.m */,
 				7512408213A8F6BE007BF2B5 /* IBABooleanFormField.m */,
 				7512408313A8F6BE007BF2B5 /* IBAButtonFormField.m */,
+				7512408413A8F6BE007BF2B5 /* IBADateFormField.m */,
 				7512408513A8F6BE007BF2B5 /* IBAFormDataSource.m */,
+				7512408613A8F6BE007BF2B5 /* IBAFormField.m */,
+				7512408713A8F6BE007BF2B5 /* IBAFormFieldStyle.m */,
 				7512408813A8F6BE007BF2B5 /* IBAFormSection.m */,
 				7512408913A8F6BE007BF2B5 /* IBAFormViewController.m */,
 				7512408A13A8F6BE007BF2B5 /* IBAInputRequestorFormField.m */,
 				7512408B13A8F6BE007BF2B5 /* IBALabelFormField.m */,
 				7512408C13A8F6BE007BF2B5 /* IBAPasswordFormField.m */,
-				7512408E13A8F6BE007BF2B5 /* IBAReadOnlyTextFormField.m */,
-				753A7EFB13B36BCF003931DA /* IBATitleFormField.m */,
 				7512408D13A8F6BE007BF2B5 /* IBAPickListFormField.m */,
-				7512408713A8F6BE007BF2B5 /* IBAFormFieldStyle.m */,
+				7512408E13A8F6BE007BF2B5 /* IBAReadOnlyTextFormField.m */,
+				BA3472E4150AB5F30097A06F /* IBAStepperFormField.m */,
 				7512408F13A8F6BE007BF2B5 /* IBATextFormField.m */,
-				7512408413A8F6BE007BF2B5 /* IBADateFormField.m */,
-				7512408613A8F6BE007BF2B5 /* IBAFormField.m */,
+				753A7EFB13B36BCF003931DA /* IBATitleFormField.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";

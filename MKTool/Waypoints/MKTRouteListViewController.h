@@ -28,7 +28,7 @@
 #import "MKTRouteViewControllerDelegate.h"
 #import "MKTRoute.h"
 
-@interface MKTRouteListViewController : IBAFormViewController
+@interface MKTRouteListViewController : UITableViewController
 
 @property(weak) id <MKTRouteViewControllerDelegate> delegate;
 @property(retain) MKTRoute *route;

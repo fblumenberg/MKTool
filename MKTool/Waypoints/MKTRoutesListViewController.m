@@ -76,7 +76,7 @@
   if (self) {
     self.title = NSLocalizedString(@"Routes", @"Routes Master title");
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-      self.clearsSelectionOnViewWillAppear = NO;
+      self.clearsSelectionOnViewWillAppear = YES;
       self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
   }
@@ -130,6 +130,7 @@
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

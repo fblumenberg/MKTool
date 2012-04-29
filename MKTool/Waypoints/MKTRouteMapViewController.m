@@ -45,12 +45,13 @@
 #import "WPGenPanoViewController.h"
 
 DEFINE_KEY(MKTRouteMapViewType);
+DEFINE_KEY(MKTRouteMapViewShowPosition);
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 ///////////////////////////////////////////////////////////////////////////////////
 
-@interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, 
+@interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, CLLocationManagerDelegate,
                                          WPGenBaseViewControllerDelegate, NSFetchedResultsControllerDelegate>{
   BOOL userDrivenDataModelChange;
 }
@@ -70,8 +71,10 @@ DEFINE_KEY(MKTRouteMapViewType);
 @property(nonatomic, strong) UIBarButtonItem *wpGeneratorSelectionButton;
 @property(nonatomic, strong) UIBarButtonItem *wpGenerateConfigItem;
 
+@property(nonatomic, strong) CLLocationManager *lm;
 
 @property(nonatomic,strong) IBOutlet UISegmentedControl *segmentedControl;
+@property(nonatomic,strong) IBOutlet UISwitch *showOwnPosition;
 @property(nonatomic,strong) IBOutlet UILabel *scaleLabel;
 
 - (void)updateToolbarState;
@@ -101,6 +104,8 @@ DEFINE_KEY(MKTRouteMapViewType);
 @synthesize route=_route;
 @synthesize delegate=_delegate;
 
+@synthesize lm;
+
 @synthesize popoverController;
 @synthesize mapView = _mapView;
 @synthesize curlBarItem;
@@ -108,6 +113,7 @@ DEFINE_KEY(MKTRouteMapViewType);
 @synthesize addButton;
 @synthesize addWithGpsButton;
 @synthesize segmentedControl;
+@synthesize showOwnPosition;
 @synthesize scaleLabel;
 
 @synthesize forWpGenModal;
@@ -134,6 +140,7 @@ DEFINE_KEY(MKTRouteMapViewType);
   if (self) {
     self.route = route;
     self.delegate = delegate;
+    
   }
   return self;
 }
@@ -143,8 +150,15 @@ DEFINE_KEY(MKTRouteMapViewType);
   [super viewDidLoad];
   [self initToolbar];
   
+  self.lm = [CLLocationManager new];
+  self.lm.delegate = self;
+  self.lm.desiredAccuracy = kCLLocationAccuracyBest;
+
   self.segmentedControl.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] gh_integerForKey:MKTRouteMapViewType 
                                                                                            withDefault:0];
+  
+  self.showOwnPosition.on = [[NSUserDefaults standardUserDefaults] gh_boolForKey:MKTRouteMapViewShowPosition 
+                                                                        withDefault:NO];
   [self changeMapViewType];
   
   UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
@@ -163,6 +177,7 @@ DEFINE_KEY(MKTRouteMapViewType);
   self.addButton = nil;
   self.addWithGpsButton = nil;
   self.segmentedControl = nil;
+  self.showOwnPosition = nil;
   self.scaleLabel = nil;
   self.wpgenController = nil;
   self.wpGenerateItem = nil;
@@ -171,6 +186,8 @@ DEFINE_KEY(MKTRouteMapViewType);
   self.wpGenerateConfigItem = nil;
   self.wpGenButton = nil;
 
+  [self.lm stopUpdatingLocation];
+  self.lm = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -194,8 +211,12 @@ DEFINE_KEY(MKTRouteMapViewType);
 
 - (void)changeMapViewType {
   [self.mapView setMapType:(MKMapType)self.segmentedControl.selectedSegmentIndex];
+  self.mapView.showsUserLocation = self.showOwnPosition.on;
+  
   [self.curlBarItem curlViewDown];
+  
   [[NSUserDefaults standardUserDefaults] setInteger:self.segmentedControl.selectedSegmentIndex forKey:MKTRouteMapViewType];
+  [[NSUserDefaults standardUserDefaults] setBool:self.showOwnPosition.on forKey:MKTRouteMapViewShowPosition];
 }
 
 - (void)curlViewControlWillCurlViewUp:(FDCurlViewControl *)control{
@@ -233,7 +254,7 @@ DEFINE_KEY(MKTRouteMapViewType);
   self.addWithGpsButton = [[UIBarButtonItem alloc]
                            initWithImage:[UIImage imageNamed:@"icon-add-gps.png"]
                            style:UIBarButtonItemStyleBordered
-                           target:nil
+                           target:self
                            action:@selector(addPointWithGps)];
 
   
@@ -326,6 +347,9 @@ DEFINE_KEY(MKTRouteMapViewType);
   [self.route addPointAtCenter];
 }
 
+- (void)addPointWithGps {
+  [self.lm startUpdatingLocation];
+}
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
   CGPoint p = [gestureRecognizer locationInView:self.mapView];
@@ -364,6 +388,42 @@ DEFINE_KEY(MKTRouteMapViewType);
   [self.mapView.annotations each:^(id<MKAnnotation> a){
     [self.mapView deselectAnnotation:a animated:YES];
   }];
+}
+
+
+#pragma mark - CLLocationManagerDelegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation {
+  
+  if ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60)
+    return;
+  
+  [self.lm stopUpdatingLocation];
+  [self.route addPointAtCoordinate:newLocation.coordinate];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+  
+  NSString *errorType = (error.code == kCLErrorDenied) ?
+  NSLocalizedString(@"Access Denied", @"Access Denied") :
+  NSLocalizedString(@"Unknown Error", @"Unknown Error");
+  
+  UIAlertView *alert = [[UIAlertView alloc]
+                        initWithTitle:NSLocalizedString(@"Error getting Location", @"Error getting Location") message:errorType
+                        delegate:self
+                        cancelButtonTitle:NSLocalizedString(@"OK", @"Okay") otherButtonTitles:nil];
+  [alert show];
+  
+  self.addWithGpsButton.enabled = IS_GPS_ENABLED();
+  self.lm = nil;
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+  [self updateToolbar];
 }
 
 

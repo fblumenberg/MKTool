@@ -1214,6 +1214,7 @@
 				BAB2F1F115409C8C00ECE09A /* Sources */,
 				BAB2F1F215409C8C00ECE09A /* Frameworks */,
 				BAB2F1F315409C8C00ECE09A /* Resources */,
+				BA937415154D441D00E444EC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1370,6 +1371,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		BA937415154D441D00E444EC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PRODUCT_SETTINGS_PATH}\" 2>/dev/null)\nif [[ \"${buildVersion}\" = \"\" ]]\nthen\necho -e \"\\\"${buildPlist}\\\" does not contain key: \\\"CFBundleVersion\\\"\"\nexit 1\nfi\n\nmarketVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PRODUCT_SETTINGS_PATH}\" 2>/dev/null)\nif [[ \"${buildVersion}\" = \"\" ]]\nthen\necho -e \"\\\"${buildPlist}\\\" does not contain key: \\\"CFBundleShortVersionString\\\"\"\nexit 1\nfi\n\ndSYMZipFile=\"${PROJECT_DIR}/Dsym/MKTool.app.dSYM-${marketVersion}-${buildVersion}.zip\"\ndSYMFile=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n\nif [ -e \"$dSYMZipFile\" ]; then\n    rm \"$dSYMZipFile\"\nfi\n\ncd \"$DWARF_DSYM_FOLDER_PATH\"\nzip \"${dSYMZipFile}\" \"${DWARF_DSYM_FILE_NAME}\"\n\n\n\n\n\n\n\n\n\n\n\n";
+		};
 		BAB2F28C1540A68800ECE09A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1607,8 +1621,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
-				COPY_PHASE_STRIP = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1616,7 +1630,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7D75DA84-CB85-4C93-B231-9433CB241245";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1626,7 +1640,7 @@
 		BAB2F22015409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 139;
+				CURRENT_PROJECT_VERSION = 143;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1657,7 +1671,8 @@
 		BAB2F22115409C8D00ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 139;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				CURRENT_PROJECT_VERSION = 143;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1681,6 +1696,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7D75DA84-CB85-4C93-B231-9433CB241245";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

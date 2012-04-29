@@ -1020,16 +1020,11 @@ BOOL IS_GPS_ENABLED_ON_DEVICE(void) {
 }
 
 BOOL IS_GPS_ENABLED_FOR_APP(void) {
-    // for 4.2+ only, we can check down to the app level
-    #ifdef kCLAuthorizationStatusAuthorized
-        if ([CLLocationManager respondsToSelector:@selector(authorizationStatus)]) {
-          CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-          return (status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusNotDetermined);
-        }
-    #endif
-    
-    // we can't know this
-    return YES;
+  if ([CLLocationManager respondsToSelector:@selector(authorizationStatus)]) {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    return (status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusNotDetermined);
+  }
+  return YES;
 }
 
 

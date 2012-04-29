@@ -40,13 +40,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 ///////////////////////////////////////////////////////////////////////////////////
-@interface MKTRouteListViewDataSource : IBAFormDataSource
+@interface MKTTextFormFieldCell : IBATextFormFieldCell
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 ///////////////////////////////////////////////////////////////////////////////////
-@interface MKTRouteListViewController () <UITableViewDataSource, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate> {
+@interface MKTRouteListViewController () <UITableViewDataSource, UITextFieldDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate> {
 
   BOOL userDrivenDataModelChange;
   NSUInteger pointsSection;
@@ -111,9 +111,7 @@
 
 - (id)initWithRoute:(MKTRoute *)route delegate:(id <MKTRouteViewControllerDelegate>)delegate {
 
-  MKTRouteListViewDataSource *dataSource = [[MKTRouteListViewDataSource alloc] initWithModel:route];
-
-  if ((self = [super initWithNibName:nil bundle:nil formDataSource:dataSource])) {
+  if ((self = [super initWithStyle:UITableViewStylePlain])) {
     self.route = route;
     self.delegate = delegate;
     self.title = NSLocalizedString(@"Route", @"Waypoint Lists title");
@@ -199,8 +197,9 @@
 
   [self initToolbarButtons];
 
-  pointsSection = [self.formDataSource numberOfSectionsInTableView:self.tableView];
-  self.tableView.dataSource = self;
+  pointsSection = 1;
+//  [self.formDataSource numberOfSectionsInTableView:self.tableView];
+//  self.tableView.dataSource = self;
   //  self.tableView.allowsSelectionDuringEditing = NO;
   //self.tableView.allowsMultipleSelectionDuringEditing = YES;
 }
@@ -209,7 +208,6 @@
   [super viewDidUnload];
   self.route = nil;
   self.fetchedResultsController = nil;
-  NSLog(@"viewDidUnload");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -225,9 +223,10 @@
   [super viewDidAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated{
   [super viewWillDisappear:animated];
 }
+
 
 - (void)viewDidDisappear:(BOOL)animated {
   [super viewDidDisappear:animated];
@@ -260,7 +259,10 @@
     if(IS_IPHONE()){
       [tbArray addObject:self.wpGenButton];
     }
-    [tbArray addObject:self.addWithGpsButton];
+    
+    if(IS_GPS_ENABLED())
+      [tbArray addObject:self.addWithGpsButton];
+    
     [tbArray addObject:self.addButton];
   }
 
@@ -299,8 +301,35 @@
 
   }
   else {
+    self.addWithGpsButton.enabled = IS_GPS_ENABLED();
   }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UITextFieldDelegate Functions
+
+- (void)_textChanged:(id)sender {
+  UITextField *text = (UITextField *) sender;
+  self.route.name = text.text;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+  [textField setTextAlignment:UITextAlignmentLeft];
+  return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+  //	self.currentFirstResponder = nil;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  return YES;
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UITableViewDataSource
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -311,24 +340,49 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-  NSInteger n = [self.formDataSource numberOfSectionsInTableView:tableView] + 1;
+  NSInteger n = 2;
   return n;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  if (section != pointsSection)
-    return [self.formDataSource tableView:tableView numberOfRowsInSection:section];
+  if (section == 0)
+    return 1;
 
   id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
-
-  NSLog(@"%@", sectionInfo);
 
   return [sectionInfo numberOfObjects];
 }
 
+- (UITableViewCell *)cellForExtra:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+  static NSString *CellIdentifier = @"WaypointExtraCell";
+  
+  MKTTextFormFieldCell *cell = (MKTTextFormFieldCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  
+  if (!cell) {
+    cell = [[MKTTextFormFieldCell alloc] initWithFormFieldStyle:[SettingsFieldStyleText new] reuseIdentifier:CellIdentifier];
+    
+    cell.textField.textAlignment = UITextAlignmentLeft;
+    cell.textField.returnKeyType = UIReturnKeyDone;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+  }
+  
+  [[cell label] setText:NSLocalizedString(@"Name", @"Waypoint List name label")];
+  
+  [[cell textField] setText:self.route.name];
+  
+  [[cell textField] setDelegate:self];
+  [[cell textField] addTarget:self action:@selector(_textChanged:) forControlEvents:UIControlEventEditingChanged];
+  [[cell textField] setSecureTextEntry:NO];
+  [[cell textField] setKeyboardType:UIKeyboardTypeAlphabet];
+  [[cell textField] setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+  [[cell textField] setAutocorrectionType:UITextAutocorrectionTypeNo];
+  [cell setNeedsLayout];
+  return cell;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section != pointsSection)
-    return [self.formDataSource tableView:theTableView cellForRowAtIndexPath:indexPath];
+  if (indexPath.section == 0)
+    return [self cellForExtra:theTableView indexPath:indexPath]; 
 
   static NSString *CellIdentifier = @"IKPointListCell";
 
@@ -340,48 +394,6 @@
   [self configureCell:cell atIndexPath:indexPath];
 
   return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(IBAFormFieldCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-
-  if (indexPath.section != pointsSection)
-    [super tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
-}
-
-- (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-  if (indexPath.section != pointsSection)
-    return [super tableView:aTableView heightForRowAtIndexPath:indexPath];
-
-  return 44;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  if (section != pointsSection)
-    return [self.formDataSource tableView:tableView titleForHeaderInSection:section];
-
-  return nil;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-  if (section != pointsSection)
-    return [self.formDataSource tableView:tableView titleForFooterInSection:section];
-
-  return nil;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-  if (section != pointsSection)
-    return [self.formDataSource viewForFooterInSection:section];
-
-  return nil;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  if (section != pointsSection)
-    return [self.formDataSource viewForHeaderInSection:section];
-
-  return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -717,6 +729,11 @@
 }
 
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+  NSLog(@"didChangeAuthorizationStatus update toolbar");
+  [self updateToolbar];
+}
+
 @end
 
 
@@ -724,22 +741,9 @@
 #pragma mark - 
 ///////////////////////////////////////////////////////////////////////////////////
 
-@implementation MKTRouteListViewDataSource
+@implementation MKTTextFormFieldCell
 
-- (id)initWithModel:(id)aModel {
-  if ((self = [super initWithModel:aModel])) {
-
-    IBATextFormField *numberField;
-
-    IBAFormSection *positionSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
-    positionSection.formFieldStyle = [[SettingsFieldStyleText alloc] init];
-    //------------------------------------------------------------------------------------------------------------------------
-    numberField = [[IBATextFormField alloc] initWithKeyPath:@"name"
-                                                      title:NSLocalizedString(@"Name", @"WP Route name") valueTransformer:nil];
-
-    [positionSection addFormField:numberField];
-  }
-  return self;
+- (void)didMoveToWindow{
+  
 }
-
 @end
