@@ -15,9 +15,6 @@
 #import "IBAInputNavigationToolbar.h"
 #import "IBACommon.h"
 
-#define IBAInputNavigationToolbarNextTitle @"Next"
-#define IBAInputNavigationToolbarPreviousTitle @"Previous"
-
 @interface IBAInputNavigationToolbar ()
 @property (nonatomic, retain) UIBarButtonItem *nextPreviousBarButtonItem;
 - (void)updateButtons;
@@ -49,7 +46,7 @@
 																   target:nil 
 																   action:nil];
 		nextPreviousButton_ = [[UISegmentedControl alloc] initWithItems:[NSArray 
-					arrayWithObjects:IBAInputNavigationToolbarPreviousTitle, IBAInputNavigationToolbarNextTitle, nil]];
+					arrayWithObjects:NSLocalizedString(@"Previous", @"IBAInputNavigationToolbar"), NSLocalizedString(@"Next", @"IBAInputNavigationToolbar"), nil]];
 		nextPreviousButton_.segmentedControlStyle = UISegmentedControlStyleBar;
 		nextPreviousButton_.tintColor = [UIColor blackColor];
 		nextPreviousButton_.momentary = YES;

@@ -121,16 +121,18 @@
   self.navigationItem.rightBarButtonItem = self.settingsButton;
   
   self.navigationController.toolbarHidden =NO;
-//  self.tableView.allowsMultipleSelectionDuringEditing = YES;
   self.tableView.allowsSelectionDuringEditing = NO;
-  
 }
 
 - (void)viewDidUnload {
   [super viewDidUnload];
-  // Release any retained subviews of the main view.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  
+  [self.tableView reloadData];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -205,7 +207,7 @@
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil)
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 
   [self configureCell:cell atIndexPath:indexPath];
   return cell;
@@ -213,13 +215,42 @@
 
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  
+  MKTRoute *route = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  cell.textLabel.text = route.name;
+  
+  NSUInteger numWP=[route countWP];
+  NSUInteger numPOI=[route countPOI];
+  NSLog(@"configureCell WP %d POI %d",numWP,numPOI);
+  if(numWP==0 && numPOI==0){
+    cell.detailTextLabel.text = NSLocalizedString(@"No Points", @"Route descr. no points");
+  }
+  else {
+    if (numWP==0) {
+      if (numPOI==1) {
+        cell.detailTextLabel.text = NSLocalizedString(@"One POI", @"Route descr. one POI only");
+      } else {
+        cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d POI", @"Route descr. multiple. POI only"),numPOI];
+      }
+    }
+    else {
+      if (numWP==1) {
+        cell.detailTextLabel.text = NSLocalizedString(@"One Waypoint", @"Route descr. one WP");
+      } else {
+        cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Waypoints", @"Route descr. multiple. WP"),numWP];
+      }
+      
+      if (numPOI>0) {
+        if (numPOI==1) {
+          cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:NSLocalizedString(@" and one POI", @"Route descr. one POI only")];
+        } else {
+          cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingFormat:NSLocalizedString(@" and %d POI", @"Route descr. multiple. POI only"),numPOI];
+        }
+      }
+    }
   }
 
-  MKTRoute *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-  cell.textLabel.text = managedObject.name;
-  cell.detailTextLabel.text = [managedObject.index description];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -339,6 +370,7 @@
       break;
 
     case NSFetchedResultsChangeUpdate:
+      NSLog(@"Update");
       [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
       break;
 

@@ -4,11 +4,23 @@
   Created by Frank Blumenberg on 27.04.12.
   Copyright (c) 2012 __MyCompanyName__. All rights reserved. */
 
+/* WP Numbers */
+"#WP-X" = "Anzahl WP - X";
+
+/* WP Numbers */
+"#WP-Y" = "Anzahl WP - Y";
+
+/* WP Numbers */
+"#WP" = "Anzahl WP";
+
 /* POI cell */
 "%@ - POI" = "%@ - POI";
 
 /* Waypoint cell */
 "%@ - Waypoint" = "%@ - Wegpunkt";
+
+/* Access Denied */
+"Access Denied" = "Zugriff verweigert";
 
 /* WPclosed */
 "Add Point To close" = "Extra WP zum schließen";
@@ -18,6 +30,12 @@
 
 /* DB Login Err Unknown Msg */
 "An unknown error has occurred." = "Es ist ein unbekannter Fehler aufgetreten.";
+
+/* WP CamAngle auto mode */
+"AUTO" = "AUTO";
+
+/* Backup Button */
+"Backup" = "Sichern";
 
 /* WP event title */
 "Camera nick angle" = "Kamerawinkel[°]";
@@ -78,8 +96,23 @@
 /* WP Longitude title */
 "Long." = "Länge";
 
+/* InAppSettingsKit */
+"Mail not configured" = "Mail ist nicht konfiguriert";
+
 /* WP Route name */
 "Name" = "Name";
+
+/* InAppSettingsKit */
+"OK" = "OK";
+
+/* Okay */
+"Okay" = "OK";
+
+/* POI Annotation callout */
+"POI - Index %@" = "POI - %@";
+
+/* No comment provided by engineer. */
+"POI" = "POI";
 
 /* WP Pos Title */
 "Position" = "Position";
@@ -124,8 +157,14 @@
 /* DB Login Err Msg */
 "There was an error connecting to Dropbox." = "Bei der Herstellung der Verbindung zu Dropbox ist ein Fehler aufgetreten.";
 
+/* type title */
+"Type" = "Typ";
+
 /* Unknown Error */
 "Unknown Error" = "Unbekannter Fehler";
+
+/* WP Annotation callout */
+"Waypoint - %@" = "Wegpunkt - %@";
 
 /* Waypoint view title */
 "Waypoint" = "Wegpunkt";
@@ -136,3 +175,32 @@
 /* WP Defaults Dialog title */
 "Waypoint Defaults" = "Wegpunktvorgaben";
 
+/* Route descr. multiple. POI only */
+" and %d POI" = " und %d POI";
+
+/* Route descr. one POI only */
+" and one POI" = " und einen POI";
+
+/* Route descr. multiple. POI only */
+"%d POI" = "%d POI";
+
+/* Route descr. multiple. WP */
+"%d Waypoints" = "%d Wegpunkte";
+
+/* Route descr. no points */
+"No Points" = "Kein Wegpunkte";
+
+/* Route descr. one POI only */
+"One POI" = "Ein POI";
+
+/* Route descr. one WP */
+"One Waypoint" = "Ein Wegpunkt";
+
+/* Sync Error */
+"Synchronisation failed" = "Synchronisation fehlgeschlagen";
+
+/* IBAInputNavigationToolbar */
+"Next" = "Weiter";
+
+/* IBAInputNavigationToolbar */
+"Previous" = "Zurück";

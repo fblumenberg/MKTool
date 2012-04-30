@@ -140,7 +140,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (void)sendSyncStateError {
-    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"", @"Sync Error") forKey:NSLocalizedDescriptionKey];
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Synchronisation failed", @"Sync Error") forKey:NSLocalizedDescriptionKey];
     NSError* error = [NSError errorWithDomain:@"MKTool" code:1000 userInfo:userInfo];
     [self.delegate controller:self syncFailedWithError:error];
 }

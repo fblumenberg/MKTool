@@ -4,9 +4,6 @@
   Created by Frank Blumenberg on 27.04.12.
   Copyright (c) 2012 __MyCompanyName__. All rights reserved. */
 
-/* Sync Error */
-"" = "";
-
 /* WP Numbers */
 "#WP-X" = "#WP-X";
 
@@ -121,10 +118,10 @@
 "OK" = "OK";
 
 /* Okay */
-"Okay" = "Okay";
+"Okay" = "OK";
 
 /* POI Annotation callout */
-"POI - Index %@" = "POI - Index %@";
+"POI - Index %@" = "POI - %@";
 
 /* No comment provided by engineer. */
 "POI" = "POI";
@@ -202,3 +199,32 @@
 /* WP Defaults Dialog title */
 "Waypoint Defaults" = "Waypoint Defaults";
 
+/* Route descr. multiple. POI only */
+" and %d POI" = " and %d POI";
+
+/* Route descr. one POI only */
+" and one POI" = " and one POI";
+
+/* Route descr. multiple. POI only */
+"%d POI" = "%d POI";
+
+/* Route descr. multiple. WP */
+"%d Waypoints" = "%d Waypoints";
+
+/* Route descr. no points */
+"No Points" = "No Points";
+
+/* Route descr. one POI only */
+"One POI" = "One POI";
+
+/* Route descr. one WP */
+"One Waypoint" = "One Waypoint";
+
+/* Sync Error */
+"Synchronisation failed" = "Synchronisation failed";
+
+/* IBAInputNavigationToolbar */
+"Next" = "Next";
+
+/* IBAInputNavigationToolbar */
+"Previous" = "Previous";

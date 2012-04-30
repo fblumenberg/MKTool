@@ -78,6 +78,18 @@
   return [MKTPoint countForPredicate:predicate];
 }
 
+
+- (NSUInteger)countWP{
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(route=%@) and (type=%d)", self,MKTPointTypeWP];
+  return [MKTPoint countForPredicate:predicate];
+}
+
+- (NSUInteger)countPOI{
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(route=%@) and (type=%d)", self,MKTPointTypePOI];
+  return [MKTPoint countForPredicate:predicate];
+}
+
+
 - (void)updatePointsOrder {
   int i = 0;
   for (MKTPoint *p in [self orderedPoints]) {

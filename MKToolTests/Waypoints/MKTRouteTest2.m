@@ -385,6 +385,38 @@
   
 }
 
+- (void)testCounting {
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"TESTCOUNT";
+  
+  MKTPoint *p;
+  CoreDataStore *store = [CoreDataStore mainStore];
+
+  p = [r addPointAtDefault];
+  p.typeValue = MKTPointTypeWP;
+  p = [r addPointAtDefault];
+  p.typeValue = MKTPointTypeWP;
+  p = [r addPointAtDefault];
+  p.typeValue = MKTPointTypeWP;
+  
+  p = [r addPointAtDefault];
+  p.typeValue = MKTPointTypePOI;
+  p = [r addPointAtDefault];
+  p.typeValue = MKTPointTypePOI;
+
+  [store save];
+  
+  MKTRoute *r2 = [[MKTRoute allForPredicate:[NSPredicate predicateWithFormat:@"name=%@",r.name]] firstObject];
+  
+  GHAssertNotNil(r2,nil);
+  
+  GHAssertEquals([r2 count], 5U, nil);
+  GHAssertEquals([r2 countWP], 3U, nil);
+  GHAssertEquals([r2 countPOI], 2U, nil);
+  
+  
+}
+
 
 - (MKTRoute *)addRouteWithName:(NSString *)name {
   return [self addRouteWithName:name numberOfPoints:10 prefix:@"T"];

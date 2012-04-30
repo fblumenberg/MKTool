@@ -64,6 +64,12 @@
   return YES;
 }
 
+- (BOOL)shouldAutoScrollTableToActiveField {
+  // Return YES if the table view should be automatically scrolled to the active field
+  // Defaults to YES
+  
+  return NO;
+}
 
 @end
 

@@ -58,12 +58,12 @@
   int heading = self.headingValue;
 
   if (heading > 0)
-    return [NSString stringWithFormat:@"%d°", heading];
+    return [NSString stringWithFormat:@"- %d°", heading];
 
   if (heading < 0)
-    return [NSString stringWithFormat:@"P%d°", -heading];
+    return [NSString stringWithFormat:@"- P%d", -heading];
 
-  return @"--";
+  return @"";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

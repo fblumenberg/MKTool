@@ -1,0 +1,12 @@
+/* Localizable.strings
+  IBAForms
+
+  Created by Frank Blumenberg on 30.04.12.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved. */
+
+/* IBAInputNavigationToolbar */
+"Next" = "Weiter";
+
+/* IBAInputNavigationToolbar */
+"Previous" = "Zurück";
+

@@ -162,6 +162,8 @@
 		BA3472E6150AB6030097A06F /* IBAStepperFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAStepperFormField.h; sourceTree = "<group>"; };
 		BA347308150AC5F50097A06F /* BFStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFStepper.h; sourceTree = "<group>"; };
 		BA34730A150AC6110097A06F /* BFStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFStepper.m; sourceTree = "<group>"; };
+		BAC8B04D154E8CBE00080225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BAC8B04F154E8CC900080225 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE8D9A5B14165855009EBDEB /* IBAInputValidatorGeneric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAInputValidatorGeneric.m; sourceTree = "<group>"; };
 		BE8D9A6C14167868009EBDEB /* IBAInputValidatorGeneric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAInputValidatorGeneric.h; sourceTree = "<group>"; };
 		BE8D9A6F1417B287009EBDEB /* IBAInputValidatorRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAInputValidatorRegex.m; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		0867D691FE84028FC02AAC07 /* IBAForms */ = {
 			isa = PBXGroup;
 			children = (
+				BAC8B04A154E8C5A00080225 /* Resources */,
 				7512407F13A8F6BE007BF2B5 /* src */,
 				751240B813A8F6CF007BF2B5 /* headers */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -375,6 +378,14 @@
 			path = IBAForms;
 			sourceTree = "<group>";
 		};
+		BAC8B04A154E8C5A00080225 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BAC8B04E154E8CBE00080225 /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -468,6 +479,7 @@
 				Japanese,
 				French,
 				German,
+				de,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* IBAForms */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
@@ -523,6 +535,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BAC8B04E154E8CBE00080225 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAC8B04D154E8CBE00080225 /* en */,
+				BAC8B04F154E8CC900080225 /* de */,
+			);
+			name = Localizable.strings;
+			path = resources;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB921F08733DC00010E9CD /* Debug */ = {

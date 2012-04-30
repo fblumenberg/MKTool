@@ -37,6 +37,9 @@
 
 - (NSArray *)orderedPoints;
 - (NSUInteger)count;
+- (NSUInteger)countWP;
+- (NSUInteger)countPOI;
+
 
 - (MKTPoint *)addPointAtDefault;
 - (MKTPoint *)addPointAtCenter;
