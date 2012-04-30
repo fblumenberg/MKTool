@@ -1696,7 +1696,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7D75DA84-CB85-4C93-B231-9433CB241245";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "974C8A50-A01B-42A0-A443-715EFA5AC98E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

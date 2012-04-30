@@ -110,7 +110,7 @@
 
 - (id)initWithRoute:(MKTRoute *)route delegate:(id <MKTRouteViewControllerDelegate>)delegate {
 
-  if ((self = [super initWithStyle:UITableViewStylePlain])) {
+  if ((self = [super initWithStyle:UITableViewStyleGrouped])) {
     self.route = route;
     self.delegate = delegate;
     self.title = NSLocalizedString(@"Route", @"Waypoint Lists title");
@@ -385,11 +385,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (!tableView.isEditing) {
-    if (indexPath.section == 0)
-      [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    else {
-      [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section > 0){
+ 
       MKTPoint *p = [self.fetchedResultsController objectAtIndexPath:[self correctedIndexPath:indexPath]];
       [self showViewControllerForPoint:p];
     }
