@@ -203,7 +203,8 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  return YES;
+  
+  return [self.curlBarItem isTargetViewCurled]==NO;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
