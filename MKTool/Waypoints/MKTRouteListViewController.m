@@ -34,7 +34,7 @@
 #import "NSArray+BlocksKit.h"
 
 #import "UIViewController+MGSplitViewController.h"
-
+#import "YKCLUtils.h"
 #import "SettingsFieldStyle.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -49,6 +49,7 @@
 @interface MKTRouteListViewController () <UITableViewDataSource, UITextFieldDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate> {
 
   BOOL userDrivenDataModelChange;
+  BOOL waitForLocation;
 }
 
 @property(nonatomic, strong) CLLocationManager *lm;
@@ -590,6 +591,7 @@
 
 - (void)addPointWithGps {
   [self.lm startUpdatingLocation];
+  waitForLocation=YES;
 }
 
 
@@ -684,10 +686,13 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
   
-  if ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60)
+  if (!waitForLocation || ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60))
     return;
   
   [self.lm stopUpdatingLocation];
+  waitForLocation=NO;
+  
+  NSLog(@"didUpdateToLocation %@",YKNSStringFromCLLocationCoordinate2D(newLocation.coordinate));
   
   MKTPoint* newPoint = [self.route addPointAtCoordinate:newLocation.coordinate];
   [self addedPoint:newPoint];
@@ -706,6 +711,7 @@
                         cancelButtonTitle:NSLocalizedString(@"OK", @"Okay") otherButtonTitles:nil];
   [alert show];
   
+  waitForLocation=NO;
   self.addWithGpsButton.enabled = IS_GPS_ENABLED();
   self.lm = nil;
 }

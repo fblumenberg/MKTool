@@ -54,6 +54,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 @interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, CLLocationManagerDelegate,
                                          WPGenBaseViewControllerDelegate, NSFetchedResultsControllerDelegate>{
   BOOL userDrivenDataModelChange;
+  BOOL waitForLocation;
 }
 
 @property(nonatomic,strong) IBOutlet MKMapView *mapView;
@@ -346,10 +347,14 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 
 - (void)addPoint {
   [self.route addPointAtCenter];
+
+  if(self.route.count==1)
+    [self updateMapView];
 }
 
 - (void)addPointWithGps {
   [self.lm startUpdatingLocation];
+  waitForLocation=YES;
 }
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
@@ -398,11 +403,15 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
   
-  if ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60)
+  if (!waitForLocation || ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60))
     return;
   
   [self.lm stopUpdatingLocation];
+  waitForLocation=NO;
   [self.route addPointAtCoordinate:newLocation.coordinate];
+  
+  if(self.route.count==1)
+    [self updateMapView];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -420,6 +429,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   
   self.addWithGpsButton.enabled = IS_GPS_ENABLED();
   self.lm = nil;
+  waitForLocation=NO;
 }
 
 
