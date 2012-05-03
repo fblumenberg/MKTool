@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InnerBand.h"
 
 @interface MKTRouteSyncViewController : UIViewController
+
+@property(nonatomic,weak) IBOutlet IBButton* b1;
 
 @end

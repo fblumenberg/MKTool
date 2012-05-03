@@ -139,6 +139,8 @@
 		BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */; };
 		BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2F91540AE7000ECE09A /* Test.wpl */; };
 		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
+		BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */; };
+		BAC8B07015531C6200080225 /* MKTRouteSyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC8B06E15531C6100080225 /* MKTRouteSyncViewController.xib */; };
 		BAD501661541DA63004BA9A6 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501611541DA63004BA9A6 /* MGSplitCornersView.m */; };
 		BAD501671541DA63004BA9A6 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501631541DA63004BA9A6 /* MGSplitDividerView.m */; };
 		BAD501681541DA63004BA9A6 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501651541DA63004BA9A6 /* MGSplitViewController.m */; };
@@ -429,6 +431,9 @@
 		BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+Test.m"; sourceTree = "<group>"; };
 		BAB2F2F91540AE7000ECE09A /* Test.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.wpl; sourceTree = "<group>"; };
 		BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestInvalid.wpl; sourceTree = "<group>"; };
+		BAC8B06C15531C6100080225 /* MKTRouteSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteSyncViewController.h; sourceTree = "<group>"; };
+		BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteSyncViewController.m; sourceTree = "<group>"; };
+		BAC8B06E15531C6100080225 /* MKTRouteSyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKTRouteSyncViewController.xib; sourceTree = "<group>"; };
 		BAD501601541DA63004BA9A6 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
 		BAD501611541DA63004BA9A6 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
 		BAD501621541DA63004BA9A6 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
@@ -1200,6 +1205,9 @@
 				BAF0CA891549D1F400C31A02 /* MKTRouteDropboxController.m */,
 				BAF0CA8A1549D1F400C31A02 /* MKTRouteSyncModel.h */,
 				BAF0CA8B1549D1F400C31A02 /* MKTRouteSyncModel.m */,
+				BAC8B06C15531C6100080225 /* MKTRouteSyncViewController.h */,
+				BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */,
+				BAC8B06E15531C6100080225 /* MKTRouteSyncViewController.xib */,
 			);
 			name = Synchronization;
 			sourceTree = "<group>";
@@ -1354,6 +1362,7 @@
 				BA9373EA154B498A00E444EC /* Default-Portrait@2x~ipad.png in Resources */,
 				BA9373EB154B498A00E444EC /* Default-Portrait~ipad.png in Resources */,
 				BA9373EC154B498A00E444EC /* Default.png in Resources */,
+				BAC8B07015531C6200080225 /* MKTRouteSyncViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,6 +1485,7 @@
 				76DB5A56154A7E47002FFA78 /* WPGenPanoViewController.m in Sources */,
 				76DB5A59154A824A002FFA78 /* IBAFormSection+Create.m in Sources */,
 				76DB5A5C154A8302002FFA78 /* MKParamPotiValueTransformer.m in Sources */,
+				BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1640,7 +1650,7 @@
 		BAB2F22015409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1672,7 +1682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1696,7 +1706,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "974C8A50-A01B-42A0-A443-715EFA5AC98E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E1F76841-0EEF-4B56-BC19-59BDD2CA647B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

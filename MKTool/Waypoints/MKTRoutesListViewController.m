@@ -34,6 +34,7 @@
 
 #import "MKTRouteDropboxController.h"
 #import "MKTRoutesListViewController.h"
+#import "MKTRouteSyncViewController.h"
 
 #import "MKTRouteContainerViewController.h"
 #import "MKTRouteMasterViewController.h"
@@ -415,12 +416,17 @@
 - (void)syncRoutes {
   
   // No need to retain (just a local variable)
-  
-  
-  [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
 
-  [MKTRouteDropboxController sharedController].delegate = self;
-  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadata];  
+  MKTRouteSyncViewController* controller = [[MKTRouteSyncViewController alloc] initWithNibName:@"MKTRouteSyncViewController" bundle:nil];
+  
+  UINavigationController* naviController = [[UINavigationController alloc] initWithRootViewController:controller];
+
+  [self presentModalViewController:naviController animated:YES];
+  
+//  [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+//
+//  [MKTRouteDropboxController sharedController].delegate = self;
+//  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadata];  
 }
 
 - (void)doRestore:(id)sender {
