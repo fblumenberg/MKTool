@@ -122,7 +122,7 @@
 
 
     CGFloat ddeg = 360.0 / noPoints;
-    if (clockwise)
+    if (clockwise==NO)
       ddeg *= -1;
 
     CGFloat radius = CGRectGetWidth(circleRect) / 2 - 40;
