@@ -72,6 +72,10 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 @property(nonatomic, strong) UIBarButtonItem *wpGeneratorSelectionButton;
 @property(nonatomic, strong) UIBarButtonItem *wpGenerateConfigItem;
 
+@property(nonatomic, strong) UIBarButtonItem *undoButton;
+@property(nonatomic, strong) UIBarButtonItem *redoButton;
+
+
 @property(nonatomic, strong) CLLocationManager *lm;
 
 @property(nonatomic,strong) IBOutlet UISegmentedControl *segmentedControl;
@@ -125,6 +129,9 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 @synthesize wpGeneratorSelection;
 @synthesize wpGeneratorSelectionButton;
 @synthesize wpGenerateConfigItem;
+
+@synthesize undoButton;
+@synthesize redoButton;
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -187,6 +194,9 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   self.wpGenerateConfigItem = nil;
   self.wpGenButton = nil;
 
+  self.undoButton = nil;
+  self.redoButton = nil;
+  
   [self.lm stopUpdatingLocation];
   self.lm = nil;
 }
@@ -300,7 +310,41 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
     self.navigationItem.leftBarButtonItem = doneButton;
   }
 
+  if(IS_IPAD()){
+    self.undoButton = [[UIBarButtonItem alloc]
+                                     initWithImage:[UIImage imageNamed:@"icon-back.png"]
+                                     style:UIBarButtonItemStyleBordered
+                                     target:self
+                                     action:@selector(undo)];
+    
+    self.redoButton = [[UIBarButtonItem alloc]
+                                   initWithImage:[UIImage imageNamed:@"icon-forth.png"]
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(redo)];
+
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.redoButton, self.undoButton, nil];
+  }
 }
+
+- (void)undo{
+  
+  NSUndoManager* undoManager = [CoreDataStore mainStore].context.undoManager;
+  if(undoManager.canUndo)
+    [undoManager undo];
+  
+  [self updateToolbarState];
+}
+
+- (void)redo{
+  
+  NSUndoManager* undoManager = [CoreDataStore mainStore].context.undoManager;
+  if(undoManager.canRedo)
+    [undoManager redo];
+
+  [self updateToolbarState];
+}
+
 
 - (void)updateToolbar {
   
@@ -340,6 +384,10 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   self.wpGenerateItem.enabled = wpgen;
   self.wpGenerateConfigItem.enabled = wpgen;
   self.wpGeneratorSelection.enabled = !wpgen;
+
+  NSUndoManager* undoManager = [CoreDataStore mainStore].context.undoManager;
+  self.redoButton.enabled = undoManager.canRedo;
+  self.undoButton.enabled = undoManager.canUndo;
 }
 
 
@@ -747,11 +795,13 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     case NSFetchedResultsChangeMove:
       break;
   }
+  [self updateToolbarState];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
   if(userDrivenDataModelChange) return;
   [self updateRouteOverlay];
+  [self updateToolbarState];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

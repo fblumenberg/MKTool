@@ -21,6 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		760A1CDA155413FB00EDDBC5 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD6155413FB00EDDBC5 /* icon-back.png */; };
+		760A1CDB155413FB00EDDBC5 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */; };
+		760A1CDC155413FB00EDDBC5 /* icon-forth.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD8155413FB00EDDBC5 /* icon-forth.png */; };
+		760A1CDD155413FB00EDDBC5 /* icon-forth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD9155413FB00EDDBC5 /* icon-forth@2x.png */; };
 		76DB5A49154A7E47002FFA78 /* WPGenAreaDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A2F154A7E47002FFA78 /* WPGenAreaDataSource.m */; };
 		76DB5A4A154A7E47002FFA78 /* WPGenAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A31154A7E47002FFA78 /* WPGenAreaView.m */; };
 		76DB5A4B154A7E47002FFA78 /* WPGenAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DB5A33154A7E47002FFA78 /* WPGenAreaViewController.m */; };
@@ -271,6 +275,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		760A1CD6155413FB00EDDBC5 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
+		760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
+		760A1CD8155413FB00EDDBC5 /* icon-forth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forth.png"; sourceTree = "<group>"; };
+		760A1CD9155413FB00EDDBC5 /* icon-forth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forth@2x.png"; sourceTree = "<group>"; };
 		76DB5A2E154A7E47002FFA78 /* WPGenAreaDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenAreaDataSource.h; sourceTree = "<group>"; };
 		76DB5A2F154A7E47002FFA78 /* WPGenAreaDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPGenAreaDataSource.m; sourceTree = "<group>"; };
 		76DB5A30154A7E47002FFA78 /* WPGenAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPGenAreaView.h; sourceTree = "<group>"; };
@@ -1171,35 +1179,39 @@
 			isa = PBXGroup;
 			children = (
 				76FAA0B31553BC2B00419D77 /* Buttons */,
-				BA9373C8154B435600E444EC /* icon-close.png */,
-				BA9373C9154B435600E444EC /* icon-close@2x.png */,
-				BA9373CA154B435600E444EC /* icon-expand.png */,
-				BA9373CB154B435600E444EC /* icon-expand@2x.png */,
-				BA9373CC154B435600E444EC /* icon-flag.png */,
-				BA9373CD154B435600E444EC /* icon-flag@2x.png */,
-				BA9373CE154B435600E444EC /* icon-poi.png */,
-				BA9373CF154B435600E444EC /* icon-poi@2x.png */,
-				BAF0CA981549F5E500C31A02 /* white_texture.png */,
-				BAF0CA2415487FBE00C31A02 /* icon-backforth.png */,
-				BAF0CA2515487FBE00C31A02 /* icon-backforth@2x.png */,
-				BAF0CA2615487FBE00C31A02 /* icon-settings3.png */,
-				BAF0CA2715487FBE00C31A02 /* icon-settings3@2x.png */,
-				BAF0CA2815487FBE00C31A02 /* wpgen-area.png */,
-				BAF0CA2915487FBE00C31A02 /* wpgen-area@2x.png */,
-				BAF0CA2A15487FBE00C31A02 /* wpgen-circle.png */,
-				BAF0CA2B15487FBE00C31A02 /* wpgen-circle@2x.png */,
-				BAF0CA2C15487FBE00C31A02 /* wpgen-pano.png */,
-				BAF0CA2D15487FBE00C31A02 /* wpgen-pano@2x.png */,
 				BAF0C9F215445CC200C31A02 /* delete-point-btn-pressed.png */,
 				BAF0C9F315445CC200C31A02 /* delete-point-btn-pressed@2x.png */,
 				BAF0C9F415445CC200C31A02 /* delete-point-btn.png */,
 				BAF0C9F515445CC200C31A02 /* delete-point-btn@2x.png */,
 				BAF0CA1A1545EE3900C31A02 /* icon-add-gps.png */,
 				BAF0CA1B1545EE3900C31A02 /* icon-add-gps@2x.png */,
+				760A1CD6155413FB00EDDBC5 /* icon-back.png */,
+				760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */,
+				BAF0CA2415487FBE00C31A02 /* icon-backforth.png */,
+				BAF0CA2515487FBE00C31A02 /* icon-backforth@2x.png */,
+				BA9373C8154B435600E444EC /* icon-close.png */,
+				BA9373C9154B435600E444EC /* icon-close@2x.png */,
+				BA9373CA154B435600E444EC /* icon-expand.png */,
+				BA9373CB154B435600E444EC /* icon-expand@2x.png */,
+				BA9373CC154B435600E444EC /* icon-flag.png */,
+				BA9373CD154B435600E444EC /* icon-flag@2x.png */,
+				760A1CD8155413FB00EDDBC5 /* icon-forth.png */,
+				760A1CD9155413FB00EDDBC5 /* icon-forth@2x.png */,
+				BA9373CE154B435600E444EC /* icon-poi.png */,
+				BA9373CF154B435600E444EC /* icon-poi@2x.png */,
+				BAF0CA2615487FBE00C31A02 /* icon-settings3.png */,
+				BAF0CA2715487FBE00C31A02 /* icon-settings3@2x.png */,
 				BAEE75E71543FDB000A92FA4 /* list-mode.png */,
 				BAEE75E81543FDB000A92FA4 /* list-mode@2x.png */,
 				BAEE75E91543FDB000A92FA4 /* map-mode.png */,
 				BAEE75EA1543FDB000A92FA4 /* map-mode@2x.png */,
+				BAF0CA981549F5E500C31A02 /* white_texture.png */,
+				BAF0CA2815487FBE00C31A02 /* wpgen-area.png */,
+				BAF0CA2915487FBE00C31A02 /* wpgen-area@2x.png */,
+				BAF0CA2A15487FBE00C31A02 /* wpgen-circle.png */,
+				BAF0CA2B15487FBE00C31A02 /* wpgen-circle@2x.png */,
+				BAF0CA2C15487FBE00C31A02 /* wpgen-pano.png */,
+				BAF0CA2D15487FBE00C31A02 /* wpgen-pano@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1500,6 +1512,10 @@
 				76FAA0F71553C61F00419D77 /* darkGreyButton@2x.png in Resources */,
 				76FAA0F81553C61F00419D77 /* darkGreyButtonHighlight.png in Resources */,
 				76FAA0F91553C61F00419D77 /* darkGreyButtonHighlight@2x.png in Resources */,
+				760A1CDA155413FB00EDDBC5 /* icon-back.png in Resources */,
+				760A1CDB155413FB00EDDBC5 /* icon-back@2x.png in Resources */,
+				760A1CDC155413FB00EDDBC5 /* icon-forth.png in Resources */,
+				760A1CDD155413FB00EDDBC5 /* icon-forth@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

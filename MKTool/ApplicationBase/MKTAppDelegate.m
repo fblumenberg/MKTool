@@ -118,6 +118,12 @@
 
   [self.window makeKeyAndVisible];
 
+  NSUndoManager* contextUndoManager = [NSUndoManager new];
+  contextUndoManager.levelsOfUndo = 20;
+                                       
+  [CoreDataStore mainStore].context.undoManager = contextUndoManager;
+  
+  
   // Load the default values for the user defaults
   NSString *pathToUserDefaultsValues = [[NSBundle mainBundle]
                                         pathForResource:@"userDefaults"
