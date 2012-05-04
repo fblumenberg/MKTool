@@ -414,64 +414,57 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 - (void)syncRoutes {
-  
-  // No need to retain (just a local variable)
 
-  MKTRouteSyncViewController* controller = [[MKTRouteSyncViewController alloc] initWithNibName:@"MKTRouteSyncViewController" bundle:nil];
-  
-  UINavigationController* naviController = [[UINavigationController alloc] initWithRootViewController:controller];
+  [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
 
-  [self presentModalViewController:naviController animated:YES];
-  
-//  [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-//
-//  [MKTRouteDropboxController sharedController].delegate = self;
-//  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadata];  
+  [MKTRouteDropboxController sharedController].delegate = self;
+  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadata];  
 }
 
-- (void)doRestore:(id)sender {
-}
+- (void)dropboxReady:(MKTRouteDropboxController*)dbController{
 
-- (void)doBackup:(id)sender {
-}
-
-- (void)doSynchronize:(id)sender {
-}
-
-
-- (void)dropboxReady:(MKTRouteDropboxController*)controller{
-  
   [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+
+  MKTRouteSyncViewController* controller = [[MKTRouteSyncViewController alloc] initWithNibName:nil bundle:nil];
+  UINavigationController* naviController = [[UINavigationController alloc] initWithRootViewController:controller];
   
-  UIActionSheet *sheet = [UIActionSheet actionSheetWithTitle:NSLocalizedString(@"Routes Syncronisation", @"Routes Sync Title")];
-  
-  [sheet addButtonWithTitle:NSLocalizedString(@"Restore", @"Restore Button") handler:^{ 
-    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
-    hud.progress = 0.0;
-    hud.mode = MBProgressHUDModeDeterminate;
-    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal];
-  }];
-  
-  [sheet addButtonWithTitle:NSLocalizedString(@"Backup", @"Backup Button") handler:^{ 
-    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
-    hud.progress = 0.0;
-    hud.mode = MBProgressHUDModeDeterminate;
-    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote];
-  }];
-  
-  [sheet addButtonWithTitle:NSLocalizedString(@"Synchronize", @"Restore Button") handler:^{ 
-    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
-    hud.progress = 0.0;
-    hud.mode = MBProgressHUDModeDeterminate;
-    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder];
-  }];
-  
-  [sheet setCancelButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel Button") handler:^{ }];
-  
-  [sheet showFromToolbar:self.navigationController.toolbar];
+  if (IS_IPAD()) {
+    naviController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self.splitViewController presentModalViewController:naviController animated:YES];
+  }
+  else
+    [self presentModalViewController:naviController animated:YES];
+
+//  
+//  UIActionSheet *sheet = [UIActionSheet actionSheetWithTitle:NSLocalizedString(@"Routes Syncronisation", @"Routes Sync Title")];
+//  
+//  [sheet addButtonWithTitle:NSLocalizedString(@"Restore", @"Restore Button") handler:^{ 
+//    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+//    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
+//    hud.progress = 0.0;
+//    hud.mode = MBProgressHUDModeDeterminate;
+//    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal];
+//  }];
+//  
+//  [sheet addButtonWithTitle:NSLocalizedString(@"Backup", @"Backup Button") handler:^{ 
+//    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+//    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
+//    hud.progress = 0.0;
+//    hud.mode = MBProgressHUDModeDeterminate;
+//    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote];
+//  }];
+//  
+//  [sheet addButtonWithTitle:NSLocalizedString(@"Synchronize", @"Restore Button") handler:^{ 
+//    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+//    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
+//    hud.progress = 0.0;
+//    hud.mode = MBProgressHUDModeDeterminate;
+//    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder];
+//  }];
+//  
+//  [sheet setCancelButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel Button") handler:^{ }];
+//  
+//  [sheet showFromToolbar:self.navigationController.toolbar];
 }
 
 - (void)controller:(MKTRouteDropboxController*)crontroller dropboxInitFailedWithError:(NSError*)error{

@@ -32,5 +32,8 @@
 @interface SettingsButtonIndicatorStyle : SettingsButtonStyle
 @end
 
+@interface SettingsButtonStyleCenter : SettingsButtonStyle
+@end
+
 @interface SettingsButtonStyleDisabled : IBAFormFieldStyle
 @end

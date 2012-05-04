@@ -41,6 +41,18 @@
 
 @end
 
+@implementation SettingsButtonStyleCenter
+
+- (id)init {
+  self = [super init];
+  if (self) {
+    self.labelTextAlignment = UITextAlignmentCenter;
+  }
+  return self;
+}
+
+@end
+
 @implementation SettingsButtonStyleDisabled
 
 - (id)init {

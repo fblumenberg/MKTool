@@ -20,7 +20,7 @@
 		<string>Icon-iPhone@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>de.frankblumenberg.mktool</string>
+	<string>de.mtg.mktool</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
