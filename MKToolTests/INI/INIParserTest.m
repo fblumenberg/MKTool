@@ -91,7 +91,7 @@
   [dataString appendString:@"\n"];
   [dataString appendString:@"; dummy\n"];
   [dataString appendString:@"key1=value1\n"];
-  [dataString appendString:@"key2 =value2 ;this is a comment\n"];
+  [dataString appendString:@"key2 =value2\n"];
   [dataString appendString:@"key3 = value3\n"];
 
   INIParser *p = [[INIParser alloc] initWithString:dataString];
@@ -134,12 +134,15 @@
   [dataString appendString:@"b4=T\n"];
   [dataString appendString:@"b5=n\n"];
   [dataString appendString:@"b6=N\n"];
+  [dataString appendString:@"[SectionSpace]\n"];
+  [dataString appendString:@"name1=Route test\n"];
 
   INIParser *p = [[INIParser alloc] initWithString:dataString];
   
   GHAssertNotNil([p getSection:@"Section"], nil);
   GHAssertNotNil([p getSection:@"SectionInt"], nil);
   GHAssertNotNil([p getSection:@"SectionBool"], nil);
+  GHAssertNotNil([p getSection:@"SectionSpace"], nil);
 
   GHAssertTrue([p getBool:@"b1" section:@"SectionBool"], nil);
   GHAssertTrue([p getBool:@"b2" section:@"SectionBool"], nil);
@@ -155,6 +158,8 @@
   GHAssertEquals([p getInt:@"int1" section:@"SectionInt"], (int)1001, nil);
   GHAssertEquals([p getInt:@"int2" section:@"SectionInt"], (int)1002, nil);
   GHAssertEquals([p getInt:@"int3" section:@"SectionInt"], (int)1003, nil);
+
+  GHAssertEqualStrings([p get:@"name1" section:@"SectionSpace"], @"Route test", nil);
 }
 
 - (void)testToString {
@@ -165,7 +170,7 @@
   [dataString appendString:@"\n"];
   [dataString appendString:@"; dummy\n"];
   [dataString appendString:@"key1=value1\n"];
-  [dataString appendString:@"key2 =value2 ;this is a comment\n"];
+  [dataString appendString:@"key2 =value2\n"];
   [dataString appendString:@"key3 = value3\n"];
   
   INIParser *p = [[INIParser alloc] initWithString:dataString];

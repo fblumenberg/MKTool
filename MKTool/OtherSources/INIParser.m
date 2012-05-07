@@ -23,7 +23,7 @@
   if (self) {
     sections = [[NSMutableDictionary alloc] init];
     sectionRegex = [[NSRegularExpression alloc] initWithPattern:@"^\\s*\\[(\\w+)\\]" options:0 error:nil];
-    lineRegex = [[NSRegularExpression alloc] initWithPattern:@"^([-\\w]+)\\s*=\\s*([\\.\\w]+)" options:0 error:nil];
+    lineRegex = [[NSRegularExpression alloc] initWithPattern:@"^([-\\w]+)\\s*=(.*)$" options:0 error:nil];
   }
   return self;
 }
@@ -85,7 +85,7 @@
   if (matches.count > 0){
     NSTextCheckingResult *match = [matches firstObject];
     NSString* key = [row substringWithRange:[match rangeAtIndex:1]];
-    NSString* value = [row substringWithRange:[match rangeAtIndex:2]];
+    NSString* value = [[row substringWithRange:[match rangeAtIndex:2]] trimmedString];
     [section insert:key value:value];
   }
 }
