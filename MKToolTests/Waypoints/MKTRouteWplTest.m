@@ -135,4 +135,46 @@
   }
 //  [MKTPoint attributesForPoint] ; 
 }
+
+
+- (void)testWriteFileUmlaute {
+  
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSString *bundlePath = [bundle bundlePath];
+  NSLog(@"Bundle: %@", bundle);
+  
+  NSString *someFile = [bundlePath stringByAppendingPathComponent:@"Test.wpl"];
+  NSLog(@"File in Bundle: %@", someFile);
+  
+  MKTRoute* route = [MKTRoute create];
+  
+  BOOL result = [route loadRouteFromWplFile:someFile];
+  GHAssertTrue(result,nil);
+  
+  route.name = @"TESTÄÖÜ";
+  
+  result = [route writeRouteToWplFile:tmpFile];
+  GHAssertTrue(result,nil);
+  
+  MKTRoute* route2 = [MKTRoute create];
+  
+  result = [route2 loadRouteFromWplFile:tmpFile];
+  GHAssertTrue(result,nil);
+  
+  GHAssertEquals(route.points.count, route2.points.count, nil);
+  
+  NSArray* r1 = [route orderedPoints];
+  NSArray* r2 = [route2 orderedPoints];
+  
+  for(NSUInteger i=0;i<r1.count;i++ ){
+    MKTPoint* p1 = [r1 objectAtIndex:i];
+    MKTPoint* p2 = [r2 objectAtIndex:i];
+    for (NSString* key in [MKTPoint attributesForPoint].allKeys) {
+      GHAssertEqualObjects([p1 valueForKey:key], [p2 valueForKey:key],nil);
+      
+    }
+  }
+  //  [MKTPoint attributesForPoint] ; 
+}
+
 @end

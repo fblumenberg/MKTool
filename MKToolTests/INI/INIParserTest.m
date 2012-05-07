@@ -136,6 +136,7 @@
   [dataString appendString:@"b6=N\n"];
   [dataString appendString:@"[SectionSpace]\n"];
   [dataString appendString:@"name1=Route test\n"];
+  [dataString appendString:@"name2=Route test äöü\n"];
 
   INIParser *p = [[INIParser alloc] initWithString:dataString];
   
@@ -160,6 +161,7 @@
   GHAssertEquals([p getInt:@"int3" section:@"SectionInt"], (int)1003, nil);
 
   GHAssertEqualStrings([p get:@"name1" section:@"SectionSpace"], @"Route test", nil);
+  GHAssertEqualStrings([p get:@"name2" section:@"SectionSpace"], @"Route test äöü", nil);
 }
 
 - (void)testToString {
@@ -172,7 +174,10 @@
   [dataString appendString:@"key1=value1\n"];
   [dataString appendString:@"key2 =value2\n"];
   [dataString appendString:@"key3 = value3\n"];
-  
+  [dataString appendString:@"[SectionSpace]\n"];
+  [dataString appendString:@"name1=Route test\n"];
+  [dataString appendString:@"name2=Route test äöü\n"];
+
   INIParser *p = [[INIParser alloc] initWithString:dataString];
   
   NSString* dataString2 = [p asString];
@@ -192,6 +197,9 @@
   GHAssertEqualStrings([s retrieve:@"key2"], @"value2", nil);
   GHAssertEqualStrings([s retrieve:@"key3"], @"value3", nil);
   GHAssertNil([s retrieve:@"key4"], nil);
+
+  GHAssertEqualStrings([p2 get:@"name1" section:@"SectionSpace"], @"Route test", nil);
+  GHAssertEqualStrings([p2 get:@"name2" section:@"SectionSpace"], @"Route test äöü", nil);
 
 }
 

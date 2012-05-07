@@ -61,7 +61,7 @@
 
 - (BOOL)loadRouteFromWplFile:(NSString*)path {
   
-  INIParser* p = [[INIParser alloc] initWithContentsOfFile:path encoding:NSASCIIStringEncoding error:nil];
+  INIParser* p = [[INIParser alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
   if(!p)
     return NO;
   
@@ -123,7 +123,9 @@
     
   }];
 
-  return [p writeToFile:path atomically:NO encoding:NSASCIIStringEncoding error:nil];
+  NSError* error=nil;
+  BOOL retVal = [p writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:&error];
+  return retVal;
 }
 
 
