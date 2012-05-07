@@ -11,6 +11,8 @@
 
 #import "UIViewController+MGSplitViewController.h"
 
+#import "InnerBand.h"
+
 @interface MKTRouteMasterViewController (){
   MKTRouteMapViewController *mapController;
 }
@@ -32,12 +34,15 @@
 
   mapController = [[MKTRouteMapViewController alloc] initWithRoute:self.route];
   [[self detailViewController] pushViewController:mapController animated:YES];
+  
+  [[CoreDataStore mainStore].context.undoManager removeAllActions];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
   [super viewWillDisappear:animated];
   [[self detailViewController] popViewControllerAnimated:YES];
   mapController=nil;
+  [[CoreDataStore mainStore].context.undoManager removeAllActions];
 }
 
 - (void)showViewControllerForPoint:(MKTPoint *)point{
