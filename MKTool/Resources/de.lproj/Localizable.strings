@@ -102,6 +102,9 @@
 /* WP Route name */
 "Name" = "Name";
 
+/* RC-Channel */
+"Off" = "Aus";
+
 /* InAppSettingsKit */
 "OK" = "OK";
 
@@ -204,3 +207,28 @@
 
 /* IBAInputNavigationToolbar */
 "Previous" = "Zurück";
+
+/* Recent searched clearing */
+"Clear All Recents" = "Alle löschen";
+
+/* Search popup */
+"Clear" = "Löschen";
+
+/* No comment provided by engineer. */
+"Did you mean" = "Meinten Sie...";
+
+/* Restore Button label */
+"Loads all routes from the Dropbox and stores them locally, deleting existing." = "Ladt alle Routen aus der Dropbox und löscht die lokal vorhandenen.";
+
+/* Map search */
+"Nothing found" = "Keine Treffer";
+
+/* Recent searches Title */
+"Recents" = "Letzte Suche";
+
+/* Backup Button label */
+"Stores all local routes in the Dropbox." = "Speichert alle lokalen Routen in der Dropbox und löscht die dort vorhandenen.";
+
+/* Synchronize Button label */
+"Synchronizes the local Routes with the remote stores." = "Synchronisiert die lokalen Routen mit der Dropbox";
+
