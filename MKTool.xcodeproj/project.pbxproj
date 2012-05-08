@@ -76,6 +76,7 @@
 		76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */; };
 		BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41B154B1297005C882A /* libTestFlight.a */; };
 		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
+		BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA52014E1559C26400719A58 /* AddressBookUI.framework */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -178,6 +179,9 @@
 		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
 		BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */; };
 		BAC8B08D1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m in Resources */ = {isa = PBXBuildFile; fileRef = BAC8B08C1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m */; };
+		BAC8B0991559AAD200080225 /* RecentSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B0981559AAD200080225 /* RecentSearchesController.m */; };
+		BAC8B0A01559B78200080225 /* MKTPlacemarkDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B09F1559B78000080225 /* MKTPlacemarkDataSource.m */; };
+		BAC8B0A31559B81600080225 /* SBTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B0A21559B81400080225 /* SBTableAlert.m */; };
 		BAD501661541DA63004BA9A6 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501611541DA63004BA9A6 /* MGSplitCornersView.m */; };
 		BAD501671541DA63004BA9A6 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501631541DA63004BA9A6 /* MGSplitDividerView.m */; };
 		BAD501681541DA63004BA9A6 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501651541DA63004BA9A6 /* MGSplitViewController.m */; };
@@ -348,6 +352,8 @@
 		BA18C41B154B1297005C882A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		BA18C41C154B1297005C882A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BA52014C1559C1A400719A58 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		BA52014E1559C26400719A58 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C7154B3B9800E444EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C8154B435600E444EC /* icon-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-close.png"; sourceTree = "<group>"; };
@@ -509,6 +515,12 @@
 		BAC8B06C15531C6100080225 /* MKTRouteSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteSyncViewController.h; sourceTree = "<group>"; };
 		BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteSyncViewController.m; sourceTree = "<group>"; };
 		BAC8B08C1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m; sourceTree = "<group>"; };
+		BAC8B0971559AAD200080225 /* RecentSearchesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentSearchesController.h; sourceTree = "<group>"; };
+		BAC8B0981559AAD200080225 /* RecentSearchesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentSearchesController.m; sourceTree = "<group>"; };
+		BAC8B09E1559B78000080225 /* MKTPlacemarkDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPlacemarkDataSource.h; sourceTree = "<group>"; };
+		BAC8B09F1559B78000080225 /* MKTPlacemarkDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPlacemarkDataSource.m; sourceTree = "<group>"; };
+		BAC8B0A11559B81400080225 /* SBTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTableAlert.h; sourceTree = "<group>"; };
+		BAC8B0A21559B81400080225 /* SBTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTableAlert.m; sourceTree = "<group>"; };
 		BAD501601541DA63004BA9A6 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
 		BAD501611541DA63004BA9A6 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
 		BAD501621541DA63004BA9A6 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
@@ -622,6 +634,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */,
 				BA18C41F154B1301005C882A /* libz.dylib in Frameworks */,
 				BAEE75F11543FEA000A92FA4 /* QuartzCore.framework in Frameworks */,
 				BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */,
@@ -794,6 +807,8 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
+				BA52014E1559C26400719A58 /* AddressBookUI.framework */,
+				BA52014C1559C1A400719A58 /* AddressBook.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
@@ -975,6 +990,9 @@
 		BAB2F27C1540A5B600ECE09A /* OtherSources */ = {
 			isa = PBXGroup;
 			children = (
+				BAC8B0A11559B81400080225 /* SBTableAlert.h */,
+				BAC8B0A21559B81400080225 /* SBTableAlert.m */,
+				BAC8B0961559AAD200080225 /* Search */,
 				BAF0CA841549CED900C31A02 /* MBProgressHUD.h */,
 				BAF0CA851549CEDA00C31A02 /* MBProgressHUD.m */,
 				BAF0CA38154885B900C31A02 /* InAppSettingsKit */,
@@ -1109,6 +1127,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BAC8B0961559AAD200080225 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BAC8B0971559AAD200080225 /* RecentSearchesController.h */,
+				BAC8B0981559AAD200080225 /* RecentSearchesController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		BAD5015F1541DA63004BA9A6 /* MGSplitView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,6 +1188,8 @@
 				BAF0CA171545DBEC00C31A02 /* MKTRouteMasterViewController.h */,
 				BAF0CA181545DBEC00C31A02 /* MKTRouteMasterViewController.m */,
 				BAA22A031541FA75004F92AA /* MKTRouteViewControllerDelegate.h */,
+				BAC8B09E1559B78000080225 /* MKTPlacemarkDataSource.h */,
+				BAC8B09F1559B78000080225 /* MKTPlacemarkDataSource.m */,
 			);
 			name = Route;
 			sourceTree = "<group>";
@@ -1644,6 +1673,9 @@
 				76DB5A5C154A8302002FFA78 /* MKParamPotiValueTransformer.m in Sources */,
 				BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */,
 				76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */,
+				BAC8B0991559AAD200080225 /* RecentSearchesController.m in Sources */,
+				BAC8B0A01559B78200080225 /* MKTPlacemarkDataSource.m in Sources */,
+				BAC8B0A31559B81600080225 /* SBTableAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

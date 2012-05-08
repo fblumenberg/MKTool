@@ -35,6 +35,8 @@
 #import "BKMacros.h"
 #import "FDCurlViewControl.h"
 
+#import "RecentSearchesController.h"
+
 #import "MKTPoint.h"
 
 #import "HeadingOverlay.h"
@@ -44,6 +46,8 @@
 #import "WPGenCircleViewController.h"
 #import "WPGenPanoViewController.h"
 
+#import "MKTPlacemarkDataSource.h"
+
 DEFINE_KEY(MKTRouteMapViewType);
 DEFINE_KEY(MKTRouteMapViewShowPosition);
 
@@ -52,9 +56,12 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 ///////////////////////////////////////////////////////////////////////////////////
 
 @interface MKTRouteMapViewController () <MKMapViewDelegate, FDCurlViewControlDelegate, CLLocationManagerDelegate,
-                                         WPGenBaseViewControllerDelegate, NSFetchedResultsControllerDelegate>{
+WPGenBaseViewControllerDelegate, NSFetchedResultsControllerDelegate,
+UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTableAlertDelegate>{
   BOOL userDrivenDataModelChange;
   BOOL waitForLocation;
+  
+  MKTPlacemarkDataSource* placemarkDataSource;
 }
 
 @property(nonatomic,strong) IBOutlet MKMapView *mapView;
@@ -82,6 +89,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 @property(nonatomic,strong) IBOutlet UISwitch *showOwnPosition;
 @property(nonatomic,strong) IBOutlet UILabel *scaleLabel;
 
+
 - (void)updateToolbarState;
 - (void)updateToolbar;
 - (void)initToolbar;
@@ -98,6 +106,12 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 @property(nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @property(nonatomic, strong) UIPopoverController* popoverController;
+
+
+@property(nonatomic,strong) UISearchBar* searchBar;
+@property(nonatomic,strong) RecentSearchesController *recentSearchesController;
+@property(nonatomic,strong) UIPopoverController *recentSearchesPopoverController;
+- (void)finishSearchWithString:(NSString *)searchString;
 
 @end
 
@@ -133,6 +147,10 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 @synthesize undoButton;
 @synthesize redoButton;
 
+@synthesize searchBar;
+@synthesize recentSearchesController;
+@synthesize recentSearchesPopoverController;
+
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -158,27 +176,32 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   [super viewDidLoad];
   [self initToolbar];
   
+  self.searchBar.delegate = self;
+  // Create and configure the recent searches controller.
+  self.recentSearchesController = [[RecentSearchesController alloc] initWithStyle:UITableViewStylePlain];
+  self.recentSearchesController.delegate = self;
+  
   self.lm = [CLLocationManager new];
   self.lm.delegate = self;
   self.lm.desiredAccuracy = kCLLocationAccuracyBest;
-
+  
   self.segmentedControl.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] gh_integerForKey:MKTRouteMapViewType 
                                                                                            withDefault:0];
   
   self.showOwnPosition.on = [[NSUserDefaults standardUserDefaults] gh_boolForKey:MKTRouteMapViewShowPosition 
-                                                                        withDefault:NO];
+                                                                     withDefault:NO];
   [self changeMapViewType];
   
   UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
   [self.mapView addGestureRecognizer:longTap];
-
+  
 }
 
 - (void)viewDidUnload
 {
   [super viewDidUnload];
   self.route = nil;
-
+  
   self.mapView = nil;
   self.curlBarItem = nil;
   self.spacer = nil;
@@ -193,7 +216,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   self.wpGeneratorSelectionButton = nil;
   self.wpGenerateConfigItem = nil;
   self.wpGenButton = nil;
-
+  
   self.undoButton = nil;
   self.redoButton = nil;
   
@@ -247,7 +270,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   self.spacer = [[UIBarButtonItem alloc]
                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                  target:nil action:nil];
-
+  
   self.curlBarItem = [[FDCurlViewControl alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPageCurl];
   self.curlBarItem.delegate = self;
   [self.curlBarItem setHidesWhenAnimating:NO];
@@ -268,15 +291,15 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
                            style:UIBarButtonItemStyleBordered
                            target:self
                            action:@selector(addPointWithGps)];
-
+  
   
   self.wpGenerateItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Generate", @"Gernerate WP") style:UIBarButtonItemStyleBordered
-                                                         target:self action:@selector(generateWayPoints)];
+                                                        target:self action:@selector(generateWayPoints)];
   
   
   self.wpGenerateConfigItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon-settings3.png"]
-                                                                style:UIBarButtonItemStyleBordered
-                                                               target:self action:@selector(configWayPoints:)];
+                                                               style:UIBarButtonItemStyleBordered
+                                                              target:self action:@selector(configWayPoints:)];
   
   NSArray *segmentItems = [NSArray arrayWithObjects:@"AREA", @"CIRCLE", @"PANO", nil];
   
@@ -294,36 +317,41 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
                       forControlEvents:UIControlEventValueChanged];
   
   self.wpGeneratorSelectionButton = [[UIBarButtonItem alloc]
-                    initWithCustomView:self.wpGeneratorSelection];
-
+                                     initWithCustomView:self.wpGeneratorSelection];
+  
   self.wpGenButton = [[UIBarButtonItem alloc] initWithTitle:@"WP" 
-                                                       style:UIBarButtonItemStyleBordered 
-                                                      target:self action:@selector(showWpGenerator)];
-
+                                                      style:UIBarButtonItemStyleBordered 
+                                                     target:self action:@selector(showWpGenerator)];
+  
   
   if(self.forWpGenModal) {
     self.navigationItem.hidesBackButton = YES;
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                 target:self
-                                                                                 action:@selector(dismiss)];
+                                                                                target:self
+                                                                                action:@selector(dismiss)];
     
     self.navigationItem.leftBarButtonItem = doneButton;
   }
-
+  
   if(IS_IPAD()){
     self.undoButton = [[UIBarButtonItem alloc]
-                                     initWithImage:[UIImage imageNamed:@"icon-back.png"]
-                                     style:UIBarButtonItemStyleBordered
-                                     target:self
-                                     action:@selector(undo)];
+                       initWithImage:[UIImage imageNamed:@"icon-back.png"]
+                       style:UIBarButtonItemStyleBordered
+                       target:self
+                       action:@selector(undo)];
     
     self.redoButton = [[UIBarButtonItem alloc]
-                                   initWithImage:[UIImage imageNamed:@"icon-forth.png"]
-                                   style:UIBarButtonItemStyleBordered
-                                   target:self
-                                   action:@selector(redo)];
-
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.redoButton, self.undoButton, nil];
+                       initWithImage:[UIImage imageNamed:@"icon-forth.png"]
+                       style:UIBarButtonItemStyleBordered
+                       target:self
+                       action:@selector(redo)];
+    
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0, 0.0, 400.0, 0.0)];
+    
+    UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithCustomView:self.searchBar];
+    
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:searchItem, self.spacer, self.redoButton, self.undoButton, nil];
   }
 }
 
@@ -341,7 +369,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   NSUndoManager* undoManager = [CoreDataStore mainStore].context.undoManager;
   if(undoManager.canRedo)
     [undoManager redo];
-
+  
   [self updateToolbarState];
 }
 
@@ -354,11 +382,11 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   [tbArray addObject:self.spacer];
   
   if(IS_IPAD() || self.forWpGenModal){
-
+    
     [tbArray addObject:self.wpGenerateConfigItem];
     [tbArray addObject:self.wpGenerateItem];
     [tbArray addObject:self.wpGeneratorSelectionButton];
-
+    
   }
   else{
     [tbArray addObject:self.wpGenButton];
@@ -384,7 +412,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   self.wpGenerateItem.enabled = wpgen;
   self.wpGenerateConfigItem.enabled = wpgen;
   self.wpGeneratorSelection.enabled = !wpgen;
-
+  
   NSUndoManager* undoManager = [CoreDataStore mainStore].context.undoManager;
   self.redoButton.enabled = undoManager.canRedo;
   self.undoButton.enabled = undoManager.canUndo;
@@ -395,7 +423,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 
 - (void)addPoint {
   [self.route addPointAtCenter];
-
+  
   if(self.route.count==1)
     [self updateMapView];
 }
@@ -418,16 +446,16 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 - (void)showViewControllerForPoint:(MKTPoint *)point forAnnotationView:(MKAnnotationView*)view{
   
   MKTPointViewController *controller = [[MKTPointViewController alloc] initWithPoint:point];
-
+  
   if(IS_IPAD()){
-
+    
     [self clearAllSelections];
     [self.popoverController dismissPopoverAnimated:NO];
     self.popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-
+    
     CGRect rect = CGRectMake(CGRectGetMidX(view.bounds) + view.calloutOffset.x - 3, 0, 3, 1);
     [self.popoverController presentPopoverFromRect:rect inView:view
-                     permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                          permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
     [self.mapView deselectAnnotation:[view annotation] animated:NO];
   }
@@ -493,7 +521,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
   
   NSUInteger numberOfpoints = [sectionInfo numberOfObjects];
-
+  
   [self.mapView removeAnnotations:self.mapView.annotations];
   [self.mapView addAnnotations:[sectionInfo objects]];
   [self updateRouteOverlay];
@@ -501,34 +529,34 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
   if (numberOfpoints> 1) {
     
     MKCoordinateRegion region = [YKMKUtils regionThatFits:self.mapView.annotations];
-
+    
     [self.mapView setRegion:region];
-//   
-//    MKMapRect flyTo = MKMapRectNull;
-//    
-//    for (id <MKOverlay> overlay in self.mapView.overlays) {
-//      if (MKMapRectIsNull(flyTo)) {
-//        flyTo = [overlay boundingMapRect];
-//      } else {
-//        flyTo = MKMapRectUnion(flyTo, [overlay boundingMapRect]);
-//      }
-//    }
-//    
-//    for (id <MKAnnotation> annotation in self.mapView.annotations) {
-//      MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-//      MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-//      
-//      if (MKMapRectIsNull(flyTo)) {
-//        flyTo = pointRect;
-//      } else {
-//        flyTo = MKMapRectUnion(flyTo, pointRect);
-//      }
-//    }
-//    
-//    flyTo = [self.mapView mapRectThatFits:flyTo];
-//    
-//    // Position the map so that all overlays and annotations are visible on screen.
-//    [self.mapView setVisibleMapRect:flyTo animated:YES];
+    //   
+    //    MKMapRect flyTo = MKMapRectNull;
+    //    
+    //    for (id <MKOverlay> overlay in self.mapView.overlays) {
+    //      if (MKMapRectIsNull(flyTo)) {
+    //        flyTo = [overlay boundingMapRect];
+    //      } else {
+    //        flyTo = MKMapRectUnion(flyTo, [overlay boundingMapRect]);
+    //      }
+    //    }
+    //    
+    //    for (id <MKAnnotation> annotation in self.mapView.annotations) {
+    //      MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+    //      MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+    //      
+    //      if (MKMapRectIsNull(flyTo)) {
+    //        flyTo = pointRect;
+    //      } else {
+    //        flyTo = MKMapRectUnion(flyTo, pointRect);
+    //      }
+    //    }
+    //    
+    //    flyTo = [self.mapView mapRectThatFits:flyTo];
+    //    
+    //    // Position the map so that all overlays and annotations are visible on screen.
+    //    [self.mapView setVisibleMapRect:flyTo animated:YES];
   }
   else if (numberOfpoints == 1) {
     MKTPoint *pt = [self.route.points anyObject];
@@ -549,7 +577,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation {
-
+  
   if ([annotation isKindOfClass:[MKTPoint class]]) {
     MKTPointAnnotationView *annotationView;
     annotationView = (MKTPointAnnotationView*)[theMapView dequeueReusableAnnotationViewWithIdentifier:[MKTPointAnnotationView viewReuseIdentifier]];
@@ -557,10 +585,10 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
       annotationView = [[MKTPointAnnotationView alloc] initWithPoint:(MKTPoint*)annotation];
     else
       annotationView.point = annotation;
-
+    
     return annotationView;
   }
-    
+  
   return nil;
 }
 
@@ -596,10 +624,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     [[CoreDataStore mainStore] save];
     [self updateRouteOverlay];
     
-//    [self performSelector:@selector(clearAllSelections) withObject:self afterDelay:0.1];
-
+    //    [self performSelector:@selector(clearAllSelections) withObject:self afterDelay:0.1];
+    
     NSLog(@"MKAnnotationViewDragStateEnding %@",[(MKTPoint*)view.annotation name]);
-
+    
     userDrivenDataModelChange=NO;
   }
   else if (newState == MKAnnotationViewDragStateStarting) {
@@ -697,7 +725,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   [self.mapView removeOverlays:self.mapView.overlays];
   
   NSArray* orderedPoints = [self.route orderedPoints];
-
+  
   int i = 0;
   for (MKTPoint *p in orderedPoints) {
     if (p.typeValue == MKTPointTypeWP) {
@@ -754,7 +782,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 
 - (void)updateAnnotations{
   id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
-
+  
   [self.mapView removeAnnotations:self.mapView.annotations];
   [self.mapView addAnnotations:[sectionInfo objects]];
   [self doUpdateRouteOverlay];
@@ -773,7 +801,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
-
+  
   if(userDrivenDataModelChange) return;
   
   switch (type) {
@@ -781,11 +809,11 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     case NSFetchedResultsChangeInsert:
       [self.mapView addAnnotation:(id<MKAnnotation>)anObject];
       break;
-    
+      
     case NSFetchedResultsChangeDelete:
       [self.mapView removeAnnotation:(id<MKAnnotation>)anObject];
       break;
-
+      
     case NSFetchedResultsChangeUpdate:
       NSLog(@"NSFetchedResultsChangeUpdate %@",[anObject name]);
       [self.mapView removeAnnotation:(id<MKAnnotation>)anObject];
@@ -882,6 +910,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
+///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Waypoint Generator Delegate
 
 - (void)controllerWillClose:(WPGenBaseViewController *)controller {
@@ -892,28 +921,179 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 - (void)controller:(WPGenBaseViewController *)controller generatedPoints:(NSArray *)points clearList:(BOOL)clear {
   
   if (clear)
-   [self.route removeAllPoints];
+    [self.route removeAllPoints];
   
   [self.route addPointsFromArray:points];
   
-//  
-//  id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
-//  
-//  NSUInteger numberOfpoints = [sectionInfo numberOfObjects];
-//  
-//  [self.mapView removeAnnotations:self.mapView.annotations];
-//  [self.mapView addAnnotations:[sectionInfo objects]];
-//  [self updateRouteOverlay];
-//
-//  
-//  [self.mapView removeAnnotations:self.mapView.annotations];
-//  [self.mapView addAnnotations:route.points];
-//  [self updateRouteOverlay];
-//  
-//  [Route sendChangedNotification:self];
+  //  
+  //  id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
+  //  
+  //  NSUInteger numberOfpoints = [sectionInfo numberOfObjects];
+  //  
+  //  [self.mapView removeAnnotations:self.mapView.annotations];
+  //  [self.mapView addAnnotations:[sectionInfo objects]];
+  //  [self updateRouteOverlay];
+  //
+  //  
+  //  [self.mapView removeAnnotations:self.mapView.annotations];
+  //  [self.mapView addAnnotations:route.points];
+  //  [self updateRouteOverlay];
+  //  
+  //  [Route sendChangedNotification:self];
   
   [[CoreDataStore mainStore] save];
   
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Search results controller delegate method
+
+- (void)recentSearchesController:(RecentSearchesController *)controller didSelectString:(NSString *)searchString {
+  
+  // The user selected a row in the recent searches list (UITableView).
+  // Set the text in the search bar to the search string, and conduct the search.
+  //
+  searchBar.text = searchString;
+  [self finishSearchWithString:searchString];
+}
+
+
+#pragma mark - Search bar delegate methods
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)aSearchBar {
+  
+  if (self.recentSearchesPopoverController == nil) // create the popover if not already open
+  {
+    // Create a navigation controller to contain the recent searches controller,
+    // and create the popover controller to contain the navigation controller.
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.recentSearchesController];
+    
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:navigationController];
+    self.recentSearchesPopoverController = popover;
+    self.recentSearchesPopoverController.delegate = self;
+    
+    // Ensure the popover is not dismissed if the user taps in the search bar.
+    popover.passthroughViews = [NSArray arrayWithObject:searchBar];
+    
+    // Display the search results controller popover.
+    [self.recentSearchesPopoverController presentPopoverFromRect:[searchBar bounds]
+                                                          inView:searchBar
+                                        permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+  }
+}
+
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
+  
+  // If the user finishes editing text in the search bar by, for example:
+  // tapping away rather than selecting from the recents list, then just dismiss the popover
+  //
+  
+  // dismiss the popover, but only if it's confirm UIActionSheet is not open
+  //  (UIActionSheets can take away first responder from the search bar when first opened)
+  //
+  // the popover's main view controller is a UINavigationController; so we need to inspect it's top view controller
+  //
+  if (self.recentSearchesPopoverController != nil)
+  {
+    UINavigationController *navController = (UINavigationController *)self.recentSearchesPopoverController.contentViewController;
+    RecentSearchesController *searchesController = (RecentSearchesController *)navController.topViewController;
+    if (searchesController.confirmSheet == nil)
+    {
+      [self.recentSearchesPopoverController dismissPopoverAnimated:YES];
+      self.recentSearchesPopoverController = nil;
+    }
+  }    
+  [aSearchBar resignFirstResponder];
+}
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+  
+  // When the search string changes, filter the recents list accordingly.
+  [self.recentSearchesController filterResultsUsingString:searchText];
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
+  
+  // When the search button is tapped, add the search term to recents and conduct the search.
+  NSString *searchString = [searchBar text];
+  [self.recentSearchesController addToRecentSearches:searchString];
+  [self finishSearchWithString:searchString];
+}
+
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+  
+  [searchBar resignFirstResponder];
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+#pragma - mark search for placemarks
+
+
+- (void)moveMapToPlacemark:(CLPlacemark*)placemark{
+  MKCoordinateRegion region;
+  region.center.latitude = placemark.region.center.latitude;
+  region.center.longitude = placemark.region.center.longitude;
+  MKCoordinateSpan span;
+  double radius = placemark.region.radius / 1000; // convert to km
+  
+  NSLog(@"Radius is %f", radius);
+  span.latitudeDelta = radius / 112.0;
+  
+  region.span = span;
+  
+  [self.mapView setRegion:region animated:YES];
+}
+
+- (void)finishSearchWithString:(NSString *)searchString {
+  
+  // Conduct the search. In this case, simply report the search term used.
+  [recentSearchesPopoverController dismissPopoverAnimated:YES];
+  self.recentSearchesPopoverController = nil;
+  [searchBar resignFirstResponder];
+  
+  
+  CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+  [geocoder geocodeAddressString:searchString completionHandler:^(NSArray *placemarks, NSError *error) {
+    
+    if(placemarks.count==0){
+      UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil 
+                                                      message:NSLocalizedString(@"Nothing found", @"Map search") 
+                                                     delegate:nil 
+                                            cancelButtonTitle:@"OK" 
+                                            otherButtonTitles:nil, nil];
+      [alert show];
+      return;
+    }
+    
+    if(placemarks.count==1){
+      CLPlacemark *placemark = [placemarks objectAtIndex:0];
+      [self moveMapToPlacemark:placemark];
+    }
+    else {
+      placemarkDataSource = [[MKTPlacemarkDataSource alloc] initWithPlacemarks:placemarks];
+      SBTableAlert* alert = [[SBTableAlert alloc] initWithTitle:NSLocalizedString(@"Did you mean", @"") 
+                                              cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+                                                  messageFormat:nil];
+      
+      alert.dataSource = placemarkDataSource;
+      alert.delegate = self;
+      [alert show];
+      
+    }
+  }];
+  
+}
+
+- (void)tableAlert:(SBTableAlert *)tableAlert didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  
+  CLPlacemark *placemark = [placemarkDataSource.placemarks objectAtIndex:indexPath.row];
+  
+  [self moveMapToPlacemark:placemark];
+  placemarkDataSource=nil;
 }
 
 @end

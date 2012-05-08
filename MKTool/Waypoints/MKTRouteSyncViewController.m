@@ -191,7 +191,7 @@
     //------------------------------------------------------------------------------------------------------------------------
     positionSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     positionSection.formFieldStyle = [[SettingsButtonStyleCenter alloc] init];
-    positionSection.footerTitle = NSLocalizedString(@"Stynchronizes the local Routes with the remote stores.", @"Synchronize Button label");
+    positionSection.footerTitle = NSLocalizedString(@"Synchronizes the local Routes with the remote stores.", @"Synchronize Button label");
     [positionSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Synchronize", @"Synchronize Button")
                                                                        icon:nil 
                                                              executionBlock:^{
