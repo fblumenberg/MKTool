@@ -1096,4 +1096,15 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   placemarkDataSource=nil;
 }
 
+- (void)showPointOnMap:(MKTPoint*)point{
+  for (MKTPoint* p in self.mapView.annotations) {
+    if([point isEqual:p]){
+      self.mapView.centerCoordinate = point.coordinate;
+      [self.mapView selectAnnotation:point animated:YES];
+      break;
+    }
+  }
+}
+
+
 @end

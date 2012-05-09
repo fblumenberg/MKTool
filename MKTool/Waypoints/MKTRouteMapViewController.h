@@ -36,6 +36,7 @@
 - (id)initWithRoute:(MKTRoute *)route delegate:(id <MKTRouteViewControllerDelegate>)delegate;
 
 - (void) clearAllSelections;
+- (void)showPointOnMap:(MKTPoint*)point;
 
 @property(assign) BOOL forWpGenModal;
 

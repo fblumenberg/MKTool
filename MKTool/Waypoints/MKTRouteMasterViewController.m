@@ -49,4 +49,9 @@
   [mapController clearAllSelections];
   [super showViewControllerForPoint:point];
 }
+
+- (void)showPointOnMap:(MKTPoint*)point{
+  [mapController showPointOnMap:point];
+}
+
 @end

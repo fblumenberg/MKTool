@@ -388,12 +388,26 @@
   if (!tableView.isEditing) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section > 0){
- 
+      
       MKTPoint *p = [self.fetchedResultsController objectAtIndexPath:[self correctedIndexPath:indexPath]];
-      [self showViewControllerForPoint:p];
+      if(IS_IPHONE()){
+        [self showViewControllerForPoint:p];
+      }
+      else {
+        [self showPointOnMap:p];
+      }
     }
   }
   [self updateToolbarState];
+}
+
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+  if (indexPath.section > 0){
+    
+    MKTPoint *p = [self.fetchedResultsController objectAtIndexPath:[self correctedIndexPath:indexPath]];
+    [self showViewControllerForPoint:p];
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -470,7 +484,7 @@
                                                          point.altitudeValue, point.holdTimeValue,
                                                          (point.speedValue * 0.1), [point formatHeading]];
 
-  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
   [cell setNeedsLayout];
 }
 
@@ -679,6 +693,10 @@
   }
 }
 
+
+- (void)showPointOnMap:(MKTPoint*)point{
+  
+}
 
 #pragma mark - CLLocationManagerDelegate Methods
 
