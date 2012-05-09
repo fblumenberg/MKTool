@@ -48,7 +48,7 @@
     IBATextFormField *numberField;
     IBAStepperFormField *stepperField;
 
-    IBAFormSection *positionSection = [self addSectionWithHeaderTitle:NSLocalizedString(@"Position", @"WP Pos Title") footerTitle:nil];
+    IBAFormSection *positionSection = [self addSectionWithHeaderTitle:[self modelValueForKeyPath:@"name"] footerTitle:nil];
     positionSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
     //------------------------------------------------------------------------------------------------------------------------
     numberField = [[IBATextFormField alloc] initWithKeyPath:@"latitude"
