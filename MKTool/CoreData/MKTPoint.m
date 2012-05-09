@@ -43,11 +43,11 @@
 
 - (NSString *)title {
   if (self.typeValue == MKTPointTypeWP) {
-    return [NSString stringWithFormat:NSLocalizedString(@"Waypoint - %@", @"WP Annotation callout"), self.name];
+    return [NSString stringWithFormat:NSLocalizedString(@"%@ - Waypoint", @"WP Annotation callout"), self.name];
   } else if (self.typeValue == MKTPointTypePOI) {
-    return [NSString stringWithFormat:NSLocalizedString(@"POI - Index %@", @"POI Annotation callout"), self.name];
+    return [NSString stringWithFormat:NSLocalizedString(@"%@ - POI", @"POI Annotation callout"), self.name];
   }
-  return [NSString stringWithFormat:NSLocalizedString(@"Invalid - Index %@", @"INvalid WP Annotation callout"), self.name];
+  return [NSString stringWithFormat:NSLocalizedString(@"%@ - Invalid", @"INvalid WP Annotation callout"), self.name];
 }
 
 - (NSString*)subtitle{

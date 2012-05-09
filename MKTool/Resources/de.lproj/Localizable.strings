@@ -232,3 +232,6 @@
 /* Synchronize Button label */
 "Synchronizes the local Routes with the remote stores." = "Synchronisiert die lokalen Routen mit der Dropbox";
 
+/* INvalid WP Annotation callout */
+"%@ - Invalid" = "%@ - Typ falsch!";
+

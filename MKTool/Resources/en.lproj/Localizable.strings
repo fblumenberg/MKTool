@@ -253,3 +253,6 @@
 /* Synchronize Button label */
 "Synchronizes the local Routes with the remote stores." = "Synchronizes the local Routes with the remote stored.";
 
+/* INvalid WP Annotation callout */
+"%@ - Invalid" = "%@ - Invalid";
+
