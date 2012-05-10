@@ -111,7 +111,7 @@
   hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
   hud.progress = 0.0;
   hud.mode = MBProgressHUDModeDeterminate;
-  [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal];
+  [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal fromController:self];
 }
 
 - (void)doBackup:(id)sender {
@@ -119,7 +119,7 @@
   hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
   hud.progress = 0.0;
   hud.mode = MBProgressHUDModeDeterminate;
-  [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote];
+  [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote fromController:self];
 }
 
 - (void)doSynchronize:(id)sender {
@@ -127,7 +127,7 @@
   hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
   hud.progress = 0.0;
   hud.mode = MBProgressHUDModeDeterminate;
-  [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder];
+  [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder fromController:self];
 }
 
 - (void)dropboxReady:(MKTRouteDropboxController*)controller{

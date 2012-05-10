@@ -418,7 +418,7 @@
   [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
 
   [MKTRouteDropboxController sharedController].delegate = self;
-  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadata];  
+  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadataFromController:self];  
 }
 
 - (void)dropboxReady:(MKTRouteDropboxController*)dbController{

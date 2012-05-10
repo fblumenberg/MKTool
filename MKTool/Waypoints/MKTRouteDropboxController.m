@@ -126,11 +126,11 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
-- (void)connectAndPrepareMetadata {
+- (void)connectAndPrepareMetadataFromController:(UIViewController*)controller {
   
   if (![[DBSession sharedSession] isLinked]) {
     DDLogInfo(@"The app has no login for the DropBox, start App/Browser");
-    [[DBSession sharedSession] link];
+    [[DBSession sharedSession] linkFromController:controller];
   }
   else {
     DDLogVerbose(@"Try to get the Metadata for our datapath %@",self.dataPath);
@@ -145,11 +145,11 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self.delegate controller:self syncFailedWithError:error];
 }
 
-- (void)syncronizeRoute:(MKTRoute*)route{
-  [self syncronizeRoute:route withOption:MKTRouteDropboxSyncOverrideOlder];
+- (void)syncronizeRoute:(MKTRoute*)route fromController:(UIViewController *)controller{
+  [self syncronizeRoute:route withOption:MKTRouteDropboxSyncOverrideOlder fromController:controller];
 }
 
-- (void)syncronizeRoute:(MKTRoute*)route withOption:(MKTRouteDropboxSyncOption)option{
+- (void)syncronizeRoute:(MKTRoute*)route withOption:(MKTRouteDropboxSyncOption)option fromController:(UIViewController *)controller{
   if(self.isSyncing){
     [self sendSyncStateError];
     return;
@@ -158,14 +158,14 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   _isSyncing = YES;
   currentSyncOption = option;
   self.syncModel.routes = [NSArray arrayWithObject:route];
-  [self connectAndPrepareMetadata];
+  [self connectAndPrepareMetadataFromController:controller];
 }
 
-- (void)syncronizeAllRoutes{
-  [self syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder];
+- (void)syncronizeAllRoutesFromController:(UIViewController *)controller{
+  [self syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder fromController:controller];
 }
 
-- (void)syncronizeAllRoutesWithOption:(MKTRouteDropboxSyncOption)option{
+- (void)syncronizeAllRoutesWithOption:(MKTRouteDropboxSyncOption)option fromController:(UIViewController *)controller{
 
   if(self.isSyncing){
     [self sendSyncStateError];
@@ -175,7 +175,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   _isSyncing = YES;
   currentSyncOption = option;
   self.syncModel.routes = [MKTRoute all];
-  [self connectAndPrepareMetadata];
+  [self connectAndPrepareMetadataFromController:controller];
 }
 
 
