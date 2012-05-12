@@ -10,4 +10,8 @@
 
 @interface MKTSettingsController : NSObject
 
++(MKTSettingsController*) sharedController;
+
+- (void)showFromController:(UIViewController*)controller;
+
 @end
