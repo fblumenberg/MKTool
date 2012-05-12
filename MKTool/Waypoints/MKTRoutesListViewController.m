@@ -32,6 +32,8 @@
 
 #import "UIViewController+MGSplitViewController.h"
 
+#import "MKTSettingsController.h"
+
 #import "MKTRouteDropboxController.h"
 #import "MKTRoutesListViewController.h"
 #import "MKTRouteSyncViewController.h"
@@ -157,20 +159,23 @@
 
 
 - (void)showSettingsModal{
-  IASKAppSettingsViewController* controller = [[IASKAppSettingsViewController alloc] initWithNibName:@"IASKAppSettingsView" bundle:nil];
-  UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
-  controller.title=NSLocalizedString(@"Waypoint Defaults", @"WP Defaults Dialog title");
-  controller.showDoneButton = YES;
-  controller.file = @"waypoints";
-  controller.delegate = self;
   
-  if (IS_IPAD()) {
-    aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self.splitViewController presentModalViewController:aNavController animated:YES];
-  }
-  else
-    [self presentModalViewController:aNavController animated:YES];
-
+  [[MKTSettingsController sharedController] showFromController:IS_IPAD()?self.splitViewController:self];
+//  
+//  IASKAppSettingsViewController* controller = [[IASKAppSettingsViewController alloc] initWithNibName:@"IASKAppSettingsView" bundle:nil];
+//  UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
+//  controller.title=NSLocalizedString(@"Settings", @"Settings Dialog title");
+//  controller.showDoneButton = YES;
+////  controller.file = @"waypoints";
+//  controller.delegate = self;
+//  
+//  if (IS_IPAD()) {
+//    aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
+//    [self.splitViewController presentModalViewController:aNavController animated:YES];
+//  }
+//  else
+//    [self presentModalViewController:aNavController animated:YES];
+//
 }
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender{
@@ -418,7 +423,7 @@
   [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
 
   [MKTRouteDropboxController sharedController].delegate = self;
-  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadata];  
+  [[MKTRouteDropboxController sharedController] connectAndPrepareMetadataFromController:self];  
 }
 
 - (void)dropboxReady:(MKTRouteDropboxController*)dbController{
@@ -488,6 +493,14 @@
   if(progress==1.0)
     hud.mode = MBProgressHUDModeIndeterminate;
     
+}
+
+- (void)controllerPausedInit:(MKTRouteDropboxController*)crontroller{
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+}
+
+- (void)controllerRestartedInit:(MKTRouteDropboxController*)crontroller{
+  
 }
 
 @end

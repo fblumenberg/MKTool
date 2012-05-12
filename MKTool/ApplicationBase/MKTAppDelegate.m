@@ -42,6 +42,7 @@
 #import "DDTTYLogger.h"
 
 #import "DropboxSDK/DropboxSDK.h"
+#import "DBSession+MKT.h"
 
 // Here we import the Dropbox credentials. You have to get your own to compile.
 #import "ExternalData.h"
@@ -149,6 +150,7 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
   if ([[DBSession sharedSession] handleOpenURL:url]) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMKTDropboxResponseNotification object:self];
     return YES;
   }
 
@@ -176,7 +178,7 @@
 #pragma mark - DBSessionDelegate methods
 
 - (void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId {
-  [[DBSession sharedSession] linkUserId:userId];
+  [[DBSession sharedSession] linkUserId:userId fromController:self.window.rootViewController];
 }
 
 @end

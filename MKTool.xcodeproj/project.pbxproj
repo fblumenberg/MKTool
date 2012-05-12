@@ -76,6 +76,8 @@
 		76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */; };
 		BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41B154B1297005C882A /* libTestFlight.a */; };
 		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
+		BA27D543155EE2CE00C6B37E /* MKTSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */; };
+		BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */; };
 		BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA52014E1559C26400719A58 /* AddressBookUI.framework */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
@@ -177,6 +179,7 @@
 		BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */; };
 		BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2F91540AE7000ECE09A /* Test.wpl */; };
 		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
+		BAC7B42F155EC79100FA37DA /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
 		BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */; };
 		BAC8B08D1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m in Resources */ = {isa = PBXBuildFile; fileRef = BAC8B08C1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m */; };
 		BAC8B0991559AAD200080225 /* RecentSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B0981559AAD200080225 /* RecentSearchesController.m */; };
@@ -189,7 +192,6 @@
 		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
 		BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */; };
 		BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */; };
-		BAEE75D91543EB8500A92FA4 /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */; };
 		BAEE75EB1543FDB000A92FA4 /* list-mode.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75E71543FDB000A92FA4 /* list-mode.png */; };
 		BAEE75EC1543FDB000A92FA4 /* list-mode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75E81543FDB000A92FA4 /* list-mode@2x.png */; };
 		BAEE75ED1543FDB000A92FA4 /* map-mode.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75E91543FDB000A92FA4 /* map-mode.png */; };
@@ -352,6 +354,10 @@
 		BA18C41B154B1297005C882A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		BA18C41C154B1297005C882A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BA27D541155EE2CE00C6B37E /* MKTSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTSettingsController.h; path = ApplicationBase/MKTSettingsController.h; sourceTree = "<group>"; };
+		BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTSettingsController.m; path = ApplicationBase/MKTSettingsController.m; sourceTree = "<group>"; };
+		BA27D54E155F1C2300C6B37E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTRouteMapViewController.xib; sourceTree = "<group>"; };
+		BA27D550155F1C2F00C6B37E /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MKTRouteMapViewController.xib; sourceTree = "<group>"; };
 		BA52014C1559C1A400719A58 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BA52014E1559C26400719A58 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -512,6 +518,8 @@
 		BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+Test.m"; sourceTree = "<group>"; };
 		BAB2F2F91540AE7000ECE09A /* Test.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.wpl; sourceTree = "<group>"; };
 		BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestInvalid.wpl; sourceTree = "<group>"; };
+		BAC7B42D155EC79100FA37DA /* DBSession+MKT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBSession+MKT.h"; sourceTree = "<group>"; };
+		BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBSession+MKT.m"; sourceTree = "<group>"; };
 		BAC8B06C15531C6100080225 /* MKTRouteSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteSyncViewController.h; sourceTree = "<group>"; };
 		BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteSyncViewController.m; sourceTree = "<group>"; };
 		BAC8B08C1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m; sourceTree = "<group>"; };
@@ -534,7 +542,6 @@
 		BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteContainerViewController.m; sourceTree = "<group>"; };
 		BAEE75D51543EB8400A92FA4 /* MKTRouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteMapViewController.h; sourceTree = "<group>"; };
 		BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteMapViewController.m; sourceTree = "<group>"; };
-		BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKTRouteMapViewController.xib; sourceTree = "<group>"; };
 		BAEE75E71543FDB000A92FA4 /* list-mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-mode.png"; sourceTree = "<group>"; };
 		BAEE75E81543FDB000A92FA4 /* list-mode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-mode@2x.png"; sourceTree = "<group>"; };
 		BAEE75E91543FDB000A92FA4 /* map-mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-mode.png"; sourceTree = "<group>"; };
@@ -759,6 +766,15 @@
 			path = Frameworks/TestFlight;
 			sourceTree = "<group>";
 		};
+		BA27D544155EE89600C6B37E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BA27D541155EE2CE00C6B37E /* MKTSettingsController.h */,
+				BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		BA9373D8154B488500E444EC /* Default */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +995,7 @@
 		BAB2F27B1540A19600ECE09A /* ApplicationBase */ = {
 			isa = PBXGroup;
 			children = (
+				BA27D544155EE89600C6B37E /* Settings */,
 				BAB2F2D71540A9AE00ECE09A /* ExternalData.h */,
 				BAB2F20015409C8C00ECE09A /* Supporting Files */,
 				BAB2F20815409C8C00ECE09A /* MKTAppDelegate.h */,
@@ -1006,6 +1023,8 @@
 				BAB2F2821540A5B600ECE09A /* InnerBand.m */,
 				76FAA0FA1553CF6F00419D77 /* UIButton+Images.h */,
 				76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */,
+				BAC7B42D155EC79100FA37DA /* DBSession+MKT.h */,
+				BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */,
 			);
 			path = OtherSources;
 			sourceTree = "<group>";
@@ -1184,7 +1203,7 @@
 				BAA229FB1541F811004F92AA /* MKTRouteListViewController.m */,
 				BAEE75D51543EB8400A92FA4 /* MKTRouteMapViewController.h */,
 				BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */,
-				BAEE75D71543EB8400A92FA4 /* MKTRouteMapViewController.xib */,
+				BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */,
 				BAF0CA171545DBEC00C31A02 /* MKTRouteMasterViewController.h */,
 				BAF0CA181545DBEC00C31A02 /* MKTRouteMasterViewController.m */,
 				BAA22A031541FA75004F92AA /* MKTRouteViewControllerDelegate.h */,
@@ -1457,7 +1476,7 @@
 				BAB2F21915409C8C00ECE09A /* MKTDetailViewController_iPhone.xib in Resources */,
 				BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */,
 				BAB2F26915409ED700ECE09A /* README.txt in Resources */,
-				BAEE75D91543EB8500A92FA4 /* MKTRouteMapViewController.xib in Resources */,
+				BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */,
 				BAEE75EB1543FDB000A92FA4 /* list-mode.png in Resources */,
 				BAEE75EC1543FDB000A92FA4 /* list-mode@2x.png in Resources */,
 				BAEE75ED1543FDB000A92FA4 /* map-mode.png in Resources */,
@@ -1676,6 +1695,8 @@
 				BAC8B0991559AAD200080225 /* RecentSearchesController.m in Sources */,
 				BAC8B0A01559B78200080225 /* MKTPlacemarkDataSource.m in Sources */,
 				BAC8B0A31559B81600080225 /* SBTableAlert.m in Sources */,
+				BAC7B42F155EC79100FA37DA /* DBSession+MKT.m in Sources */,
+				BA27D543155EE2CE00C6B37E /* MKTSettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1728,6 +1749,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA27D54E155F1C2300C6B37E /* en */,
+				BA27D550155F1C2F00C6B37E /* de */,
+			);
+			name = MKTRouteMapViewController.xib;
+			sourceTree = "<group>";
+		};
 		BA9373C6154B3B8300E444EC /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

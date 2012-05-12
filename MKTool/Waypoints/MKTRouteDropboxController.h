@@ -32,12 +32,12 @@
 + (MKTRouteDropboxController *)sharedController;
 + (void)showError:(NSError *)error withTitle:(NSString *)title;
 
-- (void)connectAndPrepareMetadata;
+- (void)connectAndPrepareMetadataFromController:(UIViewController*)controller;
 
-- (void)syncronizeRoute:(MKTRoute*)route;
-- (void)syncronizeRoute:(MKTRoute*)route withOption:(MKTRouteDropboxSyncOption)option;
-- (void)syncronizeAllRoutes;
-- (void)syncronizeAllRoutesWithOption:(MKTRouteDropboxSyncOption)option;
+- (void)syncronizeRoute:(MKTRoute*)route fromController:(UIViewController*)controller;
+- (void)syncronizeRoute:(MKTRoute*)route withOption:(MKTRouteDropboxSyncOption)option fromController:(UIViewController*)controller;
+- (void)syncronizeAllRoutesFromController:(UIViewController*)controller;
+- (void)syncronizeAllRoutesWithOption:(MKTRouteDropboxSyncOption)option fromController:(UIViewController*)controller;
 
 @property(strong) NSString* dataPath;
 
@@ -59,6 +59,10 @@
 
 @optional
 - (void)controller:(MKTRouteDropboxController*)crontroller syncProgress:(CGFloat)progress;
+
+- (void)controllerPausedInit:(MKTRouteDropboxController*)crontroller;
+- (void)controllerRestartedInit:(MKTRouteDropboxController*)crontroller;
+
 
 //- (MKTRouteDropboxSyncOption)
 //- (void)
