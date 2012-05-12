@@ -1,0 +1,13 @@
+//
+//  MKTSettingsController.m
+//  MKTool
+//
+//  Created by Frank Blumenberg on 12.05.12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "MKTSettingsController.h"
+
+@implementation MKTSettingsController
+
+@end
