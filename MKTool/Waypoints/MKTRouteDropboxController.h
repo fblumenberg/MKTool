@@ -60,6 +60,10 @@
 @optional
 - (void)controller:(MKTRouteDropboxController*)crontroller syncProgress:(CGFloat)progress;
 
+- (void)controllerPausedInit:(MKTRouteDropboxController*)crontroller;
+- (void)controllerRestartedInit:(MKTRouteDropboxController*)crontroller;
+
+
 //- (MKTRouteDropboxSyncOption)
 //- (void)
 

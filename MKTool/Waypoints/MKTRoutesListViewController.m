@@ -490,4 +490,12 @@
     
 }
 
+- (void)controllerPausedInit:(MKTRouteDropboxController*)crontroller{
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+}
+
+- (void)controllerRestartedInit:(MKTRouteDropboxController*)crontroller{
+  
+}
+
 @end

@@ -114,9 +114,6 @@
 /* RC-Channel */
 "Off" = "Off";
 
-/* InAppSettingsKit */
-"OK" = "OK";
-
 /* Okay */
 "Okay" = "OK";
 
@@ -255,4 +252,31 @@
 
 /* INvalid WP Annotation callout */
 "%@ - Invalid" = "%@ - Invalid";
+
+/* No comment provided by engineer. */
+"Internet connection lost" = "Internet connection lost";
+
+/* No comment provided by engineer. */
+"No internet connection" = "No internet connection";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Please try again." = "Please try again.";
+
+/* Retry loading a page that has failed to load */
+"Retry" = "Retry";
+
+/* No comment provided by engineer. */
+"There was an error loading Dropbox. Please try again." = "There was an error loading Dropbox. Please try again.";
+
+/* No comment provided by engineer. */
+"Try again once you have an internet connection." = "Try again once you have an internet connection.";
+
+/* No comment provided by engineer. */
+"Unknown Error Occurred" = "Unknown Error Occurred";
+
+/* Sync Error */
+"Login failed" = "Login failed";
 

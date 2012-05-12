@@ -23,6 +23,8 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import "DropboxSDK/DropboxSDK.h"
+#import "DBSession+MKT.h"
+
 #import "DDLog.h"
 
 #import "InnerBand.h"
@@ -130,9 +132,28 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   
   if (![[DBSession sharedSession] isLinked]) {
     DDLogInfo(@"The app has no login for the DropBox, start App/Browser");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dbUrlCalled:) name:kMKTDropboxResponseNotification object:nil];
     [[DBSession sharedSession] linkFromController:controller];
+    [self.delegate controllerPausedInit:self];
   }
   else {
+    DDLogVerbose(@"Try to get the Metadata for our datapath %@",self.dataPath);
+    [self.restClient loadMetadata:self.dataPath withHash:[self.dataPathMeta hash]];
+  }
+}
+
+- (void) dbUrlCalled:(NSNotification*)n{
+  
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+  
+  if(![[DBSession sharedSession] isLinked]){
+    DDLogInfo(@"The app has no login for the DropBox, login failed, show error");
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Login failed", @"Sync Error") forKey:NSLocalizedDescriptionKey];
+    NSError* error = [NSError errorWithDomain:@"MKTool" code:1001 userInfo:userInfo];
+    [self.delegate controller:self dropboxInitFailedWithError:error];
+  }
+  else{
+    [self.delegate controllerRestartedInit:self];
     DDLogVerbose(@"Try to get the Metadata for our datapath %@",self.dataPath);
     [self.restClient loadMetadata:self.dataPath withHash:[self.dataPathMeta hash]];
   }
