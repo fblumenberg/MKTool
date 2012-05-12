@@ -59,9 +59,6 @@
 #define kTESTFLIGHTTOKEN @"<YOUR TOKEN>"
 #endif
 
-#define TESTING 1
-
-
 @interface MKTAppDelegate () <DBSessionDelegate>
 
 @property(strong, nonatomic) UINavigationController *navigationController;
