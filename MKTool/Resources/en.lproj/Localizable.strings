@@ -280,3 +280,6 @@
 /* Sync Error */
 "Login failed" = "Login failed";
 
+/* No comment provided by engineer. */
+"Unlink from Dropbbox" = "Unlink from Dropbbox";
+

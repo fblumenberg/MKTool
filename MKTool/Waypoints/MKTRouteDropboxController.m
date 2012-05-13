@@ -148,7 +148,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   
   if(![[DBSession sharedSession] isLinked]){
     DDLogInfo(@"The app has no login for the DropBox, login failed, show error");
-    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Login failed", @"Sync Error") forKey:NSLocalizedDescriptionKey];
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Login failed", @"Sync Error") forKey:@"error"];
     NSError* error = [NSError errorWithDomain:@"MKTool" code:1001 userInfo:userInfo];
     [self.delegate controller:self dropboxInitFailedWithError:error];
   }
@@ -161,7 +161,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (void)sendSyncStateError {
-    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Synchronisation failed", @"Sync Error") forKey:NSLocalizedDescriptionKey];
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Synchronisation failed", @"Sync Error") forKey:@"error"];
     NSError* error = [NSError errorWithDomain:@"MKTool" code:1000 userInfo:userInfo];
     [self.delegate controller:self syncFailedWithError:error];
 }
