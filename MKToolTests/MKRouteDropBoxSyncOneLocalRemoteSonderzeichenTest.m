@@ -25,6 +25,7 @@
 @interface MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest : MKTDropboxBaseTest<MKTRouteDropboxControllerDelegate> {
   NSString *tmpFile;  
   NSString *dataPath;
+  UIViewController* view;
 }
 
 - (MKTRoute *)addRouteWithName:(NSString *)name numberOfPoints:(NSInteger)count prefix:(NSString *)prefix;
@@ -34,6 +35,7 @@
 @implementation MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest
 
 - (void)setUp {
+  view = [[[[UIApplication sharedApplication] delegate] window]rootViewController];
 
   NSString *tmpDirectory = NSTemporaryDirectory();
   tmpFile = [tmpDirectory stringByAppendingPathComponent:@"temp.txt"];
@@ -55,6 +57,8 @@
 
 - (void)testDBSync {
   
+  GHFail(@"No Dropbox");
+
   GHAssertNotNil([DBSession sharedSession],nil);
   
   MKTRouteDropboxController* c = [MKTRouteDropboxController new];
@@ -63,7 +67,7 @@
   
   
   [self prepare];
-  [c connectAndPrepareMetadata];
+  [c connectAndPrepareMetadataFromController:view];
   [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
   
   CoreDataStore *store = [CoreDataStore mainStore];
@@ -72,7 +76,7 @@
   [store save];
   
   [self prepare];
-  [c syncronizeRoute:r withOption:MKTRouteDropboxSyncOverrideRemote];
+  [c syncronizeRoute:r withOption:MKTRouteDropboxSyncOverrideRemote fromController:view];
   [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
 
   [self checkFileExitstance:[dataPath stringByAppendingPathComponent:r.fileName]];
@@ -84,7 +88,7 @@
   [store save];
 
   [self prepare];
-  [c syncronizeRoute:r withOption:MKTRouteDropboxSyncOverrideLocal];
+  [c syncronizeRoute:r withOption:MKTRouteDropboxSyncOverrideLocal fromController:view];
   [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
   
   GHAssertEqualStrings(r.name, @"TESTÄÜÖ",nil);

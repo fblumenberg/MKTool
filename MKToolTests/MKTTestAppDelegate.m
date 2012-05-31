@@ -86,6 +86,7 @@
 
 - (void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId {
   [[DBSession sharedSession] linkUserId:userId];
+  [[DBSession sharedSession] linkUserId:userId fromController:self.window.rootViewController];
 }
 
 
