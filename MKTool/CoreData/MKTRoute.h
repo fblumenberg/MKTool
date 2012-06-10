@@ -40,6 +40,9 @@
 - (NSUInteger)countWP;
 - (NSUInteger)countPOI;
 
+- (CLLocationDistance)routeDistance;
+- (NSUInteger)routeDuration;
+
 
 - (MKTPoint *)addPointAtDefault;
 - (MKTPoint *)addPointAtCenter;

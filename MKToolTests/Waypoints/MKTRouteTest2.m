@@ -9,6 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "GHUnit.h"
+#import "YKCLUtils.h"
 #import "InnerBand.h"
 
 #import "MKTPoint.h"
@@ -416,6 +417,34 @@
   
   
 }
+
+
+- (void)testRouteDistance{
+  
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"Test";
+  
+  CLLocationDistance d;
+  
+  d = [r routeDistance];
+  GHAssertEquals(d,0.0,nil);
+  
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(49.12345, 8.12345);
+  
+  MKTPoint* poi = [r addPointAtCoordinate:coordinate];
+  poi.typeValue = MKTPointTypeWP;
+
+  d = [r routeDistance];
+  GHAssertEquals(d,0.0,nil);
+
+  CLLocationCoordinate2D coordinate2 = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  MKTPoint* wp = [r addPointAtCoordinate:coordinate2];
+  wp.typeValue = MKTPointTypeWP;
+  
+  d = [r routeDistance];
+  GHAssertEqualsWithAccuracy(d,100.0,0.05,nil);
+}
+
 
 
 - (MKTRoute *)addRouteWithName:(NSString *)name {
