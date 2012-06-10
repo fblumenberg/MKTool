@@ -26,6 +26,7 @@
 @interface MKRouteDropBoxSyncAllLocalRemoteTest : MKTDropboxBaseTest<MKTRouteDropboxControllerDelegate> {
   NSString *tmpFile;  
   NSString *dataPath;
+  UIViewController* view;
 }
 
 - (MKTRoute *)addRouteWithName:(NSString *)name numberOfPoints:(NSInteger)count prefix:(NSString *)prefix;
@@ -34,8 +35,11 @@
 
 @implementation MKRouteDropBoxSyncAllLocalRemoteTest
 
+
 - (void)setUp {
 
+  view = [[[[UIApplication sharedApplication] delegate] window]rootViewController];
+  
   NSString *tmpDirectory = NSTemporaryDirectory();
   tmpFile = [tmpDirectory stringByAppendingPathComponent:@"temp.txt"];
   
@@ -56,6 +60,8 @@
 
 - (void)testDBSync {
   
+  GHFail(@"No Dropbox");
+  
   GHAssertNotNil([DBSession sharedSession],nil);
   
   MKTRouteDropboxController* c = [MKTRouteDropboxController new];
@@ -63,7 +69,7 @@
   c.dataPath=dataPath;
   
   [self prepare];
-  [c connectAndPrepareMetadata];
+  [c connectAndPrepareMetadataFromController:view];
   [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
   
   CoreDataStore *store = [CoreDataStore mainStore];
@@ -75,7 +81,7 @@
   [store save];
   
   [self prepare];
-  [c syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote];
+  [c syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote fromController:view];
   [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
 
   [self checkSyncResult];
@@ -83,7 +89,7 @@
   [[MKTRoute first] destroy];
   
   [self prepare];
-  [c syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote];
+  [c syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote fromController:view];
   [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
   
   [self checkSyncResult];
@@ -91,7 +97,7 @@
   [self addRouteWithName:@"TEST5" numberOfPoints:2 prefix:@"U"];
 
   [self prepare];
-  [c syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal];
+  [c syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal fromController:view];
   [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
   
   [self checkSyncResult];

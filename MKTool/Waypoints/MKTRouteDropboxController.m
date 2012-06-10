@@ -134,7 +134,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     DDLogInfo(@"The app has no login for the DropBox, start App/Browser");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dbUrlCalled:) name:kMKTDropboxResponseNotification object:nil];
     [[DBSession sharedSession] linkFromController:controller];
-    [self.delegate controllerPausedInit:self];
+    if([self.delegate respondsToSelector:@selector(controllerPausedInit:)])
+       [self.delegate controllerPausedInit:self];
   }
   else {
     DDLogVerbose(@"Try to get the Metadata for our datapath %@",self.dataPath);
@@ -153,7 +154,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self.delegate controller:self dropboxInitFailedWithError:error];
   }
   else{
-    [self.delegate controllerRestartedInit:self];
+    if([self.delegate respondsToSelector:@selector(controllerRestartedInit:)])
+      [self.delegate controllerRestartedInit:self];
     DDLogVerbose(@"Try to get the Metadata for our datapath %@",self.dataPath);
     [self.restClient loadMetadata:self.dataPath withHash:[self.dataPathMeta hash]];
   }
