@@ -337,6 +337,16 @@
   return [sectionInfo numberOfObjects];
 }
 
+
+//- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+//{
+//  if (section != 0)
+//    return nil;
+//   
+//  return [NSString stringWithFormat:NSLocalizedString(@"Distance: %d m - Duration: %d s",@"Route footer"),(NSUInteger)[self.route routeDistance],[self.route routeDuration]];
+//}
+
+
 - (UITableViewCell *)cellForExtra:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
   static NSString *CellIdentifier = @"WaypointExtraCell";
   

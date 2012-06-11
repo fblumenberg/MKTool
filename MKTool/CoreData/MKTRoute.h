@@ -42,6 +42,7 @@
 
 - (CLLocationDistance)routeDistance;
 - (NSUInteger)routeDuration;
+- (NSUInteger)routeDurationFromCoordinate:(CLLocationCoordinate2D)coordinate;
 
 
 - (MKTPoint *)addPointAtDefault;

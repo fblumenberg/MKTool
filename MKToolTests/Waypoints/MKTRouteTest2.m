@@ -430,21 +430,151 @@
   GHAssertEquals(d,0.0,nil);
   
   CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(49.12345, 8.12345);
+  CLLocationCoordinate2D coordinatePOI = CLLocationCoordinate2DMake(49.12345, 8.12345);
   
-  MKTPoint* poi = [r addPointAtCoordinate:coordinate];
-  poi.typeValue = MKTPointTypeWP;
+  MKTPoint* wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
 
   d = [r routeDistance];
   GHAssertEquals(d,0.0,nil);
+  
+  
+  coordinate = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  d = YKCLLocationCoordinateDistance(wp.coordinate, coordinate, YES);
+  GHAssertEqualsWithAccuracy(d,100.0,0.05,nil);
 
-  CLLocationCoordinate2D coordinate2 = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
-  MKTPoint* wp = [r addPointAtCoordinate:coordinate2];
+  
+  wp = [r addPointAtCoordinate:coordinate];
   wp.typeValue = MKTPointTypeWP;
   
   d = [r routeDistance];
   GHAssertEqualsWithAccuracy(d,100.0,0.05,nil);
+
+  wp = [r addPointAtCoordinate:coordinatePOI];
+  wp.typeValue = MKTPointTypePOI;
+  
+  d = [r routeDistance];
+  GHAssertEqualsWithAccuracy(d,100.0,0.05,nil);
+
+  coordinate = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
+  
+  d = [r routeDistance];
+  GHAssertEqualsWithAccuracy(d,200.0,0.05,nil);
 }
 
+
+- (void)testRouteDurationFromCoordinate{
+  
+  CLLocationCoordinate2D coordinateStart = CLLocationCoordinate2DMake(49.12345, 8.12345);
+
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"Test";
+  
+  NSUInteger d;
+  NSUInteger dReq=0;
+  
+  d = [r routeDurationFromCoordinate:coordinateStart];
+  GHAssertEquals(d,0U,nil);
+  
+  CLLocationCoordinate2D coordinate = YKCLLocationCoordinateMoveDistance(coordinateStart,100,0);
+  CLLocationCoordinate2D coordinatePOI = CLLocationCoordinate2DMake(49.12345, 8.12345);
+  
+  MKTPoint* wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
+  wp.speedValue = 10;
+  wp.holdTimeValue = 5;
+  
+  d = [r routeDurationFromCoordinate:YKCLLocationCoordinate2DNull];
+  dReq = 5U;
+  GHAssertEquals(d,dReq,nil);
+  
+  d = [r routeDurationFromCoordinate:coordinateStart];
+  dReq = (100/10) + 5U;
+  GHAssertEquals(d,dReq,nil);
+  
+  coordinate = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
+  wp.speedValue = 10;
+  wp.holdTimeValue = 5;
+  
+  d = [r routeDurationFromCoordinate:coordinateStart];
+  dReq = (100/10) + 5 + (100/10) + 5;
+  GHAssertEquals(d,dReq,nil);
+  
+  wp = [r addPointAtCoordinate:coordinatePOI];
+  wp.typeValue = MKTPointTypePOI;
+  
+  d = [r routeDurationFromCoordinate:coordinateStart];
+  dReq = (100/10) + 5 + (100/10) + 5;
+  GHAssertEquals(d,dReq,nil);
+  
+  coordinate = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
+  wp.speedValue = 10;
+  wp.holdTimeValue = 5;
+  
+  d = [r routeDurationFromCoordinate:coordinateStart];
+  dReq = (100/10) + 5 + (100/10) + 5 + (100/10) + 5;
+  GHAssertEquals(d,dReq,nil);
+  
+}
+
+
+- (void)testRouteDuration{
+  
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"Test";
+  
+  NSUInteger d;
+  NSUInteger dReq=0;
+  
+  d = [r routeDuration];
+  GHAssertEquals(d,0U,nil);
+  
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(49.12345, 8.12345);
+  CLLocationCoordinate2D coordinatePOI = CLLocationCoordinate2DMake(49.12345, 8.12345);
+  
+  MKTPoint* wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
+  wp.speedValue = 10;
+  wp.holdTimeValue = 5;
+  
+  d = [r routeDuration];
+  dReq = 5U;
+  GHAssertEquals(d,dReq,nil);
+
+  coordinate = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
+  wp.speedValue = 10;
+  wp.holdTimeValue = 5;
+  
+  d = [r routeDuration];
+  dReq = 5 + (100/10) + 5;
+  GHAssertEquals(d,dReq,nil);
+  
+  wp = [r addPointAtCoordinate:coordinatePOI];
+  wp.typeValue = MKTPointTypePOI;
+
+  d = [r routeDuration];
+  dReq = 5 + (100/10) + 5;
+  GHAssertEquals(d,dReq,nil);
+
+  coordinate = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  wp = [r addPointAtCoordinate:coordinate];
+  wp.typeValue = MKTPointTypeWP;
+  wp.speedValue = 10;
+  wp.holdTimeValue = 5;
+  
+  d = [r routeDuration];
+  dReq = 5 + (100/10) + 5 + (100/10) + 5;
+  GHAssertEquals(d,dReq,nil);
+
+}
 
 
 - (MKTRoute *)addRouteWithName:(NSString *)name {

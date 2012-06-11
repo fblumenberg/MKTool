@@ -23,6 +23,7 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import "InnerBand.h"
+#import "YKCLUtils.h"
 
 #import "MKTRoute.h"
 #import "MKTPoint.h"
@@ -241,11 +242,64 @@
 }
 
 - (CLLocationDistance)routeDistance{
-  return -1;
+  
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(route=%@) and (type=%d)", self,MKTPointTypeWP];
+  NSArray* wpPoints = [MKTPoint allForPredicate:predicate orderBy:@"index" ascending:YES];
+  
+  if(wpPoints.count < 2)
+    return 0.0;
+  
+  CLLocationDistance d = 0.0;
+
+  for(NSUInteger i=1;i<wpPoints.count;i++){
+    MKTPoint* p1 = [wpPoints objectAtIndex:i-1];
+    MKTPoint* p2 = [wpPoints objectAtIndex:i];
+    d += YKCLLocationCoordinateDistance(p1.coordinate, p2.coordinate, YES);
+  }
+  
+  return d;
 }
 
+
+
 - (NSUInteger)routeDuration{
-  return NSUIntegerMax;
+  return [self routeDurationFromCoordinate:YKCLLocationCoordinate2DNull];
+}
+
+- (NSUInteger)routeDurationFromCoordinate:(CLLocationCoordinate2D)coordinate{
+  
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(route=%@) and (type=%d)", self,MKTPointTypeWP];
+  NSArray* wpPoints = [MKTPoint allForPredicate:predicate orderBy:@"index" ascending:YES];
+  
+  if(wpPoints.count < 1)
+    return 0;
+
+  NSUInteger duration=0;
+  
+  
+  for(NSUInteger i=0;i<wpPoints.count;i++){
+    if(i==0){
+      MKTPoint* p1 = [wpPoints objectAtIndex:i];
+      duration += p1.holdTimeValue;
+      if(!YKCLLocationCoordinate2DIsNull(coordinate)){
+        CLLocationDistance d = YKCLLocationCoordinateDistance(coordinate, p1.coordinate, YES);
+        if(p1.speedValue!=0)
+          duration += (NSUInteger)(d/(double)p1.speedValue);
+      }
+    }
+    else {
+      MKTPoint* p1 = [wpPoints objectAtIndex:i-1];
+      MKTPoint* p2 = [wpPoints objectAtIndex:i];
+      CLLocationDistance d = YKCLLocationCoordinateDistance(p1.coordinate, p2.coordinate, YES);
+      
+      duration += p2.holdTimeValue;
+      
+      if(p2.speedValue!=0)
+        duration += (NSUInteger)(d/(double)p2.speedValue);
+    }
+  }
+  
+  return duration;
 }
  
 
