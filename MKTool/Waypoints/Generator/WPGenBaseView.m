@@ -38,6 +38,7 @@
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
+    self.contentMode = UIViewContentModeRedraw;
     self.backgroundColor = [UIColor clearColor];
     self.wpTextFont = [UIFont boldSystemFontOfSize:10];
     self.wpColor = [UIColor colorWithRed:0.0 green:0.5 blue:0.25 alpha:1.0];
