@@ -23,7 +23,10 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import "InnerBand.h"
+#import "YKCLUtils.h"
 #import "MKTPoint.h"
+#import "MKTRoute.h"
+
 
 @implementation MKTPoint
 
@@ -65,6 +68,16 @@
 
   return @"";
 }
+
+
+- (CLLocationDistance)distanceToPoi{
+  if(self.headingValue>=0)
+    return 0.0;
+  
+  MKTPoint* poi=[self.route pointWithIndexx:-(self.headingValue)];
+  return YKCLLocationCoordinateDistance(self.coordinate,poi.coordinate,YES);
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - 

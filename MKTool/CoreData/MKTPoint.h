@@ -46,4 +46,6 @@ typedef enum {
 + (NSFetchedResultsController *)fetchedResultsControllerForRoute:(MKTRoute *)r;
 + (NSDictionary *)attributesForPoint;
 
+- (CLLocationDistance)distanceToPoi;
+
 @end

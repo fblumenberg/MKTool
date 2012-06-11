@@ -76,6 +76,10 @@
 		76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */; };
 		BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41B154B1297005C882A /* libTestFlight.a */; };
 		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
+		BA1B06B81584DF6200C6C964 /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
+		BA1B06B91584DF8E00C6C964 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */; };
+		BA1B06BA1584E19600C6C964 /* YelpKit-FB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF0C9EA15444A7000C31A02 /* YelpKit-FB.framework */; };
+		BA1B06BB1584E22300C6C964 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
 		BA27D543155EE2CE00C6B37E /* MKTSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */; };
 		BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */; };
 		BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA52014E1559C26400719A58 /* AddressBookUI.framework */; };
@@ -666,6 +670,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA1B06B91584DF8E00C6C964 /* QuartzCore.framework in Frameworks */,
 				BAB2F2E71540AC7E00ECE09A /* MessageUI.framework in Frameworks */,
 				BAB2F2E01540AA9600ECE09A /* CoreData.framework in Frameworks */,
 				BAB2F2E11540AA9600ECE09A /* CoreText.framework in Frameworks */,
@@ -677,6 +682,8 @@
 				BAB2F2CD1540A83100ECE09A /* libGHUnitIOS.a in Frameworks */,
 				BAB2F2D51540A94D00ECE09A /* libBlocksKit.a in Frameworks */,
 				BAB2F2D61540A95300ECE09A /* DropboxSDK.framework in Frameworks */,
+				BA1B06BA1584E19600C6C964 /* YelpKit-FB.framework in Frameworks */,
+				BA1B06BB1584E22300C6C964 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1735,6 +1742,7 @@
 				BAF0CA951549E0B500C31A02 /* MKRouteDropBoxSyncAllLocalRemoteTest.m in Sources */,
 				BAF0CA961549E0B500C31A02 /* MKRouteDropBoxSyncOneOlderTest.m in Sources */,
 				BAF0CA971549E0B500C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m in Sources */,
+				BA1B06B81584DF6200C6C964 /* DBSession+MKT.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1887,9 +1895,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
+					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2040,9 +2050,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
+					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2066,9 +2078,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
+					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

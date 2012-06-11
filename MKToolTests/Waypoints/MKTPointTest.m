@@ -7,7 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "YKCLUtils.h"
 #import "GHUnit.h"
 #import "InnerBand.h"
 
@@ -122,6 +122,35 @@
   }];
 
 
+}
+
+
+- (void)testPoiDistance{
+  
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"Test";
+
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(49.12345, 8.12345);
+
+  MKTPoint* poi = [r addPointAtCoordinate:coordinate];
+  poi.typeValue = MKTPointTypePOI;
+  
+  CLLocationCoordinate2D coordinate2 = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  MKTPoint* wp = [r addPointAtCoordinate:coordinate2];
+  wp.typeValue = MKTPointTypeWP;
+  wp.headingValue = -(poi.indexValue);
+  
+  CLLocationDistance d = [wp distanceToPoi];
+  
+  GHAssertEqualsWithAccuracy(d,100.0,0.05,nil);
+  
+  wp.headingValue=0;
+  d = [wp distanceToPoi];
+  GHAssertEquals(d,0.0,nil);
+
+  wp.headingValue=360;
+  d = [wp distanceToPoi];
+  GHAssertEquals(d,0.0,nil);
 }
 
 @end
