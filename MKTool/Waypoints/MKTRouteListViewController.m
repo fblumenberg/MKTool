@@ -338,13 +338,12 @@
 }
 
 
-//- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-//{
-//  if (section != 0)
-//    return nil;
-//   
-//  return [NSString stringWithFormat:NSLocalizedString(@"Distance: %d m - Duration: %d s",@"Route footer"),(NSUInteger)[self.route routeDistance],[self.route routeDuration]];
-//}
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+  if (section != 0)
+    return nil;
+   
+  return [NSString stringWithFormat:NSLocalizedString(@"Distance: %d m - Duration: %d s",@"Route footer"),(NSUInteger)[self.route routeDistance],[self.route routeDuration]];
+}
 
 
 - (UITableViewCell *)cellForExtra:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
@@ -556,6 +555,8 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
   if (userDrivenDataModelChange) return;
   [self.tableView endUpdates];
+  
+  [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:NO];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -28,7 +28,7 @@
 #import "SettingsFieldStyle.h"
 #import "WPCamAngleTransformer.h"
 
-//#import "Route.h"
+#import "MKTPoint.h"
 
 @interface MKTPointViewDataSource ()
 
@@ -48,7 +48,12 @@
     IBATextFormField *numberField;
     IBAStepperFormField *stepperField;
 
-    IBAFormSection *positionSection = [self addSectionWithHeaderTitle:[self modelValueForKeyPath:@"name"] footerTitle:nil];
+    NSString* headerTitle=[self modelValueForKeyPath:@"name"];
+    if( ((MKTPoint*)aModel).headingValue<0){
+      headerTitle = [headerTitle stringByAppendingFormat:NSLocalizedString(@" - Distance to POI %d m", @"Point editor extra header"),(NSUInteger)[((MKTPoint*)aModel) distanceToPoi]];
+    }
+    
+    IBAFormSection *positionSection = [self addSectionWithHeaderTitle:headerTitle footerTitle:nil];
     positionSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
     //------------------------------------------------------------------------------------------------------------------------
     numberField = [[IBATextFormField alloc] initWithKeyPath:@"latitude"

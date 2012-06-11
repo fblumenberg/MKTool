@@ -74,6 +74,8 @@
 		76FAA0F81553C61F00419D77 /* darkGreyButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 76FAA0F41553C61F00419D77 /* darkGreyButtonHighlight.png */; };
 		76FAA0F91553C61F00419D77 /* darkGreyButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76FAA0F51553C61F00419D77 /* darkGreyButtonHighlight@2x.png */; };
 		76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */; };
+		BA0E48FB15869056000F382C /* icon-locate-gps.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48F915869056000F382C /* icon-locate-gps.png */; };
+		BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */; };
 		BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41B154B1297005C882A /* libTestFlight.a */; };
 		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
 		BA1B06B81584DF6200C6C964 /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
@@ -355,6 +357,8 @@
 		76FAA0F51553C61F00419D77 /* darkGreyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkGreyButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		76FAA0FA1553CF6F00419D77 /* UIButton+Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Images.h"; sourceTree = "<group>"; };
 		76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Images.m"; sourceTree = "<group>"; };
+		BA0E48F915869056000F382C /* icon-locate-gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps.png"; sourceTree = "<group>"; };
+		BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps@2x.png"; sourceTree = "<group>"; };
 		BA18C41B154B1297005C882A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		BA18C41C154B1297005C882A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -1236,6 +1240,8 @@
 		BAEE75E61543FDB000A92FA4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BA0E48F915869056000F382C /* icon-locate-gps.png */,
+				BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */,
 				76FAA0B31553BC2B00419D77 /* Buttons */,
 				BAF0C9F215445CC200C31A02 /* delete-point-btn-pressed.png */,
 				BAF0C9F315445CC200C31A02 /* delete-point-btn-pressed@2x.png */,
@@ -1574,6 +1580,8 @@
 				760A1CDB155413FB00EDDBC5 /* icon-back@2x.png in Resources */,
 				760A1CDC155413FB00EDDBC5 /* icon-forth.png in Resources */,
 				760A1CDD155413FB00EDDBC5 /* icon-forth@2x.png in Resources */,
+				BA0E48FB15869056000F382C /* icon-locate-gps.png in Resources */,
+				BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

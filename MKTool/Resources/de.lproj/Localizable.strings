@@ -262,3 +262,9 @@
 /* No comment provided by engineer. */
 "Unlink from Dropbbox" = "Von Dropbox abmelden";
 
+/* Route footer */
+"Distance: %d m - Duration: %d s" = "Länge: %1$d m - Zeit: %2$d s";
+
+/* Point editor extra header */
+" - Distance to POI %d m" = "- Entfernung zum POI %d m";
+
