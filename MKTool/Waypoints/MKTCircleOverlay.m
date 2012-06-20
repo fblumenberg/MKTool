@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,42 +22,43 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import <CoreLocation/CoreLocation.h>
 
-#import "_MKTRoute.h"
+#import "MKTCircleOverlay.h"
 
-@class MKTPoint;
+@implementation MKTCircleOverlay
 
-@interface MKTRoute : _MKTRoute {
+@synthesize circle;
+@synthesize coordinate;
+@synthesize boundingMapRect;
+@synthesize strokeColor,fillColor,lineWidth;
+
+- (CLLocationCoordinate2D)coordinate {
+  return circle.coordinate;
 }
 
-+ (NSDictionary *)attributesForRoute;
-+ (NSFetchedResultsController *)fetchedResultsController;
-+ (CLLocationCoordinate2D)defaultCoordinate;
+- (MKMapRect)boundingMapRect {
+  return circle.boundingMapRect;
+}
 
-- (NSArray *)orderedPoints;
-- (NSUInteger)count;
-- (NSUInteger)countWP;
-- (NSUInteger)countPOI;
 
-- (CLLocationDistance)routeDistance;
-- (NSUInteger)routeDuration;
-- (NSUInteger)routeDurationFromCoordinate:(CLLocationCoordinate2D)coordinate;
++ (id)circleWithCenterCoordinate:(CLLocationCoordinate2D)coord
+                                         radius:(CLLocationDistance)radius {
 
-- (CLLocationCoordinate2D)centerCoordinate;
+  return [[MKTCircleOverlay alloc] initWithCenterCoordinate:coord radius:radius];
+}
 
-- (MKTPoint *)addPointAtDefault;
-- (MKTPoint *)addPointAtCenter;
-- (MKTPoint *)addPointAtCoordinate:(CLLocationCoordinate2D)coordinate;
+- (id)initWithCenterCoordinate:(CLLocationCoordinate2D)coord
+                        radius:(CLLocationDistance)radius                         {
 
-- (void)addPointsFromArray:(NSArray*)array;
-- (void)removeAllPoints;
+  self = [super init];
+  if (self) {
+    circle = [MKCircle circleWithCenterCoordinate:coord radius:radius];
+    self.strokeColor = [UIColor whiteColor];
+    self.fillColor = [UIColor clearColor];
+    self.lineWidth = 0;
+  }
 
-- (MKTPoint *)pointWithIndexx:(int)index;
-
-- (void)movePointAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
-- (void)deletePointAtIndexPath:(NSIndexPath *)indexPath;
-- (void)deletePointsAtIndexPaths:(NSArray *)indexPaths;
-- (void)deletePoint:(MKTPoint*)point;
+  return self;
+}
 
 @end

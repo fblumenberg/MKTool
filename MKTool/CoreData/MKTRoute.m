@@ -128,25 +128,8 @@
 
 - (MKTPoint *)addPointAtCenter {
 
-  if ([self.points count] > 1) {
-    CLLocationDegrees latMin = 360.0;
-    CLLocationDegrees latMax = -360.0;
-    CLLocationDegrees longMin = 360.0;
-    CLLocationDegrees longMax = -360.0;
-
-    for (MKTPoint *p in self.points) {
-      latMax = MAX(latMax, p.coordinate.latitude);
-      latMin = MIN(latMin, p.coordinate.latitude);
-      longMax = MAX(longMax, p.coordinate.longitude);
-      longMin = MIN(longMin, p.coordinate.longitude);
-    }
-
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latMin + (latMax - latMin) / 2.0, longMin + (longMax - longMin) / 2.0);
-    return [self addPointAtCoordinate:coordinate];
-  }
-  else if ([self.points count] == 1) {
-    MKTPoint *p = [self.points anyObject];
-    return [self addPointAtCoordinate:p.coordinate];
+  if ([self.points count] > 0) {
+    return [self addPointAtCoordinate:[self centerCoordinate]];
   }
 
   return [self addPointAtDefault];
@@ -260,6 +243,32 @@
   return d;
 }
 
+- (CLLocationCoordinate2D)centerCoordinate{
+
+  if ([self.points count] > 1) {
+    CLLocationDegrees latMin = 360.0;
+    CLLocationDegrees latMax = -360.0;
+    CLLocationDegrees longMin = 360.0;
+    CLLocationDegrees longMax = -360.0;
+    
+    for (MKTPoint *p in self.points) {
+      latMax = MAX(latMax, p.coordinate.latitude);
+      latMin = MIN(latMin, p.coordinate.latitude);
+      longMax = MAX(longMax, p.coordinate.longitude);
+      longMin = MIN(longMin, p.coordinate.longitude);
+    }
+    
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latMin + (latMax - latMin) / 2.0, longMin + (longMax - longMin) / 2.0);
+    return coordinate;
+  }
+  
+  else if ([self.points count] == 1) {
+    MKTPoint *p = [self.points anyObject];
+    return p.coordinate;
+  }
+  
+  return YKCLLocationCoordinate2DNull;
+}
 
 
 - (NSUInteger)routeDuration{

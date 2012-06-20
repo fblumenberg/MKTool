@@ -39,6 +39,7 @@
 
 #import "MKTPoint.h"
 
+#import "MKTCircleOverlay.h"
 #import "HeadingOverlay.h"
 #import "HeadingOverlayView.h"
 
@@ -700,16 +701,15 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     circleView.lineWidth = 1.5;
     return circleView;
   }
-  else if ([overlay isKindOfClass:[MKCircle class]]) {
-    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:(MKCircle *)overlay];
-    if ([((MKCircle *) overlay).title length] > 0) {
-      circleView.strokeColor = [UIColor redColor];
-    }
-    else {
-      circleView.strokeColor = [UIColor greenColor];
-    }
-    circleView.fillColor = [circleView.strokeColor colorWithAlphaComponent:0.4];
-    circleView.lineWidth = 1.5;
+  else if ([overlay isKindOfClass:[MKTCircleOverlay class]]) {
+    
+    MKTCircleOverlay *circleOverlay = (MKTCircleOverlay*)overlay;
+        
+    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:circleOverlay.circle];
+    circleView.strokeColor = circleOverlay.strokeColor;
+    circleView.fillColor = circleOverlay.fillColor;
+    circleView.lineWidth = circleOverlay.lineWidth;
+
     return circleView;
   }
   
@@ -724,6 +724,19 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   
   [self.mapView removeOverlays:self.mapView.overlays];
   
+  CLLocationCoordinate2D center = [self.route centerCoordinate];
+  
+  MKTCircleOverlay *fence = [MKTCircleOverlay circleWithCenterCoordinate:center radius:125];
+  fence.lineWidth = 1.5;
+  fence.strokeColor = [UIColor redColor];
+  [self.mapView addOverlay:fence];
+  
+  fence = [MKTCircleOverlay circleWithCenterCoordinate:center radius:50];
+  fence.lineWidth = 1.5;
+  fence.strokeColor = [UIColor whiteColor];
+  [self.mapView addOverlay:fence];
+  
+  
   NSArray* orderedPoints = [self.route orderedPoints];
   
   int i = 0;
@@ -731,10 +744,16 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     if (p.typeValue == MKTPointTypeWP) {
       coordinates[i] = p.coordinate;
       
-      MKCircle *c = [MKCircle circleWithCenterCoordinate:p.coordinate radius:p.toleranceRadiusValue];
-      if (i == 0)
-        c.title = @"start";
+      MKTCircleOverlay *c = [MKTCircleOverlay circleWithCenterCoordinate:p.coordinate radius:p.toleranceRadiusValue];
       
+      if (i == 0)
+        c.strokeColor = [UIColor redColor];
+      else 
+        c.strokeColor = [UIColor greenColor];
+
+      c.fillColor = [c.strokeColor colorWithAlphaComponent:0.4];
+      c.lineWidth = 1.5;
+
       [self.mapView addOverlay:c];
       
       BOOL createOverlay = YES;

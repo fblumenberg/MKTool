@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,42 +22,27 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import <CoreLocation/CoreLocation.h>
 
-#import "_MKTRoute.h"
+#import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@class MKTPoint;
+@interface MKTCircleOverlay : MKShape <MKOverlay> 
 
-@interface MKTRoute : _MKTRoute {
-}
+@property(readonly) MKCircle *circle;
 
-+ (NSDictionary *)attributesForRoute;
-+ (NSFetchedResultsController *)fetchedResultsController;
-+ (CLLocationCoordinate2D)defaultCoordinate;
+@property(nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property(nonatomic, readonly) MKMapRect boundingMapRect;
 
-- (NSArray *)orderedPoints;
-- (NSUInteger)count;
-- (NSUInteger)countWP;
-- (NSUInteger)countPOI;
+@property(nonatomic,retain) UIColor* strokeColor;
+@property(nonatomic,retain) UIColor* fillColor;
+@property CGFloat lineWidth; // defaults to 0, which is MKRoadWidthAtZoomScale(currentZoomScale)
 
-- (CLLocationDistance)routeDistance;
-- (NSUInteger)routeDuration;
-- (NSUInteger)routeDurationFromCoordinate:(CLLocationCoordinate2D)coordinate;
 
-- (CLLocationCoordinate2D)centerCoordinate;
++ (id)circleWithCenterCoordinate:(CLLocationCoordinate2D)coord
+                                         radius:(CLLocationDistance)radius;
 
-- (MKTPoint *)addPointAtDefault;
-- (MKTPoint *)addPointAtCenter;
-- (MKTPoint *)addPointAtCoordinate:(CLLocationCoordinate2D)coordinate;
+- (id)initWithCenterCoordinate:(CLLocationCoordinate2D)coord
+                        radius:(CLLocationDistance)radius;
 
-- (void)addPointsFromArray:(NSArray*)array;
-- (void)removeAllPoints;
-
-- (MKTPoint *)pointWithIndexx:(int)index;
-
-- (void)movePointAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
-- (void)deletePointAtIndexPath:(NSIndexPath *)indexPath;
-- (void)deletePointsAtIndexPaths:(NSArray *)indexPaths;
-- (void)deletePoint:(MKTPoint*)point;
 
 @end
