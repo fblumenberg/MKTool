@@ -71,6 +71,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 @property(nonatomic, strong) UIBarButtonItem *spacer;
 @property(nonatomic, strong) UIBarButtonItem *addButton;
 @property(nonatomic, strong) UIBarButtonItem *addWithGpsButton;
+@property(nonatomic, strong) UIBarButtonItem *locateButton;
 
 @property(nonatomic, strong) WPGenBaseViewController *wpgenController;
 @property(nonatomic, strong) UISegmentedControl *wpGeneratorSelection;
@@ -132,6 +133,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 @synthesize spacer;
 @synthesize addButton;
 @synthesize addWithGpsButton;
+@synthesize locateButton;
 @synthesize segmentedControl;
 @synthesize showOwnPosition;
 @synthesize scaleLabel;
@@ -217,7 +219,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   self.wpGeneratorSelectionButton = nil;
   self.wpGenerateConfigItem = nil;
   self.wpGenButton = nil;
-  
+  self.locateButton = nil;
   self.undoButton = nil;
   self.redoButton = nil;
   
@@ -292,7 +294,13 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
                            style:UIBarButtonItemStyleBordered
                            target:self
                            action:@selector(addPointWithGps)];
-  
+
+  self.locateButton = [[UIBarButtonItem alloc]
+                           initWithImage:[UIImage imageNamed:@"icon-locate-gps.png"]
+                           style:UIBarButtonItemStyleBordered
+                           target:self
+                           action:@selector(locateWithGps)];
+
   
   self.wpGenerateItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Generate", @"Gernerate WP") style:UIBarButtonItemStyleBordered
                                                         target:self action:@selector(generateWayPoints)];
@@ -380,6 +388,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   NSMutableArray *tbArray = [NSMutableArray array];
   
   [tbArray addObject:self.curlBarItem];
+  [tbArray addObject:self.locateButton];
   [tbArray addObject:self.spacer];
   
   if(IS_IPAD() || self.forWpGenModal){
@@ -443,6 +452,11 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   }
 }
 
+- (void)locateWithGps{
+  if(self.lm.location){
+    [self.mapView setCenterCoordinate:self.lm.location.coordinate animated:YES];
+  }
+}
 
 - (void)showViewControllerForPoint:(MKTPoint *)point forAnnotationView:(MKAnnotationView*)view{
   
@@ -1118,7 +1132,8 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 - (void)showPointOnMap:(MKTPoint*)point{
   for (MKTPoint* p in self.mapView.annotations) {
     if([point isEqual:p]){
-      self.mapView.centerCoordinate = point.coordinate;
+      [self.mapView setCenterCoordinate:point.coordinate animated:YES];
+//      self.mapView.centerCoordinate = point.coordinate;
       [self.mapView selectAnnotation:point animated:YES];
       break;
     }

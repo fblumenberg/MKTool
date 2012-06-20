@@ -283,3 +283,9 @@
 /* No comment provided by engineer. */
 "Unlink from Dropbbox" = "Unlink from Dropbbox";
 
+/* Route footer */
+"Distance: %d m - Duration: %d s" = "Distance: %1$d m - Duration: %2$d s";
+
+/* Point editor extra header */
+" - Distance to POI %d m" = " - Distance to POI %d m";
+
