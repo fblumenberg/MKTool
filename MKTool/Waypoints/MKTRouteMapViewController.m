@@ -249,6 +249,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   if([self.curlBarItem isTargetViewCurled]){
     [self.curlBarItem curlViewDown];
   }
+  [self performSelector:@selector(updateToolbar) withObject:self afterDelay:0.1];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
@@ -406,17 +407,23 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 
 - (void)updateToolbar {
   
+  NSLog(@"updateToolbar %d",[UIApplication sharedApplication].statusBarOrientation);
+  
+  BOOL isLandscape =   [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft ||
+                       [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight;
+  
   NSMutableArray *tbArray = [NSMutableArray array];
   
   [tbArray addObject:self.curlBarItem];
-  if(IS_IPAD() || !self.forWpGenModal)
-    [tbArray addObject:self.locateButton];
+  [tbArray addObject:self.locateButton];
   
   [tbArray addObject:self.spacer];
   
   if(IS_IPAD() || self.forWpGenModal){
     
-    [tbArray addObject:self.wpGenerateConfigItem];
+    if(isLandscape)
+      [tbArray addObject:self.wpGenerateConfigItem];
+    
     [tbArray addObject:self.wpGenerateItem];
     [tbArray addObject:self.wpGeneratorSelectionButton];
     
