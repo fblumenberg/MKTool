@@ -186,6 +186,8 @@
 		BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */; };
 		BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2F91540AE7000ECE09A /* Test.wpl */; };
 		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
+		BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5321D1594E99500AC1BD8 /* icon-pagecurl.png */; };
+		BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */; };
 		BAC7B42F155EC79100FA37DA /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
 		BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */; };
 		BAC8B08D1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m in Resources */ = {isa = PBXBuildFile; fileRef = BAC8B08C1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m */; };
@@ -529,6 +531,8 @@
 		BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+Test.m"; sourceTree = "<group>"; };
 		BAB2F2F91540AE7000ECE09A /* Test.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.wpl; sourceTree = "<group>"; };
 		BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestInvalid.wpl; sourceTree = "<group>"; };
+		BAB5321D1594E99500AC1BD8 /* icon-pagecurl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pagecurl.png"; sourceTree = "<group>"; };
+		BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pagecurl@2x.png"; sourceTree = "<group>"; };
 		BAC7B42D155EC79100FA37DA /* DBSession+MKT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBSession+MKT.h"; sourceTree = "<group>"; };
 		BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBSession+MKT.m"; sourceTree = "<group>"; };
 		BAC8B06C15531C6100080225 /* MKTRouteSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteSyncViewController.h; sourceTree = "<group>"; };
@@ -1245,6 +1249,8 @@
 		BAEE75E61543FDB000A92FA4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BAB5321D1594E99500AC1BD8 /* icon-pagecurl.png */,
+				BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */,
 				BA0E48F915869056000F382C /* icon-locate-gps.png */,
 				BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */,
 				76FAA0B31553BC2B00419D77 /* Buttons */,
@@ -1587,6 +1593,8 @@
 				760A1CDD155413FB00EDDBC5 /* icon-forth@2x.png in Resources */,
 				BA0E48FB15869056000F382C /* icon-locate-gps.png in Resources */,
 				BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */,
+				BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */,
+				BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1866,7 +1874,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 151;
+				CURRENT_PROJECT_VERSION = 153;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1982,7 +1990,7 @@
 		BAB2F22015409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 151;
+				CURRENT_PROJECT_VERSION = 153;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -2014,7 +2022,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 151;
+				CURRENT_PROJECT_VERSION = 153;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",

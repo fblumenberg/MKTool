@@ -28,5 +28,7 @@
 	<false/>
 	<key>IKOSDSoundActive</key>
 	<true/>
+	<key>MKTRouteMapViewShowFences</key>
+	<true/>
 </dict>
 </plist>

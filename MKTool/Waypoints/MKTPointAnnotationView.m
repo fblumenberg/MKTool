@@ -37,7 +37,10 @@
 
 - (void)setPoint:(MKTPoint *)point{
   self.annotation = point;
-  self.pinColor = point.typeValue == MKTPointTypeWP ? MKPinAnnotationColorGreen : MKPinAnnotationColorPurple;
+  if(point.typeValue == MKTPointTypeWP)
+    self.pinColor = point.indexValue==1?MKPinAnnotationColorRed:MKPinAnnotationColorGreen;
+  else
+    self.pinColor = MKPinAnnotationColorPurple;
 }
 
 + (NSString *)viewReuseIdentifier{
@@ -50,7 +53,10 @@
   if (self) {
     
     self.animatesDrop = NO;
-    self.pinColor = point.typeValue == MKTPointTypeWP ? MKPinAnnotationColorGreen : MKPinAnnotationColorPurple;
+    if(point.typeValue == MKTPointTypeWP)
+      self.pinColor = point.indexValue==1?MKPinAnnotationColorRed:MKPinAnnotationColorGreen;
+    else
+      self.pinColor = MKPinAnnotationColorPurple;
     
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     closeButton.frame = CGRectMake(0, 0, 29, 29);

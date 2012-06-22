@@ -57,6 +57,7 @@
 @property(nonatomic, assign) NSTimeInterval curlAnimationDuration;
 @property(nonatomic, assign) NSTimeInterval curlAnimationShouldStopAfter;
 
+- (id)initWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style;
 - (id)initWithBarButtonSystemItem:(UIBarButtonSystemItem)item;
 - (void)curlViewUp;
 - (void)curlViewDown;

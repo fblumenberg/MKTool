@@ -73,6 +73,25 @@ static CGFloat const kCurlAnimationShouldStopAfter = 0.67;
   [self setTimer:nil];
 }
 
+- (id)initWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style{
+  
+  self = [super initWithImage:image style:style 
+                                     target:self
+                                     action:@selector(touched)];
+  if (self) {
+    self.curlAnimationDuration = kCurlAnimationDuration;
+    self.curlAnimationShouldStopAfter = kCurlAnimationShouldStopAfter;
+    self.hidesWhenAnimating = YES;
+    self.hidesTargetViewWhileCurled = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(curlViewDown)
+                                                 name:UIApplicationWillResignActiveNotification
+                                               object:nil];
+  }
+  return self;
+}
+
 - (id)initWithBarButtonSystemItem:(UIBarButtonSystemItem)item {
 
   self = [super initWithBarButtonSystemItem:item

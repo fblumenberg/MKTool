@@ -51,6 +51,7 @@
 
 DEFINE_KEY(MKTRouteMapViewType);
 DEFINE_KEY(MKTRouteMapViewShowPosition);
+DEFINE_KEY(MKTRouteMapViewShowFences);
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -60,6 +61,7 @@ DEFINE_KEY(MKTRouteMapViewShowPosition);
 WPGenBaseViewControllerDelegate, NSFetchedResultsControllerDelegate,
 UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTableAlertDelegate>{
   BOOL userDrivenDataModelChange;
+  BOOL waitForLocationForAddPoint;
   BOOL waitForLocation;
   
   MKTPlacemarkDataSource* placemarkDataSource;
@@ -89,6 +91,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 
 @property(nonatomic,strong) IBOutlet UISegmentedControl *segmentedControl;
 @property(nonatomic,strong) IBOutlet UISwitch *showOwnPosition;
+@property(nonatomic,strong) IBOutlet UISwitch *showFences;
 @property(nonatomic,strong) IBOutlet UILabel *scaleLabel;
 
 
@@ -97,7 +100,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 - (void)initToolbar;
 
 - (IBAction)changeMapViewType;
-
+- (IBAction)changeFencesView;
 - (void)showWpGenerator;
 
 - (void)showWpGen:(id)sender;
@@ -136,6 +139,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 @synthesize locateButton;
 @synthesize segmentedControl;
 @synthesize showOwnPosition;
+@synthesize showFences;
 @synthesize scaleLabel;
 
 @synthesize forWpGenModal;
@@ -193,6 +197,9 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   
   self.showOwnPosition.on = [[NSUserDefaults standardUserDefaults] gh_boolForKey:MKTRouteMapViewShowPosition 
                                                                      withDefault:NO];
+  
+  self.showFences.on = [[NSUserDefaults standardUserDefaults] gh_boolForKey:MKTRouteMapViewShowFences 
+                                                                withDefault:NO];
   [self changeMapViewType];
   
   UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
@@ -238,14 +245,25 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   [self updateMapView];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+  if([self.curlBarItem isTargetViewCurled]){
+    [self.curlBarItem curlViewDown];
+  }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
   
-  return [self.curlBarItem isTargetViewCurled]==NO;
+  return YES;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Page Curl stuff
+
+- (void)changeFencesView {
+  [[NSUserDefaults standardUserDefaults] setBool:self.showFences.on forKey:MKTRouteMapViewShowPosition];
+  [self.curlBarItem curlViewDown];
+  [self updateRouteOverlay];
+}
 
 - (void)changeMapViewType {
   [self.mapView setMapType:(MKMapType)self.segmentedControl.selectedSegmentIndex];
@@ -274,10 +292,13 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                  target:nil action:nil];
   
-  self.curlBarItem = [[FDCurlViewControl alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPageCurl];
+  self.curlBarItem = [[FDCurlViewControl alloc] initWithImage:[UIImage imageNamed:@"icon-pagecurl.png"]
+                                                        style:UIBarButtonItemStyleBordered];
   self.curlBarItem.delegate = self;
   [self.curlBarItem setHidesWhenAnimating:NO];
   [self.curlBarItem setTargetView:self.mapView];
+  
+  self.curlBarItem.curlAnimationShouldStopAfter = IS_IPAD()?0.65:0.73;
   
   UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self.curlBarItem
                                                                               action:@selector(curlViewDown)];
@@ -294,13 +315,13 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
                            style:UIBarButtonItemStyleBordered
                            target:self
                            action:@selector(addPointWithGps)];
-
+  
   self.locateButton = [[UIBarButtonItem alloc]
-                           initWithImage:[UIImage imageNamed:@"icon-locate-gps.png"]
-                           style:UIBarButtonItemStyleBordered
-                           target:self
-                           action:@selector(locateWithGps)];
-
+                       initWithImage:[UIImage imageNamed:@"icon-locate-gps.png"]
+                       style:UIBarButtonItemStyleBordered
+                       target:self
+                       action:@selector(locateWithGps)];
+  
   
   self.wpGenerateItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Generate", @"Gernerate WP") style:UIBarButtonItemStyleBordered
                                                         target:self action:@selector(generateWayPoints)];
@@ -388,7 +409,9 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   NSMutableArray *tbArray = [NSMutableArray array];
   
   [tbArray addObject:self.curlBarItem];
-  [tbArray addObject:self.locateButton];
+  if(IS_IPAD() || !self.forWpGenModal)
+    [tbArray addObject:self.locateButton];
+  
   [tbArray addObject:self.spacer];
   
   if(IS_IPAD() || self.forWpGenModal){
@@ -440,7 +463,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 
 - (void)addPointWithGps {
   [self.lm startUpdatingLocation];
-  waitForLocation=YES;
+  waitForLocationForAddPoint=YES;
 }
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
@@ -453,8 +476,13 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 }
 
 - (void)locateWithGps{
+  
   if(self.lm.location){
     [self.mapView setCenterCoordinate:self.lm.location.coordinate animated:YES];
+  }
+  else {
+    [self.lm startUpdatingLocation];
+    waitForLocation=YES;
   }
 }
 
@@ -494,15 +522,22 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
   
-  if (!waitForLocation || ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60))
+  if ((!waitForLocationForAddPoint && !waitForLocation) || ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60))
     return;
   
   [self.lm stopUpdatingLocation];
-  waitForLocation=NO;
-  [self.route addPointAtCoordinate:newLocation.coordinate];
+  if(waitForLocationForAddPoint){
+    waitForLocationForAddPoint=NO;
+    [self.route addPointAtCoordinate:newLocation.coordinate];
+    
+    if(self.route.count==1)
+      [self updateMapView];
+  }
   
-  if(self.route.count==1)
-    [self updateMapView];
+  if(waitForLocation){
+    waitForLocation=NO;
+    [self locateWithGps];
+  }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -520,7 +555,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   
   self.addWithGpsButton.enabled = IS_GPS_ENABLED();
   self.lm = nil;
-  waitForLocation=NO;
+  waitForLocationForAddPoint=NO;
 }
 
 
@@ -718,12 +753,12 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   else if ([overlay isKindOfClass:[MKTCircleOverlay class]]) {
     
     MKTCircleOverlay *circleOverlay = (MKTCircleOverlay*)overlay;
-        
+    
     MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:circleOverlay.circle];
     circleView.strokeColor = circleOverlay.strokeColor;
     circleView.fillColor = circleOverlay.fillColor;
     circleView.lineWidth = circleOverlay.lineWidth;
-
+    
     return circleView;
   }
   
@@ -738,19 +773,6 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   
   [self.mapView removeOverlays:self.mapView.overlays];
   
-  CLLocationCoordinate2D center = [self.route centerCoordinate];
-  
-  MKTCircleOverlay *fence = [MKTCircleOverlay circleWithCenterCoordinate:center radius:125];
-  fence.lineWidth = 1.5;
-  fence.strokeColor = [UIColor redColor];
-  [self.mapView addOverlay:fence];
-  
-  fence = [MKTCircleOverlay circleWithCenterCoordinate:center radius:50];
-  fence.lineWidth = 1.5;
-  fence.strokeColor = [UIColor whiteColor];
-  [self.mapView addOverlay:fence];
-  
-  
   NSArray* orderedPoints = [self.route orderedPoints];
   
   int i = 0;
@@ -760,14 +782,27 @@ didChangeDragState:(MKAnnotationViewDragState)newState
       
       MKTCircleOverlay *c = [MKTCircleOverlay circleWithCenterCoordinate:p.coordinate radius:p.toleranceRadiusValue];
       
-      if (i == 0)
+      if (i == 0){
         c.strokeColor = [UIColor redColor];
+        
+        if(self.showFences.on){
+          MKTCircleOverlay *fence = [MKTCircleOverlay circleWithCenterCoordinate:p.coordinate radius:125];
+          fence.lineWidth = 1.5;
+          fence.strokeColor = [[UIColor redColor]colorWithAlphaComponent:0.4];
+          [self.mapView addOverlay:fence];
+          
+          fence = [MKTCircleOverlay circleWithCenterCoordinate:p.coordinate radius:250];
+          fence.lineWidth = 1.5;
+          fence.strokeColor = [UIColor redColor];
+          [self.mapView addOverlay:fence];
+        }
+      }
       else 
         c.strokeColor = [UIColor greenColor];
-
+      
       c.fillColor = [c.strokeColor colorWithAlphaComponent:0.4];
       c.lineWidth = 1.5;
-
+      
       [self.mapView addOverlay:c];
       
       BOOL createOverlay = YES;
@@ -1133,7 +1168,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   for (MKTPoint* p in self.mapView.annotations) {
     if([point isEqual:p]){
       [self.mapView setCenterCoordinate:point.coordinate animated:YES];
-//      self.mapView.centerCoordinate = point.coordinate;
+      //      self.mapView.centerCoordinate = point.coordinate;
       [self.mapView selectAnnotation:point animated:YES];
       break;
     }
