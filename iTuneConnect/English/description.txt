@@ -1,0 +1,6 @@
+MK Tool helps you to build and edit the flight plan for flying with waypoints.  
+
+- Easy creation and editing inside the map
+- Generate routes for different patterns (area, circle, panorama)
+- Synchronize the routes using Dropbox
+- Full compatible with the Mikrokopter software 

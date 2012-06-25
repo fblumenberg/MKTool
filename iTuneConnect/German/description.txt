@@ -1,0 +1,6 @@
+MK Tool hilft ihnen Flugrouten für den Wegpunktflug mit Ihrem Mikrokopter zu erstellen und zu bearbeiten.
+
+- Erstellen und bearbeiten intuitiv in der Kartenansicht
+- Generieren Sie Flugrouten für verschiedene Muster (Gebiet, Kreis, Panorama).
+- Synchronisieren Sie die Routen mit Hilfer der Dropbox.
+- Kompatipel mit der Mikrokopter Software.
