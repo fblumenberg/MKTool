@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 //
 // ///////////////////////////////////////////////////////////////////////////////
+#import <MapKit/MapKit.h>
 
 #import "MKTRouteContainerViewController.h"
 #import "MKTRouteViewControllerDelegate.h"
@@ -35,13 +36,14 @@
 
 @property (nonatomic, strong) NSArray *subViewControllers;
 @property(retain) UISegmentedControl *segment;
-
+@property(nonatomic, strong) MKTRouteMapViewController* mapController;
 @end
 
 @implementation MKTRouteContainerViewController
 
 @synthesize subViewControllers;
 @synthesize segment;
+@synthesize mapController;
 
 - (id)initWithRoute:(MKTRoute *)route {
   
@@ -58,6 +60,8 @@
   
   MKTRouteMapViewController *page2 = [[MKTRouteMapViewController alloc] initWithRoute:_route delegate:self];
 
+  self.mapController = page2;
+  
   self.subViewControllers = [NSArray arrayWithObjects:page1,page2, nil];
 
   _selectedViewController = [subViewControllers objectAtIndex:0];
@@ -186,5 +190,10 @@
   if(controller == _selectedViewController)
     [self setToolbarItems:_selectedViewController.toolbarItems animated:YES];
 }
+
+- (CLLocationCoordinate2D) currentCoordinate{
+  return self.mapController.mapView?self.mapController.mapView.centerCoordinate:[MKTRoute defaultCoordinate];
+}
+
 
 @end

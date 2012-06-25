@@ -602,7 +602,12 @@
 }
 
 - (void)addPoint {
-  MKTPoint* newPoint = [self.route addPointAtCenter];
+  MKTPoint* newPoint = nil;
+  if(self.route.points.count==0)
+    newPoint = [self.route addPointAtCoordinate:[self.delegate currentCoordinate]];
+  else
+    newPoint = [self.route addPointAtCenter];
+  
   [self addedPoint:newPoint];
 }
 

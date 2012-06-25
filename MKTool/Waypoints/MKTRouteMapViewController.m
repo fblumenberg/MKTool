@@ -67,7 +67,6 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   MKTPlacemarkDataSource* placemarkDataSource;
 }
 
-@property(nonatomic,strong) IBOutlet MKMapView *mapView;
 
 @property(nonatomic, strong) FDCurlViewControl *curlBarItem;
 @property(nonatomic, strong) UIBarButtonItem *spacer;
@@ -205,6 +204,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
   UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
   [self.mapView addGestureRecognizer:longTap];
   
+  [self updateMapView];
 }
 
 - (void)viewDidUnload
@@ -407,7 +407,7 @@ UISearchBarDelegate, UIPopoverControllerDelegate, RecentSearchesDelegate,SBTable
 
 - (void)updateToolbar {
   
-  NSLog(@"updateToolbar %d",[UIApplication sharedApplication].statusBarOrientation);
+  NSLog(@"updateToolbar %d",[UIApplication sharedApplication].statusBarOrientation);  
   
   BOOL isLandscape =   [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft ||
                        [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight;

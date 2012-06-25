@@ -27,6 +27,8 @@
 #import "MKTRouteViewControllerDelegate.h"
 #import "MKTRoute.h"
 
+@class MKMapView;
+
 @interface MKTRouteMapViewController : UIViewController
 
 @property(weak) id <MKTRouteViewControllerDelegate> delegate;
@@ -39,5 +41,6 @@
 - (void)showPointOnMap:(MKTPoint*)point;
 
 @property(assign) BOOL forWpGenModal;
+@property(nonatomic,strong) IBOutlet MKMapView *mapView;
 
 @end
