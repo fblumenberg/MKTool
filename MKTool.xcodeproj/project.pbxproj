@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		72D4D83C3D2244DB8DC4E775 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4953AA427A9D42B298C88051 /* libPods.a */; };
 		760A1CDA155413FB00EDDBC5 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD6155413FB00EDDBC5 /* icon-back.png */; };
 		760A1CDB155413FB00EDDBC5 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */; };
 		760A1CDC155413FB00EDDBC5 /* icon-forth.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD8155413FB00EDDBC5 /* icon-forth.png */; };
@@ -77,12 +78,9 @@
 		76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */; };
 		BA0E48FB15869056000F382C /* icon-locate-gps.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48F915869056000F382C /* icon-locate-gps.png */; };
 		BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */; };
-		BA18B61A17521CE7001EB74B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA18B61917521CE7001EB74B /* Default-568h@2x.png */; };
-		BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41B154B1297005C882A /* libTestFlight.a */; };
 		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
 		BA1B06B81584DF6200C6C964 /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
 		BA1B06B91584DF8E00C6C964 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */; };
-		BA1B06BA1584E19600C6C964 /* YelpKit-FB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF0C9EA15444A7000C31A02 /* YelpKit-FB.framework */; };
 		BA1B06BB1584E22300C6C964 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
 		BA27D543155EE2CE00C6B37E /* MKTSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */; };
 		BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */; };
@@ -123,21 +121,10 @@
 		BAB2F21615409C8C00ECE09A /* MKTMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F21415409C8C00ECE09A /* MKTMasterViewController_iPad.xib */; };
 		BAB2F21915409C8C00ECE09A /* MKTDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F21715409C8C00ECE09A /* MKTDetailViewController_iPhone.xib */; };
 		BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F21A15409C8D00ECE09A /* MKTDetailViewController_iPad.xib */; };
-		BAB2F24A15409E0900ECE09A /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24915409E0900ECE09A /* libBlocksKit.a */; };
 		BAB2F24C15409E3900ECE09A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24B15409E3900ECE09A /* MessageUI.framework */; };
 		BAB2F24F15409E4500ECE09A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24D15409E4500ECE09A /* CoreData.framework */; };
 		BAB2F25015409E4500ECE09A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24E15409E4500ECE09A /* CoreLocation.framework */; };
-		BAB2F26215409ED700ECE09A /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */; };
-		BAB2F26315409ED700ECE09A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25515409ED700ECE09A /* DDASLLogger.m */; };
-		BAB2F26415409ED700ECE09A /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25715409ED700ECE09A /* DDFileLogger.m */; };
-		BAB2F26515409ED700ECE09A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25915409ED700ECE09A /* DDLog.m */; };
-		BAB2F26615409ED700ECE09A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */; };
-		BAB2F26715409ED700ECE09A /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */; };
-		BAB2F26815409ED700ECE09A /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */; };
-		BAB2F26915409ED700ECE09A /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F26115409ED700ECE09A /* README.txt */; };
-		BAB2F26B15409EE700ECE09A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */; };
 		BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26C15409F1600ECE09A /* Security.framework */; };
-		BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F27615409F4A00ECE09A /* libIBAForms.a */; };
 		BAB2F2831540A5B600ECE09A /* INIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F27E1540A5B600ECE09A /* INIParser.m */; };
 		BAB2F2841540A5B600ECE09A /* INISection.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2801540A5B600ECE09A /* INISection.m */; };
 		BAB2F2851540A5B600ECE09A /* InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2821540A5B600ECE09A /* InnerBand.m */; };
@@ -155,15 +142,6 @@
 		BAB2F2B21540A7F800ECE09A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2B11540A7F800ECE09A /* main.m */; };
 		BAB2F2B61540A7F800ECE09A /* MKTTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2B51540A7F800ECE09A /* MKTTestAppDelegate.m */; };
 		BAB2F2CD1540A83100ECE09A /* libGHUnitIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F2C91540A83100ECE09A /* libGHUnitIOS.a */; };
-		BAB2F2CE1540A94600ECE09A /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */; };
-		BAB2F2CF1540A94600ECE09A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25515409ED700ECE09A /* DDASLLogger.m */; };
-		BAB2F2D01540A94600ECE09A /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25715409ED700ECE09A /* DDFileLogger.m */; };
-		BAB2F2D11540A94600ECE09A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25915409ED700ECE09A /* DDLog.m */; };
-		BAB2F2D21540A94600ECE09A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */; };
-		BAB2F2D31540A94600ECE09A /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */; };
-		BAB2F2D41540A94600ECE09A /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */; };
-		BAB2F2D51540A94D00ECE09A /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24915409E0900ECE09A /* libBlocksKit.a */; };
-		BAB2F2D61540A95300ECE09A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */; };
 		BAB2F2D81540A9DF00ECE09A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26C15409F1600ECE09A /* Security.framework */; };
 		BAB2F2DB1540AA5200ECE09A /* MKTPointTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2DA1540AA5200ECE09A /* MKTPointTest.m */; };
 		BAB2F2DC1540AA6C00ECE09A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24E15409E4500ECE09A /* CoreLocation.framework */; };
@@ -207,10 +185,8 @@
 		BAEE75ED1543FDB000A92FA4 /* map-mode.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75E91543FDB000A92FA4 /* map-mode.png */; };
 		BAEE75EE1543FDB000A92FA4 /* map-mode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE75EA1543FDB000A92FA4 /* map-mode@2x.png */; };
 		BAEE75F11543FEA000A92FA4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */; };
-		BAEE75F51544064300A92FA4 /* GHKitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F41544064200A92FA4 /* GHKitIOS.framework */; };
 		BAEE75F91544088200A92FA4 /* FDCurlViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75F81544088200A92FA4 /* FDCurlViewControl.m */; };
 		BAEE75FC15442B0300A92FA4 /* MKTPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75FB15442B0200A92FA4 /* MKTPointAnnotationView.m */; };
-		BAF0C9EB15444A7000C31A02 /* YelpKit-FB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF0C9EA15444A7000C31A02 /* YelpKit-FB.framework */; };
 		BAF0C9F0154453F900C31A02 /* HeadingOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */; };
 		BAF0C9F1154453F900C31A02 /* HeadingOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0C9EF154453D600C31A02 /* HeadingOverlayView.m */; };
 		BAF0C9F615445CC200C31A02 /* delete-point-btn-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF0C9F215445CC200C31A02 /* delete-point-btn-pressed.png */; };
@@ -274,24 +250,9 @@
 		BAF0CA991549F5E500C31A02 /* white_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF0CA981549F5E500C31A02 /* white_texture.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BAB2F27515409F4A00ECE09A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = IBAForms;
-		};
-		BAB2F27715409F5F00ECE09A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = IBAForms;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		4953AA427A9D42B298C88051 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		760A1CD6155413FB00EDDBC5 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
 		760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
 		760A1CD8155413FB00EDDBC5 /* icon-forth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forth.png"; sourceTree = "<group>"; };
@@ -365,9 +326,6 @@
 		76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Images.m"; sourceTree = "<group>"; };
 		BA0E48F915869056000F382C /* icon-locate-gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps.png"; sourceTree = "<group>"; };
 		BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps@2x.png"; sourceTree = "<group>"; };
-		BA18B61917521CE7001EB74B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		BA18C41B154B1297005C882A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		BA18C41C154B1297005C882A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BA27D541155EE2CE00C6B37E /* MKTSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTSettingsController.h; path = ApplicationBase/MKTSettingsController.h; sourceTree = "<group>"; };
 		BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTSettingsController.m; path = ApplicationBase/MKTSettingsController.m; sourceTree = "<group>"; };
@@ -427,59 +385,10 @@
 		BAB2F21515409C8C00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTMasterViewController_iPad.xib; sourceTree = "<group>"; };
 		BAB2F21815409C8C00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		BAB2F21B15409C8D00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTDetailViewController_iPad.xib; sourceTree = "<group>"; };
-		BAB2F22A15409E0900ECE09A /* A2BlockDelegate+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A2BlockDelegate+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F22B15409E0900ECE09A /* A2BlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2BlockDelegate.h; sourceTree = "<group>"; };
-		BAB2F22C15409E0900ECE09A /* A2DynamicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2DynamicDelegate.h; sourceTree = "<group>"; };
-		BAB2F22D15409E0900ECE09A /* BKGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGlobals.h; sourceTree = "<group>"; };
-		BAB2F22E15409E0900ECE09A /* BKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKMacros.h; sourceTree = "<group>"; };
-		BAB2F22F15409E0900ECE09A /* BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocksKit.h; sourceTree = "<group>"; };
-		BAB2F23015409E0900ECE09A /* MFMailComposeViewController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMailComposeViewController+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23115409E0900ECE09A /* MFMessageComposeViewController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMessageComposeViewController+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23215409E0900ECE09A /* NSArray+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23315409E0900ECE09A /* NSCache+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23415409E0900ECE09A /* NSDictionary+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23515409E0900ECE09A /* NSIndexSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23615409E0900ECE09A /* NSInvocation+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23715409E0900ECE09A /* NSMutableArray+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23815409E0900ECE09A /* NSMutableDictionary+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23915409E0900ECE09A /* NSMutableIndexSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23A15409E0900ECE09A /* NSMutableSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23B15409E0900ECE09A /* NSObject+AssociatedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AssociatedObjects.h"; sourceTree = "<group>"; };
-		BAB2F23C15409E0900ECE09A /* NSObject+BlockObservation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockObservation.h"; sourceTree = "<group>"; };
-		BAB2F23D15409E0900ECE09A /* NSObject+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23E15409E0900ECE09A /* NSSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F23F15409E0900ECE09A /* NSTimer+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24015409E0900ECE09A /* NSURLConnection+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24115409E0900ECE09A /* UIActionSheet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24215409E0900ECE09A /* UIAlertView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24315409E0900ECE09A /* UIBarButtonItem+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24415409E0900ECE09A /* UIControl+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24515409E0900ECE09A /* UIGestureRecognizer+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24615409E0900ECE09A /* UIPopoverController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24715409E0900ECE09A /* UIView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24815409E0900ECE09A /* UIWebView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+BlocksKit.h"; sourceTree = "<group>"; };
-		BAB2F24915409E0900ECE09A /* libBlocksKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBlocksKit.a; sourceTree = "<group>"; };
 		BAB2F24B15409E3900ECE09A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BAB2F24D15409E4500ECE09A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BAB2F24E15409E4500ECE09A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		BAB2F25215409ED700ECE09A /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		BAB2F25415409ED700ECE09A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		BAB2F25515409ED700ECE09A /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		BAB2F25615409ED700ECE09A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		BAB2F25715409ED700ECE09A /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		BAB2F25815409ED700ECE09A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		BAB2F25915409ED700ECE09A /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		BAB2F25A15409ED700ECE09A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		BAB2F25D15409ED700ECE09A /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		BAB2F25F15409ED700ECE09A /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		BAB2F26115409ED700ECE09A /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Frameworks/DropboxSDK.framework; sourceTree = "<group>"; };
 		BAB2F26C15409F1600ECE09A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = Frameworks/IBAForms/IBAForms.xcodeproj; sourceTree = "<group>"; };
 		BAB2F27D1540A5B600ECE09A /* INIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIParser.h; sourceTree = "<group>"; };
 		BAB2F27E1540A5B600ECE09A /* INIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIParser.m; sourceTree = "<group>"; };
 		BAB2F27F1540A5B600ECE09A /* INISection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INISection.h; sourceTree = "<group>"; };
@@ -564,12 +473,10 @@
 		BAEE75E91543FDB000A92FA4 /* map-mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-mode.png"; sourceTree = "<group>"; };
 		BAEE75EA1543FDB000A92FA4 /* map-mode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-mode@2x.png"; sourceTree = "<group>"; };
 		BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		BAEE75F41544064200A92FA4 /* GHKitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHKitIOS.framework; path = Frameworks/GHKitIOS.framework; sourceTree = "<group>"; };
 		BAEE75F71544088200A92FA4 /* FDCurlViewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDCurlViewControl.h; sourceTree = "<group>"; };
 		BAEE75F81544088200A92FA4 /* FDCurlViewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDCurlViewControl.m; sourceTree = "<group>"; };
 		BAEE75FA15442B0200A92FA4 /* MKTPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointAnnotationView.h; sourceTree = "<group>"; };
 		BAEE75FB15442B0200A92FA4 /* MKTPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointAnnotationView.m; sourceTree = "<group>"; };
-		BAF0C9EA15444A7000C31A02 /* YelpKit-FB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "YelpKit-FB.framework"; path = "Frameworks/YelpKit-FB.framework"; sourceTree = "<group>"; };
 		BAF0C9EC154453D600C31A02 /* HeadingOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadingOverlay.h; path = MKTool/Waypoints/HeadingOverlay.h; sourceTree = SOURCE_ROOT; };
 		BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeadingOverlay.m; path = MKTool/Waypoints/HeadingOverlay.m; sourceTree = SOURCE_ROOT; };
 		BAF0C9EE154453D600C31A02 /* HeadingOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadingOverlayView.h; path = MKTool/Waypoints/HeadingOverlayView.h; sourceTree = SOURCE_ROOT; };
@@ -663,7 +570,6 @@
 				BAEE75F11543FEA000A92FA4 /* QuartzCore.framework in Frameworks */,
 				BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */,
 				BAB2F2871540A5DD00ECE09A /* CoreText.framework in Frameworks */,
-				BAB2F27915409F6600ECE09A /* libIBAForms.a in Frameworks */,
 				BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */,
 				BAB2F24F15409E4500ECE09A /* CoreData.framework in Frameworks */,
 				BAB2F25015409E4500ECE09A /* CoreLocation.framework in Frameworks */,
@@ -671,11 +577,7 @@
 				BAB2F1FA15409C8C00ECE09A /* UIKit.framework in Frameworks */,
 				BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */,
 				BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */,
-				BAB2F24A15409E0900ECE09A /* libBlocksKit.a in Frameworks */,
-				BAB2F26B15409EE700ECE09A /* DropboxSDK.framework in Frameworks */,
-				BAEE75F51544064300A92FA4 /* GHKitIOS.framework in Frameworks */,
-				BAF0C9EB15444A7000C31A02 /* YelpKit-FB.framework in Frameworks */,
-				BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */,
+				72D4D83C3D2244DB8DC4E775 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,9 +595,6 @@
 				BAB2F2A91540A7F800ECE09A /* Foundation.framework in Frameworks */,
 				BAB2F2AA1540A7F800ECE09A /* CoreGraphics.framework in Frameworks */,
 				BAB2F2CD1540A83100ECE09A /* libGHUnitIOS.a in Frameworks */,
-				BAB2F2D51540A94D00ECE09A /* libBlocksKit.a in Frameworks */,
-				BAB2F2D61540A95300ECE09A /* DropboxSDK.framework in Frameworks */,
-				BA1B06BA1584E19600C6C964 /* YelpKit-FB.framework in Frameworks */,
 				BA1B06BB1584E22300C6C964 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -776,16 +675,6 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		BA18C41A154B1297005C882A /* TestFlight */ = {
-			isa = PBXGroup;
-			children = (
-				BA18C41B154B1297005C882A /* libTestFlight.a */,
-				BA18C41C154B1297005C882A /* TestFlight.h */,
-			);
-			name = TestFlight;
-			path = Frameworks/TestFlight;
-			sourceTree = "<group>";
-		};
 		BA27D544155EE89600C6B37E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,7 +687,6 @@
 		BA9373D8154B488500E444EC /* Default */ = {
 			isa = PBXGroup;
 			children = (
-				BA18B61917521CE7001EB74B /* Default-568h@2x.png */,
 				BA9373E1154B498A00E444EC /* Default@2x.png */,
 				BA9373E2154B498A00E444EC /* Default-Landscape@2x~ipad.png */,
 				BA9373E3154B498A00E444EC /* Default-Landscape~ipad.png */,
@@ -846,12 +734,11 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
-				BA52014E1559C26400719A58 /* AddressBookUI.framework */,
-				BA52014C1559C1A400719A58 /* AddressBook.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
 				BAB2F1F615409C8C00ECE09A /* Products */,
+				01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -869,24 +756,20 @@
 		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BAB2F22715409E0900ECE09A /* BlocksKit */,
+				BA52014C1559C1A400719A58 /* AddressBook.framework */,
+				BA52014E1559C26400719A58 /* AddressBookUI.framework */,
 				BAB2F24D15409E4500ECE09A /* CoreData.framework */,
 				BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */,
 				BAB2F24E15409E4500ECE09A /* CoreLocation.framework */,
 				BAB2F2861540A5DD00ECE09A /* CoreText.framework */,
-				BAB2F26A15409EE700ECE09A /* DropboxSDK.framework */,
 				BAB2F1FB15409C8C00ECE09A /* Foundation.framework */,
-				BAEE75F41544064200A92FA4 /* GHKitIOS.framework */,
-				BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */,
+				4953AA427A9D42B298C88051 /* libPods.a */,
 				BA18C41E154B1301005C882A /* libz.dylib */,
-				BAB2F25115409ED700ECE09A /* Lumberjack */,
 				BAEE75CA1542D59600A92FA4 /* MapKit.framework */,
 				BAB2F24B15409E3900ECE09A /* MessageUI.framework */,
 				BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */,
 				BAB2F26C15409F1600ECE09A /* Security.framework */,
-				BA18C41A154B1297005C882A /* TestFlight */,
 				BAB2F1F915409C8C00ECE09A /* UIKit.framework */,
-				BAF0C9EA15444A7000C31A02 /* YelpKit-FB.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -918,101 +801,6 @@
 				BAB2F20715409C8C00ECE09A /* MKTool-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BAB2F22715409E0900ECE09A /* BlocksKit */ = {
-			isa = PBXGroup;
-			children = (
-				BAB2F22815409E0900ECE09A /* Header */,
-				BAB2F24915409E0900ECE09A /* libBlocksKit.a */,
-			);
-			name = BlocksKit;
-			path = Frameworks/BlocksKit;
-			sourceTree = "<group>";
-		};
-		BAB2F22815409E0900ECE09A /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				BAB2F22915409E0900ECE09A /* BlocksKit */,
-			);
-			path = Header;
-			sourceTree = "<group>";
-		};
-		BAB2F22915409E0900ECE09A /* BlocksKit */ = {
-			isa = PBXGroup;
-			children = (
-				BAB2F22A15409E0900ECE09A /* A2BlockDelegate+BlocksKit.h */,
-				BAB2F22B15409E0900ECE09A /* A2BlockDelegate.h */,
-				BAB2F22C15409E0900ECE09A /* A2DynamicDelegate.h */,
-				BAB2F22D15409E0900ECE09A /* BKGlobals.h */,
-				BAB2F22E15409E0900ECE09A /* BKMacros.h */,
-				BAB2F22F15409E0900ECE09A /* BlocksKit.h */,
-				BAB2F23015409E0900ECE09A /* MFMailComposeViewController+BlocksKit.h */,
-				BAB2F23115409E0900ECE09A /* MFMessageComposeViewController+BlocksKit.h */,
-				BAB2F23215409E0900ECE09A /* NSArray+BlocksKit.h */,
-				BAB2F23315409E0900ECE09A /* NSCache+BlocksKit.h */,
-				BAB2F23415409E0900ECE09A /* NSDictionary+BlocksKit.h */,
-				BAB2F23515409E0900ECE09A /* NSIndexSet+BlocksKit.h */,
-				BAB2F23615409E0900ECE09A /* NSInvocation+BlocksKit.h */,
-				BAB2F23715409E0900ECE09A /* NSMutableArray+BlocksKit.h */,
-				BAB2F23815409E0900ECE09A /* NSMutableDictionary+BlocksKit.h */,
-				BAB2F23915409E0900ECE09A /* NSMutableIndexSet+BlocksKit.h */,
-				BAB2F23A15409E0900ECE09A /* NSMutableSet+BlocksKit.h */,
-				BAB2F23B15409E0900ECE09A /* NSObject+AssociatedObjects.h */,
-				BAB2F23C15409E0900ECE09A /* NSObject+BlockObservation.h */,
-				BAB2F23D15409E0900ECE09A /* NSObject+BlocksKit.h */,
-				BAB2F23E15409E0900ECE09A /* NSSet+BlocksKit.h */,
-				BAB2F23F15409E0900ECE09A /* NSTimer+BlocksKit.h */,
-				BAB2F24015409E0900ECE09A /* NSURLConnection+BlocksKit.h */,
-				BAB2F24115409E0900ECE09A /* UIActionSheet+BlocksKit.h */,
-				BAB2F24215409E0900ECE09A /* UIAlertView+BlocksKit.h */,
-				BAB2F24315409E0900ECE09A /* UIBarButtonItem+BlocksKit.h */,
-				BAB2F24415409E0900ECE09A /* UIControl+BlocksKit.h */,
-				BAB2F24515409E0900ECE09A /* UIGestureRecognizer+BlocksKit.h */,
-				BAB2F24615409E0900ECE09A /* UIPopoverController+BlocksKit.h */,
-				BAB2F24715409E0900ECE09A /* UIView+BlocksKit.h */,
-				BAB2F24815409E0900ECE09A /* UIWebView+BlocksKit.h */,
-			);
-			path = BlocksKit;
-			sourceTree = "<group>";
-		};
-		BAB2F25115409ED700ECE09A /* Lumberjack */ = {
-			isa = PBXGroup;
-			children = (
-				BAB2F25215409ED700ECE09A /* DDAbstractDatabaseLogger.h */,
-				BAB2F25315409ED700ECE09A /* DDAbstractDatabaseLogger.m */,
-				BAB2F25415409ED700ECE09A /* DDASLLogger.h */,
-				BAB2F25515409ED700ECE09A /* DDASLLogger.m */,
-				BAB2F25615409ED700ECE09A /* DDFileLogger.h */,
-				BAB2F25715409ED700ECE09A /* DDFileLogger.m */,
-				BAB2F25815409ED700ECE09A /* DDLog.h */,
-				BAB2F25915409ED700ECE09A /* DDLog.m */,
-				BAB2F25A15409ED700ECE09A /* DDTTYLogger.h */,
-				BAB2F25B15409ED700ECE09A /* DDTTYLogger.m */,
-				BAB2F25C15409ED700ECE09A /* Extensions */,
-			);
-			name = Lumberjack;
-			path = Frameworks/Lumberjack;
-			sourceTree = "<group>";
-		};
-		BAB2F25C15409ED700ECE09A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				BAB2F25D15409ED700ECE09A /* ContextFilterLogFormatter.h */,
-				BAB2F25E15409ED700ECE09A /* ContextFilterLogFormatter.m */,
-				BAB2F25F15409ED700ECE09A /* DispatchQueueLogFormatter.h */,
-				BAB2F26015409ED700ECE09A /* DispatchQueueLogFormatter.m */,
-				BAB2F26115409ED700ECE09A /* README.txt */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		BAB2F26F15409F4A00ECE09A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BAB2F27615409F4A00ECE09A /* libIBAForms.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BAB2F27B1540A19600ECE09A /* ApplicationBase */ = {
@@ -1419,11 +1207,11 @@
 				BAB2F1F215409C8C00ECE09A /* Frameworks */,
 				BAB2F1F315409C8C00ECE09A /* Resources */,
 				BA937415154D441D00E444EC /* ShellScript */,
+				9DCF902A8D45430B8F1066C5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BAB2F27815409F5F00ECE09A /* PBXTargetDependency */,
 			);
 			name = MKTool;
 			productName = MKTool;
@@ -1454,7 +1242,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MKT;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = BAB2F1EF15409C8C00ECE09A /* Build configuration list for PBXProject "MKTool" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1467,12 +1255,6 @@
 			mainGroup = BAB2F1EA15409C8C00ECE09A;
 			productRefGroup = BAB2F1F615409C8C00ECE09A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = BAB2F26F15409F4A00ECE09A /* Products */;
-					ProjectRef = BAB2F26E15409F4A00ECE09A /* IBAForms.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				BAB2F1F415409C8C00ECE09A /* MKTool */,
@@ -1481,16 +1263,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		BAB2F27615409F4A00ECE09A /* libIBAForms.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libIBAForms.a;
-			remoteRef = BAB2F27515409F4A00ECE09A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BAB2F1F315409C8C00ECE09A /* Resources */ = {
@@ -1502,7 +1274,6 @@
 				BAB2F21615409C8C00ECE09A /* MKTMasterViewController_iPad.xib in Resources */,
 				BAB2F21915409C8C00ECE09A /* MKTDetailViewController_iPhone.xib in Resources */,
 				BAB2F21C15409C8D00ECE09A /* MKTDetailViewController_iPad.xib in Resources */,
-				BAB2F26915409ED700ECE09A /* README.txt in Resources */,
 				BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */,
 				BAEE75EB1543FDB000A92FA4 /* list-mode.png in Resources */,
 				BAEE75EC1543FDB000A92FA4 /* list-mode@2x.png in Resources */,
@@ -1598,7 +1369,6 @@
 				BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */,
 				BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */,
 				BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */,
-				BA18B61A17521CE7001EB74B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1617,6 +1387,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9DCF902A8D45430B8F1066C5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		BA937415154D441D00E444EC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1628,7 +1412,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "buildVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PRODUCT_SETTINGS_PATH}\" 2>/dev/null)\nif [[ \"${buildVersion}\" = \"\" ]]\nthen\necho -e \"\\\"${buildPlist}\\\" does not contain key: \\\"CFBundleVersion\\\"\"\nexit 1\nfi\n\nmarketVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PRODUCT_SETTINGS_PATH}\" 2>/dev/null)\nif [[ \"${buildVersion}\" = \"\" ]]\nthen\necho -e \"\\\"${buildPlist}\\\" does not contain key: \\\"CFBundleShortVersionString\\\"\"\nexit 1\nfi\n\ndSYMZipFile=\"${PROJECT_DIR}/Dsym/MKTool.app.dSYM-${marketVersion}-${buildVersion}.zip\"\ndSYMFile=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n\nif [ -e \"$dSYMZipFile\" ]; then\n    rm \"$dSYMZipFile\"\nfi\n\ncd \"$DWARF_DSYM_FOLDER_PATH\"\nzip \"${dSYMZipFile}\" \"${DWARF_DSYM_FILE_NAME}\"\n\n\n\n\n\n\n\n\n\n\n\n";
+			shellScript = "buildVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PRODUCT_SETTINGS_PATH}\" 2>/dev/null)\nif [[ \"${buildVersion}\" = \"\" ]]\nthen\necho -e \"\\\"${buildPlist}\\\" does not contain key: \\\"CFBundleVersion\\\"\"\nexit 1\nfi\n\nmarketVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PRODUCT_SETTINGS_PATH}\" 2>/dev/null)\nif [[ \"${buildVersion}\" = \"\" ]]\nthen\necho -e \"\\\"${buildPlist}\\\" does not contain key: \\\"CFBundleShortVersionString\\\"\"\nexit 1\nfi\n\n#dSYMZipFile=\"${PROJECT_DIR}/Dsym/MKTool.app.dSYM-${marketVersion}-${buildVersion}.zip\"\n#dSYMFile=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n#\n#if [ -e \"$dSYMZipFile\" ]; then\n#    rm \"$dSYMZipFile\"\n#fi\n\n#cd \"$DWARF_DSYM_FOLDER_PATH\"\n#zip \"${dSYMZipFile}\" \"${DWARF_DSYM_FILE_NAME}\"\n\n\n\n\n\n\n\n\n\n\n\n";
 		};
 		BAB2F28C1540A68800ECE09A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1653,13 +1437,6 @@
 				BAB2F20615409C8C00ECE09A /* main.m in Sources */,
 				BAB2F20A15409C8C00ECE09A /* MKTAppDelegate.m in Sources */,
 				BAB2F21015409C8C00ECE09A /* MKTDetailViewController.m in Sources */,
-				BAB2F26215409ED700ECE09A /* DDAbstractDatabaseLogger.m in Sources */,
-				BAB2F26315409ED700ECE09A /* DDASLLogger.m in Sources */,
-				BAB2F26415409ED700ECE09A /* DDFileLogger.m in Sources */,
-				BAB2F26515409ED700ECE09A /* DDLog.m in Sources */,
-				BAB2F26615409ED700ECE09A /* DDTTYLogger.m in Sources */,
-				BAB2F26715409ED700ECE09A /* ContextFilterLogFormatter.m in Sources */,
-				BAB2F26815409ED700ECE09A /* DispatchQueueLogFormatter.m in Sources */,
 				BAB2F2831540A5B600ECE09A /* INIParser.m in Sources */,
 				BAB2F2841540A5B600ECE09A /* INISection.m in Sources */,
 				BAB2F2851540A5B600ECE09A /* InnerBand.m in Sources */,
@@ -1739,13 +1516,6 @@
 			files = (
 				BAB2F2B21540A7F800ECE09A /* main.m in Sources */,
 				BAB2F2B61540A7F800ECE09A /* MKTTestAppDelegate.m in Sources */,
-				BAB2F2CE1540A94600ECE09A /* DDAbstractDatabaseLogger.m in Sources */,
-				BAB2F2CF1540A94600ECE09A /* DDASLLogger.m in Sources */,
-				BAB2F2D01540A94600ECE09A /* DDFileLogger.m in Sources */,
-				BAB2F2D11540A94600ECE09A /* DDLog.m in Sources */,
-				BAB2F2D21540A94600ECE09A /* DDTTYLogger.m in Sources */,
-				BAB2F2D31540A94600ECE09A /* ContextFilterLogFormatter.m in Sources */,
-				BAB2F2D41540A94600ECE09A /* DispatchQueueLogFormatter.m in Sources */,
 				BAB2F2DB1540AA5200ECE09A /* MKTPointTest.m in Sources */,
 				BAB2F2DD1540AA7800ECE09A /* INIParser.m in Sources */,
 				BAB2F2DE1540AA7800ECE09A /* INISection.m in Sources */,
@@ -1773,14 +1543,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BAB2F27815409F5F00ECE09A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IBAForms;
-			targetProxy = BAB2F27715409F5F00ECE09A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */ = {
@@ -1858,6 +1620,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1876,33 +1642,19 @@
 		};
 		BA27D55C155F294F00C6B37E /* AppStore */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 155;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks/BlocksKit/Header",
-					"\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
-					"\"$(SRCROOT)/Frameworks/TestFlight\"",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2324D20D-CF59-44EB-8D05-2F213F2E6C1F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3A4A80BF-6DC6-4385-B6FA-7902387C9FC0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
@@ -1918,26 +1670,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks/libGHUnitIPhone\"",
-					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
@@ -1948,6 +1689,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1963,7 +1708,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0813BE00-8E2F-4D21-99BE-381811D342FD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1975,6 +1720,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1993,30 +1742,16 @@
 		};
 		BAB2F22015409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 155;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks/BlocksKit/Header",
-					"\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
-					"\"$(SRCROOT)/Frameworks/TestFlight\"",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2024,33 +1759,19 @@
 		};
 		BAB2F22115409C8D00ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 155;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks/BlocksKit/Header",
-					"\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
-					"\"$(SRCROOT)/Frameworks/TestFlight\"",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8FC9476C-4967-495E-839A-A0ABCEEF1CF7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8EF5439B-0F0E-4642-ABE4-70CF1196DF7C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2073,26 +1794,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks/libGHUnitIPhone\"",
-					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2101,26 +1811,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-					"\"$(SRCROOT)/Frameworks/YelpKit-FB.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/YelpKit-FB.framework/Headers\"";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks/libGHUnitIPhone\"",
-					"\"$(SRCROOT)/Frameworks/BlocksKit\"",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Frameworks/IBAForms/headers\"";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
