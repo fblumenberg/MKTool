@@ -23,7 +23,7 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import <MapKit/MapKit.h>
-#import <GHKitIOS/GHNSUserDefaults+Utils.h>
+#import <GHNSUserDefaults+Utils.h>
 
 #import "YKMKUtils.h"
 

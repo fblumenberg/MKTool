@@ -8,7 +8,6 @@
 *.pbxuser
 !default.pbxuser
 
-*.xcworkspace
 !default.xcworkspace
 xcuserdata
 
@@ -50,3 +49,5 @@ profile
 DerivedData/
 .idea
 MKTool/ApplicationBase/ExternalData.h
+/Podfile.lock
+/Pods/

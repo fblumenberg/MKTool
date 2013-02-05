@@ -1,0 +1,8 @@
+platform :ios, '5.0'
+pod 'BlocksKit'
+pod 'Dropbox-iOS-SDK'
+pod 'GHKit'
+pod 'YelpKit', :git => 'https://github.com/fblumenberg/YelpKit'
+pod 'IBAForms', :local => '/Users/frankblumenberg/Develop/Cocoa/IBAForms/'
+pod 'TestFlightSDK'
+pod 'CocoaLumberjack'
