@@ -23,7 +23,7 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import "InnerBand.h"
-//#import "YKCLUtils.h"
+#import "YKCLUtils.h"
 #import "MKTPoint.h"
 #import "MKTRoute.h"
 
@@ -53,7 +53,7 @@
   return [NSString stringWithFormat:NSLocalizedString(@"%@ - Invalid", @"INvalid WP Annotation callout"), self.name];
 }
 
-- (NSString*)subtitle{
+- (NSString *)subtitle {
   return nil;
 }
 
@@ -70,12 +70,14 @@
 }
 
 
-- (CLLocationDistance)distanceToPoi{
-  if(self.headingValue>=0)
+- (CLLocationDistance)distanceToPoi {
+  if (self.headingValue >= 0)
     return 0.0;
+
+  MKTPoint *poi = [self.route pointWithIndexx:-(self.headingValue)];
   
-  MKTPoint* poi=[self.route pointWithIndexx:-(self.headingValue)];
-  return YKCLLocationCoordinateDistance(self.coordinate,poi.coordinate,YES);
+  CLLocationDistance d = YKCLLocationCoordinateDistance(self.coordinate, poi.coordinate, YES);
+  return d;
 }
 
 

@@ -31,5 +31,6 @@
 @property(nonatomic,readonly) UINavigationController* detailViewController;
 @property(nonatomic,readonly) UINavigationController* rootViewController;
 
+@property(nonatomic,readonly) BOOL isRootForDetailViewController;
 
 @end

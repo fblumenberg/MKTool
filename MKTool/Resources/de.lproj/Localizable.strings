@@ -19,9 +19,6 @@
 /* Waypoint cell */
 "%@ - Waypoint" = "%@ - Wegpunkt";
 
-/* Access Denied */
-"Access Denied" = "Zugriff verweigert";
-
 /* WPclosed */
 "Add Point To close" = "Extra WP zum schließen";
 
@@ -66,6 +63,9 @@
 /* Delete toolbar button */
 "Delete(%d)" = "Löschen(%d)";
 
+/* No comment provided by engineer. */
+"Dismiss" = "Schließen";
+
 /* Error getting Location */
 "Error getting Location" = "Die aktuelle Position kann nicht ermittelt werden";
 
@@ -99,6 +99,9 @@
 /* InAppSettingsKit */
 "Mail not configured" = "Mail ist nicht konfiguriert";
 
+/* No comment provided by engineer. */
+"Master" = "Master";
+
 /* WP Route name */
 "Name" = "Name";
 
@@ -123,6 +126,9 @@
 /* WP toleranceRadius title */
 "Radius" = "Radius [m]";
 
+/* RC-Channel */
+"RC Channel %d" = "RC-Kanal %d";
+
 /* Restore Button */
 "Restore" = "Wiederherstellen";
 
@@ -138,6 +144,9 @@
 
 /* Save bar button */
 "Save" = "Speichern";
+
+/* RC-Channel */
+"Serial Channel %d" = "Serieller Kanal %d";
 
 /* No comment provided by engineer. */
 "Settings" = "Einstellungen";
@@ -171,6 +180,9 @@
 
 /* Waypoint bulk view title */
 "Waypoints" = "Wegpunkte";
+
+/* RC-Channel */
+"WP Event Channel" = "WP Event Kanal";
 
 /* WP Defaults Dialog title */
 "Waypoint Defaults" = "Wegpunktvorgaben";
@@ -267,4 +279,633 @@
 
 /* Point editor extra header */
 " - Distance to POI %d m" = "- Entfernung zum POI %d m";
+
+/* Host address */
+"Address" = "Adresse";
+
+/* No comment provided by engineer. */
+"BL-Ctrl missing (check connections & mixer setup)" = "BL-Ctrl fehlt (Verbindungen & Mixer-Einstellungen prüfen)";
+
+/* BT Connection title */
+"Bluetooth Connection" = "Bluetooth Verbindung";
+
+/* No comment provided by engineer. */
+"Carefree control error/not possible (compass okay?, Orientation = 0 ?)" = "Carefree Control Fehler/nicht möglich (Kompass okay?, Orientierung = 0 ?)";
+
+/* Connected Menu Loading */
+"Connecting…" = "Verbinde…";
+
+/* MKTConnection default name */
+"Connection" = "Vebindung";
+
+/* MKTConnectionsListViewController title */
+"Connections" = "Verbindungen";
+
+/* Disonnect button */
+"Disconnect" = "Trennen";
+
+/* Main Menu Edit Connection */
+"Edit Connections" = "Verbindungen bearbeiten";
+
+/* Fake Connection title */
+"Fake Connection" = "Simulator";
+
+/* No comment provided by engineer. */
+"Flight-Ctrl software incompatible" = "Flight-Ctrl ist NICHT kompatibel mit der App. Bitte die App und die Firmware auf einen aktuellen Stand bringen";
+
+/* Connected Menu Devices */
+"FlightCtrl" = "FlightCtrl";
+
+/* HUD device */
+"Found %@" = "%@ gefunden";
+
+/* No comment provided by engineer. */
+"Hardware: Acc NICK error" = "Hardware: Acc NICK Fehler";
+
+/* No comment provided by engineer. */
+"Hardware: Acc ROLL error" = "Hardware: Acc ROLL Fehler";
+
+/* No comment provided by engineer. */
+"Hardware: Acc Z error (FlightCtrl installed upside down ?)" = "Hardware: Acc Z Fehler (FlightCtrl falsch herum montiert?)";
+
+/* No comment provided by engineer. */
+"Hardware: Gyro NICK error" = "Hardware: Gyro NICK Fehler";
+
+/* No comment provided by engineer. */
+"Hardware: Gyro ROLL error" = "Hardware: Gyro ROLL Fehler";
+
+/* No comment provided by engineer. */
+"Hardware: Gyro YAW error" = "Hardware: Gyro GIER Fehler";
+
+/* No comment provided by engineer. */
+"Hardware: Pressure sensor error" = "Hardware: Luftdrucksensor Fehler";
+
+/* No comment provided by engineer. */
+"I2C bus error (check I2C connections)" = "I2C Bus Fehler (I2C Verbindungen prüfen)";
+
+/* INvalid WP Annotation callout */
+"Invalid - Index %d" = "Ungültig - Index %d";
+
+/* No comment provided by engineer. */
+"invalid compass value (MK3Mag not calibrated ?)" = "ungültiger Kompasswert (MK3Mag nicht kalibriert ?)";
+
+/* No comment provided by engineer. */
+"Mixer setup error (check mixervalues)" = "Mixer-Einstellungen fehlerhaft (Werte prüfen)";
+
+/* No comment provided by engineer. */
+"MK3Mag software incompatible" = "MK3Mag Software inkompatibel";
+
+/* Connected Menu Devices */
+"MK3Mag" = "MK3Mag";
+
+/* Connected Menu Devices */
+"NaviCtrl" = "NaviCtrl";
+
+/* No comment provided by engineer. */
+"no data from MK3Mag" = "keine Daten von MK3Mag";
+
+/* No comment provided by engineer. */
+"no data from MKGPS" = "keine Daten von MKGPS";
+
+/* No comment provided by engineer. */
+"No Errors" = "Alles OK";
+
+/* No comment provided by engineer. */
+"No receiver signal" = "kein Empfängersignal";
+
+/* Connected Menu OSD */
+"OSD" = "OSD";
+
+/* Host pin */
+"Pin" = "Extra";
+
+/* Redpark Serial Connection title */
+"Redpark Serial Connection" = "Redpark Seriell Verbindung";
+
+/* Main Menu Select Connection */
+"Select Connection" = "Verbindung wählen";
+
+/* Serial Connection title */
+"Serial Connection" = "Serielle Verbindung";
+
+/* No comment provided by engineer. */
+"SPI communication error. No data from Navi-Ctrl" = "SPI Kommunikationsfehler. Keine Daten von Navi-Ctrl";
+
+/* No comment provided by engineer. */
+"SPI: no data from Flight-Ctrl" = "SPI: keine Daten von Flight-Ctrl";
+
+/* MKTConnection footer */
+"WLAN - Hostname:Port" = "WLAN - Hostname:Portnummer";
+
+/* WLAN Connection title */
+"WLAN Connection" = "WLAN Verbindung";
+
+/* POI Annotation callout */
+"POI - %@" = "POI - %@";
+
+/* MKParam Altitude */
+"0 - automatic / 127 - middle position" = "0 - automatisch / 127 - Mittelposition";
+
+/* MKParam Misc */
+"3.0 V" = "3.0 V";
+
+/* MKParam Misc */
+"3.3 V" = "3.3 V";
+
+/* MKParam Gyro */
+"ACC/Gyro comp." = "ACC/Gyro-Komp.";
+
+/* MKParam Gyro */
+"ACC/Gyro factor" = "ACC/Gyro-Faktor";
+
+/* MKParam Altitude */
+"Acoustic vario" = "akustisches Variometer";
+
+/* MKParam Channels */
+"ACT DSL" = "ACT DSL";
+
+/* MKParam Output */
+"Active after Motor start" = "nur nach Start der Motoren aktiv";
+
+/* MKParam Altitude button */
+"Altitude control" = "Höhenregelung";
+
+/* MKParam Altitude */
+"Altitude-P" = "Höhe P";
+
+/* MKParam Coupling */
+"Axis coupling" = "Achskopplung";
+
+/* MKParam Altitude */
+"Barometric-D" = "Luftdruck D";
+
+/* MKParam Output */
+"Bitmask" = "Bitmaske";
+
+/* MKParam Camera button */
+"Camera" = "Kamera";
+
+/* MKParam Camera */
+"CamOrientation" = "Ausrichtung [°]";
+
+/* MKParam Misc */
+"Carefree control" = "Carefree Steuerung";
+
+/* MKParam NaviCtrl */
+"CH Altitude" = "Comming Home Höhe";
+
+/* MKParam Misc */
+"Channel" = "Kanal";
+
+/* MKParam Channels button */
+"Channels test" = "RC-Kanäle Test";
+
+/* Channels cell
+   MKParam Channels button */
+"Channels" = "Kanäle";
+
+/* MKParam Misc */
+"Comming Home time (s)" = "Comming Home Zeit (s)";
+
+/* MKParam Compass */
+"Compass active" = "Kompass aktiv";
+
+/* MKParam Compass */
+"Compass effect" = "Kompasswirkung";
+
+/* MKParam Compass button */
+"Compass" = "Kompass";
+
+/* MKParam Camera */
+"Compensation" = "Kompensation";
+
+/* MKParam Altitude */
+"Control mode" = "Modus";
+
+/* MKParam Coupling button */
+"Coupling" = "Achskopplung";
+
+/* MKParam Looping */
+"Down" = "Unten";
+
+/* MKParam Gyro */
+"Drift compensation" = "Driftkompensation";
+
+/* MKParam NaviCtrl */
+"Dynamic PH" = "Dynamic PH";
+
+/* MKParam Gyro */
+"Dynamic Stability" = "Dynamische Stabilität";
+
+/* MKParam Misc */
+"Emergency time (0.1s)" = "NOT-Gas Zeit [0.1s]";
+
+/* MKParam Misc */
+"Emergency-Gas" = "NOT-Gas";
+
+/* MKParam Altitude */
+"Enable altitude control" = "Höhenregelung aktiv";
+
+/* MKParam NaviCtrl */
+"Enable GPS" = "GPS aktiv";
+
+/* Motor test cell */
+"Engine test" = "Motortest";
+
+/* MKParam Stick */
+"External control" = "Nick-/Roll-P";
+
+/* MKParam Misc */
+"Failsafe" = "Failsafe";
+
+/* MKParam Camera */
+"Filter" = "Filter";
+
+/* Setting read error msg */
+"Flight-Ctrl is NOT compatible to this App!\nPlease update to the lastest App AND firmware versions." = "Flight-Ctrl ist NICHT kompatibel zu dieser App!\nBitte die App und die Firmware auf einen aktuellen Stand bringen";
+
+/* Setting read error */
+"Flight-Ctrl wrong Version" = "Flight-Ctrl hat eine falsche Version";
+
+/* MKParam Channels */
+"Futaba S.BUS" = "Futaba S.BUS";
+
+/* MKParam Altitude */
+"Gain/Rate" = "Verstärkung/Rate";
+
+/* MKParam Looping */
+"Gas limit" = "Gas Limit";
+
+/* MKParam Channels */
+"Gas" = "Gas";
+
+/* MKParam NaviCtrl */
+"GPS ACC comp." = "ACC Kompensation";
+
+/* MKParam NaviCtrl */
+"GPS ACC" = "GPS ACC";
+
+/* MKParam NaviCtrl */
+"GPS angle limit" = "GPS Winkel Limit";
+
+/* MKParam NaviCtrl */
+"GPS Gain" = "GPS Verstärkung";
+
+/* MKParam NaviCtrl */
+"GPS max. radius" = "GPS max. Radius";
+
+/* MKParam NaviCtrl */
+"GPS min. Sat" = "GPS min. Sat";
+
+/* MKParam NaviCtrl */
+"GPS Mode control" = "GPS Modus Steuerung";
+
+/* MKParam NaviCtrl */
+"GPS stick threshold" = "GPS Stick Schwelle";
+
+/* MKParam NaviCtrl */
+"GPS wind corr." = "GPS Windkorrektur";
+
+/* MKParam NaviCtrl */
+"GPS-D limit" = "GPS-D Limit";
+
+/* MKParam NaviCtrl */
+"GPS-D" = "GPS-D";
+
+/* MKParam NaviCtrl */
+"GPS-I limit" = "GPS-I Limit";
+
+/* MKParam NaviCtrl */
+"GPS-I" = "GPS-I";
+
+/* MKParam NaviCtrl */
+"GPS-P limit" = "GPS-P Limit";
+
+/* MKParam NaviCtrl */
+"GPS-P" = "GPS-P";
+
+/* MKParam Altitude */
+"GPS-Z" = "GPS Z";
+
+/* MKParam Channels */
+"Graupner HoTT" = "Graupner HoTT";
+
+/* MKParam Gyro */
+"Gyro Stability" = "Gyro Stabilität";
+
+/* MKParam Gyro */
+"Gyro-D" = "Gyro D";
+
+/* MKParam Gyro */
+"Gyro-I" = "Gyro I";
+
+/* MKParam Gyro */
+"Gyro-P" = "Gyro P";
+
+/* MKParam Camera
+   MKParam Gyro button */
+"Gyro" = "Gyro";
+
+/* MKParam Misc */
+"Heading Hold" = "Heading Hold (Nick/Roll)";
+
+/* MKParam Altitude */
+"Height limitation" = "Höhenbegrenzung";
+
+/* MKParam Altitude */
+"Hover variation" = "Schwebe-Gas +/-";
+
+/* MKParam Looping */
+"Hysteresis" = "Hysterese";
+
+/* MKParam Misc */
+"Ignore magnet error at startup" = "Kompassfehler beim Start ignorieren";
+
+/* MKParam Camera */
+"Invert direction" = "Richtung umkehren";
+
+/* MKParam Channels */
+"Jeti Sattelite" = "Jeti Sattelite";
+
+/* MKParam Looping */
+"Left" = "Links";
+
+/* MKParam Looping */
+"Loop while stick is" = "Looping, wenn Stick ist";
+
+/* MKParam Looping button */
+"Looping" = "Looping";
+
+/* MKParam Misc */
+"Low voltage level" = "Unterspannung";
+
+/* MKParam Gyro */
+"Main I" = "Hauptregler I";
+
+/* MKParam Camera */
+"Manual control speed" = "manuelle Geschwindigkeit";
+
+/* MKParam Altitude */
+"Max. Altitude" = "Maximalhöhe";
+
+/* MKParam Misc */
+"Max. Gas" = "Max. Gas";
+
+/* MKParam Camera */
+"Max" = "Max";
+
+/* MKParam Altitude
+   MKParam Misc */
+"Min. Gas" = "Min. Gas";
+
+/* MKParam Camera */
+"Min" = "Min";
+
+/* MKParam Misc button */
+"Misc" = "Verschiedens";
+
+/* Mixer saved success */
+"Mixer saved" = "Mixer gespeichert";
+
+/* Mixer cell */
+"Mixer" = "Mixer";
+
+/* Settingview title */
+"MK Setting" = "Parametersatz";
+
+/* MKParam Output */
+"Motor off, LED level" = "Zustand bei Motor aus";
+
+/* MKParam Channels */
+"Motor safety swich" = "Motor-Sicherheitschalter";
+
+/* MKParam Gyro */
+"Motor smooth" = "Motor Smooth";
+
+/* MKParam Channels */
+"Motor start/stop -> gas 0 && motor switch on/off" = "Motor start/stop -> Gas 0 && Motor-Schalter AN/AUS";
+
+/* MKParam Channels */
+"Multisignal(PPM)" = "Multisignal(PPM)";
+
+/* MKParam Navi Control button */
+"Navi Control" = "Navi Control";
+
+/* MKParam Stick */
+"Nick-/Roll-D" = "Nick-/Roll-D";
+
+/* MKParam Stick */
+"Nick-/Roll-P" = "Nick-/Roll-D";
+
+/* MKParam Camera
+   MKParam Channels */
+"Nick" = "Nick";
+
+/* MKParam Coupling */
+"Nick/Roll feedback" = "Nick/Roll Rückkopplung";
+
+/* MKParam Misc */
+"No Beep w.o. active sender" = "Kein Signalton ohne aktiven Sender";
+
+/* MKParam Misc */
+"No start without GPS fix" = "Start ohne GPS Fix verhindern";
+
+/* MKParam Misc */
+"No start without SD card" = "Start ohne SD Karte verhindern";
+
+/* MKParam Compass */
+"Orientation fixed" = "Feste Ausrichtung";
+
+/* MKParam Output */
+"Output 1 (J16 / SV2.1)" = "Ausgang 1 (J16 / SV2.1)";
+
+/* MKParam Output */
+"Output 2 (J17 / SV2.5)" = "Ausgang 2 (J17 / SV2.5)";
+
+/* MKParam Output button */
+"Output" = "Ausgänge";
+
+/* MKParam User */
+"Parameter 1" = "Parameter 1";
+
+/* MKParam User */
+"Parameter 2" = "Parameter 2";
+
+/* MKParam User */
+"Parameter 3" = "Parameter 3";
+
+/* MKParam User */
+"Parameter 4" = "Parameter 4";
+
+/* MKParam User */
+"Parameter 5" = "Parameter 5";
+
+/* MKParam User */
+"Parameter 6" = "Parameter 6";
+
+/* MKParam User */
+"Parameter 7" = "Parameter 7";
+
+/* MKParam User */
+"Parameter 8" = "Parameter 8";
+
+/* MKParam NaviCtrl */
+"PH login time" = "PH Login Zeit";
+
+/* MKParam Channels */
+"Poti 1" = "Poti 1";
+
+/* MKParam Channels */
+"Poti 2" = "Poti 2";
+
+/* MKParam Channels */
+"Poti 3" = "Poti 3";
+
+/* MKParam Channels */
+"Poti 4" = "Poti 4";
+
+/* MKParam Channels */
+"Poti 5" = "Poti 5";
+
+/* MKParam Channels */
+"Poti 6" = "Poti 6";
+
+/* MKParam Channels */
+"Poti 7" = "Poti 7";
+
+/* MKParam Channels */
+"Poti 8" = "Poti 8";
+
+/* MKParam Channels */
+"Receiver" = "Empfänger";
+
+/* Reload toolbar item */
+"Reload" = "Neu laden";
+
+/* MKParam Looping */
+"Response threshold" = "Ansprechschwelle";
+
+/* MKParam Looping */
+"Right" = "Rechts";
+
+/* MKParam Camera
+   MKParam Channels */
+"Roll" = "Roll";
+
+/* MKParam Gyro */
+"Rotation limiter" = "Drehratenbegrenzung";
+
+/* Channels Test */
+"RSSI" = "RSSI";
+
+/* MKParam Misc */
+"Sender signal lost" = "bei Empfangsverlust";
+
+/* MKParam Channels */
+"Sensitive receiver signal validation" = "Erweiterte Empfangssignalprüfung";
+
+/* Channel test */
+"Serial %d" = "Seriell %d";
+
+/* MKParam Camera */
+"Servo 3" = "Servo 3";
+
+/* MKParam Camera */
+"Servo 4" = "Servo 4";
+
+/* MKParam Camera */
+"Servo 5" = "Servo 5\n";
+
+/* MKParam Camera */
+"Servo control" = "Servo Ansteuerung";
+
+/* MKParam Camera */
+"Servo refresh rate" = "Ansteuergeschwindigkeit";
+
+/* MKParam Altitude */
+"Setpoint" = "Sollwert";
+
+/* Setting i */
+"Setting #%d" = "Parametersatz %d";
+
+/* Setting loaded success */
+"Setting loaded" = "Parametersatz geladen";
+
+/* Setting saved success */
+"Setting saved" = "Parametersatz gespeichert";
+
+/* MKParam Channels */
+"Spectrum (HighRes)" = "Spectrum (HighRes)";
+
+/* MKParam Channels */
+"Spectrum (LowRes)" = "Spectrum (LowRes)";
+
+/* MKParam Channels */
+"Spectrum" = "Spectrum";
+
+/* MKParam Altitude */
+"Stick neutral point" = "Stick Neutral Punkt";
+
+/* MKParam Stick button */
+"Stick" = "Stick";
+
+/* MKParam Altitude */
+"Switch for setpoint" = "Schalter für Höhe";
+
+/* MKParam Misc */
+"Teachable Carefree" = "Teachable Carefree";
+
+/* MKParam Output */
+"Timing" = "Timing";
+
+/* MKParam Looping */
+"Turn over Nick" = "Umkehrpunkt Nick";
+
+/* MKParam Looping */
+"Turn over Roll" = "Umkehrpunkt Roll";
+
+/* MKParam Output */
+"Untervoltage warn. Bitmask" = "Unterspannung Warn. Bitmaske";
+
+/* MKParam Looping */
+"Up" = "Oben";
+
+/* MKParam NaviCtrl */
+"Use GPS max. raduis for dPH " = "GPS max. Radius für dPH nutzen";
+
+/* MKParam Misc */
+"Use vario for altitude" = "Vario Höhenregelung";
+
+/* MKParam Channels
+   MKParam User button */
+"User" = "Benutzer";
+
+/* MKParam Altitude */
+"Vario altitude" = "Vario-Höhe";
+
+/* MKParam Misc */
+"Voltage reference" = "Spannungsreferenz";
+
+/* MKParam Coupling */
+"Yaw correction" = "Gier Korrektur";
+
+/* MKParam Coupling */
+"Yaw pos. feedbak" = "Gier pos. Rückkopplung";
+
+/* MKParam Gyro */
+"Yaw-I" = "Gier I";
+
+/* MKParam Gyro
+   MKParam Stick */
+"Yaw-P" = "Gier P";
+
+/* MKParam Camera
+   MKParam Channels */
+"Yaw" = "Gier";
+
+/* MKParam Altitude */
+"Z-ACC" = "Z-ACC";
+
+/* Access Denied */
+"Access Denied" = "Zugriff verweigert";
 

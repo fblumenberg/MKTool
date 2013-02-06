@@ -675,7 +675,14 @@ static CoreDataStore *gMainStoreInstance;
 	NSString *storeLocation = [DOCUMENTS_DIR() stringByAppendingPathComponent:@"CoreDataStore.sqlite"];
 	NSURL *storeURL = [NSURL fileURLWithPath:storeLocation];
 	
-	if (![gPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+  
+  NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                           
+                           [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                           
+                           [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+  
+	if (![gPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
 		NSLog(@"Error creating persistantStoreCoordinator: %@, %@", error, [error userInfo]);
 		abort();
     }    
@@ -1347,7 +1354,7 @@ static NSString *getSourceIdentifier(NSObject *obj) {
 	[MessageCenter sendMessageNamed:name withUserInfo:userInfo forSource:nil];
 }
 
-+ (void)sendGlobalMessageNamed:(NSString *)name withUserInfoKey:(NSObject *)key andValue:(NSObject *)value {
++ (void)sendGlobalMessageNamed:(NSString *)name withUserInfoKey:(NSObject<NSCopying> *)key andValue:(NSObject *)value {
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:value forKey:key];
 	[MessageCenter sendGlobalMessageNamed:name withUserInfo:userInfo];
 }
@@ -1391,7 +1398,7 @@ static NSString *getSourceIdentifier(NSObject *obj) {
 	[MessageCenter sendMessage:message forSource:source];
 }
 
-+ (void)sendMessageNamed:(NSString *)name withUserInfoKey:(NSObject *)key andValue:(NSObject *)value forSource:(NSObject *)source {
++ (void)sendMessageNamed:(NSString *)name withUserInfoKey:(NSObject<NSCopying> *)key andValue:(NSObject *)value forSource:(NSObject *)source {
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:value forKey:key];
 	[MessageCenter sendMessageNamed:name withUserInfo:userInfo forSource:source];
 }

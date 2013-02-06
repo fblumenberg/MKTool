@@ -31,7 +31,7 @@
 
 #import "MKTDetailViewController.h"
 
-#import "MKTRoutesListViewController.h"
+#import "MKTMainMenuController.h"
 
 #import "BlocksKit.h"
 #import "InnerBand.h"
@@ -84,6 +84,7 @@
 
   
   [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {
+    NSLog(@"Set log level for class %@",class);
     [DDLog setLogLevel:LOG_LEVEL_VERBOSE forClassWithName:class];
   }];
   
@@ -93,13 +94,13 @@
 
   // Override point for customization after application launch.
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] init];
+    MKTMainMenuController *routesViewControler = [[MKTMainMenuController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:routesViewControler];
     self.window.rootViewController = self.navigationController;
   }
   else {
 
-    MKTRoutesListViewController *routesViewControler = [[MKTRoutesListViewController alloc] init];
+    MKTMainMenuController *routesViewControler = [[MKTMainMenuController alloc] init];
     UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:routesViewControler];
 
     MKTDetailViewController *detailViewController = [[MKTDetailViewController alloc] initWithNibName:@"MKTDetailViewController_iPad" bundle:nil];

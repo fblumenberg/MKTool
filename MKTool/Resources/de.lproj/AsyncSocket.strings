@@ -1,0 +1,21 @@
+/* AsynSocket.strings
+  MKTool
+
+  Created by Frank Blumenberg on 18.06.12.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved. */
+
+/* No comment provided by engineer. */
+"AsyncSocketCanceledError" = "Verbindung wurde getrennt";
+
+/* No comment provided by engineer. */
+"AsyncSocketConnectTimeoutError" = "Zeitüberschreitung beim Verbindungsaufbau";
+
+/* No comment provided by engineer. */
+"AsyncSocketReadMaxedOutError" = "Eine Leseoperation hat die maximale Länge erreicht";
+
+/* No comment provided by engineer. */
+"AsyncSocketReadTimeoutError" = "Zeitüberschreitung beim Lesen";
+
+/* No comment provided by engineer. */
+"AsyncSocketWriteTimeoutError" = "Zeitüberschreitung beim Schreiben";
+

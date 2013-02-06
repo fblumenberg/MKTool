@@ -136,6 +136,7 @@
   poi.typeValue = MKTPointTypePOI;
   
   CLLocationCoordinate2D coordinate2 = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
+  
   MKTPoint* wp = [r addPointAtCoordinate:coordinate2];
   wp.typeValue = MKTPointTypeWP;
   wp.headingValue = -(poi.indexValue);

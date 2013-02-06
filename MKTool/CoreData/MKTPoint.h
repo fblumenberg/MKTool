@@ -34,7 +34,7 @@ typedef enum {
 } MKTPointType;
 
 
-@interface MKTPoint : _MKTPoint<MKAnnotation> {
+@interface MKTPoint : _MKTPoint <MKAnnotation> {
 }
 
 @property(readonly, copy) NSString *name;
