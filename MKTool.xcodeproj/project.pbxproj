@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5197AC74FF214E6CA9E3038F /* libPods-MKToolTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */; };
 		72D4D83C3D2244DB8DC4E775 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4953AA427A9D42B298C88051 /* libPods.a */; };
 		760A1CDA155413FB00EDDBC5 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD6155413FB00EDDBC5 /* icon-back.png */; };
 		760A1CDB155413FB00EDDBC5 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */; };
@@ -141,7 +142,6 @@
 		BAB2F2B01540A7F800ECE09A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2AE1540A7F800ECE09A /* InfoPlist.strings */; };
 		BAB2F2B21540A7F800ECE09A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2B11540A7F800ECE09A /* main.m */; };
 		BAB2F2B61540A7F800ECE09A /* MKTTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2B51540A7F800ECE09A /* MKTTestAppDelegate.m */; };
-		BAB2F2CD1540A83100ECE09A /* libGHUnitIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F2C91540A83100ECE09A /* libGHUnitIOS.a */; };
 		BAB2F2D81540A9DF00ECE09A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26C15409F1600ECE09A /* Security.framework */; };
 		BAB2F2DB1540AA5200ECE09A /* MKTPointTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2DA1540AA5200ECE09A /* MKTPointTest.m */; };
 		BAB2F2DC1540AA6C00ECE09A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24E15409E4500ECE09A /* CoreLocation.framework */; };
@@ -252,6 +252,7 @@
 
 /* Begin PBXFileReference section */
 		01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.xcconfig"; path = "Pods/Pods-MKToolTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		4953AA427A9D42B298C88051 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		760A1CD6155413FB00EDDBC5 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
 		760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
@@ -414,22 +415,6 @@
 		BAB2F2B31540A7F800ECE09A /* MKToolTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKToolTests-Prefix.pch"; sourceTree = "<group>"; };
 		BAB2F2B41540A7F800ECE09A /* MKTTestAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTTestAppDelegate.h; sourceTree = "<group>"; };
 		BAB2F2B51540A7F800ECE09A /* MKTTestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTTestAppDelegate.m; sourceTree = "<group>"; };
-		BAB2F2BB1540A83100ECE09A /* GHAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAsyncTestCase.h; sourceTree = "<group>"; };
-		BAB2F2BC1540A83100ECE09A /* GHTest+JUnitXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GHTest+JUnitXML.h"; sourceTree = "<group>"; };
-		BAB2F2BD1540A83100ECE09A /* GHTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTest.h; sourceTree = "<group>"; };
-		BAB2F2BE1540A83100ECE09A /* GHTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestCase.h; sourceTree = "<group>"; };
-		BAB2F2BF1540A83100ECE09A /* GHTestGroup+JUnitXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GHTestGroup+JUnitXML.h"; sourceTree = "<group>"; };
-		BAB2F2C01540A83100ECE09A /* GHTestGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestGroup.h; sourceTree = "<group>"; };
-		BAB2F2C11540A83100ECE09A /* GHTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTesting.h; sourceTree = "<group>"; };
-		BAB2F2C21540A83100ECE09A /* GHTestMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestMacros.h; sourceTree = "<group>"; };
-		BAB2F2C31540A83100ECE09A /* GHTestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestOperation.h; sourceTree = "<group>"; };
-		BAB2F2C41540A83100ECE09A /* GHTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestRunner.h; sourceTree = "<group>"; };
-		BAB2F2C51540A83100ECE09A /* GHTestSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestSuite.h; sourceTree = "<group>"; };
-		BAB2F2C61540A83100ECE09A /* GHUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnit.h; sourceTree = "<group>"; };
-		BAB2F2C71540A83100ECE09A /* GHUnitIPhoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnitIPhoneAppDelegate.h; sourceTree = "<group>"; };
-		BAB2F2C91540A83100ECE09A /* libGHUnitIOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGHUnitIOS.a; sourceTree = "<group>"; };
-		BAB2F2CA1540A83100ECE09A /* NSException+GHTestFailureExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+GHTestFailureExceptions.h"; sourceTree = "<group>"; };
-		BAB2F2CB1540A83100ECE09A /* NSValue+GHValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+GHValueFormatter.h"; sourceTree = "<group>"; };
 		BAB2F2D71540A9AE00ECE09A /* ExternalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalData.h; path = ApplicationBase/ExternalData.h; sourceTree = "<group>"; };
 		BAB2F2DA1540AA5200ECE09A /* MKTPointTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointTest.m; sourceTree = "<group>"; };
 		BAB2F2EA1540AD7500ECE09A /* INIParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIParserTest.m; sourceTree = "<group>"; };
@@ -558,6 +543,7 @@
 		BAF0CA931549E0B400C31A02 /* MKRouteDropBoxSyncOneOlderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneOlderTest.m; sourceTree = "<group>"; };
 		BAF0CA941549E0B400C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneLocalRemoteTest.m; sourceTree = "<group>"; };
 		BAF0CA981549F5E500C31A02 /* white_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_texture.png; sourceTree = "<group>"; };
+		E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKToolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -594,8 +580,8 @@
 				BAB2F2A81540A7F800ECE09A /* UIKit.framework in Frameworks */,
 				BAB2F2A91540A7F800ECE09A /* Foundation.framework in Frameworks */,
 				BAB2F2AA1540A7F800ECE09A /* CoreGraphics.framework in Frameworks */,
-				BAB2F2CD1540A83100ECE09A /* libGHUnitIOS.a in Frameworks */,
 				BA1B06BB1584E22300C6C964 /* MapKit.framework in Frameworks */,
+				5197AC74FF214E6CA9E3038F /* libPods-MKToolTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +725,7 @@
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
 				BAB2F1F615409C8C00ECE09A /* Products */,
 				01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */,
+				2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -770,6 +757,7 @@
 				BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */,
 				BAB2F26C15409F1600ECE09A /* Security.framework */,
 				BAB2F1F915409C8C00ECE09A /* UIKit.framework */,
+				E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -874,7 +862,6 @@
 			isa = PBXGroup;
 			children = (
 				BAB2F2E91540AD7500ECE09A /* INI */,
-				BAB2F2BA1540A83100ECE09A /* libGHUnitIPhone */,
 				BAB2F2F21540AE1700ECE09A /* MKTDropboxBaseTest.h */,
 				BAF0CA921549E0B400C31A02 /* MKRouteDropBoxSyncAllLocalRemoteTest.m */,
 				BAF0CA931549E0B400C31A02 /* MKRouteDropBoxSyncOneOlderTest.m */,
@@ -903,30 +890,6 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
-		};
-		BAB2F2BA1540A83100ECE09A /* libGHUnitIPhone */ = {
-			isa = PBXGroup;
-			children = (
-				BAB2F2BB1540A83100ECE09A /* GHAsyncTestCase.h */,
-				BAB2F2BC1540A83100ECE09A /* GHTest+JUnitXML.h */,
-				BAB2F2BD1540A83100ECE09A /* GHTest.h */,
-				BAB2F2BE1540A83100ECE09A /* GHTestCase.h */,
-				BAB2F2BF1540A83100ECE09A /* GHTestGroup+JUnitXML.h */,
-				BAB2F2C01540A83100ECE09A /* GHTestGroup.h */,
-				BAB2F2C11540A83100ECE09A /* GHTesting.h */,
-				BAB2F2C21540A83100ECE09A /* GHTestMacros.h */,
-				BAB2F2C31540A83100ECE09A /* GHTestOperation.h */,
-				BAB2F2C41540A83100ECE09A /* GHTestRunner.h */,
-				BAB2F2C51540A83100ECE09A /* GHTestSuite.h */,
-				BAB2F2C61540A83100ECE09A /* GHUnit.h */,
-				BAB2F2C71540A83100ECE09A /* GHUnitIPhoneAppDelegate.h */,
-				BAB2F2C91540A83100ECE09A /* libGHUnitIOS.a */,
-				BAB2F2CA1540A83100ECE09A /* NSException+GHTestFailureExceptions.h */,
-				BAB2F2CB1540A83100ECE09A /* NSValue+GHValueFormatter.h */,
-			);
-			name = libGHUnitIPhone;
-			path = Frameworks/libGHUnitIPhone;
-			sourceTree = SOURCE_ROOT;
 		};
 		BAB2F2D91540AA5200ECE09A /* Waypoints */ = {
 			isa = PBXGroup;
@@ -1225,6 +1188,7 @@
 				BAB2F2A21540A7F800ECE09A /* Sources */,
 				BAB2F2A31540A7F800ECE09A /* Frameworks */,
 				BAB2F2A41540A7F800ECE09A /* Resources */,
+				22ED1BBC944343E988A7B521 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1387,6 +1351,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		22ED1BBC944343E988A7B521 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-MKToolTests-resources.sh\"\n";
+		};
 		9DCF902A8D45430B8F1066C5 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1668,6 +1646,7 @@
 		};
 		BA27D55E155F294F00C6B37E /* AppStore */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1676,7 +1655,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -1792,6 +1771,7 @@
 		};
 		BAB2F2B81540A7F800ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1800,7 +1780,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -1809,6 +1789,7 @@
 		};
 		BAB2F2B91540A7F800ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1817,7 +1798,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
