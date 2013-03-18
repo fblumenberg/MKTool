@@ -28,14 +28,18 @@
 
 @interface IKParamSet : NSObject {
 
+  IKMkParamset92 _parameterLatest;
   IKMkParamset90 _parameter90;
   IKMkParamset88 _parameter88;
   IKMkParamset85 _parameter85;
 }
 
 + (id)settingWithData:(NSData *)data;
+
 - (id)initWithData:(NSData *)data;
+
 - (NSData *)data;
+
 - (BOOL)isValid;
 
 @property(assign) NSNumber *Index;
@@ -127,6 +131,7 @@
 @property(assign) NSNumber *J17Timing;
 @property(assign) NSNumber *WARN_J16_Bitmask;
 @property(assign) NSNumber *WARN_J17_Bitmask;
+@property(assign) NSNumber *NaviOut1Parameter;
 @property(assign) NSNumber *NaviGpsModeControl;
 @property(assign) NSNumber *NaviGpsGain;
 @property(assign) NSNumber *NaviGpsP;
@@ -166,6 +171,7 @@
 @property(assign) NSNumber *ServoCompInvert;
 @property(assign) NSNumber *ServoCompInvert_NICK;
 @property(assign) NSNumber *ServoCompInvert_ROLL;
+@property(assign) NSNumber *ServoCompInvert_RELATIVE;
 @property(assign) NSNumber *ExtraConfig;
 @property(assign) NSNumber *ExtraConfig_HEIGHT_LIMIT;
 @property(assign) NSNumber *ExtraConfig_VARIO_BEEP;
@@ -181,6 +187,8 @@
 @property(assign) NSNumber *GlobalConfig3_CFG3_VARIO_FAILSAFE;
 @property(assign) NSNumber *GlobalConfig3_CFG3_MOTOR_SWITCH_MODE;
 @property(assign) NSNumber *GlobalConfig3_CFG3_NO_GPSFIX_NO_START;
+@property(assign) NSNumber *GlobalConfig3_CFG3_USE_NC_FOR_OUT1;
+@property(assign) NSNumber *GlobalConfig3_CFG3_SPEAK_ALL;
 
 @property(assign) NSString *Name;
 

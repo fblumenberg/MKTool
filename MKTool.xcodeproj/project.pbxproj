@@ -194,7 +194,7 @@
 		BA98BFDA16C29079000CA7EE /* MKTTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFC916C29079000CA7EE /* MKTTableSection.m */; };
 		BA98BFDB16C29079000CA7EE /* MKTTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFC916C29079000CA7EE /* MKTTableSection.m */; };
 		BA98BFDC16C29079000CA7EE /* TPMultiLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFCB16C29079000CA7EE /* TPMultiLayoutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		BA98BFDD16C29079000CA7EE /* TPMultiLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFCB16C29079000CA7EE /* TPMultiLayoutViewController.m */; };
+		BA98BFDD16C29079000CA7EE /* TPMultiLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFCB16C29079000CA7EE /* TPMultiLayoutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BA98BFDE16C29079000CA7EE /* UIColor+ColorWithHex.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFCD16C29079000CA7EE /* UIColor+ColorWithHex.m */; };
 		BA98BFDF16C29079000CA7EE /* UIColor+ColorWithHex.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFCD16C29079000CA7EE /* UIColor+ColorWithHex.m */; };
 		BA98BFE016C29079000CA7EE /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFCF16C29079000CA7EE /* UIImage+Tint.m */; };
@@ -202,7 +202,6 @@
 		BA98BFFF16C290AD000CA7EE /* BaseOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFE416C290AD000CA7EE /* BaseOsdViewController.m */; };
 		BA98C00016C290AD000CA7EE /* BaseOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFE416C290AD000CA7EE /* BaseOsdViewController.m */; };
 		BA98C00116C290AD000CA7EE /* Data3DValue.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFE616C290AD000CA7EE /* Data3DValue.m */; };
-		BA98C00216C290AD000CA7EE /* Data3DValue.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFE616C290AD000CA7EE /* Data3DValue.m */; };
 		BA98C00316C290AD000CA7EE /* FollowMeOsdViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFE716C290AD000CA7EE /* FollowMeOsdViewController-iPad.xib */; };
 		BA98C00416C290AD000CA7EE /* FollowMeOsdViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFE716C290AD000CA7EE /* FollowMeOsdViewController-iPad.xib */; };
 		BA98C00516C290AD000CA7EE /* FollowMeOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFE916C290AD000CA7EE /* FollowMeOsdViewController.m */; };
@@ -214,13 +213,10 @@
 		BA98C00B16C290AD000CA7EE /* MapOsdViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFED16C290AD000CA7EE /* MapOsdViewController-iPad.xib */; };
 		BA98C00C16C290AD000CA7EE /* MapOsdViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFED16C290AD000CA7EE /* MapOsdViewController-iPad.xib */; };
 		BA98C00D16C290AD000CA7EE /* MapOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFEF16C290AD000CA7EE /* MapOsdViewController.m */; };
-		BA98C00E16C290AD000CA7EE /* MapOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFEF16C290AD000CA7EE /* MapOsdViewController.m */; };
 		BA98C00F16C290AD000CA7EE /* MapOsdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFF016C290AD000CA7EE /* MapOsdViewController.xib */; };
 		BA98C01016C290AD000CA7EE /* MapOsdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFF016C290AD000CA7EE /* MapOsdViewController.xib */; };
 		BA98C01116C290AD000CA7EE /* OsdTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFF216C290AD000CA7EE /* OsdTabBarController.m */; };
-		BA98C01216C290AD000CA7EE /* OsdTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFF216C290AD000CA7EE /* OsdTabBarController.m */; };
 		BA98C01316C290AD000CA7EE /* OsdValue.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFF416C290AD000CA7EE /* OsdValue.m */; };
-		BA98C01416C290AD000CA7EE /* OsdValue.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFF416C290AD000CA7EE /* OsdValue.m */; };
 		BA98C01516C290AD000CA7EE /* OsdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFF516C290AD000CA7EE /* OsdViewController.xib */; };
 		BA98C01616C290AD000CA7EE /* OsdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFF516C290AD000CA7EE /* OsdViewController.xib */; };
 		BA98C01716C290AD000CA7EE /* RawOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFF716C290AD000CA7EE /* RawOsdViewController.m */; };
@@ -2522,12 +2518,8 @@
 				BA98BFDF16C29079000CA7EE /* UIColor+ColorWithHex.m in Sources */,
 				BA98BFE116C29079000CA7EE /* UIImage+Tint.m in Sources */,
 				BA98C00016C290AD000CA7EE /* BaseOsdViewController.m in Sources */,
-				BA98C00216C290AD000CA7EE /* Data3DValue.m in Sources */,
 				BA98C00616C290AD000CA7EE /* FollowMeOsdViewController.m in Sources */,
 				BA98C00A16C290AD000CA7EE /* MapLocation.m in Sources */,
-				BA98C00E16C290AD000CA7EE /* MapOsdViewController.m in Sources */,
-				BA98C01216C290AD000CA7EE /* OsdTabBarController.m in Sources */,
-				BA98C01416C290AD000CA7EE /* OsdValue.m in Sources */,
 				BA98C01816C290AD000CA7EE /* RawOsdViewController.m in Sources */,
 				BA98C01C16C290AD000CA7EE /* ValueBaseOsdViewController.m in Sources */,
 				BA98C02016C290AD000CA7EE /* ValueOsdViewController.m in Sources */,

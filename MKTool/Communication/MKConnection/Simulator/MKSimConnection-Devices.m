@@ -41,8 +41,8 @@
   versionInfo = calloc(sizeof(IKMkVersionInfo), 1);
 
   versionInfo->SWMajor = 0;
-  versionInfo->SWMinor = 88;
-  versionInfo->SWPatch = 12;
+  versionInfo->SWMinor = 90;
+  versionInfo->SWPatch = 3;
   versionInfo->ProtoMajor = 11;
   versionInfo->ProtoMinor = 0;
 
@@ -52,8 +52,8 @@
   versionInfo = calloc(sizeof(IKMkVersionInfo), 1);
 
   versionInfo->SWMajor = 0;
-  versionInfo->SWMinor = 28;
-  versionInfo->SWPatch = 12;
+  versionInfo->SWMinor = 30;
+  versionInfo->SWPatch = 0;
   versionInfo->ProtoMajor = 11;
   versionInfo->ProtoMinor = 0;
 

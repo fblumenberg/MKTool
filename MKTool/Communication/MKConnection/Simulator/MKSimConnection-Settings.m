@@ -33,7 +33,7 @@
 
 #import "MKDataConstants.h"
 
-static IKMkParamset90 EE_Parameter;
+static IKMkParamset92 EE_Parameter;
 static uint8_t PlatinenVersion = 21;
 
 static void ParamSet_DefaultStickMapping(void) {
@@ -57,7 +57,7 @@ static void ParamSet_DefaultStickMapping(void) {
 /***************************************************/
 static void CommonDefaults(void) {
   EE_Parameter.Revision = EEPARAM_REVISION;
-
+  memset(EE_Parameter.Name, 0, 12); // delete name
   if (PlatinenVersion >= 20) {
     EE_Parameter.Gyro_D = 10;
     EE_Parameter.Driftkomp = 0;
@@ -76,8 +76,8 @@ static void CommonDefaults(void) {
   EE_Parameter.BitConfig = 0;              // Looping usw.
   EE_Parameter.GlobalConfig = CFG_ACHSENKOPPLUNG_AKTIV | CFG_KOMPASS_AKTIV | CFG_GPS_AKTIV | CFG_HOEHEN_SCHALTER;
   EE_Parameter.ExtraConfig = CFG_GPS_AID | CFG2_VARIO_BEEP;
-  EE_Parameter.GlobalConfig3 = 0;//CFG3_VARIO_FAILSAFE;
-  EE_Parameter.Receiver = RECEIVER_JETI;
+  EE_Parameter.GlobalConfig3 = CFG3_SPEAK_ALL;//CFG3_VARIO_FAILSAFE;
+  EE_Parameter.Receiver = RECEIVER_HOTT;
   EE_Parameter.MotorSafetySwitch = 0;
   EE_Parameter.ExternalControl = 0;
 
@@ -126,7 +126,7 @@ static void CommonDefaults(void) {
   EE_Parameter.WARN_J17_Bitmask = 0xAA;
   EE_Parameter.J16Timing = 40;
   EE_Parameter.J17Timing = 40;
-
+  EE_Parameter.NaviOut1Parameter = 0;       // Photo release in meter
   EE_Parameter.LoopGasLimit = 50;
   EE_Parameter.LoopThreshold = 90;         // Wert: 0-247  Schwelle f¸r Stickausschlag
   EE_Parameter.LoopHysterese = 50;
@@ -180,7 +180,7 @@ void ParamSet_DefaultSet1(void) // normal
   EE_Parameter.I_Faktor = 32;
   EE_Parameter.CouplingYawCorrection = 60;
   EE_Parameter.DynamicStability = 75;
-  memcpy(EE_Parameter.Name, "Fast\0", 12);
+  memcpy(EE_Parameter.Name, "Fast", 4);
 }
 
 
@@ -201,7 +201,7 @@ void ParamSet_DefaultSet2(void) // beginner
   EE_Parameter.I_Faktor = 16;
   EE_Parameter.CouplingYawCorrection = 70;
   EE_Parameter.DynamicStability = 70;
-  memcpy(EE_Parameter.Name, "Normal\0", 12);
+  memcpy(EE_Parameter.Name, "Normal", 6);
 }
 
 /***************************************************/
@@ -221,7 +221,7 @@ void ParamSet_DefaultSet3(void) // beginner
   EE_Parameter.I_Faktor = 16;
   EE_Parameter.CouplingYawCorrection = 70;
   EE_Parameter.DynamicStability = 70;
-  memcpy(EE_Parameter.Name, "Easy\0", 12);
+  memcpy(EE_Parameter.Name, "Easy", 4);
 }
 
 

@@ -99,7 +99,7 @@ enum CsvIndex {
 
   IKMkGPSPosDev mkDev;
   
-  mkDev.Distance = 1234567;
+  mkDev.Distance = 12345;
   mkDev.Bearing = 987;
   
   IKGPSPosDev* dev = [IKGPSPosDev positionWithMkPosDev:&mkDev];

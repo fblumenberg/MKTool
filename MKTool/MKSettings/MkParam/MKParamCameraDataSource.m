@@ -53,6 +53,10 @@
     if (((IKParamSet *)aModel).Revision.integerValue >= 90)
       [paramSection addNumberFieldForKeyPath:@"ServoFilterNick" title:NSLocalizedString(@"Filter", @"MKParam Camera")];
 
+    if (((IKParamSet *)aModel).Revision.integerValue >= 92)
+      [paramSection addSwitchFieldForKeyPath:@"ServoCompInvert_RELATIVE" title:NSLocalizedString(@"Servo relative", @"MKParam Camera")];
+    
+
     //------------------------------------------------------------------------------------------------------------------------
     paramSection = [self addSectionWithHeaderTitle:NSLocalizedString(@"Roll", @"MKParam Camera") footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init] ;
