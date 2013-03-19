@@ -122,6 +122,10 @@
 - (id)init {
   self = [super init];
   if (self) {
+    
+    self.prefix = [[NSUserDefaults standardUserDefaults] stringForKey:@"WpDefaultPrefix"];
+    self.index = 0;
+
     [self addObserver:self forKeyPath:@"index" options:0 context:0];
     [self addObserver:self forKeyPath:@"prefix" options:0 context:0];
   }

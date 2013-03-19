@@ -13,6 +13,7 @@
 
 #import "MKTPoint.h"
 #import "MKTRoute.h"
+#import "MKTPoint+MKTPoint_IKPoint.h"
 
 @interface MKTPointTest : GHTestCase
 
@@ -125,33 +126,110 @@
 }
 
 
-- (void)testPoiDistance{
-  
+- (void)testPoiDistance {
+
   MKTRoute *r = [MKTRoute create];
   r.name = @"Test";
 
   CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(49.12345, 8.12345);
 
-  MKTPoint* poi = [r addPointAtCoordinate:coordinate];
+  MKTPoint *poi = [r addPointAtCoordinate:coordinate];
   poi.typeValue = MKTPointTypePOI;
-  
-  CLLocationCoordinate2D coordinate2 = YKCLLocationCoordinateMoveDistance(coordinate,100,0);
-  
-  MKTPoint* wp = [r addPointAtCoordinate:coordinate2];
+
+  CLLocationCoordinate2D coordinate2 = YKCLLocationCoordinateMoveDistance(coordinate, 100, 0);
+
+  MKTPoint *wp = [r addPointAtCoordinate:coordinate2];
   wp.typeValue = MKTPointTypeWP;
   wp.headingValue = -(poi.indexValue);
-  
-  CLLocationDistance d = [wp distanceToPoi];
-  
-  GHAssertEqualsWithAccuracy(d,100.0,0.05,nil);
-  
-  wp.headingValue=0;
-  d = [wp distanceToPoi];
-  GHAssertEquals(d,0.0,nil);
 
-  wp.headingValue=360;
+  CLLocationDistance d = [wp distanceToPoi];
+
+  GHAssertEqualsWithAccuracy(d, 100.0, 0.05, nil);
+
+  wp.headingValue = 0;
   d = [wp distanceToPoi];
-  GHAssertEquals(d,0.0,nil);
+  GHAssertEquals(d, 0.0, nil);
+
+  wp.headingValue = 360;
+  d = [wp distanceToPoi];
+  GHAssertEquals(d, 0.0, nil);
 }
+
+- (void)testIKPointPOIConversion {
+
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"Test";
+
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(49.12345, 8.12345);
+
+  MKTPoint *poi = [r addPointAtCoordinate:coordinate];
+  poi.typeValue = MKTPointTypePOI;
+
+  poi.altitudeValue = 100;
+
+  IKPoint *ikPoi = [poi toIKPoint];
+
+  GHAssertNotNil(ikPoi, nil);
+
+  GHAssertEquals(poi.latitudeValue, ikPoi.coordinate.latitude, nil);
+  GHAssertEquals(poi.longitudeValue, ikPoi.coordinate.longitude, nil);
+
+  GHAssertEquals((NSInteger) poi.altitudeValue, ikPoi.altitude, nil);
+
+  GHAssertEquals((NSInteger) poi.altitudeRateValue, ikPoi.altitudeRate, nil);
+  GHAssertEquals((NSInteger) poi.cameraAngleValue, ikPoi.camAngle, nil);
+  GHAssertEquals((NSInteger) poi.eventChannelValueValue, ikPoi.wpEventChannelValue, nil);
+
+  GHAssertEquals((NSInteger) poi.eventFlagValue, ikPoi.eventFlag, nil);
+  GHAssertEquals((NSInteger) poi.headingValue, ikPoi.heading, nil);
+  GHAssertEquals((NSInteger) poi.holdTimeValue, ikPoi.holdTime, nil);
+  GHAssertEquals((NSInteger) poi.indexValue, ikPoi.index, nil);
+
+  GHAssertEqualStrings(poi.prefix, ikPoi.prefix, nil);
+  GHAssertEquals((NSInteger) poi.speedValue, ikPoi.speed, nil);
+  GHAssertEquals((NSInteger) poi.typeValue, ikPoi.type, nil);
+  GHAssertEquals((NSInteger) poi.toleranceRadiusValue, ikPoi.toleranceRadius, nil);
+
+  GHAssertEqualStrings(poi.name, ikPoi.name, nil);
+}
+
+- (void)testIKPointWPConversion {
+
+  MKTRoute *r = [MKTRoute create];
+  r.name = @"Test";
+
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(49.12345, 8.12345);
+
+  MKTPoint *poi = [r addPointAtCoordinate:coordinate];
+  poi.typeValue = MKTPointTypeWP;
+
+  poi.altitudeValue = 100;
+
+  IKPoint *ikPoi = [poi toIKPoint];
+
+  GHAssertNotNil(ikPoi, nil);
+
+  GHAssertEquals(poi.latitudeValue, ikPoi.coordinate.latitude, nil);
+  GHAssertEquals(poi.longitudeValue, ikPoi.coordinate.longitude, nil);
+
+  GHAssertEquals((NSInteger) poi.altitudeValue, ikPoi.altitude, nil);
+
+  GHAssertEquals((NSInteger) poi.altitudeRateValue, ikPoi.altitudeRate, nil);
+  GHAssertEquals((NSInteger) poi.cameraAngleValue, ikPoi.camAngle, nil);
+  GHAssertEquals((NSInteger) poi.eventChannelValueValue, ikPoi.wpEventChannelValue, nil);
+
+  GHAssertEquals((NSInteger) poi.eventFlagValue, ikPoi.eventFlag, nil);
+  GHAssertEquals((NSInteger) poi.headingValue, ikPoi.heading, nil);
+  GHAssertEquals((NSInteger) poi.holdTimeValue, ikPoi.holdTime, nil);
+  GHAssertEquals((NSInteger) poi.indexValue, ikPoi.index, nil);
+
+  GHAssertEqualStrings(poi.prefix, ikPoi.prefix, nil);
+  GHAssertEquals((NSInteger) poi.speedValue, ikPoi.speed, nil);
+  GHAssertEquals((NSInteger) poi.typeValue, ikPoi.type, nil);
+  GHAssertEquals((NSInteger) poi.toleranceRadiusValue, ikPoi.toleranceRadius, nil);
+
+  GHAssertEqualStrings(poi.name, ikPoi.name, nil);
+}
+
 
 @end

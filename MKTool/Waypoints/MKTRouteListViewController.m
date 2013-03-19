@@ -28,6 +28,7 @@
 #import "InnerBand.h"
 #import "MKTRouteListViewController.h"
 #import "MKTRouteMapViewController.h"
+#import "MKTRouteTransferViewController.h"
 #import "MKTPointViewController.h"
 #import "MKTPointBulkViewController.h"
 #import "MKTPoint.h"
@@ -66,13 +67,18 @@
 
 
 - (void)deleteSelectedPoints;
+
 - (void)changeSelectedPoints;
 
 - (void)addPoint;
+
 - (void)addPointWithGps;
 
 - (void)updateToolbarState;
+
 - (void)updateToolbar;
+
+- (void)uploadRoute;
 
 - (NSIndexPath *)correctedIndexPath:(NSIndexPath *)indexPath;
 
@@ -115,7 +121,7 @@
     self.route = route;
     self.delegate = delegate;
     self.title = NSLocalizedString(@"Route", @"Waypoint Lists title");
-    
+
     self.lm = [CLLocationManager new];
     self.lm.delegate = self;
     self.lm.desiredAccuracy = kCLLocationAccuracyBest;
@@ -124,8 +130,7 @@
   return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
   [self.lm stopUpdatingLocation];
   self.lm.delegate = nil;
 }
@@ -151,7 +156,7 @@
   self.addButton = [[UIBarButtonItem alloc]
           initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                target:self
-                    action:@selector(addPoint)];
+                               action:@selector(addPoint)];
   self.addButton.style = UIBarButtonItemStyleBordered;
 
   self.addWithGpsButton = [[UIBarButtonItem alloc]
@@ -207,18 +212,18 @@
   [super viewDidAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
 }
 
 
 - (void)viewDidDisappear:(BOOL)animated {
   [super viewDidDisappear:animated];
-  
+
   self.tableView.allowsMultipleSelectionDuringEditing = NO;
   [super setEditing:NO animated:NO];
   [self.tableView setEditing:NO animated:NO];
-  
+
   [[CoreDataStore mainStore] save];
 }
 
@@ -233,27 +238,28 @@
   [tbArray addObject:self.editButtonItem];
   [tbArray addObject:self.spacer];
 
-  
+
   if (self.tableView.isEditing) {
     [tbArray addObject:self.updateButton];
     [tbArray addObject:self.spacer];
     [tbArray addObject:self.deleteButton];
   }
   else {
-    if(IS_IPHONE()){
+    [tbArray addObject:self.ulButton];
+    if (IS_IPHONE()) {
       [tbArray addObject:self.wpGenButton];
     }
-    
-    if(IS_GPS_ENABLED())
+
+    if (IS_GPS_ENABLED())
       [tbArray addObject:self.addWithGpsButton];
-    
+
     [tbArray addObject:self.addButton];
   }
 
   if (self.delegate) {
-    
+
     self.toolbarItems = tbArray;
-    NSLog(@"updated toolbar %@",self.toolbarItems);
+    NSLog(@"updated toolbar %@", self.toolbarItems);
     [self.delegate controllerDidChangeToolbar:self];
 ////    [self setToolbarItems:tbArray animated:YES];
 //    self.navigationController.toolbarHidden = NO;
@@ -341,28 +347,28 @@
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
   if (section != 0)
     return nil;
-   
-  return [NSString stringWithFormat:NSLocalizedString(@"Distance: %d m - Duration: %d s",@"Route footer"),(NSUInteger)[self.route routeDistance],[self.route routeDuration]];
+
+  return [NSString stringWithFormat:NSLocalizedString(@"Distance: %d m - Duration: %d s", @"Route footer"), (NSUInteger) [self.route routeDistance], [self.route routeDuration]];
 }
 
 
 - (UITableViewCell *)cellForExtra:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
   static NSString *CellIdentifier = @"WaypointExtraCell";
-  
+
   MKTTextFormFieldCell *cell = (MKTTextFormFieldCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  
+
   if (!cell) {
     cell = [[MKTTextFormFieldCell alloc] initWithFormFieldStyle:[SettingsFieldStyleText new] reuseIdentifier:CellIdentifier];
-    
+
     cell.textField.textAlignment = UITextAlignmentLeft;
     cell.textField.returnKeyType = UIReturnKeyDone;
     cell.accessoryType = UITableViewCellAccessoryNone;
   }
-  
+
   [[cell label] setText:NSLocalizedString(@"Name", @"Waypoint List name label")];
-  
+
   [[cell textField] setText:self.route.name];
-  
+
   [[cell textField] setDelegate:self];
   [[cell textField] addTarget:self action:@selector(_textChanged:) forControlEvents:UIControlEventEditingChanged];
   [[cell textField] setSecureTextEntry:NO];
@@ -375,7 +381,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == 0)
-    return [self cellForExtra:theTableView indexPath:indexPath]; 
+    return [self cellForExtra:theTableView indexPath:indexPath];
 
   static NSString *CellIdentifier = @"IKPointListCell";
 
@@ -396,10 +402,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (!tableView.isEditing) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section > 0){
-      
+    if (indexPath.section > 0) {
+
       MKTPoint *p = [self.fetchedResultsController objectAtIndexPath:[self correctedIndexPath:indexPath]];
-      if(IS_IPHONE()){
+      if (IS_IPHONE()) {
         [self showViewControllerForPoint:p];
       }
       else {
@@ -411,9 +417,9 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-  if (indexPath.section > 0){
-    
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+  if (indexPath.section > 0) {
+
     MKTPoint *p = [self.fetchedResultsController objectAtIndexPath:[self correctedIndexPath:indexPath]];
     [self showViewControllerForPoint:p];
   }
@@ -436,7 +442,8 @@
 
     [self.route deletePointAtIndexPath:indexPath];
 
-  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+  }
+  else if (editingStyle == UITableViewCellEditingStyleInsert) {
     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
   }
 }
@@ -484,7 +491,8 @@
   if (point.typeValue == MKTPointTypeWP) {
     cell.imageView.image = [UIImage imageNamed:@"icon-flag.png"];
     cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ - Waypoint", @"Waypoint cell"), point.name];
-  } else {
+  }
+  else {
     cell.imageView.image = [UIImage imageNamed:@"icon-poi.png"];
     cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ - POI", @"POI cell"), point.name];
   }
@@ -555,7 +563,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
   if (userDrivenDataModelChange) return;
   [self.tableView endUpdates];
-  
+
   [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:NO];
 }
 
@@ -586,14 +594,14 @@
 #pragma mark - 
 ///////////////////////////////////////////////////////////////////////////////////
 
-- (void) addedPoint:(MKTPoint*)newPoint{
-  NSIndexPath *indexPath =[self.fetchedResultsController indexPathForObject:newPoint];
+- (void)addedPoint:(MKTPoint *)newPoint {
+  NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:newPoint];
   indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
-  
-  
-  if( [[self.tableView indexPathsForVisibleRows] match:^BOOL(NSIndexPath* i){
+
+
+  if ([[self.tableView indexPathsForVisibleRows] match:^BOOL(NSIndexPath *i) {
     return [i isEqual:indexPath];
-  }]){
+  }]) {
     [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
   }
   else {
@@ -602,26 +610,26 @@
 }
 
 - (void)addPoint {
-  MKTPoint* newPoint = nil;
-  if(self.route.points.count==0)
+  MKTPoint *newPoint = nil;
+  if (self.route.points.count == 0)
     newPoint = [self.route addPointAtCoordinate:[self.delegate currentCoordinate]];
   else
     newPoint = [self.route addPointAtCenter];
-  
+
   [self addedPoint:newPoint];
 }
 
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-  
-  NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-  if(indexPath){
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+
+  NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+  if (indexPath) {
     [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
   }
 }
 
 - (void)addPointWithGps {
   [self.lm startUpdatingLocation];
-  waitForLocation=YES;
+  waitForLocation = YES;
 }
 
 
@@ -639,12 +647,12 @@
   MKTPointBulkViewController *controller = [[MKTPointBulkViewController alloc] initWithPoints:pointsToChange];
   UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
 
-  [[self.tableView indexPathsForSelectedRows] each:^(NSIndexPath* indexPath){
+  [[self.tableView indexPathsForSelectedRows] each:^(NSIndexPath *indexPath) {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
   }];
-  
+
   [self updateToolbarState];
-  
+
   if (IS_IPAD()) {
     aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self.splitViewController presentModalViewController:aNavController animated:YES];
@@ -654,7 +662,7 @@
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-  
+
   self.tableView.allowsMultipleSelectionDuringEditing = editing;
   [super setEditing:editing animated:animated];
   [self.tableView setEditing:editing animated:animated];
@@ -663,95 +671,110 @@
 }
 
 
-- (void)showViewControllerForPoint:(MKTPoint *)point{
-  
+- (void)showViewControllerForPoint:(MKTPoint *)point {
+
   MKTPointViewController *controller = [[MKTPointViewController alloc] initWithPoint:point];
-  
-  if(IS_IPAD()){
-    
-    NSIndexPath *indexPath =[self.fetchedResultsController indexPathForObject:point];
+
+  if (IS_IPAD()) {
+
+    NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:point];
     indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
-    
+
     [self.popoverController dismissPopoverAnimated:NO];
-    
+
     self.popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-    
+
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    CGRect  rect = [self.view convertRect:cell.bounds fromView:cell.contentView];
+    CGRect rect = [self.view convertRect:cell.bounds fromView:cell.contentView];
 
-    if(CGRectGetHeight(rect)==0)
-      rect = RECT_WITH_HEIGHT(rect,1);
+    if (CGRectGetHeight(rect) == 0)
+      rect = RECT_WITH_HEIGHT(rect, 1);
 
-    if(CGRectGetWidth(rect)==0)
-      rect = RECT_WITH_WIDTH(rect,1);
+    if (CGRectGetWidth(rect) == 0)
+      rect = RECT_WITH_WIDTH(rect, 1);
 
     [self.popoverController presentPopoverFromRect:rect inView:self.view
                           permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-    
+
   }
   else {
     [self.navigationController pushViewController:controller animated:YES];
   }
 }
 
-- (void)showWpGenerator{
-  if(IS_IPHONE()){
-    
-    MKTRouteMapViewController* controller = [[MKTRouteMapViewController alloc] initWithRoute:self.route];
-    
+- (void)showWpGenerator {
+  if (IS_IPHONE()) {
+
+    MKTRouteMapViewController *controller = [[MKTRouteMapViewController alloc] initWithRoute:self.route];
+
     controller.forWpGenModal = YES;
-    
+
     UINavigationController *modalNavController = [[UINavigationController alloc]
-                                                  initWithRootViewController:controller];
-    
+            initWithRootViewController:controller];
+
     [self.navigationController presentModalViewController:modalNavController
                                                  animated:YES];
   }
 }
 
 
-- (void)showPointOnMap:(MKTPoint*)point{
-  
+- (void)showPointOnMap:(MKTPoint *)point {
+
 }
+
+
+- (void)uploadRoute {
+
+  MKTRouteTransferViewController *controller = [[MKTRouteTransferViewController alloc] initWithNibName:nil bundle:nil];
+  UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:controller];
+
+  if (IS_IPAD()) {
+    naviController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self.splitViewController presentModalViewController:naviController animated:YES];
+  }
+  else
+    [self presentModalViewController:naviController animated:YES];
+}
+
 
 #pragma mark - CLLocationManagerDelegate Methods
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
-  
+
   if (!waitForLocation || ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60))
     return;
-  
+
   [self.lm stopUpdatingLocation];
-  waitForLocation=NO;
-  
-  NSLog(@"didUpdateToLocation %@",YKNSStringFromCLLocationCoordinate2D(newLocation.coordinate));
-  
-  MKTPoint* newPoint = [self.route addPointAtCoordinate:newLocation.coordinate];
+  waitForLocation = NO;
+
+  NSLog(@"didUpdateToLocation %@", YKNSStringFromCLLocationCoordinate2D(newLocation.coordinate));
+
+  MKTPoint *newPoint = [self.route addPointAtCoordinate:newLocation.coordinate];
   [self addedPoint:newPoint];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
-  
+
   NSString *errorType = (error.code == kCLErrorDenied) ?
-  NSLocalizedString(@"Access Denied", @"Access Denied") :
-  NSLocalizedString(@"Unknown Error", @"Unknown Error");
-  
+          NSLocalizedString(@"Access Denied", @"Access Denied") :
+          NSLocalizedString(@"Unknown Error", @"Unknown Error");
+
   UIAlertView *alert = [[UIAlertView alloc]
-                        initWithTitle:NSLocalizedString(@"Error getting Location", @"Error getting Location") message:errorType
-                        delegate:self
-                        cancelButtonTitle:NSLocalizedString(@"OK", @"Okay") otherButtonTitles:nil];
+          initWithTitle:NSLocalizedString(@"Error getting Location", @"Error getting Location") message:errorType
+               delegate:self
+      cancelButtonTitle:NSLocalizedString(@"OK", @"Okay") otherButtonTitles:nil];
   [alert show];
-  
-  waitForLocation=NO;
+
+  waitForLocation = NO;
   self.addWithGpsButton.enabled = IS_GPS_ENABLED();
   self.lm = nil;
 }
 
 
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
   NSLog(@"didChangeAuthorizationStatus update toolbar");
   [self updateToolbar];
 }
@@ -765,7 +788,7 @@
 
 @implementation MKTTextFormFieldCell
 
-- (void)didMoveToWindow{
-  
+- (void)didMoveToWindow {
+
 }
 @end

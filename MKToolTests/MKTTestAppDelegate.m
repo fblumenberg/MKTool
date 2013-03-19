@@ -52,6 +52,15 @@
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+  // Load the default values for the user defaults
+  NSString *pathToUserDefaultsValues = [[NSBundle mainBundle]
+          pathForResource:@"userDefaults"
+                   ofType:@"plist"];
+  NSDictionary *userDefaultsValues = [NSDictionary dictionaryWithContentsOfFile:pathToUserDefaultsValues];
+  // Set them in the standard user defaults
+  [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsValues];
+
   [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {
     [DDLog setLogLevel:LOG_LEVEL_VERBOSE forClassWithName:class];
   }];

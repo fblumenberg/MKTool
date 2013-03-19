@@ -86,6 +86,13 @@
 		BA27D543155EE2CE00C6B37E /* MKTSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */; };
 		BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */; };
 		BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA52014E1559C26400719A58 /* AddressBookUI.framework */; };
+		BA56918016F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */; };
+		BA56918116F8DF94007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */; };
+		BA56918216F8E9B2007A33D0 /* userDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAF0CA22154877C900C31A02 /* userDefaults.plist */; };
+		BA56918616F8EBFC007A33D0 /* MKTRouteTransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56918516F8EBFC007A33D0 /* MKTRouteTransferController.m */; };
+		BA56918916F9068F007A33D0 /* MKTRouteTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */; };
+		BA56918C16F91048007A33D0 /* icon-ul1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56918A16F9103E007A33D0 /* icon-ul1.png */; };
+		BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56918B16F91043007A33D0 /* icon-ul1@2x.png */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -532,6 +539,14 @@
 		BA27D550155F1C2F00C6B37E /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MKTRouteMapViewController.xib; sourceTree = "<group>"; };
 		BA52014C1559C1A400719A58 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BA52014E1559C26400719A58 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTPoint+MKTPoint_IKPoint.h"; sourceTree = "<group>"; };
+		BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTPoint+MKTPoint_IKPoint.m"; sourceTree = "<group>"; };
+		BA56918416F8EBFC007A33D0 /* MKTRouteTransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteTransferController.h; sourceTree = "<group>"; };
+		BA56918516F8EBFC007A33D0 /* MKTRouteTransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTransferController.m; sourceTree = "<group>"; };
+		BA56918716F9068F007A33D0 /* MKTRouteTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteTransferViewController.h; sourceTree = "<group>"; };
+		BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTransferViewController.m; sourceTree = "<group>"; };
+		BA56918A16F9103E007A33D0 /* icon-ul1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1.png"; sourceTree = "<group>"; };
+		BA56918B16F91043007A33D0 /* icon-ul1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1@2x.png"; sourceTree = "<group>"; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C7154B3B9800E444EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C8154B435600E444EC /* icon-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-close.png"; sourceTree = "<group>"; };
@@ -1102,6 +1117,17 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		BA56918316F8EBEE007A33D0 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				BA56918716F9068F007A33D0 /* MKTRouteTransferViewController.h */,
+				BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */,
+				BA56918416F8EBFC007A33D0 /* MKTRouteTransferController.h */,
+				BA56918516F8EBFC007A33D0 /* MKTRouteTransferController.m */,
+			);
+			name = Transfer;
+			sourceTree = "<group>";
+		};
 		BA9373D8154B488500E444EC /* Default */ = {
 			isa = PBXGroup;
 			children = (
@@ -1471,6 +1497,7 @@
 		BAA229F31541F811004F92AA /* Waypoints */ = {
 			isa = PBXGroup;
 			children = (
+				BA56918316F8EBEE007A33D0 /* Transfer */,
 				76704D9115921DF10073EC56 /* MKTCircleOverlay.h */,
 				76704D9215921DF10073EC56 /* MKTCircleOverlay.m */,
 				76DB5A2D154A7E47002FFA78 /* Generator */,
@@ -1651,6 +1678,8 @@
 				BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */,
 				BAF0C9EE154453D600C31A02 /* HeadingOverlayView.h */,
 				BAF0C9EF154453D600C31A02 /* HeadingOverlayView.m */,
+				BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */,
+				BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1808,6 +1837,8 @@
 		BAEE75E61543FDB000A92FA4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BA56918A16F9103E007A33D0 /* icon-ul1.png */,
+				BA56918B16F91043007A33D0 /* icon-ul1@2x.png */,
 				BA98C05816C2D620000CA7EE /* OSD */,
 				BA98C04416C2D5FE000CA7EE /* icon-bluetooth.png */,
 				BA98C04516C2D5FE000CA7EE /* icon-bluetooth@2x.png */,
@@ -2212,6 +2243,8 @@
 				BA98C0AC16C2D622000CA7EE /* target.png in Resources */,
 				BA98C0AD16C2D622000CA7EE /* target30.png in Resources */,
 				BA98C0AE16C2D622000CA7EE /* target30@2x.png in Resources */,
+				BA56918C16F91048007A33D0 /* icon-ul1.png in Resources */,
+				BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2232,6 +2265,7 @@
 				BA98C01A16C290AD000CA7EE /* RawOsdViewController.xib in Resources */,
 				BA98C01E16C290AD000CA7EE /* ValueOsdViewController-iPad.xib in Resources */,
 				BA98C02216C290AD000CA7EE /* ValueOsdViewController.xib in Resources */,
+				BA56918216F8E9B2007A33D0 /* userDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2453,6 +2487,9 @@
 				BA98C03A16C29609000CA7EE /* IKInstrumentsCommon.m in Sources */,
 				BA98C03C16C29609000CA7EE /* InnerShadowDrawing.m in Sources */,
 				BA98C03E16C29609000CA7EE /* InnerShadowView.m in Sources */,
+				BA56918016F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */,
+				BA56918616F8EBFC007A33D0 /* MKTRouteTransferController.m in Sources */,
+				BA56918916F9068F007A33D0 /* MKTRouteTransferViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2530,6 +2567,7 @@
 				BA98C03B16C29609000CA7EE /* IKInstrumentsCommon.m in Sources */,
 				BA98C03D16C29609000CA7EE /* InnerShadowDrawing.m in Sources */,
 				BA98C03F16C29609000CA7EE /* InnerShadowView.m in Sources */,
+				BA56918116F8DF94007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
