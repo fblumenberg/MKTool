@@ -34,6 +34,7 @@
 #import "IKDeviceVersion.h"
 
 #import "SettingsSelectionViewController.h"
+#import "MKTRoutesListViewController.h"
 
 #import "InnerBand.h"
 
@@ -231,6 +232,14 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 
     SettingsSelectionViewController *controller = [[SettingsSelectionViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+  }];
+  [section.items addObject:item];
+
+  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"Routes", @"Connected Menu Routes") andExecutionBlock:^{
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    MKTRoutesListViewController *controller = [[MKTRoutesListViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
   }];
   [section.items addObject:item];

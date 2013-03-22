@@ -34,6 +34,8 @@
 #import "MKTPoint.h"
 #import "NSArray+BlocksKit.h"
 
+#import "MKConnectionController.h"
+
 #import "UIViewController+MGSplitViewController.h"
 #import "YKCLUtils.h"
 #import "SettingsFieldStyle.h"
@@ -245,7 +247,11 @@
     [tbArray addObject:self.deleteButton];
   }
   else {
-    [tbArray addObject:self.ulButton];
+   
+    if ([[MKConnectionController sharedMKConnectionController] isRunning]) {
+      [tbArray addObject:self.ulButton];
+    }
+
     if (IS_IPHONE()) {
       [tbArray addObject:self.wpGenButton];
     }
@@ -725,7 +731,7 @@
 
 - (void)uploadRoute {
 
-  MKTRouteTransferViewController *controller = [[MKTRouteTransferViewController alloc] initWithNibName:nil bundle:nil];
+  MKTRouteTransferViewController *controller = [[MKTRouteTransferViewController alloc] initWithRoute:self.route];
   UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:controller];
 
   if (IS_IPAD()) {

@@ -32,6 +32,8 @@
 #import "MKTPointAnnotationView.h"
 #import "MKTPointViewController.h"
 
+#import "MKConnectionController.h"
+
 #import "InnerBand.h"
 #import "BKMacros.h"
 #import "FDCurlViewControl.h"
@@ -447,7 +449,10 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
   }
   else {
-    [tbArray addObject:self.ulButton];
+    if ([[MKConnectionController sharedMKConnectionController] isRunning]) {
+      [tbArray addObject:self.ulButton];
+    }
+
     [tbArray addObject:self.wpGenButton];
     [tbArray addObject:self.addWithGpsButton];
     [tbArray addObject:self.addButton];
@@ -543,7 +548,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
 - (void)uploadRoute {
 
-  MKTRouteTransferViewController *controller = [[MKTRouteTransferViewController alloc] initWithNibName:nil bundle:nil];
+  MKTRouteTransferViewController *controller = [[MKTRouteTransferViewController alloc] initWithRoute:self.route];
   UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:controller];
 
   if (IS_IPAD()) {

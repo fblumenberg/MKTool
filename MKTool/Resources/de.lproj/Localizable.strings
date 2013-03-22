@@ -166,6 +166,9 @@
 /* DB Login Err Msg */
 "There was an error connecting to Dropbox." = "Bei der Herstellung der Verbindung zu Dropbox ist ein Fehler aufgetreten.";
 
+/* InAppSettingsKit */
+"This device is not configured for sending Email. Please configure the Mail settings in the Settings app." = "Dieses Gerät ist nicht für das Senden von E-Mail konfiguriert. Konfigurieren Sie den Mail-Einstellungen in den Einstellungen.";
+
 /* type title */
 "Type" = "Typ";
 
@@ -908,4 +911,64 @@
 
 /* Access Denied */
 "Access Denied" = "Zugriff verweigert";
+
+/* MKParam Output */
+"AutoTrigger every (m)" = "AutoTrigger alle";
+
+/* OSD BackButton */
+"Back" = "Zurück";
+
+/* cameraNickControl title */
+"Camera nick control" = "Kamera Nick Steuerung\n";
+
+/* MKParam Output */
+"Combine with WP-Event" = "Mit WP-Event verknüpfen";
+
+/* OSD NC error */
+"Error: %d %@" = "Fehler: %1$d %2$@";
+
+/* WP Upload */
+"First point" = "Erster WP";
+
+/* Follow me tab item */
+"Follow Me" = "Follow Me";
+
+/* WP Upload */
+"Last point" = "Letzter WP";
+
+/* Map tab item */
+"Map" = "Karte";
+
+/* WP Upload */
+"Maximum count of waypoints reached" = "Maximaler Anzahl\nder Wegpunkte erreicht";
+
+/* Raw Values tab item */
+"Raw Values" = "Rohdaten";
+
+/* Route upload view */
+"Route upload" = "Route übertragen  ";
+
+/* MKParam Camera */
+"Servo relative" = "Servo relativ";
+
+/* MKParam Channels */
+"Telemetry: Speak all events" = "Telemetrie: Alle Ereignisse sprechen";
+
+/* Upload Button */
+"Upload all" = "Alle Wegpunkte";
+
+/* Upload Button */
+"Upload selected" = "Ausgewählte Wegpunkte";
+
+/* WP Upload */
+"Upload" = "Route Senden";
+
+/* Upload routes HUD */
+"Uploading" = "Übertrage";
+
+/* Values tab item */
+"Values" = "Werte";
+
+/* You are Here! */
+"You are Here!" = "Sie sind hier";
 

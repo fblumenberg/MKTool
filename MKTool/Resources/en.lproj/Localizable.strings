@@ -912,3 +912,63 @@
 /* Access Denied */
 "Access Denied" = "Access Denied";
 
+/* MKParam Output */
+"AutoTrigger every (m)" = "AutoTrigger every (m)";
+
+/* OSD BackButton */
+"Back" = "Back";
+
+/* cameraNickControl title */
+"Camera nick control" = "Camera nick control";
+
+/* MKParam Output */
+"Combine with WP-Event" = "Combine with WP-Event";
+
+/* OSD NC error */
+"Error: %d %@" = "Error: %1$d %2$@";
+
+/* WP Upload */
+"First point" = "First point";
+
+/* Follow me tab item */
+"Follow Me" = "Follow Me";
+
+/* WP Upload */
+"Last point" = "Last point";
+
+/* Map tab item */
+"Map" = "Map";
+
+/* WP Upload */
+"Maximum count of waypoints reached" = "Maximum count\nof waypoints reached";
+
+/* Raw Values tab item */
+"Raw Values" = "Raw Values";
+
+/* Route upload view */
+"Route upload" = "Route Upload";
+
+/* MKParam Camera */
+"Servo relative" = "Servo relative";
+
+/* MKParam Channels */
+"Telemetry: Speak all events" = "Telemetry: Speak all events";
+
+/* Upload Button */
+"Upload all" = "Upload all";
+
+/* Upload Button */
+"Upload selected" = "Upload selected";
+
+/* WP Upload */
+"Upload" = "Route Upload";
+
+/* Upload routes HUD */
+"Uploading" = "Uploading";
+
+/* Values tab item */
+"Values" = "Values";
+
+/* You are Here! */
+"You are Here!" = "You are Here!";
+

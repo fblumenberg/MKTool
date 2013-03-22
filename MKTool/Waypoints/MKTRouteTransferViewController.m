@@ -23,15 +23,25 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 #import "MKTRouteTransferViewController.h"
+#import "MKTRoute.h"
 #import <IBAForms/IBAForms.h>
 
 #import "SettingsButtonStyle.h"
+#import "SettingsFieldStyle.h"
 #import "MKTRouteTransferController.h"
 #import "MBProgressHUD.h"
+
+const NSString* kMKTRouteTransferFirst = @"kMKTRouteTransferFirst";
+const NSString* kMKTRouteTransferLast = @"kMKTRouteTransferLast";
+const NSString* kMKTRouteTransferMax = @"kMKTRouteTransferMax";
 
 @interface MKTRouteTransferViewDataSource : IBAFormDataSource
 
 @property(weak) MKTRouteTransferViewController *viewController;
+
+@property(assign) NSUInteger firstIndex;
+@property(assign) NSUInteger lastIndex;
+@property(assign) NSUInteger maxIndex;
 
 @end
 
@@ -40,22 +50,25 @@
 
 - (IBAction)dismiss:(id)sender;
 
-- (void)doUpload:(id)sender;
+- (void)doUpload:(id)sender from:(NSUInteger)firstIndex to:(NSUInteger)lastIndex;
 
 @property(strong) MKTRouteTransferController *transferController;
+@property(strong) MKTRoute *route;
 
 @end
 
 @implementation MKTRouteTransferViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-  MKTRouteTransferViewDataSource *dataSource = [[MKTRouteTransferViewDataSource alloc] initWithModel:[NSDictionary dictionary]];
+- (id)initWithRoute:(MKTRoute *)route{
 
-  dataSource.viewController = self;
+  NSNumber* routeMax = @([route count]);
+  NSMutableDictionary* model = [@{kMKTRouteTransferFirst:@1,kMKTRouteTransferLast:routeMax,kMKTRouteTransferMax:routeMax} mutableCopy];
+  MKTRouteTransferViewDataSource *dataSource = [[MKTRouteTransferViewDataSource alloc] initWithModel:model];
 
   self = [super initWithNibName:nil bundle:nil formDataSource:dataSource];
   if (self) {
-
+    dataSource.viewController = self;
+    self.transferController = [[MKTRouteTransferController alloc] initWithRoute:route delegate:self];
   }
   return self;
 }
@@ -63,12 +76,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  self.title = NSLocalizedString(@"Route upload", @"Route upload view");
+  
   UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"Cancel toolbar button") style:UIBarButtonItemStyleBordered
                                                                   target:self action:@selector(dismiss:)];
 
   [self.navigationItem setRightBarButtonItem:cancelButton animated:NO];
-
-  self.transferController = [[MKTRouteTransferController alloc] initWithDelegate:self];
 }
 
 - (void)viewDidUnload {
@@ -103,11 +116,13 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-- (void)doUpload:(id)sender {
+- (void)doUpload:(id)sender from:(NSUInteger)firstIndex to:(NSUInteger)lastIndex {
   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
   hud.labelText = NSLocalizedString(@"Uploading", @"Upload routes HUD");
   hud.progress = 0.0;
   hud.mode = MBProgressHUDModeDeterminate;
+  
+  [self.transferController uploadRouteToNaviCtrlFrom:firstIndex to:lastIndex];
 }
 
 - (void)routeControllerStartUpload:(MKTRouteTransferController *)controller forIndex:(NSInteger)index of:(NSInteger)count {
@@ -136,8 +151,12 @@
 }
 
 - (void)routeControllerFailedUpload:(MKTRouteTransferController *)controller WithError:(NSError *)error {
-  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
-
+  
+  MBProgressHUD* hud = [MBProgressHUD HUDForView:self.view.window];
+  hud.mode = MBProgressHUDModeText;
+  hud.labelText = NSLocalizedString(@"Upload", @"WP Upload");
+  hud.detailsLabelText = [[error userInfo] objectForKey:NSLocalizedDescriptionKey];
+  [hud hide:YES afterDelay:2.0];
 }
 
 
@@ -153,14 +172,40 @@
   if ((self = [super initWithModel:aModel])) {
 
     IBAFormSection *positionSection;
+    IBAStepperFormField *stepperField;
+
+    positionSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+    positionSection.formFieldStyle = [[SettingsFieldStyleStepper alloc] init];
+
+    stepperField = [[IBAStepperFormField alloc] initWithKeyPath:(NSString*)kMKTRouteTransferFirst
+                                                          title:NSLocalizedString(@"First point", @"WP Upload") valueTransformer:nil];
+    
+    stepperField.maximumValue = [self.model[kMKTRouteTransferMax] doubleValue];
+    stepperField.minimumValue = 1;
+    [positionSection addFormField:stepperField];
+
+    stepperField = [[IBAStepperFormField alloc] initWithKeyPath:(NSString*)kMKTRouteTransferLast
+                                                          title:NSLocalizedString(@"Last point", @"WP Upload") valueTransformer:nil];
+    
+    stepperField.maximumValue = [self.model[kMKTRouteTransferMax] doubleValue];
+    stepperField.minimumValue = 1;
+    [positionSection addFormField:stepperField];
+
+    positionSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+    positionSection.formFieldStyle = [[SettingsButtonStyleCenter alloc] init];
+
+    //    positionSection.footerTitle = NSLocalizedString(@"Stores all local routes in the Dropbox.", @"Backup Button label");
+    [positionSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Upload selected", @"Upload Button") icon:nil executionBlock:^{
+      [self.viewController doUpload:self from:[self.model[kMKTRouteTransferFirst] unsignedIntegerValue] to:[self.model[kMKTRouteTransferLast] unsignedIntegerValue]];
+    }]];
 
     //------------------------------------------------------------------------------------------------------------------------
 
     positionSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     positionSection.formFieldStyle = [[SettingsButtonStyleCenter alloc] init];
 //    positionSection.footerTitle = NSLocalizedString(@"Stores all local routes in the Dropbox.", @"Backup Button label");
-    [positionSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Upload", @"Upload Button") icon:nil executionBlock:^{
-      [self.viewController doUpload:self];
+    [positionSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Upload all", @"Upload Button") icon:nil executionBlock:^{
+      [self.viewController doUpload:self from:1 to:[self.model[kMKTRouteTransferMax] unsignedIntegerValue]];
     }]];
   }
   return self;

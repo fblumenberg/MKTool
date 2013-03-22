@@ -24,6 +24,10 @@
 
 #import <IBAForms/IBAFormViewController.h>
 
+@class MKTRoute;
+
 @interface MKTRouteTransferViewController : IBAFormViewController
+
+- (id)initWithRoute:(MKTRoute *)route;
 
 @end

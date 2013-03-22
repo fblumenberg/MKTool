@@ -37,17 +37,19 @@ typedef enum {
 @interface MKTRouteTransferController : NSObject {
 
   RouteControllerState state;
-  NSInteger currIndex;
-
+  NSUInteger currIndex;
+  NSUInteger firstIndex;
+  NSUInteger lastIndex;
+  NSUInteger uploadIndex;
 }
 
 @property(readonly) RouteControllerState state;
 @property(assign) id <MKTRouteTransferControllerDelegate> delegate;
 @property(retain) NSMutableArray *points;
 
-- (id)initWithDelegate:(id <MKTRouteTransferControllerDelegate>)delegate;
+- (id)initWithRoute:(MKTRoute*)route delegate:(id <MKTRouteTransferControllerDelegate>)delegate;
 
-- (void)uploadRouteToNaviCtrl:(MKTRoute *)aRoute;
+- (void)uploadRouteToNaviCtrlFrom:(NSUInteger)firstIndex to:(NSUInteger)lastIndex;
 
 - (void)downloadRouteFromNaviCtrl;
 

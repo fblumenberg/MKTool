@@ -41,7 +41,6 @@
 
 - (void)downloadPoint:(NSUInteger)index;
 
-
 @end
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -69,12 +68,21 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize points;
 @synthesize state;
 
-- (id)initWithDelegate:(id <MKTRouteTransferControllerDelegate>)aDelegate {
+- (id)initWithRoute:(MKTRoute *)route delegate:(id<MKTRouteTransferControllerDelegate>)aDelegate{
   self = [super init];
   if (self) {
     self.delegate = aDelegate;
 
+    self.points = [NSMutableArray arrayWithCapacity:[route count]];
+    for (MKTPoint *p in [route orderedPoints]) {
+      
+      IKPoint *ikPoint = [p toIKPoint];
+      [self.points addObject:ikPoint];
+    }
+
     currIndex = 0;
+    lastIndex = [self.points count];
+    
     state = RouteControllerIsIdle;
 
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -99,19 +107,16 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 ////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Upload 
 
-- (void)uploadRouteToNaviCtrl:(MKTRoute *)aRoute {
+- (void)uploadRouteToNaviCtrlFrom:(NSUInteger)fromIndex to:(NSUInteger)toIndex {
 
-  [self.points removeAllObjects];
-
-  for (MKTPoint *p in [aRoute orderedPoints]) {
-
-    IKPoint *ikPoint = [p toIKPoint];
-
-    [self.points addObject:ikPoint];
-  }
-
-  currIndex = 0;
+  currIndex = firstIndex = fromIndex-1;
+  lastIndex = toIndex-1;
+  uploadIndex = 1;
+  
   state = RouteControllerIsUploading;
+  
+  DDLogInfo(@"Start uploading route  from %d to%d",currIndex,lastIndex);
+  
   [self uploadClearPoint];
 
 }
@@ -130,29 +135,49 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 - (void)uploadPoint:(NSUInteger)index {
 
   IKPoint *p = (IKPoint *) [self.points objectAtIndex:index];
+  
+  p.index = uploadIndex++;
+  
   DDLogInfo(@"Upload point (%d) %@", index, p);
   [[MKConnectionController sharedMKConnectionController] writePoint:p];
 
   if ([self.delegate respondsToSelector:@selector(routeControllerStartUpload:forIndex:of:)])
-    [self.delegate routeControllerStartUpload:self forIndex:index of:[self.points count]];
+    [self.delegate routeControllerStartUpload:self forIndex:index-firstIndex of:lastIndex-firstIndex+1];
 }
 
 - (void)writePointNotification:(NSNotification *)aNotification {
 
   NSDictionary *d = [aNotification userInfo];
-  NSInteger index = [[d objectForKey:kMKDataKeyIndex] integerValue] - 1;
-  DDLogInfo(@"Upload point (%d) finished", index);
-
+  NSInteger resultIndex = [[d objectForKey:kMKDataKeyIndex] integerValue];
+  DDLogInfo(@"Upload point (%d) finished", resultIndex);
+  
+    
   if ([self.delegate respondsToSelector:@selector(routeControllerFinishedUpload:forIndex:of:)])
-    [self.delegate routeControllerFinishedUpload:self forIndex:index of:[self.points count]];
+    [self.delegate routeControllerFinishedUpload:self forIndex:currIndex-firstIndex of:lastIndex-firstIndex+1];
 
-  if (state == RouteControllerIsUploading && currIndex < [self.points count]) {
-    [self uploadPoint:currIndex++];
+  
+  if (state == RouteControllerIsUploading && currIndex <= lastIndex && resultIndex<254) {
+    [self uploadPoint:currIndex];
+    
+    currIndex++;
   }
   else {
-    if ([self.delegate respondsToSelector:@selector(routeControllerFinishedUpload:)])
-      [self.delegate routeControllerFinishedUpload:self];
-
+    if( resultIndex>=254 ){
+      if ([self.delegate respondsToSelector:@selector(routeControllerFailedUpload:WithError:)]){
+        
+        NSString* description = NSLocalizedString(@"Maximum count of waypoints reached", "WP Upload");
+        NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : description};
+        NSError *error = [[NSError alloc] initWithDomain:@"MK" code:1 userInfo:errorDictionary];
+        
+        [self.delegate routeControllerFailedUpload:self WithError:error];
+      }
+      DDLogInfo(@"Maximum count of waypoints reached");
+    }
+    else{
+      if ([self.delegate respondsToSelector:@selector(routeControllerFinishedUpload:)])
+        [self.delegate routeControllerFinishedUpload:self];
+    }
+    
     if (state == RouteControllerIsUploading) {
       state = RouteControllerIsIdle;
     }
