@@ -172,24 +172,24 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 - (void)drawSkyBackground:(CGContextRef)context {
 
-  CGColorRef lightColor = [UIColor colorWithRed:0.0 green:0.502 blue:1.0 alpha:1.0].CGColor;
-  CGColorRef darkColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.502 alpha:1.0].CGColor;
+  UIColor* lightColor = [UIColor colorWithRed:0.0 green:0.502 blue:1.0 alpha:1.0];
+  UIColor* darkColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.502 alpha:1.0];
 
   CGRect drawRect = CGRectMake(0.0, 0.0, CGRectGetWidth(_horizonLayer.frame), CGRectGetHeight(_horizonLayer.frame) / 2);
 
-  drawLinearGradient(context, drawRect, darkColor, lightColor);
+  drawLinearGradient(context, drawRect, darkColor.CGColor, lightColor.CGColor);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 - (void)drawEarthBackground:(CGContextRef)context {
 
-  CGColorRef lightColor = [UIColor colorWithRed:0.502 green:0.251 blue:0.0 alpha:1.0].CGColor;
-  CGColorRef darkColor = [UIColor colorWithRed:1.0 green:0.502 blue:0.0 alpha:1.0].CGColor;
+  UIColor* lightColor = [UIColor colorWithRed:0.502 green:0.251 blue:0.0 alpha:1.0];
+  UIColor* darkColor = [UIColor colorWithRed:1.0 green:0.502 blue:0.0 alpha:1.0];
 
   CGRect drawRect = CGRectMake(0.0, CGRectGetHeight(_horizonLayer.frame) / 2,
           CGRectGetWidth(_horizonLayer.frame), CGRectGetHeight(_horizonLayer.frame) / 2);
 
-  drawLinearGradient(context, drawRect, darkColor, lightColor);
+  drawLinearGradient(context, drawRect, darkColor.CGColor, lightColor.CGColor);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
