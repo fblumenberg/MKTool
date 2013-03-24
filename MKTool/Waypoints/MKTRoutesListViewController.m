@@ -59,12 +59,10 @@
 - (void)addNewRoute;
 - (void)showRouteViewController:(MKTRoute *)route;
 
-- (void)showSettingsModal;
 - (void)syncRoutes;
 
 @property(nonatomic, strong) UIBarButtonItem *spacer;
 @property(nonatomic, strong) UIBarButtonItem *addButton;
-@property(nonatomic, strong) UIBarButtonItem *settingsButton;
 @property(nonatomic, strong) UIBarButtonItem *syncButton;
 
 @end
@@ -72,7 +70,7 @@
 @implementation MKTRoutesListViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
-@synthesize spacer,settingsButton,syncButton,addButton;
+@synthesize spacer,syncButton,addButton;
 
 - (id)init {
   self = [super initWithStyle:UITableViewStylePlain];
@@ -103,12 +101,6 @@
                       target:self
                       action:@selector(syncRoutes)];
 
-  self.settingsButton = [[UIBarButtonItem alloc]
-                      initWithImage:[UIImage imageNamed:@"icon-settings3.png"]
-                      style:UIBarButtonItemStyleBordered
-                      target:self
-                      action:@selector(showSettingsModal)];
-  
   self.spacer = [[UIBarButtonItem alloc]
                    initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                    target:nil action:nil];
@@ -121,7 +113,6 @@
                          self.addButton,
                          nil]];
 
-  self.navigationItem.rightBarButtonItem = self.settingsButton;
   
   self.navigationController.toolbarHidden =NO;
   self.tableView.allowsSelectionDuringEditing = NO;
@@ -161,21 +152,6 @@
 - (void)showSettingsModal{
   
   [[MKTSettingsController sharedController] showFromController:IS_IPAD()?self.splitViewController:self];
-//  
-//  IASKAppSettingsViewController* controller = [[IASKAppSettingsViewController alloc] initWithNibName:@"IASKAppSettingsView" bundle:nil];
-//  UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
-//  controller.title=NSLocalizedString(@"Settings", @"Settings Dialog title");
-//  controller.showDoneButton = YES;
-////  controller.file = @"waypoints";
-//  controller.delegate = self;
-//  
-//  if (IS_IPAD()) {
-//    aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
-//    [self.splitViewController presentModalViewController:aNavController animated:YES];
-//  }
-//  else
-//    [self presentModalViewController:aNavController animated:YES];
-//
 }
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender{
@@ -439,37 +415,6 @@
   }
   else
     [self presentModalViewController:naviController animated:YES];
-
-//  
-//  UIActionSheet *sheet = [UIActionSheet actionSheetWithTitle:NSLocalizedString(@"Routes Syncronisation", @"Routes Sync Title")];
-//  
-//  [sheet addButtonWithTitle:NSLocalizedString(@"Restore", @"Restore Button") handler:^{ 
-//    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-//    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
-//    hud.progress = 0.0;
-//    hud.mode = MBProgressHUDModeDeterminate;
-//    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideLocal];
-//  }];
-//  
-//  [sheet addButtonWithTitle:NSLocalizedString(@"Backup", @"Backup Button") handler:^{ 
-//    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-//    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
-//    hud.progress = 0.0;
-//    hud.mode = MBProgressHUDModeDeterminate;
-//    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideRemote];
-//  }];
-//  
-//  [sheet addButtonWithTitle:NSLocalizedString(@"Synchronize", @"Restore Button") handler:^{ 
-//    MBProgressHUD* hud=[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-//    hud.labelText=NSLocalizedString(@"Syncing", @"DB Sync routes HUD");
-//    hud.progress = 0.0;
-//    hud.mode = MBProgressHUDModeDeterminate;
-//    [[MKTRouteDropboxController sharedController] syncronizeAllRoutesWithOption:MKTRouteDropboxSyncOverrideOlder];
-//  }];
-//  
-//  [sheet setCancelButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel Button") handler:^{ }];
-//  
-//  [sheet showFromToolbar:self.navigationController.toolbar];
 }
 
 - (void)controller:(MKTRouteDropboxController*)crontroller dropboxInitFailedWithError:(NSError*)error{

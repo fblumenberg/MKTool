@@ -70,4 +70,39 @@
   return _data.Digital[index];
 }
 
+- (IKMkStatusType)statusTypeForAddress:(IKMkAddress)theAddress{
+  
+  uint8_t mask=0;
+  switch (theAddress) {
+    case kIKMkAddressNC:
+      mask=AMPEL_NC;
+      break;
+    case kIKMkAddressFC:
+      mask=AMPEL_FC;
+      break;
+    case kIKMkAddressMK3MAg:
+      mask=AMPEL_COMPASS;
+      break;
+    case kIKMkAddressBL:
+      mask=AMPEL_BL;
+      break;
+    default:
+      return IKStatusUnknown;
+  }
+  
+  BOOL green = (_data.Digital[0] & mask) == mask;
+  BOOL red = (_data.Digital[1] & mask) == mask;
+  
+  IKMkStatusType status = IKStatusUnknown;
+  if(green){
+    status = IKStatusGreen;
+
+    if (red)
+      status = IKStatusRed;
+  }
+  
+  return status;
+}
+
+
 @end

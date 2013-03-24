@@ -33,6 +33,8 @@
 
 #import "MKTMainMenuController.h"
 
+#import "MKConnectionController.h"
+
 #import "BlocksKit.h"
 #import "InnerBand.h"
 
@@ -161,6 +163,20 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
   [[CoreDataStore mainStore] save];
+
+  [[MKConnectionController sharedMKConnectionController] stop];
+  
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    ((UINavigationController *) [self.splitViewController masterViewController]).delegate = nil;
+    ((UINavigationController *) [self.splitViewController detailViewController]).delegate = nil;
+    
+    [((UINavigationController *) [self.splitViewController masterViewController]) popToRootViewControllerAnimated:NO];
+    [((UINavigationController *) [self.splitViewController detailViewController]) popToRootViewControllerAnimated:NO];
+  }
+  else {
+    self.navigationController.delegate = nil;
+    [self.navigationController popToRootViewControllerAnimated:NO];
+  }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

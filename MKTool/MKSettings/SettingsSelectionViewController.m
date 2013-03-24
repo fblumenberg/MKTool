@@ -111,12 +111,12 @@ static NSUInteger kNumberOfSettings = 5;
 #pragma mark -
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-  [self.navigationController setToolbarHidden:NO animated:NO];
   [[MKConnectionController sharedMKConnectionController] activateFlightCtrl];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
+  [self.navigationController setToolbarHidden:YES animated:YES];
   [self cancelEditActiveSetting:self];
   [self reloadAllSettings];
 }

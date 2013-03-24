@@ -31,6 +31,8 @@
 #import "MKTConnection.h"
 #import "MKTConnectedMenuController.h"
 
+#import "MKTSettingsController.h" 
+
 #define kMKTMainMenuDisplayedConnections 4
 
 @interface MKTMainMenuController () <SBTableAlertDataSource, SBTableAlertDelegate, NSFetchedResultsControllerDelegate> {
@@ -46,6 +48,8 @@
 }
 
 @property(nonatomic, strong) NSFetchedResultsController *connectionsFetchedResults;
+
+- (void)showSettingsModal;
 
 @end
 
@@ -68,6 +72,19 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  self.title = NSLocalizedString(@"MKTool", @"Main title");
+  
+  UIBarButtonItem* settingsButton = [[UIBarButtonItem alloc]
+                         initWithImage:[UIImage imageNamed:@"icon-settings3.png"]
+                         style:UIBarButtonItemStyleBordered
+                         target:self
+                         action:@selector(showSettingsModal)];
+  
+  self.navigationItem.rightBarButtonItem = settingsButton;
+
+//  self.tableView.backgroundColor = [UIColor yellowColor];
+//  self.tableView.backgroundView = nil;
 }
 
 - (void)viewDidUnload {
@@ -81,6 +98,11 @@
   [super viewWillAppear:animated];
   [self updateConnectionsSection];
   [self.tableView reloadData];
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+  
+  [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -97,6 +119,11 @@
 
   selectConnectionRow = kMKTMainMenuDisplayedConnections;
   editConnectionRow = showSelectConnections ? selectConnectionRow + 1 : hasConnections ? numberOfConnections : 0;
+}
+
+- (void)showSettingsModal{
+  
+  [[MKTSettingsController sharedController] showFromController:IS_IPAD()?self.splitViewController:self];
 }
 
 #pragma mark - Table view data source

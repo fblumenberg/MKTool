@@ -26,6 +26,12 @@
 
 #import "IKMkDataTypes.h"
 
+typedef NS_ENUM(NSUInteger, IKMkStatusType) {
+  IKStatusGreen,
+  IKStatusRed,
+  IKStatusUnknown
+};
+
 @interface IKDebugData : NSObject {
 
   IKMkAddress address;
@@ -39,5 +45,7 @@
 
 - (NSNumber *)analogValueAtIndex:(NSUInteger)index;
 - (BOOL)digitalValueAtIndex:(NSUInteger)index;
+
+- (IKMkStatusType)statusTypeForAddress:(IKMkAddress)address;
 
 @end

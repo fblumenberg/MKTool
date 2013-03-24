@@ -31,9 +31,10 @@
 #import "MKTRouteTransferController.h"
 #import "MBProgressHUD.h"
 
-const NSString* kMKTRouteTransferFirst = @"kMKTRouteTransferFirst";
-const NSString* kMKTRouteTransferLast = @"kMKTRouteTransferLast";
-const NSString* kMKTRouteTransferMax = @"kMKTRouteTransferMax";
+NSString *const kMKTRouteTransferName = @"kMKTRouteTransferName";
+NSString *const kMKTRouteTransferFirst = @"kMKTRouteTransferFirst";
+NSString *const kMKTRouteTransferLast = @"kMKTRouteTransferLast";
+NSString *const kMKTRouteTransferMax = @"kMKTRouteTransferMax";
 
 @interface MKTRouteTransferViewDataSource : IBAFormDataSource
 
@@ -62,7 +63,11 @@ const NSString* kMKTRouteTransferMax = @"kMKTRouteTransferMax";
 - (id)initWithRoute:(MKTRoute *)route{
 
   NSNumber* routeMax = @([route count]);
-  NSMutableDictionary* model = [@{kMKTRouteTransferFirst:@1,kMKTRouteTransferLast:routeMax,kMKTRouteTransferMax:routeMax} mutableCopy];
+  NSMutableDictionary* model = [@{
+                                kMKTRouteTransferName:route.name,
+                                kMKTRouteTransferFirst:@1,
+                                kMKTRouteTransferLast:routeMax,
+                                kMKTRouteTransferMax:routeMax} mutableCopy];
   MKTRouteTransferViewDataSource *dataSource = [[MKTRouteTransferViewDataSource alloc] initWithModel:model];
 
   self = [super initWithNibName:nil bundle:nil formDataSource:dataSource];
@@ -78,8 +83,9 @@ const NSString* kMKTRouteTransferMax = @"kMKTRouteTransferMax";
 
   self.title = NSLocalizedString(@"Route upload", @"Route upload view");
   
-  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"Cancel toolbar button") style:UIBarButtonItemStyleBordered
-                                                                  target:self action:@selector(dismiss:)];
+  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                              target:self
+                                                                              action:@selector(dismiss:)];
 
   [self.navigationItem setRightBarButtonItem:cancelButton animated:NO];
 }
@@ -174,7 +180,7 @@ const NSString* kMKTRouteTransferMax = @"kMKTRouteTransferMax";
     IBAFormSection *positionSection;
     IBAStepperFormField *stepperField;
 
-    positionSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+    positionSection = [self addSectionWithHeaderTitle:[aModel valueForKeyPath:kMKTRouteTransferName] footerTitle:nil];
     positionSection.formFieldStyle = [[SettingsFieldStyleStepper alloc] init];
 
     stepperField = [[IBAStepperFormField alloc] initWithKeyPath:(NSString*)kMKTRouteTransferFirst

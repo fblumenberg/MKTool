@@ -83,6 +83,7 @@
 		BA1B06B81584DF6200C6C964 /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
 		BA1B06B91584DF8E00C6C964 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */; };
 		BA1B06BB1584E22300C6C964 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
+		BA1F155A16FF2AE500036441 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1F155916FF2AE500036441 /* Default-568h@2x.png */; };
 		BA27D543155EE2CE00C6B37E /* MKTSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */; };
 		BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */; };
 		BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA52014E1559C26400719A58 /* AddressBookUI.framework */; };
@@ -533,6 +534,7 @@
 		BA0E48F915869056000F382C /* icon-locate-gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps.png"; sourceTree = "<group>"; };
 		BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps@2x.png"; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BA1F155916FF2AE500036441 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA27D541155EE2CE00C6B37E /* MKTSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTSettingsController.h; path = ApplicationBase/MKTSettingsController.h; sourceTree = "<group>"; };
 		BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTSettingsController.m; path = ApplicationBase/MKTSettingsController.m; sourceTree = "<group>"; };
 		BA27D54E155F1C2300C6B37E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTRouteMapViewController.xib; sourceTree = "<group>"; };
@@ -1131,6 +1133,7 @@
 		BA9373D8154B488500E444EC /* Default */ = {
 			isa = PBXGroup;
 			children = (
+				BA1F155916FF2AE500036441 /* Default-568h@2x.png */,
 				BA9373E1154B498A00E444EC /* Default@2x.png */,
 				BA9373E2154B498A00E444EC /* Default-Landscape@2x~ipad.png */,
 				BA9373E3154B498A00E444EC /* Default-Landscape~ipad.png */,
@@ -2245,6 +2248,7 @@
 				BA98C0AE16C2D622000CA7EE /* target30@2x.png in Resources */,
 				BA56918C16F91048007A33D0 /* icon-ul1.png in Resources */,
 				BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */,
+				BA1F155A16FF2AE500036441 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

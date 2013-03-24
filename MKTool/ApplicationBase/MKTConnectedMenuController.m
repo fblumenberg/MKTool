@@ -32,6 +32,7 @@
 
 #import "MKDataConstants.h"
 #import "IKDeviceVersion.h"
+#import "IKDebugData.h"
 
 #import "SettingsSelectionViewController.h"
 #import "MKTRoutesListViewController.h"
@@ -76,8 +77,12 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   NSMutableArray *_sectionsConnected;
   MKTConnection *_conneciton;
   MKConnectionState _connectionState;
-
+  NSTimer *_requestTimer;
+  IKDebugData *_debugData;
+  
+  IKMkAddress _addressToWaitFor;
 }
+
 
 - (void)connectionRequestDidFail:(NSNotification *)aNotification;
 - (void)connectionRequestDidSucceed:(NSNotification *)aNotification;
@@ -101,7 +106,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
   self.navigationItem.title = _conneciton.name;
 
-  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Disconnect", @"Disonnect button") style:UIBarButtonItemStyleBordered target:self
+  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Disconnect", @"Disonnect button")
+                                                           style:UIBarButtonItemStyleBordered target:self
                                                           action:@selector(disconnect)];
 
   self.navigationItem.leftBarButtonItem = item;
@@ -125,6 +131,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
+  [self.navigationController setToolbarHidden:YES animated:YES];
+
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self
          selector:@selector(connectionRequestDidSucceed:)
@@ -142,10 +150,19 @@ static int ddLogLevel = LOG_LEVEL_WARN;
            object:nil];
 
   [nc addObserver:self
-         selector:@selector(versionResponse:)
+         selector:@selector(foundDeviceResponse:)
              name:MKFoundDeviceNotification
            object:nil];
 
+  [nc addObserver:self
+         selector:@selector(versionResponse:)
+             name:MKVersionNotification
+           object:nil];
+
+  [nc addObserver:self
+         selector:@selector(debugValueNotification:)
+             name:MKDebugDataNotification
+           object:nil];
 
 }
 
@@ -163,6 +180,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   }
   else {
     [[MKConnectionController sharedMKConnectionController] activateNaviCtrl];
+    [self startRequestingDebugData];
   }
 }
 
@@ -171,6 +189,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
   [MBProgressHUD hideHUDForView:self.view.window animated:YES];
 
+  [self stopRequestingDebugData];
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc removeObserver:self];
 }
@@ -184,6 +203,28 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 - (void)disconnect {
   [[MKConnectionController sharedMKConnectionController] stop];
   [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)startRequestingDebugData {
+  
+  _requestTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                  target:self
+                                                selector:@selector(requestDebugData)
+                                                userInfo:nil
+                                                 repeats:YES];
+  
+  [self performSelector:@selector(requestDebugData) withObject:self afterDelay:0.1];
+}
+
+- (void)stopRequestingDebugData {
+  [_requestTimer invalidate];
+  _requestTimer = nil;
+}
+
+- (void)requestDebugData {
+  
+  MKConnectionController *cCtrl = [MKConnectionController sharedMKConnectionController];
+  [cCtrl requestDebugValueForInterval:50];
 }
 
 #pragma mark - Sections creation
@@ -250,6 +291,40 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 //---------------------------------------------------------------------------------------------
 #pragma Device information
 
+- (void)updateDevicesSection {
+  
+  NSArray *sections = _connectionState == MKConnectionStateConnected ? _sectionsConnected : _sections;
+  MKTTableSection *section = [sections lastObject];
+  
+  [section.items enumerateObjectsUsingBlock:^(MKTTableItem* item, NSUInteger index, BOOL *stop) {
+    IKMkAddress addresses[] = {kIKMkAddressNC,kIKMkAddressFC,kIKMkAddressMK3MAg,kIKMkAddressBL};
+    
+    CustomBadge *badge = (CustomBadge*)item.accessoryView;
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:MKConnectionStateConnected ? 0 : 1];
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    switch ([_debugData statusTypeForAddress:addresses[index]]) {
+      case IKStatusGreen:
+        badge.badgeInsetColor = [MKTCommonColors okColor];
+        badge.badgeText = @"OK";
+        item.selectionStyle = UITableViewCellSelectionStyleNone;
+        break;
+      case IKStatusRed:
+        badge.badgeInsetColor = [MKTCommonColors errorColor];
+        badge.badgeText = @"ERR";
+        item.selectionStyle = UITableViewCellSelectionStyleBlue;
+        break;
+      default:
+        badge.badgeInsetColor = [MKTCommonColors functionOffColor];
+        badge.badgeText = @"UNK";
+        item.selectionStyle = UITableViewCellSelectionStyleNone;
+        break;
+    }
+    
+    [badge setNeedsDisplay];
+  }];
+}
+
 - (void)updateItem:(MKTTableItem *)item forAddress:(IKMkAddress)theAddress {
 
   CustomBadge *badge = [CustomBadge customBadgeWithString:@"UNK"];
@@ -262,7 +337,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
       item.title = v.versionString;
       badge.badgeText = v.hasError ? @"ERR" : @"OK";
       badge.badgeInsetColor = v.hasError ? [MKTCommonColors errorColor] : [MKTCommonColors okColor];
-      item.selectionStyle = UITableViewCellSelectionStyleBlue;
+      if(theAddress!=kIKMkAddressMK3MAg)
+        item.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
   }
 }
@@ -270,6 +346,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 - (void)showDeviceStateForAddress:(IKMkAddress)theAddress {
   if ([[MKConnectionController sharedMKConnectionController] isRunning]) {
     IKDeviceVersion *v = [[MKConnectionController sharedMKConnectionController] versionForAddress:theAddress];
+    NSLog(@"Version %@",v);
     if (v) {
       NSString *msg;
 
@@ -284,6 +361,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
                    delegate:self
           cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
       [alert show];
+      [[MKConnectionController sharedMKConnectionController] activateNaviCtrl];
     }
   }
 }
@@ -293,26 +371,38 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   MKTTableSection *section = [[MKTTableSection alloc] initWithExpandabel:NO];
   MKTTableItem *item;
 
-  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"NaviCtrl", @"Connected Menu Devices") andExecutionBlock:^{
+  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"Navi-Ctrl", @"Connected Menu Devices") andExecutionBlock:^{
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    [self showDeviceStateForAddress:kIKMkAddressNC];
+    if([_debugData statusTypeForAddress:kIKMkAddressNC]==IKStatusRed){
+      MBProgressHUD* hud =[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      _addressToWaitFor = kIKMkAddressNC;
+      [[MKConnectionController sharedMKConnectionController] activateNaviCtrl];
+      [hud hide:YES afterDelay:15.0];
+    }
   }];
-
+  
   [self updateItem:item forAddress:kIKMkAddressNC];
   [section.items addObject:item];
-
-  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"FlightCtrl", @"Connected Menu Devices") andExecutionBlock:^{
+  
+  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"Flight-Ctrl", @"Connected Menu Devices") andExecutionBlock:^{
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    [self showDeviceStateForAddress:kIKMkAddressFC];
+    if([_debugData statusTypeForAddress:kIKMkAddressFC]==IKStatusRed){
+      MBProgressHUD* hud =[MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      _addressToWaitFor = kIKMkAddressFC;
+      [[MKConnectionController sharedMKConnectionController] activateFlightCtrl];
+      
+      [hud hide:YES afterDelay:15.0];
+    }
   }];
   [self updateItem:item forAddress:kIKMkAddressFC];
   [section.items addObject:item];
-
-  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"MK3Mag", @"Connected Menu Devices") andExecutionBlock:^{
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    [self showDeviceStateForAddress:kIKMkAddressMK3MAg];
-  }];
+  
+  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"MK3Mag/Compass", @"Connected Menu Devices")];
   [self updateItem:item forAddress:kIKMkAddressMK3MAg];
+  [section.items addObject:item];
+
+  item = [[MKTTableItem alloc] initWithTitle:NSLocalizedString(@"BL-Ctrl", @"Connected Menu Devices")];
+  [self updateItem:item forAddress:kIKMkAddressBL];
   [section.items addObject:item];
 
   return section;
@@ -356,6 +446,17 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark - Table view delegate
 
+- (NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  MKTTableSection *section = _connectionState == MKConnectionStateConnected ? [_sectionsConnected objectAtIndex:indexPath.section] : [_sections objectAtIndex:indexPath.section];
+  MKTTableItem *item = [section.items objectAtIndex:indexPath.row];
+  
+  if (item.selectionStyle==UITableViewCellSelectionStyleNone) {
+    return nil;
+  }
+  
+  return indexPath;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   MKTTableSection *section = _connectionState == MKConnectionStateConnected ? [_sectionsConnected objectAtIndex:indexPath.section] : [_sections objectAtIndex:indexPath.section];
   MKTTableItem *item = [section.items objectAtIndex:indexPath.row];
@@ -386,6 +487,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   [_sectionsConnected replaceObjectAtIndex:1 withObject:[self createDevicesSection]];
 
   [self.tableView reloadData];
+  
+  [self startRequestingDebugData];
 
   [UIApplication sharedApplication].idleTimerDisabled = NO;
 
@@ -400,9 +503,29 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)versionResponse:(NSNotification *)aNotification; {
+- (void)foundDeviceResponse:(NSNotification *)aNotification; {
   IKDeviceVersion *version = [[aNotification userInfo] objectForKey:kIKDataKeyVersion];
   [MBProgressHUD HUDForView:self.view.window].labelText = [NSString stringWithFormat:NSLocalizedString(@"Found %@", @"HUD device"), version.deviceName];
+}
+
+- (void)versionResponse:(NSNotification *)aNotification; {
+  IKDeviceVersion *version = [[aNotification userInfo] objectForKey:kIKDataKeyVersion];
+  
+  NSLog(@"Got version %@ %d==%d", version.debugDescription,_addressToWaitFor,version.address);
+  if(_connectionState == MKConnectionStateConnected){
+    if(_addressToWaitFor==version.address){
+      [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+      _addressToWaitFor=kIKMkAddressAll;
+      NSLog(@"showDeviceStateForAddress %d",version.address);
+      [self showDeviceStateForAddress:version.address];
+    }
+  }
+}
+
+- (void)debugValueNotification:(NSNotification *)aNotification {
+  
+  _debugData = [[aNotification userInfo] objectForKey:kIKDataKeyDebugData];
+  [self updateDevicesSection];
 }
 
 @end

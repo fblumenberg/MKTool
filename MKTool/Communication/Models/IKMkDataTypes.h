@@ -27,7 +27,8 @@ typedef enum {
   kIKMkAddressFC = 1,
   kIKMkAddressNC = 2,
   kIKMkAddressMK3MAg = 3,
-  kIKMkAddressMKGPS = 0XFE
+  kIKMkAddressMKGPS = 0XFE,
+  kIKMkAddressBL = 0XFFFF
 } IKMkAddress;
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -119,6 +120,11 @@ typedef struct {
 
 static const int kMaxDebugDataDigital = 2;
 static const int kMaxDebugDataAnalog = 32;
+
+#define AMPEL_FC 		0x01
+#define AMPEL_BL 		0x02
+#define AMPEL_NC 		0x04
+#define AMPEL_COMPASS  	0x08
 
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////

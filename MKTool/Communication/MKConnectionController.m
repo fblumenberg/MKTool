@@ -197,8 +197,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void)sendRequest:(NSData *)data; {
-  DDLogVerbose(@"%@", data);
-  DDLogVerbose(@"%@", [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]);
+//  DDLogVerbose(@"%@", data);
+  DDLogVerbose(@"Send request%@", [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]);
 
   [self.inputController writeMkData:data];
 }
@@ -206,6 +206,10 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 - (IKDeviceVersion *)versionForAddress:(IKMkAddress)theAddress; {
   if (theAddress <= kIKMkAddressAll || theAddress > kIKMkAddressMK3MAg)
     return nil;
+  
+  for(int i=0;i<3;i++)
+    NSLog(@"Version %d - %@",i,versions[i]);
+  
   return versions[theAddress - 1];
 }
 
@@ -227,11 +231,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)activateNaviCtrl {
 
-  //  if(primaryDevice!=kIKMkAddressAll && ![self hasNaviCtrl])
-  //    return;
-
+- (void)resetToNC{
   DDLogVerbose(@"Activate the NaviControl");
   uint8_t bytes[6];
   bytes[0] = 0x1B;
@@ -240,20 +241,22 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   bytes[3] = 0xAA;
   bytes[4] = 0x00;
   bytes[5] = '\r';
-
+  
   NSData *data = [NSData dataWithBytes:&bytes length:6];
   [self sendRequest:data];
+}
 
-  //currentDevice=kIKMkAddressNC;
+- (void)activateNaviCtrl {
+
+  [self resetToNC];
+  [self performSelector:@selector(resetToNC) withObject:self afterDelay:0.1];
+
   [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.5];
-  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:1.0];
+  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.7];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)activateFlightCtrl {
-
-  //  if(![self hasNaviCtrl])
-  //    return;
 
   DDLogVerbose(@"Activate the FlightCtrl");
 
@@ -263,9 +266,10 @@ static int ddLogLevel = LOG_LEVEL_WARN;
                           payloadForByte:byte];
 
   [self sendRequest:data];
-  //currentDevice=kIKMkAddressFC;
+  [self sendRequest:data];
+  
   [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.5];
-  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:1.0];
+  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.8];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -282,10 +286,12 @@ static int ddLogLevel = LOG_LEVEL_WARN;
                           payloadForByte:byte];
 
   [self sendRequest:data];
-  //currentDevice=kIKMkAddressMK3MAg;
-  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.5];
-  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.7];
-  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:1.0];
+  [self sendRequest:data];
+
+  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.1];
+  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.2];
+  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.3];
+  [self performSelector:@selector(requestDeviceVersion) withObject:self afterDelay:0.4];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -436,7 +442,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 - (void)didReadMkData:(NSData *)data {
 
   NSData *strData = [data subdataWithRange:NSMakeRange(0, [data length] - 1)];
-  DDLogVerbose(@">>%@<<", [[NSString alloc] initWithData:strData encoding:NSASCIIStringEncoding]);
+//  DDLogVerbose(@">>%@<<", [[NSString alloc] initWithData:strData encoding:NSASCIIStringEncoding]);
 
   if ([strData isCrcOk]) {
     //    DDLogVerbose(@"Data length %d",[strData length]);
@@ -648,6 +654,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     case MKCommandVersionResponse:
       n = MKVersionNotification;
       d = [payload decodeVersionResponseForAddress:address];
+      [self setVersion:[IKDeviceVersion versionWithData:payload forAddress:(IKMkAddress) address]];
       [self checkForDeviceChange:address];
       break;
     default:
