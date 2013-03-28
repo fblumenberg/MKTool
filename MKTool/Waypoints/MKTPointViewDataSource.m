@@ -48,11 +48,13 @@
     IBATextFormField *numberField;
     IBAStepperFormField *stepperField;
 
-    NSString* headerTitle=[self modelValueForKeyPath:@"name"];
-    if( ((MKTPoint*)aModel).headingValue<0){
-      headerTitle = [headerTitle stringByAppendingFormat:NSLocalizedString(@" - Distance to POI %d m", @"Point editor extra header"),(NSUInteger)[((MKTPoint*)aModel) distanceToPoi]];
+    NSString *headerTitle = [self modelValueForKeyPath:@"name"];
+
+    NSNumber *heading = [aModel valueForKeyPath:@"heading"];
+    if ([heading integerValue] < 0) {
+      headerTitle = [headerTitle stringByAppendingFormat:NSLocalizedString(@" - Distance to POI %d m", @"Point editor extra header"), (NSUInteger) [((MKTPoint *) aModel) distanceToPoi]];
     }
-    
+
     IBAFormSection *positionSection = [self addSectionWithHeaderTitle:headerTitle footerTitle:nil];
     positionSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
     //------------------------------------------------------------------------------------------------------------------------
