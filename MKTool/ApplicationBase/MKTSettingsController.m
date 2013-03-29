@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "DropboxSDK/DropboxSDK.h"
+#import "Dropbox/Dropbox.h"
 
 #import "MKTSettingsController.h"
 #import "IASKAppSettingsViewController.h"
@@ -68,18 +68,21 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:specifier.key];
 	}
 
+  BOOL dbAccountLinked = [[DBAccountManager sharedManager] linkedAccount] != nil;
   cell.textLabel.text = NSLocalizedString(@"Unlink from Dropbbox",@"");
-  cell.contentView.userInteractionEnabled = [[DBSession sharedSession] isLinked];
+  cell.contentView.userInteractionEnabled = dbAccountLinked;
   
-  cell.selectionStyle = [[DBSession sharedSession] isLinked]?UITableViewCellSelectionStyleBlue:UITableViewCellSelectionStyleNone;
-  cell.textLabel.textColor = [[DBSession sharedSession] isLinked]?[UIColor darkTextColor]:[UIColor grayColor];
+  cell.selectionStyle = dbAccountLinked?UITableViewCellSelectionStyleBlue:UITableViewCellSelectionStyleNone;
+  cell.textLabel.textColor = dbAccountLinked?[UIColor darkTextColor]:[UIColor grayColor];
 	[cell setNeedsLayout];
 	return cell;
 }
 
 - (void)settingsViewController:(IASKAppSettingsViewController *)sender tableView:(UITableView *)tableView didSelectCustomViewSpecifier:(IASKSpecifier *)specifier{
-	if ([specifier.key isEqualToString:@"MKTDropbox"] && [[DBSession sharedSession] isLinked]) {
-    [[DBSession sharedSession] unlinkAll];
+  BOOL dbAccountLinked = [[DBAccountManager sharedManager] linkedAccount] != nil;
+
+	if ([specifier.key isEqualToString:@"MKTDropbox"] && dbAccountLinked) {
+    [[[DBAccountManager sharedManager] linkedAccount] unlink];
     [tableView reloadData];
   }
 }

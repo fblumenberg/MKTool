@@ -31,14 +31,14 @@ typedef enum {
 
 
 @class MKTRoute;
-@class DBMetadata;
+@class DBFileInfo;
 
 @interface MKTSyncItem : NSObject
 
-+ (id)itemWith:(MKTRoute*)route andData:(DBMetadata*)data;
++ (id)itemWith:(MKTRoute*)route andData:(DBFileInfo*)data;
 
 @property(strong) MKTRoute* route;
-@property(strong) DBMetadata* metaData;
+@property(strong) DBFileInfo* metaData;
 
 @end
 

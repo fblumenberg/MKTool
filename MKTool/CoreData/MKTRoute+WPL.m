@@ -75,9 +75,16 @@
   return result;
 }
 
-- (BOOL)loadRouteFromWplFile:(NSString *)path {
 
-  INIParser *p = [[INIParser alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+
+- (BOOL)loadRouteFromWplFile:(NSString *)path {
+  NSString *data = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+  return [self loadRouteFromWplString:data withFilename:path.lastPathComponent];
+}
+
+-(BOOL)loadRouteFromWplString:(NSString *)data withFilename:(NSString*)fileName{
+  
+  INIParser *p = [[INIParser alloc] initWithString:data];
   if (!p)
     return NO;
 
@@ -90,7 +97,7 @@
   if (result) {
     int numberOfPoints = [p getInt:@"NumberOfWaypoints" section:@"General"];
 
-    self.fileName = path.lastPathComponent;
+    self.fileName = fileName;
     self.name = [p get:@"Name" section:@"General"];
     if (self.name == nil)
       self.name = [self.fileName stringByDeletingPathExtension];

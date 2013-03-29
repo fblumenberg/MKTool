@@ -22,7 +22,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-#import "DropboxSDK/DropboxSDK.h"
+#import "Dropbox/Dropbox.h"
 #import "InnerBand.h"
 #import "NSArray+BlocksKit.h"
 
@@ -30,16 +30,17 @@
 #import "MKTRoute.h"
 
 @implementation MKTSyncItem
-@synthesize route,metaData;
-+ (id)itemWith:(MKTRoute*)route andData:(DBMetadata*)data{
-  MKTSyncItem* item =[MKTSyncItem new];
+@synthesize route, metaData;
+
++ (id)itemWith:(MKTRoute *)route andData:(DBFileInfo *)data {
+  MKTSyncItem *item = [MKTSyncItem new];
   item.route = route;
   item.metaData = data;
   return item;
 }
 
-- (NSString*)description{
-  return [NSString stringWithFormat:@"r:%@ %@ m:%@ %@",route.parentRev,route.lastUpdated,metaData.rev,metaData.lastModifiedDate];
+- (NSString *)description {
+  return [NSString stringWithFormat:@"r:%@ %@ m:%@", route.parentRev, route.lastUpdated, metaData.modifiedTime];
 }
 @end
 
@@ -57,88 +58,82 @@
 @synthesize itemsForUpload;
 @synthesize itemsForDelete;
 
-@synthesize routes=_routes;
-@synthesize metaData=_metaData;
+@synthesize routes = _routes;
+@synthesize metaData = _metaData;
 
-- (id)initWithRoutes:(NSArray*)routes metaData:(NSArray*)metaData {
+- (id)initWithRoutes:(NSArray *)routes metaData:(NSArray *)metaData {
   self = [super init];
   if (self) {
     self.routes = routes;
     self.metaData = metaData;
-    
+
     itemsForDownload = [NSMutableArray array];
     itemsForUpload = [NSMutableArray array];
-    itemsForDelete = [NSMutableArray array]; 
+    itemsForDelete = [NSMutableArray array];
   }
   return self;
 }
 
-- (void) prepareForSynchWithOption:(MKTRouteDropboxSyncOption)option{
-  
+- (void)prepareForSynchWithOption:(MKTRouteDropboxSyncOption)option {
+
   [self.itemsForDownload removeAllObjects];
   [self.itemsForUpload removeAllObjects];
   [self.itemsForDelete removeAllObjects];
-  
-  NSMutableArray* dataItems=[self.metaData mutableCopy];
-  
-  NSMutableArray* items = [[self.routes map:^(MKTRoute* r){
-    
-    DBMetadata* data = [self.metaData match:^(DBMetadata* obj) {
-      return [r.fileName isEqualToString:obj.filename];
+
+  NSMutableArray *dataItems = [self.metaData mutableCopy];
+
+  NSMutableArray *items = [[self.routes map:^(MKTRoute *r) {
+
+    DBFileInfo *data = [self.metaData match:^(DBFileInfo *obj) {
+      return [r.fileName isEqualToString:obj.path.name];
     }];
-    
+
     if (data)
       [dataItems removeObjectAtIndex:[dataItems indexOfObject:data]];
-    
+
     return [MKTSyncItem itemWith:r andData:data];
   }] mutableCopy];
-  
-  [dataItems each:^(DBMetadata* d){
+
+  [dataItems each:^(DBFileInfo *d) {
     [items pushObject:[MKTSyncItem itemWith:nil andData:d]];
   }];
-  
-  NSLog(@"items before preparing %@",items);
-  
-  [items each:^(MKTSyncItem* item){
+
+  NSLog(@"items before preparing %@", items);
+
+  [items each:^(MKTSyncItem *item) {
     [self prepareSync:item option:option];
   }];
-  
+
 }
 
 - (void)prepareSync:(MKTSyncItem *)item option:(MKTRouteDropboxSyncOption)option {
-  
-  if(option==MKTRouteDropboxSyncOverrideRemote){
-    if(item.route)
+
+  if (option == MKTRouteDropboxSyncOverrideRemote) {
+    if (item.route)
       [self.itemsForUpload pushObject:item];
-    else if(item.metaData)
+    else if (item.metaData)
       [self.itemsForDelete pushObject:item];
   }
-  else if (option==MKTRouteDropboxSyncOverrideLocal) {
-    if(item.metaData)
+  else if (option == MKTRouteDropboxSyncOverrideLocal) {
+    if (item.metaData)
       [self.itemsForDownload pushObject:item];
-    else if(item.route)
+    else if (item.route)
       [self.itemsForDelete pushObject:item];
   }
   else {
-    if(item.route && item.metaData){
-      if( [item.route.parentRev isEqualToString:item.metaData.rev] ) {
-        
-        if(![item.route.lastUpdated isEqual:item.metaData.lastModifiedDate])
-          [self.itemsForUpload pushObject:item];
-      }
-      else {
-        
-        // The receiver is later in time than anotherDate, NSOrderedDescending
-        if( [item.route.lastUpdated compare:item.metaData.lastModifiedDate]==NSOrderedDescending)
-          [self.itemsForUpload pushObject:item];
-        else 
-          [self.itemsForDownload pushObject:item];
-      }
+    if (item.route && item.metaData) {
+      
+      NSLog(@"Check modified dates %@ -- %@",item.route.lastUpdated,item.metaData.modifiedTime);
+      // The receiver is later in time than anotherDate, NSOrderedDescending
+      if ([item.route.lastUpdated compare:item.metaData.modifiedTime] == NSOrderedDescending)
+        [self.itemsForUpload pushObject:item];
+      else
+        [self.itemsForDownload pushObject:item];
     }
     else {
-      if(item.metaData)
+      if (item.metaData)
         [self.itemsForDownload pushObject:item];
-      else if(item.route)
+      else if (item.route)
         [self.itemsForUpload pushObject:item];
     }
   }

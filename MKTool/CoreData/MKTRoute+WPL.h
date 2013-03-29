@@ -27,6 +27,8 @@
 @interface MKTRoute (MKTRoute_WPL)
 
 - (BOOL)loadRouteFromWplFile:(NSString *)path;
+- (BOOL)loadRouteFromWplString:(NSString *)data withFilename:(NSString*)fileName;
+
 - (BOOL)writeRouteToWplFile:(NSString *)path;
 
 @end

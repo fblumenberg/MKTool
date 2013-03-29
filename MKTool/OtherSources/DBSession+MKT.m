@@ -10,17 +10,17 @@
 
 DEFINE_KEY(kMKTDropboxResponseNotification);
 
-@implementation DBSession (MKT)
-
-- (void)linkFromController:(UIViewController *)rootController withBlock:(DBSession_MKT_Block)block{
-  
-  [[NSNotificationCenter defaultCenter] addObserverForName:kMKTDropboxResponseNotification 
-                                                    object:self queue:nil usingBlock:^(NSNotification* n){
-                                                      [[NSNotificationCenter defaultCenter] removeObserver:self];
-                                                      block();
-                                                    }];
-  
-  [self linkFromController:rootController];
-}
-
-@end
+//@implementation DBAccountManager (MKT)
+//
+//- (void)linkFromController:(UIViewController *)rootController withBlock:(DBSession_MKT_Block)block{
+//  
+//  [[NSNotificationCenter defaultCenter] addObserverForName:kMKTDropboxResponseNotification 
+//                                                    object:self queue:nil usingBlock:^(NSNotification* n){
+//                                                      [[NSNotificationCenter defaultCenter] removeObserver:self];
+//                                                      block();
+//                                                    }];
+//  
+//  [self linkFromController:rootController];
+//}
+//
+//@end

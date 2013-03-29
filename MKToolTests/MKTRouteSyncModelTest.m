@@ -368,7 +368,7 @@
   return dateFormatter;
 }
 
-- (DBMetadata*) metaDataWithRev:(NSString*)rev {
+- (DBFileInfo*) metaDataWithRev:(NSString*)rev {
   
   // Create universally unique identifier (object)
   CFUUIDRef uuidObject = CFUUIDCreate(kCFAllocatorDefault);

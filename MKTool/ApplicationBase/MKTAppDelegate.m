@@ -43,7 +43,7 @@
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 
-#import "DropboxSDK/DropboxSDK.h"
+#import "Dropbox/Dropbox.h"
 #import "DBSession+MKT.h"
 
 // Here we import the Dropbox credentials. You have to get your own to compile.
@@ -61,7 +61,7 @@
 #define kTESTFLIGHTTOKEN @"<YOUR TOKEN>"
 #endif
 
-@interface MKTAppDelegate () <DBSessionDelegate>
+@interface MKTAppDelegate ()
 
 @property(strong, nonatomic) UINavigationController *navigationController;
 @property(strong, nonatomic) MGSplitViewController *splitViewController;
@@ -139,17 +139,27 @@
   // Set these variables before launching the app
   NSString *appKey = kDROPBOX_APP_KEY;
   NSString *appSecret = kDROPBOX_APP_SECRET;
-  NSString *root = kDBRootAppFolder;
 
-  DBSession *session = [[DBSession alloc] initWithAppKey:appKey appSecret:appSecret root:root];
-  session.delegate = self;
-  [DBSession setSharedSession:session];
+  DBAccountManager *accountManager =
+  [[DBAccountManager alloc] initWithAppKey:appKey secret:appSecret];
+	[DBAccountManager setSharedManager:accountManager];
 
+	DBAccount *account = [DBAccountManager sharedManager].linkedAccount;
+	if (account) {
+    DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
+    [DBFilesystem setSharedFilesystem:filesystem];
+  }
+  
   return YES;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-  if ([[DBSession sharedSession] handleOpenURL:url]) {
+	DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+	if (account) {
+    
+    DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
+    [DBFilesystem setSharedFilesystem:filesystem];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:kMKTDropboxResponseNotification object:self];
     return YES;
   }
@@ -187,12 +197,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   [[CoreDataStore mainStore] save];
-}
-
-#pragma mark - DBSessionDelegate methods
-
-- (void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId {
-  [[DBSession sharedSession] linkUserId:userId fromController:self.window.rootViewController];
 }
 
 @end

@@ -24,6 +24,7 @@
 #import <Foundation/Foundation.h>
 #import "MKTRouteSyncModel.h"
 
+@class DBPath;
 @class MKTRoute;
 @protocol MKTRouteDropboxControllerDelegate;
 
@@ -39,7 +40,7 @@
 - (void)syncronizeAllRoutesFromController:(UIViewController*)controller;
 - (void)syncronizeAllRoutesWithOption:(MKTRouteDropboxSyncOption)option fromController:(UIViewController*)controller;
 
-@property(strong) NSString* dataPath;
+@property(strong) DBPath* dataPath;
 
 @property(readonly) BOOL isSyncing;
 @property(readonly) BOOL isReady;

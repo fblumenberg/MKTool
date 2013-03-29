@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <DropboxSDK/DropboxSDK.h>
+#import <Dropbox/Dropbox.h>
 #import "InnerBand.h"
 
-typedef void (^DBSession_MKT_Block)(void);
+//typedef void (^DBSession_MKT_Block)(void);
 
 DECLARE_KEY(kMKTDropboxResponseNotification);
 
-@interface DBSession (DBSession_MKT)
-
-- (void)linkFromController:(UIViewController *)rootController withBlock:(DBSession_MKT_Block)block;
-
-@end
+//@interface DBAccountManager (DBSession_MKT)
+//
+//- (void)linkFromController:(UIViewController *)rootController withBlock:(DBSession_MKT_Block)block;
+//
+//@end

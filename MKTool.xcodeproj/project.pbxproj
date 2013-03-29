@@ -371,6 +371,11 @@
 		BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */; };
 		BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2F91540AE7000ECE09A /* Test.wpl */; };
 		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
+		BAB430561704BF2200BEC0B5 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB430551704BF2200BEC0B5 /* Dropbox.framework */; };
+		BAB430571704BF2300BEC0B5 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB430551704BF2200BEC0B5 /* Dropbox.framework */; };
+		BAB430591704E3DA00BEC0B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */; };
+		BAB4305A1704E3EB00BEC0B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */; };
+		BAB4305D1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4305C1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m */; };
 		BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5321D1594E99500AC1BD8 /* icon-pagecurl.png */; };
 		BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */; };
 		BAC7B42F155EC79100FA37DA /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
@@ -875,6 +880,10 @@
 		BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTRoute+Test.m"; sourceTree = "<group>"; };
 		BAB2F2F91540AE7000ECE09A /* Test.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.wpl; sourceTree = "<group>"; };
 		BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestInvalid.wpl; sourceTree = "<group>"; };
+		BAB430551704BF2200BEC0B5 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BAB4305B1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBFileInfo+Dictionary.h"; sourceTree = "<group>"; };
+		BAB4305C1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBFileInfo+Dictionary.m"; sourceTree = "<group>"; };
 		BAB5321D1594E99500AC1BD8 /* icon-pagecurl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pagecurl.png"; sourceTree = "<group>"; };
 		BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pagecurl@2x.png"; sourceTree = "<group>"; };
 		BAC7B42D155EC79100FA37DA /* DBSession+MKT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBSession+MKT.h"; sourceTree = "<group>"; };
@@ -999,6 +1008,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB430591704E3DA00BEC0B5 /* SystemConfiguration.framework in Frameworks */,
 				BA98C04116C29647000CA7EE /* CFNetwork.framework in Frameworks */,
 				BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */,
 				BA18C41F154B1301005C882A /* libz.dylib in Frameworks */,
@@ -1013,6 +1023,7 @@
 				BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */,
 				BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */,
 				72D4D83C3D2244DB8DC4E775 /* libPods.a in Frameworks */,
+				BAB430561704BF2200BEC0B5 /* Dropbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,6 +1031,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB4305A1704E3EB00BEC0B5 /* SystemConfiguration.framework in Frameworks */,
 				BA1B06B91584DF8E00C6C964 /* QuartzCore.framework in Frameworks */,
 				BAB2F2E71540AC7E00ECE09A /* MessageUI.framework in Frameworks */,
 				BAB2F2E01540AA9600ECE09A /* CoreData.framework in Frameworks */,
@@ -1031,6 +1043,7 @@
 				BAB2F2AA1540A7F800ECE09A /* CoreGraphics.framework in Frameworks */,
 				BA1B06BB1584E22300C6C964 /* MapKit.framework in Frameworks */,
 				5197AC74FF214E6CA9E3038F /* libPods-MKToolTests.a in Frameworks */,
+				BAB430571704BF2300BEC0B5 /* Dropbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1535,6 +1548,7 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
+				BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
@@ -1558,6 +1572,7 @@
 		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAB430551704BF2200BEC0B5 /* Dropbox.framework */,
 				BA52014C1559C1A400719A58 /* AddressBook.framework */,
 				BA52014E1559C26400719A58 /* AddressBookUI.framework */,
 				BA98C04016C29646000CA7EE /* CFNetwork.framework */,
@@ -1660,6 +1675,8 @@
 				BAD5016C1541E02A004BA9A6 /* UIViewController+MGSplitViewController.h */,
 				BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */,
 				BAEE75F61544086C00A92FA4 /* Views */,
+				BAB4305B1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.h */,
+				BAB4305C1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m */,
 			);
 			path = OtherSources;
 			sourceTree = "<group>";
@@ -2494,6 +2511,7 @@
 				BA56918016F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */,
 				BA56918616F8EBFC007A33D0 /* MKTRouteTransferController.m in Sources */,
 				BA56918916F9068F007A33D0 /* MKTRouteTransferViewController.m in Sources */,
+				BAB4305D1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2679,7 +2697,10 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 155;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -2704,7 +2725,10 @@
 			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -2779,7 +2803,10 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 155;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -2797,7 +2824,10 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 155;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -2829,7 +2859,10 @@
 			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -2847,7 +2880,10 @@
 			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
