@@ -27,6 +27,7 @@
 #import "MKTTableSection.h"
 #import "MKConnectionController.h"
 #import "MKTConnection.h"
+#import "MKTConnection+MKConnection.h"
 
 #import "MKTCommonColors.h"
 
@@ -176,7 +177,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
     self.tableView.userInteractionEnabled = NO;
 
-    [[MKConnectionController sharedMKConnectionController] start:_conneciton];
+    [[MKConnectionController sharedMKConnectionController] start:[_conneciton asDictionary]];
   }
   else {
     [[MKConnectionController sharedMKConnectionController] activateNaviCtrl];
@@ -300,8 +301,6 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     IKMkAddress addresses[] = {kIKMkAddressNC,kIKMkAddressFC,kIKMkAddressMK3MAg,kIKMkAddressBL};
     
     CustomBadge *badge = (CustomBadge*)item.accessoryView;
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:MKConnectionStateConnected ? 0 : 1];
-    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     switch ([_debugData statusTypeForAddress:addresses[index]]) {
       case IKStatusGreen:

@@ -113,34 +113,11 @@
 		BA98BEE916C28666000CA7EE /* MKTConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEE716C28666000CA7EE /* MKTConnection.m */; };
 		BA98BEF016C2885F000CA7EE /* MKTConnectedMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEED16C2885F000CA7EE /* MKTConnectedMenuController.m */; };
 		BA98BEF116C2885F000CA7EE /* MKTMainMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEEF16C2885F000CA7EE /* MKTMainMenuController.m */; };
-		BA98BF2F16C28886000CA7EE /* NSData+MKCommandDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEF616C28886000CA7EE /* NSData+MKCommandDecode.m */; };
-		BA98BF3016C28886000CA7EE /* NSData+MKCommandEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEF816C28886000CA7EE /* NSData+MKCommandEncode.m */; };
-		BA98BF3116C28886000CA7EE /* NSData+MKPayloadDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEFA16C28886000CA7EE /* NSData+MKPayloadDecode.m */; };
-		BA98BF3216C28886000CA7EE /* NSData+MKPayloadDecodeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEFB16C28886000CA7EE /* NSData+MKPayloadDecodeSetting.m */; };
-		BA98BF3316C28886000CA7EE /* NSData+MKPayloadEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEFD16C28886000CA7EE /* NSData+MKPayloadEncode.m */; };
 		BA98BF3416C28886000CA7EE /* MKTConnection+MKConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF0016C28886000CA7EE /* MKTConnection+MKConnection.m */; };
 		BA98BF3516C28886000CA7EE /* MKTConnectionsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF0216C28886000CA7EE /* MKTConnectionsListViewController.m */; };
 		BA98BF3616C28886000CA7EE /* MKTConnectionTypeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF0416C28886000CA7EE /* MKTConnectionTypeTransformer.m */; };
 		BA98BF3716C28886000CA7EE /* MKTConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF0616C28886000CA7EE /* MKTConnectionViewController.m */; };
 		BA98BF3816C28886000CA7EE /* MKTConnectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF0816C28886000CA7EE /* MKTConnectionViewDataSource.m */; };
-		BA98BF3916C28886000CA7EE /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF0B16C28886000CA7EE /* AsyncSocket.m */; };
-		BA98BF3A16C28886000CA7EE /* MKIpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF0F16C28886000CA7EE /* MKIpConnection.m */; };
-		BA98BF3B16C28886000CA7EE /* FakeOsd.csv in Resources */ = {isa = PBXBuildFile; fileRef = BA98BF1116C28886000CA7EE /* FakeOsd.csv */; };
-		BA98BF3C16C28886000CA7EE /* MKSimConnection-Devices.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1216C28886000CA7EE /* MKSimConnection-Devices.m */; };
-		BA98BF3D16C28886000CA7EE /* MKSimConnection-NCData.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1316C28886000CA7EE /* MKSimConnection-NCData.m */; };
-		BA98BF3E16C28886000CA7EE /* MKSimConnection-Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1416C28886000CA7EE /* MKSimConnection-Settings.m */; };
-		BA98BF3F16C28886000CA7EE /* MKSimConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1616C28886000CA7EE /* MKSimConnection.m */; };
-		BA98BF4016C28886000CA7EE /* MKConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1816C28886000CA7EE /* MKConnectionController.m */; };
-		BA98BF4116C28886000CA7EE /* IKData3D.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1B16C28886000CA7EE /* IKData3D.m */; };
-		BA98BF4216C28886000CA7EE /* IKDebugData.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1D16C28886000CA7EE /* IKDebugData.m */; };
-		BA98BF4316C28886000CA7EE /* IKDebugLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1F16C28886000CA7EE /* IKDebugLabel.m */; };
-		BA98BF4416C28886000CA7EE /* IKDeviceVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2116C28886000CA7EE /* IKDeviceVersion.m */; };
-		BA98BF4516C28886000CA7EE /* IKLcdDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2316C28886000CA7EE /* IKLcdDisplay.m */; };
-		BA98BF4616C28886000CA7EE /* IKLcdMenuPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2516C28886000CA7EE /* IKLcdMenuPage.m */; };
-		BA98BF4716C28886000CA7EE /* IKMixerTable.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2716C28886000CA7EE /* IKMixerTable.m */; };
-		BA98BF4816C28886000CA7EE /* IKNaviData.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2A16C28886000CA7EE /* IKNaviData.m */; };
-		BA98BF4916C28886000CA7EE /* IKParamSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2C16C28886000CA7EE /* IKParamSet.m */; };
-		BA98BF4A16C28886000CA7EE /* IKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2E16C28886000CA7EE /* IKPoint.m */; };
 		BA98BF8116C288A5000CA7EE /* ChannelsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF4E16C288A5000CA7EE /* ChannelsViewCell.m */; };
 		BA98BF8216C288A5000CA7EE /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF5016C288A5000CA7EE /* ChannelsViewController.m */; };
 		BA98BF8316C288A5000CA7EE /* EngineTestSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF5316C288A5000CA7EE /* EngineTestSliderCell.m */; };
@@ -174,21 +151,6 @@
 		BA98BFA916C28986000CA7EE /* ParamSetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFA216C28986000CA7EE /* ParamSetTest.m */; };
 		BA98BFAC16C28AD1000CA7EE /* NSString+Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFAB16C28AD1000CA7EE /* NSString+Parsing.m */; };
 		BA98BFAD16C28AD1000CA7EE /* NSString+Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFAB16C28AD1000CA7EE /* NSString+Parsing.m */; };
-		BA98BFAE16C28B06000CA7EE /* IKData3D.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1B16C28886000CA7EE /* IKData3D.m */; };
-		BA98BFAF16C28B06000CA7EE /* IKDebugData.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1D16C28886000CA7EE /* IKDebugData.m */; };
-		BA98BFB016C28B06000CA7EE /* IKDebugLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF1F16C28886000CA7EE /* IKDebugLabel.m */; };
-		BA98BFB116C28B06000CA7EE /* IKDeviceVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2116C28886000CA7EE /* IKDeviceVersion.m */; };
-		BA98BFB216C28B06000CA7EE /* IKLcdDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2316C28886000CA7EE /* IKLcdDisplay.m */; };
-		BA98BFB316C28B06000CA7EE /* IKLcdMenuPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2516C28886000CA7EE /* IKLcdMenuPage.m */; };
-		BA98BFB416C28B06000CA7EE /* IKMixerTable.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2716C28886000CA7EE /* IKMixerTable.m */; };
-		BA98BFB516C28B06000CA7EE /* IKNaviData.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2A16C28886000CA7EE /* IKNaviData.m */; };
-		BA98BFB616C28B06000CA7EE /* IKParamSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2C16C28886000CA7EE /* IKParamSet.m */; };
-		BA98BFB716C28B06000CA7EE /* IKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BF2E16C28886000CA7EE /* IKPoint.m */; };
-		BA98BFB816C28C60000CA7EE /* NSData+MKCommandDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEF616C28886000CA7EE /* NSData+MKCommandDecode.m */; };
-		BA98BFB916C28C60000CA7EE /* NSData+MKCommandEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEF816C28886000CA7EE /* NSData+MKCommandEncode.m */; };
-		BA98BFBA16C28C60000CA7EE /* NSData+MKPayloadDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEFA16C28886000CA7EE /* NSData+MKPayloadDecode.m */; };
-		BA98BFBB16C28C60000CA7EE /* NSData+MKPayloadDecodeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEFB16C28886000CA7EE /* NSData+MKPayloadDecodeSetting.m */; };
-		BA98BFBC16C28C60000CA7EE /* NSData+MKPayloadEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BEFD16C28886000CA7EE /* NSData+MKPayloadEncode.m */; };
 		BA98BFD016C29079000CA7EE /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFBE16C29079000CA7EE /* CustomBadge.m */; };
 		BA98BFD116C29079000CA7EE /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFBE16C29079000CA7EE /* CustomBadge.m */; };
 		BA98BFD216C29079000CA7EE /* IKOutputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFC116C29079000CA7EE /* IKOutputCell.m */; };
@@ -578,16 +540,6 @@
 		BA98BEED16C2885F000CA7EE /* MKTConnectedMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTConnectedMenuController.m; path = ApplicationBase/MKTConnectedMenuController.m; sourceTree = "<group>"; };
 		BA98BEEE16C2885F000CA7EE /* MKTMainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTMainMenuController.h; path = ApplicationBase/MKTMainMenuController.h; sourceTree = "<group>"; };
 		BA98BEEF16C2885F000CA7EE /* MKTMainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTMainMenuController.m; path = ApplicationBase/MKTMainMenuController.m; sourceTree = "<group>"; };
-		BA98BEF416C28886000CA7EE /* MKDataConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDataConstants.h; sourceTree = "<group>"; };
-		BA98BEF516C28886000CA7EE /* NSData+MKCommandDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKCommandDecode.h"; sourceTree = "<group>"; };
-		BA98BEF616C28886000CA7EE /* NSData+MKCommandDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKCommandDecode.m"; sourceTree = "<group>"; };
-		BA98BEF716C28886000CA7EE /* NSData+MKCommandEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKCommandEncode.h"; sourceTree = "<group>"; };
-		BA98BEF816C28886000CA7EE /* NSData+MKCommandEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKCommandEncode.m"; sourceTree = "<group>"; };
-		BA98BEF916C28886000CA7EE /* NSData+MKPayloadDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKPayloadDecode.h"; sourceTree = "<group>"; };
-		BA98BEFA16C28886000CA7EE /* NSData+MKPayloadDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKPayloadDecode.m"; sourceTree = "<group>"; };
-		BA98BEFB16C28886000CA7EE /* NSData+MKPayloadDecodeSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKPayloadDecodeSetting.m"; sourceTree = "<group>"; };
-		BA98BEFC16C28886000CA7EE /* NSData+MKPayloadEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKPayloadEncode.h"; sourceTree = "<group>"; };
-		BA98BEFD16C28886000CA7EE /* NSData+MKPayloadEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKPayloadEncode.m"; sourceTree = "<group>"; };
 		BA98BEFF16C28886000CA7EE /* MKTConnection+MKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTConnection+MKConnection.h"; sourceTree = "<group>"; };
 		BA98BF0016C28886000CA7EE /* MKTConnection+MKConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTConnection+MKConnection.m"; sourceTree = "<group>"; };
 		BA98BF0116C28886000CA7EE /* MKTConnectionsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTConnectionsListViewController.h; sourceTree = "<group>"; };
@@ -598,40 +550,6 @@
 		BA98BF0616C28886000CA7EE /* MKTConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTConnectionViewController.m; sourceTree = "<group>"; };
 		BA98BF0716C28886000CA7EE /* MKTConnectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTConnectionViewDataSource.h; sourceTree = "<group>"; };
 		BA98BF0816C28886000CA7EE /* MKTConnectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTConnectionViewDataSource.m; sourceTree = "<group>"; };
-		BA98BF0A16C28886000CA7EE /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		BA98BF0B16C28886000CA7EE /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		BA98BF0D16C28886000CA7EE /* MKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKConnection.h; sourceTree = "<group>"; };
-		BA98BF0E16C28886000CA7EE /* MKIpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKIpConnection.h; sourceTree = "<group>"; };
-		BA98BF0F16C28886000CA7EE /* MKIpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKIpConnection.m; sourceTree = "<group>"; };
-		BA98BF1116C28886000CA7EE /* FakeOsd.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FakeOsd.csv; sourceTree = "<group>"; };
-		BA98BF1216C28886000CA7EE /* MKSimConnection-Devices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKSimConnection-Devices.m"; sourceTree = "<group>"; };
-		BA98BF1316C28886000CA7EE /* MKSimConnection-NCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKSimConnection-NCData.m"; sourceTree = "<group>"; };
-		BA98BF1416C28886000CA7EE /* MKSimConnection-Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKSimConnection-Settings.m"; sourceTree = "<group>"; };
-		BA98BF1516C28886000CA7EE /* MKSimConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSimConnection.h; sourceTree = "<group>"; };
-		BA98BF1616C28886000CA7EE /* MKSimConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSimConnection.m; sourceTree = "<group>"; };
-		BA98BF1716C28886000CA7EE /* MKConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKConnectionController.h; sourceTree = "<group>"; };
-		BA98BF1816C28886000CA7EE /* MKConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKConnectionController.m; sourceTree = "<group>"; };
-		BA98BF1A16C28886000CA7EE /* IKData3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKData3D.h; sourceTree = "<group>"; };
-		BA98BF1B16C28886000CA7EE /* IKData3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKData3D.m; sourceTree = "<group>"; };
-		BA98BF1C16C28886000CA7EE /* IKDebugData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKDebugData.h; sourceTree = "<group>"; };
-		BA98BF1D16C28886000CA7EE /* IKDebugData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKDebugData.m; sourceTree = "<group>"; };
-		BA98BF1E16C28886000CA7EE /* IKDebugLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKDebugLabel.h; sourceTree = "<group>"; };
-		BA98BF1F16C28886000CA7EE /* IKDebugLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKDebugLabel.m; sourceTree = "<group>"; };
-		BA98BF2016C28886000CA7EE /* IKDeviceVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKDeviceVersion.h; sourceTree = "<group>"; };
-		BA98BF2116C28886000CA7EE /* IKDeviceVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKDeviceVersion.m; sourceTree = "<group>"; };
-		BA98BF2216C28886000CA7EE /* IKLcdDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKLcdDisplay.h; sourceTree = "<group>"; };
-		BA98BF2316C28886000CA7EE /* IKLcdDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKLcdDisplay.m; sourceTree = "<group>"; };
-		BA98BF2416C28886000CA7EE /* IKLcdMenuPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKLcdMenuPage.h; sourceTree = "<group>"; };
-		BA98BF2516C28886000CA7EE /* IKLcdMenuPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKLcdMenuPage.m; sourceTree = "<group>"; };
-		BA98BF2616C28886000CA7EE /* IKMixerTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKMixerTable.h; sourceTree = "<group>"; };
-		BA98BF2716C28886000CA7EE /* IKMixerTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKMixerTable.m; sourceTree = "<group>"; };
-		BA98BF2816C28886000CA7EE /* IKMkDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKMkDataTypes.h; sourceTree = "<group>"; };
-		BA98BF2916C28886000CA7EE /* IKNaviData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKNaviData.h; sourceTree = "<group>"; };
-		BA98BF2A16C28886000CA7EE /* IKNaviData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKNaviData.m; sourceTree = "<group>"; };
-		BA98BF2B16C28886000CA7EE /* IKParamSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKParamSet.h; sourceTree = "<group>"; };
-		BA98BF2C16C28886000CA7EE /* IKParamSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKParamSet.m; sourceTree = "<group>"; };
-		BA98BF2D16C28886000CA7EE /* IKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKPoint.h; sourceTree = "<group>"; };
-		BA98BF2E16C28886000CA7EE /* IKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKPoint.m; sourceTree = "<group>"; };
 		BA98BF4D16C288A5000CA7EE /* ChannelsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelsViewCell.h; sourceTree = "<group>"; };
 		BA98BF4E16C288A5000CA7EE /* ChannelsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelsViewCell.m; sourceTree = "<group>"; };
 		BA98BF4F16C288A5000CA7EE /* ChannelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelsViewController.h; sourceTree = "<group>"; };
@@ -1171,32 +1089,9 @@
 		BA98BEF216C28886000CA7EE /* Communication */ = {
 			isa = PBXGroup;
 			children = (
-				BA98BEF316C28886000CA7EE /* Coding */,
 				BA98BEFE16C28886000CA7EE /* Connection */,
-				BA98BF0916C28886000CA7EE /* LowLevel */,
-				BA98BF0C16C28886000CA7EE /* MKConnection */,
-				BA98BF1716C28886000CA7EE /* MKConnectionController.h */,
-				BA98BF1816C28886000CA7EE /* MKConnectionController.m */,
-				BA98BF1916C28886000CA7EE /* Models */,
 			);
 			path = Communication;
-			sourceTree = "<group>";
-		};
-		BA98BEF316C28886000CA7EE /* Coding */ = {
-			isa = PBXGroup;
-			children = (
-				BA98BEF416C28886000CA7EE /* MKDataConstants.h */,
-				BA98BEF516C28886000CA7EE /* NSData+MKCommandDecode.h */,
-				BA98BEF616C28886000CA7EE /* NSData+MKCommandDecode.m */,
-				BA98BEF716C28886000CA7EE /* NSData+MKCommandEncode.h */,
-				BA98BEF816C28886000CA7EE /* NSData+MKCommandEncode.m */,
-				BA98BEF916C28886000CA7EE /* NSData+MKPayloadDecode.h */,
-				BA98BEFA16C28886000CA7EE /* NSData+MKPayloadDecode.m */,
-				BA98BEFB16C28886000CA7EE /* NSData+MKPayloadDecodeSetting.m */,
-				BA98BEFC16C28886000CA7EE /* NSData+MKPayloadEncode.h */,
-				BA98BEFD16C28886000CA7EE /* NSData+MKPayloadEncode.m */,
-			);
-			path = Coding;
 			sourceTree = "<group>";
 		};
 		BA98BEFE16C28886000CA7EE /* Connection */ = {
@@ -1214,67 +1109,6 @@
 				BA98BF0816C28886000CA7EE /* MKTConnectionViewDataSource.m */,
 			);
 			path = Connection;
-			sourceTree = "<group>";
-		};
-		BA98BF0916C28886000CA7EE /* LowLevel */ = {
-			isa = PBXGroup;
-			children = (
-				BA98BF0A16C28886000CA7EE /* AsyncSocket.h */,
-				BA98BF0B16C28886000CA7EE /* AsyncSocket.m */,
-			);
-			path = LowLevel;
-			sourceTree = "<group>";
-		};
-		BA98BF0C16C28886000CA7EE /* MKConnection */ = {
-			isa = PBXGroup;
-			children = (
-				BA98BF0D16C28886000CA7EE /* MKConnection.h */,
-				BA98BF0E16C28886000CA7EE /* MKIpConnection.h */,
-				BA98BF0F16C28886000CA7EE /* MKIpConnection.m */,
-				BA98BF1016C28886000CA7EE /* Simulator */,
-			);
-			path = MKConnection;
-			sourceTree = "<group>";
-		};
-		BA98BF1016C28886000CA7EE /* Simulator */ = {
-			isa = PBXGroup;
-			children = (
-				BA98BF1116C28886000CA7EE /* FakeOsd.csv */,
-				BA98BF1216C28886000CA7EE /* MKSimConnection-Devices.m */,
-				BA98BF1316C28886000CA7EE /* MKSimConnection-NCData.m */,
-				BA98BF1416C28886000CA7EE /* MKSimConnection-Settings.m */,
-				BA98BF1516C28886000CA7EE /* MKSimConnection.h */,
-				BA98BF1616C28886000CA7EE /* MKSimConnection.m */,
-			);
-			path = Simulator;
-			sourceTree = "<group>";
-		};
-		BA98BF1916C28886000CA7EE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BA98BF1A16C28886000CA7EE /* IKData3D.h */,
-				BA98BF1B16C28886000CA7EE /* IKData3D.m */,
-				BA98BF1C16C28886000CA7EE /* IKDebugData.h */,
-				BA98BF1D16C28886000CA7EE /* IKDebugData.m */,
-				BA98BF1E16C28886000CA7EE /* IKDebugLabel.h */,
-				BA98BF1F16C28886000CA7EE /* IKDebugLabel.m */,
-				BA98BF2016C28886000CA7EE /* IKDeviceVersion.h */,
-				BA98BF2116C28886000CA7EE /* IKDeviceVersion.m */,
-				BA98BF2216C28886000CA7EE /* IKLcdDisplay.h */,
-				BA98BF2316C28886000CA7EE /* IKLcdDisplay.m */,
-				BA98BF2416C28886000CA7EE /* IKLcdMenuPage.h */,
-				BA98BF2516C28886000CA7EE /* IKLcdMenuPage.m */,
-				BA98BF2616C28886000CA7EE /* IKMixerTable.h */,
-				BA98BF2716C28886000CA7EE /* IKMixerTable.m */,
-				BA98BF2816C28886000CA7EE /* IKMkDataTypes.h */,
-				BA98BF2916C28886000CA7EE /* IKNaviData.h */,
-				BA98BF2A16C28886000CA7EE /* IKNaviData.m */,
-				BA98BF2B16C28886000CA7EE /* IKParamSet.h */,
-				BA98BF2C16C28886000CA7EE /* IKParamSet.m */,
-				BA98BF2D16C28886000CA7EE /* IKPoint.h */,
-				BA98BF2E16C28886000CA7EE /* IKPoint.m */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		BA98BF4B16C288A5000CA7EE /* MKSettings */ = {
@@ -2200,7 +2034,6 @@
 				BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */,
 				BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */,
 				BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */,
-				BA98BF3B16C28886000CA7EE /* FakeOsd.csv in Resources */,
 				BA98BF8816C288A5000CA7EE /* MixerTableViewCell.xib in Resources */,
 				BA98C00316C290AD000CA7EE /* FollowMeOsdViewController-iPad.xib in Resources */,
 				BA98C00716C290AD000CA7EE /* FollowMeOsdViewController.xib in Resources */,
@@ -2431,33 +2264,11 @@
 				BA98BEE916C28666000CA7EE /* MKTConnection.m in Sources */,
 				BA98BEF016C2885F000CA7EE /* MKTConnectedMenuController.m in Sources */,
 				BA98BEF116C2885F000CA7EE /* MKTMainMenuController.m in Sources */,
-				BA98BF2F16C28886000CA7EE /* NSData+MKCommandDecode.m in Sources */,
-				BA98BF3016C28886000CA7EE /* NSData+MKCommandEncode.m in Sources */,
-				BA98BF3116C28886000CA7EE /* NSData+MKPayloadDecode.m in Sources */,
-				BA98BF3216C28886000CA7EE /* NSData+MKPayloadDecodeSetting.m in Sources */,
-				BA98BF3316C28886000CA7EE /* NSData+MKPayloadEncode.m in Sources */,
 				BA98BF3416C28886000CA7EE /* MKTConnection+MKConnection.m in Sources */,
 				BA98BF3516C28886000CA7EE /* MKTConnectionsListViewController.m in Sources */,
 				BA98BF3616C28886000CA7EE /* MKTConnectionTypeTransformer.m in Sources */,
 				BA98BF3716C28886000CA7EE /* MKTConnectionViewController.m in Sources */,
 				BA98BF3816C28886000CA7EE /* MKTConnectionViewDataSource.m in Sources */,
-				BA98BF3916C28886000CA7EE /* AsyncSocket.m in Sources */,
-				BA98BF3A16C28886000CA7EE /* MKIpConnection.m in Sources */,
-				BA98BF3C16C28886000CA7EE /* MKSimConnection-Devices.m in Sources */,
-				BA98BF3D16C28886000CA7EE /* MKSimConnection-NCData.m in Sources */,
-				BA98BF3E16C28886000CA7EE /* MKSimConnection-Settings.m in Sources */,
-				BA98BF3F16C28886000CA7EE /* MKSimConnection.m in Sources */,
-				BA98BF4016C28886000CA7EE /* MKConnectionController.m in Sources */,
-				BA98BF4116C28886000CA7EE /* IKData3D.m in Sources */,
-				BA98BF4216C28886000CA7EE /* IKDebugData.m in Sources */,
-				BA98BF4316C28886000CA7EE /* IKDebugLabel.m in Sources */,
-				BA98BF4416C28886000CA7EE /* IKDeviceVersion.m in Sources */,
-				BA98BF4516C28886000CA7EE /* IKLcdDisplay.m in Sources */,
-				BA98BF4616C28886000CA7EE /* IKLcdMenuPage.m in Sources */,
-				BA98BF4716C28886000CA7EE /* IKMixerTable.m in Sources */,
-				BA98BF4816C28886000CA7EE /* IKNaviData.m in Sources */,
-				BA98BF4916C28886000CA7EE /* IKParamSet.m in Sources */,
-				BA98BF4A16C28886000CA7EE /* IKPoint.m in Sources */,
 				BA98BF8116C288A5000CA7EE /* ChannelsViewCell.m in Sources */,
 				BA98BF8216C288A5000CA7EE /* ChannelsViewController.m in Sources */,
 				BA98BF8316C288A5000CA7EE /* EngineTestSliderCell.m in Sources */,
@@ -2552,21 +2363,6 @@
 				BA98BFA816C28986000CA7EE /* MKCommandVersionTest.m in Sources */,
 				BA98BFA916C28986000CA7EE /* ParamSetTest.m in Sources */,
 				BA98BFAD16C28AD1000CA7EE /* NSString+Parsing.m in Sources */,
-				BA98BFAE16C28B06000CA7EE /* IKData3D.m in Sources */,
-				BA98BFAF16C28B06000CA7EE /* IKDebugData.m in Sources */,
-				BA98BFB016C28B06000CA7EE /* IKDebugLabel.m in Sources */,
-				BA98BFB116C28B06000CA7EE /* IKDeviceVersion.m in Sources */,
-				BA98BFB216C28B06000CA7EE /* IKLcdDisplay.m in Sources */,
-				BA98BFB316C28B06000CA7EE /* IKLcdMenuPage.m in Sources */,
-				BA98BFB416C28B06000CA7EE /* IKMixerTable.m in Sources */,
-				BA98BFB516C28B06000CA7EE /* IKNaviData.m in Sources */,
-				BA98BFB616C28B06000CA7EE /* IKParamSet.m in Sources */,
-				BA98BFB716C28B06000CA7EE /* IKPoint.m in Sources */,
-				BA98BFB816C28C60000CA7EE /* NSData+MKCommandDecode.m in Sources */,
-				BA98BFB916C28C60000CA7EE /* NSData+MKCommandEncode.m in Sources */,
-				BA98BFBA16C28C60000CA7EE /* NSData+MKPayloadDecode.m in Sources */,
-				BA98BFBB16C28C60000CA7EE /* NSData+MKPayloadDecodeSetting.m in Sources */,
-				BA98BFBC16C28C60000CA7EE /* NSData+MKPayloadEncode.m in Sources */,
 				BA98BFD116C29079000CA7EE /* CustomBadge.m in Sources */,
 				BA98BFD316C29079000CA7EE /* IKOutputCell.m in Sources */,
 				BA98BFD516C29079000CA7EE /* IKOutputFormField.m in Sources */,
