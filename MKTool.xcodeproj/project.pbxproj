@@ -2492,7 +2492,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 155;
+				CURRENT_PROJECT_VERSION = 156;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2536,6 +2536,83 @@
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
+		};
+		BA4E5C24170605F600669C67 /* Testflight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "TESTING=1";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Testflight;
+		};
+		BA4E5C25170605F600669C67 /* Testflight */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				CURRENT_PROJECT_VERSION = 156;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Testflight;
+		};
+		BA4E5C26170605F600669C67 /* Testflight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Testflight;
+		};
+		BA4E5C27170605F600669C67 /* Testflight */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MKToolTests/MKToolTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "MKToolTests/MKToolTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Testflight;
 		};
 		BAB2F21D15409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2587,7 +2664,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8EF5439B-0F0E-4642-ABE4-70CF1196DF7C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2598,7 +2675,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 155;
+				CURRENT_PROJECT_VERSION = 156;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2619,7 +2696,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 155;
+				CURRENT_PROJECT_VERSION = 156;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2700,6 +2777,7 @@
 			buildConfigurations = (
 				BAB2F21D15409C8D00ECE09A /* Debug */,
 				BAB2F21E15409C8D00ECE09A /* Release */,
+				BA4E5C24170605F600669C67 /* Testflight */,
 				BA27D55B155F294F00C6B37E /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2710,6 +2788,7 @@
 			buildConfigurations = (
 				BAB2F22015409C8D00ECE09A /* Debug */,
 				BAB2F22115409C8D00ECE09A /* Release */,
+				BA4E5C25170605F600669C67 /* Testflight */,
 				BA27D55C155F294F00C6B37E /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2720,6 +2799,7 @@
 			buildConfigurations = (
 				BAB2F28A1540A66A00ECE09A /* Debug */,
 				BAB2F28B1540A66A00ECE09A /* Release */,
+				BA4E5C26170605F600669C67 /* Testflight */,
 				BA27D55D155F294F00C6B37E /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2730,6 +2810,7 @@
 			buildConfigurations = (
 				BAB2F2B81540A7F800ECE09A /* Debug */,
 				BAB2F2B91540A7F800ECE09A /* Release */,
+				BA4E5C27170605F600669C67 /* Testflight */,
 				BA27D55E155F294F00C6B37E /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;

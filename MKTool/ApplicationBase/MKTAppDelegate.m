@@ -81,6 +81,7 @@
   [TestFlight takeOff:kTESTFLIGHTTOKEN];
   
 #ifdef TESTING
+#pragma message("Build for Testflightapp. Use Device UUID")
   [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
 
