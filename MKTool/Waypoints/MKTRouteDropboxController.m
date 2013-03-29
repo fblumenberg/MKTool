@@ -72,15 +72,13 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void)startSynchronization;
 
-- (void)uploadRoute:(MKTRoute *)route;
+- (void)uploadRoute:(MKTRoute *)route createFile:(BOOL)create;
 
 - (void)downloadRoute:(DBFileInfo *)metaData;
 
 - (void)deleteLocalRoute:(MKTRoute *)route;
 
 - (void)deleteRemoteRoute:(DBFileInfo *)metaData;
-
-- (void)metaDataReady;
 
 @end
 
