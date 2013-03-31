@@ -29,15 +29,27 @@
 #import "MKTConnectionTypeTransformer.h"
 
 #import "SettingsFieldStyle.h"
+#import "SettingsButtonStyle.h"
 
+#ifdef CYDIA
+#import "BTDevice.h"
+#import "BTDiscoveryViewController.h"
 
-@implementation MKTConnectionViewDataSource
+@interface MKTConnectionViewDataSource (BTDiscovery) <BTDiscoveryDelegate>
+
+@end
+
+#endif
+
+@implementation MKTConnectionViewDataSource{
+  IBAFormField* address;
+  IBAFormField* infoWLAN;
+  IBAFormField* connectionData;
+  IBAFormField* discoveryButton;
+}
 
 - (id)initWithModel:(id)aModel {
   if ((self = [super initWithModel:aModel])) {
-
-    IBAFormSection *hostSection = [self addSectionWithHeaderTitle:nil footerTitle:NSLocalizedString(@"WLAN - Hostname:Port", @"MKTConnection footer")];
-    hostSection.formFieldStyle = [[SettingsFieldStyleText alloc] init];
 
     [self updateHostSection];
   }
@@ -46,7 +58,8 @@
 
 - (void)updateHostSection {
 
-  IBAFormSection *hostSection = [self.sections objectAtIndex:0];
+  IBAFormSection *hostSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+  hostSection.formFieldStyle = [[SettingsFieldStyleText alloc] init];
 
   [hostSection.formFields removeAllObjects];
 
@@ -60,17 +73,91 @@
                                                             selectionMode:IBAPickListSelectionModeSingle
                                                                   options:hostTransformer.pickListOptions]];
 
+  address=[[IBATextFormField alloc] initWithKeyPath:@"address" title:NSLocalizedString(@"Address", @"Host address")];
+  [hostSection addFormField:address];
+  
+  infoWLAN = [[IBATitleFormField alloc] initWithTitle:NSLocalizedString(@"Hostname:Port", @"Host address")];
+  [hostSection addFormField:infoWLAN];
+
+  connectionData = [[IBATextFormField alloc] initWithKeyPath:@"connectionData" title:NSLocalizedString(@"Pin", @"Host pin")];
+  [hostSection addFormField:connectionData];
+
+  
+#ifdef CYDIA
+  IBAFormSection *buttonSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+  buttonSection.formFieldStyle = [[SettingsButtonStyle alloc] init];
+  
+  discoveryButton = [[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Search Bluetooth", @"BT search button") icon:nil executionBlock:^{
+    [self showDiscoveryView];
+  }];
+  [buttonSection addFormField:discoveryButton];
+  
+#endif
+  
   NSString *connectionClass = [self modelValueForKeyPath:@"connectionClass"];
+  [self updateVisibility:connectionClass];
+}
 
-  if ([connectionClass isEqualToString:@"MKFakeConnection"] == NO)
-    [hostSection addFormField:[[IBATextFormField alloc] initWithKeyPath:@"address" title:NSLocalizedString(@"Address", @"Host address")]];
-
-  [hostSection addFormField:[[IBATextFormField alloc] initWithKeyPath:@"connectionData" title:NSLocalizedString(@"Pin", @"Host pin")]];
+- (void)updateVisibility:(NSString*)connectionClass{
+  
+  if([connectionClass isEqualToString:@"MKSimConnection"]){
+    [self setFormField:address hidden:YES];
+    [self setFormField:connectionData hidden:YES];
+    [self setFormField:infoWLAN hidden:YES];
+    [self setFormField:discoveryButton hidden:YES];
+  }
+  else if ([connectionClass isEqualToString:@"MKBluetoothConnection"]){
+    [self setFormField:address hidden:NO];
+    [self setFormField:connectionData hidden:NO];
+    [self setFormField:infoWLAN hidden:YES];
+    [self setFormField:discoveryButton hidden:NO];
+  }
+  else if ([connectionClass isEqualToString:@"MKIpConnection"]){
+    [self setFormField:address hidden:NO];
+    [self setFormField:connectionData hidden:YES];
+    [self setFormField:infoWLAN hidden:NO];
+    [self setFormField:discoveryButton hidden:YES];
+  }
+  else{
+    [self setFormField:address hidden:NO];
+    [self setFormField:connectionData hidden:YES];
+    [self setFormField:infoWLAN hidden:YES];
+    [self setFormField:discoveryButton hidden:YES];
+  }
 }
 
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
   [super setModelValue:value forKeyPath:keyPath];
+  if([keyPath isEqualToString:@"connectionClass"]){
+    [self updateVisibility:value];
+  }
+}
+
+#ifdef CYDIA
+
+- (void)showDiscoveryView {
+  
+  BTDiscoveryViewController *controller = [[BTDiscoveryViewController alloc] init];
+  
+  UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+  
+  
+  navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+  controller.delegate = self;
+  [rootViewController presentModalViewController:navController animated:YES];
 }
 
 
+- (BOOL)discoveryView:(BTDiscoveryViewController *)discoveryView willSelectDeviceAtIndex:(int)deviceIndex {
+  
+  BTDevice *device = [discoveryView.bt deviceAtIndex:deviceIndex];
+  
+  [self.model setValue:[device nameOrAddress] forKey:@"name"];
+  [self.model setValue:[device addressString] forKey:@"address"];
+  
+  [discoveryView.navigationController dismissModalViewControllerAnimated:YES];
+  return YES;
+}
+#endif
 @end

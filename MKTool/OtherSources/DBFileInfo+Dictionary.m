@@ -12,7 +12,7 @@
 
 - (NSDictionary *)toDictionary {
 
-  
+  return nil;
 }
 
 @end

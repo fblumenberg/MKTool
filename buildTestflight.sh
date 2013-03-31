@@ -1,0 +1,1 @@
+xcodebuild -workspace MKTool.xcworkspace -scheme "MKTool for Testflight" archive

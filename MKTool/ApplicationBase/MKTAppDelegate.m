@@ -22,8 +22,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-
+#ifdef CYDIA
+#import "BWQuincyManager.h"
+#else
 #import "TestFlight.h"
+#endif
 
 #import "MGSplitViewController.h"
 
@@ -78,13 +81,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+#ifdef CYDIA
+  [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://frankblumenberg.de/crashlog/crash_v200.php"];
+#else
   [TestFlight takeOff:kTESTFLIGHTTOKEN];
   
 #ifdef TESTING
 #pragma message("Build for Testflightapp. Use Device UUID")
   [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
-
+  
+#endif
   
   [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {
     NSLog(@"Set log level for class %@",class);

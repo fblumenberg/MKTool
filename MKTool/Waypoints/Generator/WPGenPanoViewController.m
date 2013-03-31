@@ -53,7 +53,7 @@
     [self.wpData setValue:[NSNumber numberWithBool:NO] forKey:WPclockwise];
 
     self.dataSource = [[WPGenPanoDataSource alloc] initWithModel:self.wpData];
-    self.dataSource.delegate = self;
+    self.dataSource.genDelegate = self;
   }
   return self;
 }

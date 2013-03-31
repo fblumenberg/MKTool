@@ -115,7 +115,7 @@
   NSUInteger numberOfConnections = [sectionInfo numberOfObjects];
 
   hasConnections = numberOfConnections != 0;
-  showSelectConnections = numberOfConnections > kMKTMainMenuDisplayedConnections;
+  showSelectConnections = NO; //numberOfConnections > kMKTMainMenuDisplayedConnections;
 
   selectConnectionRow = kMKTMainMenuDisplayedConnections;
   editConnectionRow = showSelectConnections ? selectConnectionRow + 1 : hasConnections ? numberOfConnections : 0;
@@ -244,7 +244,7 @@ DEFINE_KEY(kFunctionCellId)
       MKTConnectionsListViewController *c = [MKTConnectionsListViewController new];
       [self.navigationController pushViewController:c animated:YES];
     }
-    else if (indexPath.row == selectConnectionRow) {
+    else if (showSelectConnections && indexPath.row == selectConnectionRow) {
       SBTableAlert *alert = [SBTableAlert alertWithTitle:@"Connections" cancelButtonTitle:NSLocalizedString(@"Cancel", @"Connections select") messageFormat:nil];
       alert.dataSource = self;
       alert.delegate = self;

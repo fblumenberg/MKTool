@@ -32,7 +32,7 @@
 
 - (void)addAttributeSection;
 
-@property(nonatomic, assign) id <WPGenBaseDataSourceDelegate> delegate;
+@property(nonatomic, assign) id <WPGenBaseDataSourceDelegate> genDelegate;
 
 @end
 

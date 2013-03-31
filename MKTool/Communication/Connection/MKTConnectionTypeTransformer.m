@@ -37,25 +37,33 @@
 - (id)init {
   self = [super init];
   if (self) {
+#ifdef CYDIA
     keys = [[NSArray alloc] initWithObjects:
             @"MKIpConnection",
             @"MKSerialConnection",
             @"MKBluetoothConnection",
-            @"MKRedparkSerialConnection",
             @"MKSimConnection",
             nil];
-
+#else
+    keys = [[NSArray alloc] initWithObjects:
+            @"MKIpConnection",
+            @"MKSimConnection",
+            nil];
+#endif
+    
     pickListOptions = [NSMutableArray array];
     UIFont *font = [UIFont boldSystemFontOfSize:18];
-
+    
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"WLAN Connection", @"WLAN Connection title") iconImage:[UIImage imageNamed:@"icon-wifi.png"]
                                                                       font:font]];
+#ifdef CYDIA
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Serial Connection", @"Serial Connection title") iconImage:[UIImage imageNamed:@"icon-usb.png"]
                                                                       font:font]];
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Bluetooth Connection", @"BT Connection title") iconImage:[UIImage imageNamed:@"icon-bluetooth.png"]
                                                                       font:font]];
-    [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Redpark Serial Connection", @"Redpark Serial Connection title") iconImage:[UIImage imageNamed:@"icon-usb.png"]
-                                                                      font:font]];
+    //    [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Redpark Serial Connection", @"Redpark Serial Connection title") iconImage:[UIImage imageNamed:@"icon-usb.png"]
+    //                                                                    font:font]];
+#endif
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Fake Connection", @"Fake Connection title") iconImage:[UIImage imageNamed:@"icon-phone.png"]
                                                                       font:font]];
   }

@@ -32,6 +32,20 @@
 			<key>Type</key>
 			<string>IASKCustomViewSpecifier</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string></string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+    <dict>
+			<key>Key</key>
+			<string>MKTVersion</string>
+			<key>Title</key>
+			<string>Dropbox</string>
+			<key>Type</key>
+			<string>IASKCustomViewSpecifier</string>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

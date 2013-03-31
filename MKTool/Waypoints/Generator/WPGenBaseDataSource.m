@@ -35,7 +35,7 @@
 
 @implementation WPGenBaseDataSource
 
-@synthesize delegate;
+@synthesize genDelegate;
 
 - (id)initWithModel:(id)aModel {
   if ((self = [super initWithModel:aModel])) {
@@ -132,7 +132,7 @@
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
   [super setModelValue:value forKeyPath:keyPath];
 
-  [self.delegate dataSource:self];
+  [self.genDelegate dataSource:self];
   NSLog(@"%@", [self.model description]);
 }
 

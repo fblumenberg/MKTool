@@ -54,28 +54,51 @@
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForSpecifier:(IASKSpecifier*)specifier {
-	if ([specifier.key isEqualToString:@"MKTDropbox"]) {
+	if ([specifier.key isEqualToString:@"MKTDropbox"] ||
+      [[specifier key] isEqualToString:@"MKTVersion"]) {
 		return 44;
 	}
 	return 0;
 }
 
+
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForSpecifier:(IASKSpecifier*)specifier {
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:specifier.key];
-	
-	if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:specifier.key];
-	}
-
-  BOOL dbAccountLinked = [[DBAccountManager sharedManager] linkedAccount] != nil;
-  cell.textLabel.text = NSLocalizedString(@"Unlink from Dropbbox",@"");
-  cell.contentView.userInteractionEnabled = dbAccountLinked;
   
-  cell.selectionStyle = dbAccountLinked?UITableViewCellSelectionStyleBlue:UITableViewCellSelectionStyleNone;
-  cell.textLabel.textColor = dbAccountLinked?[UIColor darkTextColor]:[UIColor grayColor];
-	[cell setNeedsLayout];
-	return cell;
+  if (!cell) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:specifier.key];
+  }
+
+  if ([specifier.key isEqualToString:@"MKTDropbox"] ){
+    
+    BOOL dbAccountLinked = [[DBAccountManager sharedManager] linkedAccount] != nil;
+    cell.textLabel.text = NSLocalizedString(@"Unlink from Dropbbox",@"");
+    cell.contentView.userInteractionEnabled = dbAccountLinked;
+    
+    cell.selectionStyle = dbAccountLinked?UITableViewCellSelectionStyleBlue:UITableViewCellSelectionStyleNone;
+    cell.textLabel.textColor = dbAccountLinked?[UIColor darkTextColor]:[UIColor grayColor];
+    [cell setNeedsLayout];
+  }
+  
+  if ([[specifier key] isEqualToString:@"MKTVersion"]) {
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appDisplayName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+    
+    NSString *extra=@"";
+#ifdef CYDIA
+    extra = @"(CYDIA)";
+#endif
+    
+    cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@%@, Version %@ (%@)",nil),appDisplayName,extra,majorVersion, minorVersion];
+    
+    [cell setUserInteractionEnabled:NO];
+  }
+
+  return cell;
 }
 
 - (void)settingsViewController:(IASKAppSettingsViewController *)sender tableView:(UITableView *)tableView didSelectCustomViewSpecifier:(IASKSpecifier *)specifier{

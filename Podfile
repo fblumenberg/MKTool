@@ -10,3 +10,9 @@ pod 'CocoaLumberjack'
 target :MKToolTests do
   pod 'GHUnitIOS'
 end
+
+target :MKToolCydia do
+  pod 'QuincyKit'
+  pod 'MKCommunicationExtra', :git => 'file:///Users/frankblumenberg/Develop/Cocoa/MKCommunicationExtra'
+  pod 'MKCommunicationBTStack', :git => 'file:///Users/frankblumenberg/Develop/Cocoa/MKCommunicationBTStack'
+end

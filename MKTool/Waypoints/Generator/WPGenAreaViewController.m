@@ -54,7 +54,7 @@
     [self.wpData setValue:[NSNumber numberWithInteger:2] forKey:WPnoPointsY];
 
     self.dataSource = [[WPGenAreaDataSource alloc] initWithModel:self.wpData];
-    self.dataSource.delegate = self;
+    self.dataSource.genDelegate = self;
   }
   return self;
 }

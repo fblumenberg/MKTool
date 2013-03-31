@@ -128,6 +128,8 @@
   MKTConnection *conn = [MKTConnection create];
   conn.name = NSLocalizedString(@"Connection", @"MKTConnection default name");
   conn.connectionClass = @"MKIpConnection";
+  conn.address = @"127.0.0.1";
+  conn.connectionData=@"";
 
   [[CoreDataStore mainStore] save];
 
