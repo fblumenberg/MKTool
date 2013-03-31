@@ -1,0 +1,10 @@
+Package: de.frankblumenberg.mktool
+Name: MKTool
+Version: 1.1-157
+Architecture: iphoneos-arm
+Description: A control App for the Mikrokopter.
+Homepage: http://www.mikrokopter.de/ucwiki/iKopter
+Maintainer: Frank <ikopter@frankblumenberg.de>
+Section: Utility
+Depends: ch.ringwald.btstack (>= 0.4-1572), firmware(>= 5.0)
+Icon: file:///Applications/MKTool.app/Icon.png

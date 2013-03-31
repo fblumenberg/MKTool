@@ -16,7 +16,7 @@ profile
 
 # Generated files
 VersionX-revision.h
-Cydia/iKopter/Applications/iKopter.app
+Cydia/iKopter/Applications/MKTool.app
 
 # build products
 build/
@@ -45,10 +45,8 @@ profile
 
 
 /Cydia/repo/
-/iKopter/Application Base/ExternalData.h
 DerivedData/
 .idea
 MKTool/ApplicationBase/ExternalData.h
 /Podfile.lock
 /Pods/
-/Cydia/
