@@ -990,7 +990,28 @@ float RGB256_TO_COL(NSInteger rgb) { return rgb / 255.0f; }
 NSInteger COL_TO_RGB256(float col) { return (NSInteger)(col * 255.0); }
 
 
-NSString *DOCUMENTS_DIR(void) { return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]; }
+NSString *DOCUMENTS_DIR(void) {
+  
+  static NSString* documentsPath = nil;
+  if (!documentsPath) {
+#if defined(CYDIA)
+    documentsPath = @"/var/mobile/Library/de.frankblumenberg.cydia.mktool";
+    
+    NSFileManager* fm = [NSFileManager defaultManager];
+    NSDictionary* attr = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0755] forKey:NSFilePosixPermissions];
+    if (![fm fileExistsAtPath:documentsPath]){
+      [fm createDirectoryAtPath:documentsPath withIntermediateDirectories:YES attributes: attr error:nil];
+    }
+    else{
+      [fm setAttributes:attr ofItemAtPath:documentsPath error:nil];
+    }
+#else
+    documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+#endif
+  }
+
+  return documentsPath;
+}
 
 
 BOOL IS_IPAD(void) {
