@@ -994,7 +994,7 @@ NSString *DOCUMENTS_DIR(void) {
   
   static NSString* documentsPath = nil;
   if (!documentsPath) {
-#if defined(CYDIA)
+#if defined(CYDIA) && DEBUG==0
     documentsPath = @"/var/mobile/Library/de.frankblumenberg.cydia.mktool";
     
     NSFileManager* fm = [NSFileManager defaultManager];

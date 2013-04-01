@@ -122,7 +122,6 @@
 }
 
 - (void)showSettingsModal{
-  
   [[MKTSettingsController sharedController] showFromController:IS_IPAD()?self.splitViewController:self];
 }
 

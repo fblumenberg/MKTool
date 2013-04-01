@@ -22,10 +22,13 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+#import <Crashlytics/Crashlytics.h>
+
 #ifdef CYDIA
-#import "BWQuincyManager.h"
+//#import "BWQuincyManager.h"
 #else
 #import "TestFlight.h"
+extern void UninstallCrashHandlers(BOOL restore);
 #endif
 
 #import "MGSplitViewController.h"
@@ -82,7 +85,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
 #ifdef CYDIA
-  [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://frankblumenberg.de/crashlog/crash_v200.php"];
+//  [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://frankblumenberg.de/crashlog/crash_v200.php"];
 #else
   [TestFlight takeOff:kTESTFLIGHTTOKEN];
   
@@ -91,8 +94,13 @@
   [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
   
+  UninstallCrashHandlers(NO);
+  UninstallCrashHandlers(YES);
+
 #endif
   
+  [Crashlytics startWithAPIKey:kCRASHLYTICS_KEY];
+    
   [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {
     NSLog(@"Set log level for class %@",class);
     [DDLog setLogLevel:LOG_LEVEL_VERBOSE forClassWithName:class];

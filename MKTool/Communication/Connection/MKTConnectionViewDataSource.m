@@ -27,6 +27,8 @@
 #import "MKTConnectionViewDataSource.h"
 #import "StringToNumberTransformer.h"
 #import "MKTConnectionTypeTransformer.h"
+#import <Crashlytics/Crashlytics.h>
+
 
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"

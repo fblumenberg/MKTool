@@ -12,7 +12,7 @@ target :MKToolTests do
 end
 
 target :MKToolCydia do
-  pod 'QuincyKit'
-  pod 'MKCommunicationExtra', :git => 'file:///Users/frankblumenberg/Develop/Cocoa/MKCommunicationExtra'
-  pod 'MKCommunicationBTStack', :git => 'file:///Users/frankblumenberg/Develop/Cocoa/MKCommunicationBTStack'
+#  pod 'QuincyKit'
+  pod 'MKCommunicationExtra', :git => 'https://github.com/fblumenberg/MKCommunicationExtra.git'
+  pod 'MKCommunicationBTStack', :git => 'https://github.com/fblumenberg/MKCommunikationBTStack.git'
 end

@@ -1,6 +1,6 @@
 CYDIAREPOSITORY=/Users/frankblumenberg/Develop/Cocoa/Mikrocopter/Cydia-Repo/repo/
 PROJECTMAIN=$(pwd)
-PROJECT_NAME="MKTool"
+PROJECT_NAME="iKopter2"
 APPMAIN=${PROJECTMAIN}/Cydia/MKTool/Applications/${PROJECT_NAME}.app
 #
 if [[ -f "${APPMAIN}/Info.plist" ]]
@@ -26,7 +26,7 @@ exit 1
 fi
 
 
-cd ${PROJECTMAIN}/Cydia/MKTool/DEBIAN
+cd ${PROJECTMAIN}/Cydia/$PROJECT_NAME/DEBIAN
 sed 's/Version:.*$/Version: '${marketVersion}-${buildVersion}'/' control > control1
 echo "==============================="
 mv control1 control
@@ -37,7 +37,7 @@ mkdir ${PROJECTMAIN}/Cydia/repo
 mkdir ${PROJECTMAIN}/Cydia/repo/deb
 
 cd ${PROJECTMAIN}/Cydia
-/usr/local/bin/dpkg-deb -b MKTool ${PROJECTMAIN}/Cydia/repo/deb/MKToolPackage.deb
+/usr/local/bin/dpkg-deb -b $PROJECT_NAME ${PROJECTMAIN}/Cydia/repo/deb/$PROJECT_NAMEPackage.deb
 
 cd ${PROJECTMAIN}/Cydia/repo 
 /usr/local/bin/dpkg-scanpackages deb / > Packages
@@ -46,6 +46,6 @@ bzip2 Packages
 
 cd ${PROJECTMAIN}
 
-cp ${PROJECTMAIN}/Cydia/repo/deb/MKToolPackage.deb ${CYDIAREPOSITORY}/deb
+cp ${PROJECTMAIN}/Cydia/repo/deb/$PROJECT_NAMEPackage.deb ${CYDIAREPOSITORY}/deb
 
 

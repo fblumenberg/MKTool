@@ -656,6 +656,8 @@
 		BAB4305D1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4305C1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m */; };
 		BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5321D1594E99500AC1BD8 /* icon-pagecurl.png */; };
 		BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */; };
+		BAB86AA01709CC9D0096C957 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */; };
+		BAB86AA21709D35E0096C957 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */; };
 		BAC7B42F155EC79100FA37DA /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
 		BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */; };
 		BAC8B08D1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m in Resources */ = {isa = PBXBuildFile; fileRef = BAC8B08C1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m */; };
@@ -851,7 +853,7 @@
 		BA9373E4154B498A00E444EC /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		BA9373E5154B498A00E444EC /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		BA9373E6154B498A00E444EC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		BA94CB6E1706FE1400AC0934 /* MKTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA94CB6E1706FE1400AC0934 /* iKopter2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKopter2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA98BEE416C28666000CA7EE /* _MKTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MKTConnection.h; sourceTree = "<group>"; };
 		BA98BEE516C28666000CA7EE /* _MKTConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MKTConnection.m; sourceTree = "<group>"; };
 		BA98BEE616C28666000CA7EE /* MKTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTConnection.h; sourceTree = "<group>"; };
@@ -1124,6 +1126,7 @@
 		BAB4305C1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBFileInfo+Dictionary.m"; sourceTree = "<group>"; };
 		BAB5321D1594E99500AC1BD8 /* icon-pagecurl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pagecurl.png"; sourceTree = "<group>"; };
 		BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pagecurl@2x.png"; sourceTree = "<group>"; };
+		BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		BAC7B42D155EC79100FA37DA /* DBSession+MKT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBSession+MKT.h"; sourceTree = "<group>"; };
 		BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBSession+MKT.m"; sourceTree = "<group>"; };
 		BAC8B06C15531C6100080225 /* MKTRouteSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteSyncViewController.h; sourceTree = "<group>"; };
@@ -1263,6 +1266,7 @@
 				BA94CABD1706FE1400AC0934 /* CoreGraphics.framework in Frameworks */,
 				BA94CABF1706FE1400AC0934 /* Dropbox.framework in Frameworks */,
 				E682664B2D424080A1486474 /* libPods-MKToolCydia.a in Frameworks */,
+				BAB86AA21709D35E0096C957 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1286,6 +1290,7 @@
 				BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */,
 				72D4D83C3D2244DB8DC4E775 /* libPods.a in Frameworks */,
 				BAB430561704BF2200BEC0B5 /* Dropbox.framework in Frameworks */,
+				BAB86AA01709CC9D0096C957 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1744,7 +1749,7 @@
 			children = (
 				BAB2F1F515409C8C00ECE09A /* MKTool.app */,
 				BAB2F2A61540A7F800ECE09A /* MKToolTests.app */,
-				BA94CB6E1706FE1400AC0934 /* MKTool.app */,
+				BA94CB6E1706FE1400AC0934 /* iKopter2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1752,6 +1757,7 @@
 		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */,
 				BAB430551704BF2200BEC0B5 /* Dropbox.framework */,
 				BA52014C1559C1A400719A58 /* AddressBook.framework */,
 				BA52014E1559C26400719A58 /* AddressBookUI.framework */,
@@ -2221,6 +2227,7 @@
 				BA94CB661706FE1400AC0934 /* ShellScript */,
 				BA94CB671706FE1400AC0934 /* Copy Pods Resources */,
 				E29C44905C1E48F7929DF609 /* Copy Pods Resources */,
+				BAB86AA11709D2F30096C957 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2228,7 +2235,7 @@
 			);
 			name = MKToolCydia;
 			productName = MKTool;
-			productReference = BA94CB6E1706FE1400AC0934 /* MKTool.app */;
+			productReference = BA94CB6E1706FE1400AC0934 /* iKopter2.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BAB2F1F415409C8C00ECE09A /* MKTool */ = {
@@ -2240,6 +2247,7 @@
 				BAB2F1F315409C8C00ECE09A /* Resources */,
 				BA937415154D441D00E444EC /* ShellScript */,
 				9DCF902A8D45430B8F1066C5 /* Copy Pods Resources */,
+				BAB86A9E1709CC6E0096C957 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2747,6 +2755,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd \"$PROJECT_DIR/MKTool/CoreData\"\nmogenerator -m MKModel.xcdatamodeld/MKModel.xcdatamodel/ --template-var arc=true\n";
+		};
+		BAB86A9E1709CC6E0096C957 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 97943868c5b3a98e01a109c544d51b8f069de933";
+		};
+		BAB86AA11709D2F30096C957 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 97943868c5b3a98e01a109c544d51b8f069de933";
 		};
 		E29C44905C1E48F7929DF609 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3433,7 +3467,7 @@
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = MKTool;
+				PRODUCT_NAME = iKopter2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3454,7 +3488,7 @@
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = MKTool;
+				PRODUCT_NAME = iKopter2;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3476,7 +3510,7 @@
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = MKTool;
+				PRODUCT_NAME = iKopter2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Cydia;
@@ -3497,7 +3531,7 @@
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = MKTool;
+				PRODUCT_NAME = iKopter2;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3519,7 +3553,7 @@
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = MKTool;
+				PRODUCT_NAME = iKopter2;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3A4A80BF-6DC6-4385-B6FA-7902387C9FC0";
 				WRAPPER_EXTENSION = app;
 			};
