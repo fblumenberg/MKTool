@@ -266,8 +266,8 @@
 
   CGColorRef color = [UIColor yellowColor].CGColor;
 
-  CGColorRef shadowColor = [UIColor colorWithRed:0.2 green:0.2
-                                            blue:0.2 alpha:0.5].CGColor;
+  UIColor* shadowColor = [UIColor colorWithRed:0.2 green:0.2
+                                            blue:0.2 alpha:0.5];
 
   CGContextSaveGState(context);
   CGContextTranslateCTM(context, CGRectGetMidX(_wingsLayer.bounds),
@@ -287,7 +287,7 @@
 
 
   CGContextSetFillColorWithColor(context, color);
-  CGContextSetShadowWithColor(context, CGSizeMake(0, 2), 3.0, shadowColor);
+  CGContextSetShadowWithColor(context, CGSizeMake(0, 2), 3.0, shadowColor.CGColor);
 
   CGContextFillPath(context);
 
