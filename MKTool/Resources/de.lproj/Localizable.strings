@@ -972,3 +972,27 @@
 /* You are Here! */
 "You are Here!" = "Sie sind hier";
 
+/* No comment provided by engineer. */
+"%@%@, Version %@ (%@)" = "%1$@%2$@, Version %3$@ (%4$@)";
+
+/* Connected Menu Devices */
+"BL-Ctrl" = "BL-Ctrl";
+
+/* Connected Menu Devices */
+"Flight-Ctrl" = "Flight-Ctrl";
+
+/* Host address */
+"Hostname:Port" = "Hostname:Port";
+
+/* Connected Menu Devices */
+"MK3Mag/Compass" = "MK3Mag/Compass";
+
+/* Main title */
+"MKTool" = "MKTool";
+
+/* Connected Menu Devices */
+"Navi-Ctrl" = "Navi-Ctrl";
+
+/* BT search button */
+"Search Bluetooth" = "Bluetooth Gerät suchen";
+
