@@ -1,10 +1,10 @@
 Package: de.frankblumenberg.cydia.mktool
-Name: MKTool
-Version: 1.1-159
+Name: iKopter2
+Version: 1.1-160
 Architecture: iphoneos-arm
 Description: A control App for the Mikrokopter.
 Homepage: http://www.mikrokopter.de/ucwiki/iKopter
 Maintainer: Frank <ikopter@frankblumenberg.de>
 Section: Utility
 Depends: ch.ringwald.btstack (>= 0.4-1572), firmware(>= 5.0)
-Icon: file:///Applications/MKTool.app/Icon.png
+Icon: file:///Applications/iKopter2.app/Icon-iPhone.png
