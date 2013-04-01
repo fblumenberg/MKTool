@@ -3425,6 +3425,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"CYDIA=1",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -3539,7 +3543,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"CYDIA=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

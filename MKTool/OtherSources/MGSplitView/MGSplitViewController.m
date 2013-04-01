@@ -142,6 +142,8 @@
 	_dividerView.splitViewController = self;
 	_dividerView.backgroundColor = MG_DEFAULT_CORNER_COLOR;
 	_dividerStyle = MGSplitViewDividerStyleThin;
+  
+  self.view.autoresizesSubviews=NO;
 }
 
 
@@ -155,6 +157,15 @@
 #pragma mark -
 #pragma mark View management
 
+- (BOOL)shouldAutorotate {
+  return YES;
+  //[self shouldAutorotateToInterfaceOrientation:self.interfaceOrientation];
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+  return UIInterfaceOrientationMaskAll;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -497,9 +508,8 @@
 	[self.detailViewController viewWillAppear:animated];
 	
 	_reconfigurePopup = YES;
-	[self layoutSubviews];
+//	[self layoutSubviews];
 }
-
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -509,6 +519,8 @@
 		[self.masterViewController viewDidAppear:animated];
 	}
 	[self.detailViewController viewDidAppear:animated];
+  
+  [self.view layoutSubviews];
 }
 
 
