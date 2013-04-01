@@ -1,6 +1,6 @@
 Package: de.frankblumenberg.cydia.mktool
 Name: MKTool
-Version: 1.1-157
+Version: 1.1-159
 Architecture: iphoneos-arm
 Description: A control App for the Mikrokopter.
 Homepage: http://www.mikrokopter.de/ucwiki/iKopter
