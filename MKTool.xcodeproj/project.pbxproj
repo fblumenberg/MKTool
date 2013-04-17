@@ -739,6 +739,8 @@
 		BAF0CA961549E0B500C31A02 /* MKRouteDropBoxSyncOneOlderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA931549E0B400C31A02 /* MKRouteDropBoxSyncOneOlderTest.m */; };
 		BAF0CA971549E0B500C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA941549E0B400C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m */; };
 		BAF0CA991549F5E500C31A02 /* white_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF0CA981549F5E500C31A02 /* white_texture.png */; };
+		BAFD64E4171F2A14000767F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFD64E3171F2A14000767F0 /* star.png */; };
+		BAFD64E5171F2A14000767F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFD64E3171F2A14000767F0 /* star.png */; };
 		E682664B2D424080A1486474 /* libPods-MKToolCydia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5109A5E54AFC4C0193D94DFD /* libPods-MKToolCydia.a */; };
 /* End PBXBuildFile section */
 
@@ -1241,6 +1243,7 @@
 		BAF0CA931549E0B400C31A02 /* MKRouteDropBoxSyncOneOlderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneOlderTest.m; sourceTree = "<group>"; };
 		BAF0CA941549E0B400C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneLocalRemoteTest.m; sourceTree = "<group>"; };
 		BAF0CA981549F5E500C31A02 /* white_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_texture.png; sourceTree = "<group>"; };
+		BAFD64E3171F2A14000767F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKToolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.xcconfig"; path = "Pods/Pods-MKToolCydia.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -2045,6 +2048,7 @@
 		BAEE75E61543FDB000A92FA4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BAFD64E3171F2A14000767F0 /* star.png */,
 				BA56918A16F9103E007A33D0 /* icon-ul1.png */,
 				BA56918B16F91043007A33D0 /* icon-ul1@2x.png */,
 				BA98C05816C2D620000CA7EE /* OSD */,
@@ -2476,6 +2480,7 @@
 				BA94CB631706FE1400AC0934 /* icon-ul1.png in Resources */,
 				BA94CB641706FE1400AC0934 /* icon-ul1@2x.png in Resources */,
 				BA94CB651706FE1400AC0934 /* Default-568h@2x.png in Resources */,
+				BAFD64E5171F2A14000767F0 /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2648,6 +2653,7 @@
 				BA56918C16F91048007A33D0 /* icon-ul1.png in Resources */,
 				BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */,
 				BA1F155A16FF2AE500036441 /* Default-568h@2x.png in Resources */,
+				BAFD64E4171F2A14000767F0 /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

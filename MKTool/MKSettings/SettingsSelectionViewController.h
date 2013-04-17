@@ -36,8 +36,4 @@
 
 - (IBAction)reloadAllSettings;
 
-- (void)saveActiveSetting:(id)sender;
-- (void)editActiveSetting:(id)sender;
-- (void)cancelEditActiveSetting:(id)sender;
-
 @end
