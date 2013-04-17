@@ -3250,7 +3250,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 161;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3263,7 +3263,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3A4A80BF-6DC6-4385-B6FA-7902387C9FC0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2324D20D-CF59-44EB-8D05-2F213F2E6C1F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
@@ -3327,7 +3327,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 161;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3340,7 +3340,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9945355B-9340-4D63-B6BD-0238CC196865";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76617BDC-A733-4537-83DD-047E9B55F68F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Testflight;
