@@ -136,6 +136,11 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self
+         selector:@selector(probeMkResponse:)
+             name:MKProbeMkNotification
+           object:nil];
+  
+  [nc addObserver:self
          selector:@selector(connectionRequestDidSucceed:)
              name:MKConnectedNotification
            object:nil];
@@ -202,6 +207,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 #pragma mark - Actions
 
 - (void)disconnect {
+  [self stopRequestingDebugData];
+  
   [[MKConnectionController sharedMKConnectionController] stop];
   [self.navigationController popViewControllerAnimated:YES];
 }
@@ -489,7 +496,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   
   [self startRequestingDebugData];
 
-  [UIApplication sharedApplication].idleTimerDisabled = NO;
+  [UIApplication sharedApplication].idleTimerDisabled = YES;
 
   [MBProgressHUD hideHUDForView:self.view.window animated:YES];
 }
@@ -506,6 +513,12 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   IKDeviceVersion *version = [[aNotification userInfo] objectForKey:kIKDataKeyVersion];
   [MBProgressHUD HUDForView:self.view.window].labelText = [NSString stringWithFormat:NSLocalizedString(@"Found %@", @"HUD device"), version.deviceName];
 }
+
+- (void)probeMkResponse:(NSNotification *)aNotification; {
+  [MBProgressHUD HUDForView:self.view.window].labelText = NSLocalizedString(@"Search MK", @"HUD device");
+}
+
+
 
 - (void)versionResponse:(NSNotification *)aNotification; {
   IKDeviceVersion *version = [[aNotification userInfo] objectForKey:kIKDataKeyVersion];
