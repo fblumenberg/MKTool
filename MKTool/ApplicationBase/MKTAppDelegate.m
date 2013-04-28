@@ -87,13 +87,14 @@ extern void UninstallCrashHandlers(BOOL restore);
 #ifdef CYDIA
 //  [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://frankblumenberg.de/crashlog/crash_v200.php"];
 #else
-  [TestFlight takeOff:kTESTFLIGHTTOKEN];
   
 #ifdef TESTING
-#pragma message("Build for Testflightapp. Use Device UUID")
+  #pragma message("Build for Testflightapp. Use Device UUID")
   [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
-  
+
+  [TestFlight takeOff:kTESTFLIGHTTOKEN];
+
   UninstallCrashHandlers(NO);
   UninstallCrashHandlers(YES);
 
