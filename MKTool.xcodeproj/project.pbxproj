@@ -3346,7 +3346,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76617BDC-A733-4537-83DD-047E9B55F68F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8FC9476C-4967-495E-839A-A0ABCEEF1CF7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Testflight;
