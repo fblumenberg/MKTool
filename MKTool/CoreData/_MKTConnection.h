@@ -39,7 +39,9 @@ extern const struct MKTConnectionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *address;
+
+@property (nonatomic, strong) NSString* address;
+
 
 
 //- (BOOL)validateAddress:(id*)value_ error:(NSError**)error_;
@@ -47,7 +49,9 @@ extern const struct MKTConnectionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *connectionClass;
+
+@property (nonatomic, strong) NSString* connectionClass;
+
 
 
 //- (BOOL)validateConnectionClass:(id*)value_ error:(NSError**)error_;
@@ -55,7 +59,9 @@ extern const struct MKTConnectionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *connectionData;
+
+@property (nonatomic, strong) NSString* connectionData;
+
 
 
 //- (BOOL)validateConnectionData:(id*)value_ error:(NSError**)error_;
@@ -63,7 +69,9 @@ extern const struct MKTConnectionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *index;
+
+@property (nonatomic, strong) NSNumber* index;
+
 
 
 @property int16_t indexValue;
@@ -75,7 +83,9 @@ extern const struct MKTConnectionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSDate *lastUsed;
+
+@property (nonatomic, strong) NSDate* lastUsed;
+
 
 
 //- (BOOL)validateLastUsed:(id*)value_ error:(NSError**)error_;
@@ -83,7 +93,9 @@ extern const struct MKTConnectionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *name;
+
+@property (nonatomic, strong) NSString* name;
+
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
@@ -102,26 +114,26 @@ extern const struct MKTConnectionFetchedProperties {
 @interface _MKTConnection (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString *)primitiveAddress;
-- (void)setPrimitiveAddress:(NSString *)value;
+- (NSString*)primitiveAddress;
+- (void)setPrimitiveAddress:(NSString*)value;
 
 
 
 
-- (NSString *)primitiveConnectionClass;
-- (void)setPrimitiveConnectionClass:(NSString *)value;
+- (NSString*)primitiveConnectionClass;
+- (void)setPrimitiveConnectionClass:(NSString*)value;
 
 
 
 
-- (NSString *)primitiveConnectionData;
-- (void)setPrimitiveConnectionData:(NSString *)value;
+- (NSString*)primitiveConnectionData;
+- (void)setPrimitiveConnectionData:(NSString*)value;
 
 
 
 
-- (NSNumber *)primitiveIndex;
-- (void)setPrimitiveIndex:(NSNumber *)value;
+- (NSNumber*)primitiveIndex;
+- (void)setPrimitiveIndex:(NSNumber*)value;
 
 - (int16_t)primitiveIndexValue;
 - (void)setPrimitiveIndexValue:(int16_t)value_;
@@ -129,14 +141,14 @@ extern const struct MKTConnectionFetchedProperties {
 
 
 
-- (NSDate *)primitiveLastUsed;
-- (void)setPrimitiveLastUsed:(NSDate *)value;
+- (NSDate*)primitiveLastUsed;
+- (void)setPrimitiveLastUsed:(NSDate*)value;
 
 
 
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (NSString*)primitiveName;
+- (void)setPrimitiveName:(NSString*)value;
 
 
 

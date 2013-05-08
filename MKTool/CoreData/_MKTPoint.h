@@ -57,7 +57,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *altitude;
+
+@property (nonatomic, strong) NSNumber* altitude;
+
 
 
 @property int16_t altitudeValue;
@@ -69,7 +71,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *altitudeRate;
+
+@property (nonatomic, strong) NSNumber* altitudeRate;
+
 
 
 @property int16_t altitudeRateValue;
@@ -81,7 +85,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *cameraAngle;
+
+@property (nonatomic, strong) NSNumber* cameraAngle;
+
 
 
 @property int16_t cameraAngleValue;
@@ -93,7 +99,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *eventChannelValue;
+
+@property (nonatomic, strong) NSNumber* eventChannelValue;
+
 
 
 @property int16_t eventChannelValueValue;
@@ -105,7 +113,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *eventFlag;
+
+@property (nonatomic, strong) NSNumber* eventFlag;
+
 
 
 @property int16_t eventFlagValue;
@@ -117,7 +127,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *heading;
+
+@property (nonatomic, strong) NSNumber* heading;
+
 
 
 @property int16_t headingValue;
@@ -129,7 +141,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *holdTime;
+
+@property (nonatomic, strong) NSNumber* holdTime;
+
 
 
 @property int16_t holdTimeValue;
@@ -141,7 +155,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *index;
+
+@property (nonatomic, strong) NSNumber* index;
+
 
 
 @property int16_t indexValue;
@@ -153,7 +169,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *latitude;
+
+@property (nonatomic, strong) NSNumber* latitude;
+
 
 
 @property double latitudeValue;
@@ -165,7 +183,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *longitude;
+
+@property (nonatomic, strong) NSNumber* longitude;
+
 
 
 @property double longitudeValue;
@@ -177,7 +197,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *prefix;
+
+@property (nonatomic, strong) NSString* prefix;
+
 
 
 //- (BOOL)validatePrefix:(id*)value_ error:(NSError**)error_;
@@ -185,7 +207,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *speed;
+
+@property (nonatomic, strong) NSNumber* speed;
+
 
 
 @property int16_t speedValue;
@@ -197,7 +221,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *toleranceRadius;
+
+@property (nonatomic, strong) NSNumber* toleranceRadius;
+
 
 
 @property int16_t toleranceRadiusValue;
@@ -209,7 +235,9 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *type;
+
+@property (nonatomic, strong) NSNumber* type;
+
 
 
 @property int16_t typeValue;
@@ -222,7 +250,7 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-@property (nonatomic, strong) MKTRoute* route;
+@property (nonatomic, strong) MKTRoute *route;
 
 //- (BOOL)validateRoute:(id*)value_ error:(NSError**)error_;
 
@@ -239,8 +267,8 @@ extern const struct MKTPointFetchedProperties {
 @interface _MKTPoint (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber *)primitiveAltitude;
-- (void)setPrimitiveAltitude:(NSNumber *)value;
+- (NSNumber*)primitiveAltitude;
+- (void)setPrimitiveAltitude:(NSNumber*)value;
 
 - (int16_t)primitiveAltitudeValue;
 - (void)setPrimitiveAltitudeValue:(int16_t)value_;
@@ -248,8 +276,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveAltitudeRate;
-- (void)setPrimitiveAltitudeRate:(NSNumber *)value;
+- (NSNumber*)primitiveAltitudeRate;
+- (void)setPrimitiveAltitudeRate:(NSNumber*)value;
 
 - (int16_t)primitiveAltitudeRateValue;
 - (void)setPrimitiveAltitudeRateValue:(int16_t)value_;
@@ -257,8 +285,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveCameraAngle;
-- (void)setPrimitiveCameraAngle:(NSNumber *)value;
+- (NSNumber*)primitiveCameraAngle;
+- (void)setPrimitiveCameraAngle:(NSNumber*)value;
 
 - (int16_t)primitiveCameraAngleValue;
 - (void)setPrimitiveCameraAngleValue:(int16_t)value_;
@@ -266,8 +294,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveEventChannelValue;
-- (void)setPrimitiveEventChannelValue:(NSNumber *)value;
+- (NSNumber*)primitiveEventChannelValue;
+- (void)setPrimitiveEventChannelValue:(NSNumber*)value;
 
 - (int16_t)primitiveEventChannelValueValue;
 - (void)setPrimitiveEventChannelValueValue:(int16_t)value_;
@@ -275,8 +303,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveEventFlag;
-- (void)setPrimitiveEventFlag:(NSNumber *)value;
+- (NSNumber*)primitiveEventFlag;
+- (void)setPrimitiveEventFlag:(NSNumber*)value;
 
 - (int16_t)primitiveEventFlagValue;
 - (void)setPrimitiveEventFlagValue:(int16_t)value_;
@@ -284,8 +312,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveHeading;
-- (void)setPrimitiveHeading:(NSNumber *)value;
+- (NSNumber*)primitiveHeading;
+- (void)setPrimitiveHeading:(NSNumber*)value;
 
 - (int16_t)primitiveHeadingValue;
 - (void)setPrimitiveHeadingValue:(int16_t)value_;
@@ -293,8 +321,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveHoldTime;
-- (void)setPrimitiveHoldTime:(NSNumber *)value;
+- (NSNumber*)primitiveHoldTime;
+- (void)setPrimitiveHoldTime:(NSNumber*)value;
 
 - (int16_t)primitiveHoldTimeValue;
 - (void)setPrimitiveHoldTimeValue:(int16_t)value_;
@@ -302,8 +330,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveIndex;
-- (void)setPrimitiveIndex:(NSNumber *)value;
+- (NSNumber*)primitiveIndex;
+- (void)setPrimitiveIndex:(NSNumber*)value;
 
 - (int16_t)primitiveIndexValue;
 - (void)setPrimitiveIndexValue:(int16_t)value_;
@@ -311,8 +339,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveLatitude;
-- (void)setPrimitiveLatitude:(NSNumber *)value;
+- (NSNumber*)primitiveLatitude;
+- (void)setPrimitiveLatitude:(NSNumber*)value;
 
 - (double)primitiveLatitudeValue;
 - (void)setPrimitiveLatitudeValue:(double)value_;
@@ -320,8 +348,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveLongitude;
-- (void)setPrimitiveLongitude:(NSNumber *)value;
+- (NSNumber*)primitiveLongitude;
+- (void)setPrimitiveLongitude:(NSNumber*)value;
 
 - (double)primitiveLongitudeValue;
 - (void)setPrimitiveLongitudeValue:(double)value_;
@@ -329,14 +357,14 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSString *)primitivePrefix;
-- (void)setPrimitivePrefix:(NSString *)value;
+- (NSString*)primitivePrefix;
+- (void)setPrimitivePrefix:(NSString*)value;
 
 
 
 
-- (NSNumber *)primitiveSpeed;
-- (void)setPrimitiveSpeed:(NSNumber *)value;
+- (NSNumber*)primitiveSpeed;
+- (void)setPrimitiveSpeed:(NSNumber*)value;
 
 - (int16_t)primitiveSpeedValue;
 - (void)setPrimitiveSpeedValue:(int16_t)value_;
@@ -344,8 +372,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveToleranceRadius;
-- (void)setPrimitiveToleranceRadius:(NSNumber *)value;
+- (NSNumber*)primitiveToleranceRadius;
+- (void)setPrimitiveToleranceRadius:(NSNumber*)value;
 
 - (int16_t)primitiveToleranceRadiusValue;
 - (void)setPrimitiveToleranceRadiusValue:(int16_t)value_;
@@ -353,8 +381,8 @@ extern const struct MKTPointFetchedProperties {
 
 
 
-- (NSNumber *)primitiveType;
-- (void)setPrimitiveType:(NSNumber *)value;
+- (NSNumber*)primitiveType;
+- (void)setPrimitiveType:(NSNumber*)value;
 
 - (int16_t)primitiveTypeValue;
 - (void)setPrimitiveTypeValue:(int16_t)value_;
