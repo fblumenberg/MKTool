@@ -1714,6 +1714,7 @@
 		BAA229F31541F811004F92AA /* Waypoints */ = {
 			isa = PBXGroup;
 			children = (
+				BAC6A04E173B8FF300963BA1 /* Map */,
 				BA56918316F8EBEE007A33D0 /* Transfer */,
 				76704D9115921DF10073EC56 /* MKTCircleOverlay.h */,
 				76704D9215921DF10073EC56 /* MKTCircleOverlay.m */,
@@ -1890,26 +1891,11 @@
 		BAB2F28D1540A6B100ECE09A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BAF0882F173AF5C0002F00AF /* MKTGpxRecord.h */,
-				BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */,
-				BAF0882A173AF393002F00AF /* MKTGpxSession.h */,
-				BAF0882B173AF393002F00AF /* MKTGpxSession.m */,
-				BA98BEE616C28666000CA7EE /* MKTConnection.h */,
-				BA98BEE716C28666000CA7EE /* MKTConnection.m */,
+				BAC6A04D173B8F8000963BA1 /* GPXLog */,
+				BAC6A04C173B8F7800963BA1 /* Connection */,
+				BAC6A04B173B8F6C00963BA1 /* Routes */,
 				BAB2F29A1540A72F00ECE09A /* Generated */,
 				BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */,
-				BAB2F2901540A6B100ECE09A /* MKTPoint.h */,
-				BAB2F2911540A6B100ECE09A /* MKTPoint.m */,
-				BAB2F2921540A6B100ECE09A /* MKTRoute+WPL.h */,
-				BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */,
-				BAB2F2941540A6B100ECE09A /* MKTRoute.h */,
-				BAB2F2951540A6B100ECE09A /* MKTRoute.m */,
-				BAF0C9EC154453D600C31A02 /* HeadingOverlay.h */,
-				BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */,
-				BAF0C9EE154453D600C31A02 /* HeadingOverlayView.h */,
-				BAF0C9EF154453D600C31A02 /* HeadingOverlayView.m */,
-				BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */,
-				BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1987,6 +1973,52 @@
 				BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BAC6A04B173B8F6C00963BA1 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */,
+				BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */,
+				BAB2F2901540A6B100ECE09A /* MKTPoint.h */,
+				BAB2F2911540A6B100ECE09A /* MKTPoint.m */,
+				BAB2F2921540A6B100ECE09A /* MKTRoute+WPL.h */,
+				BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */,
+				BAB2F2941540A6B100ECE09A /* MKTRoute.h */,
+				BAB2F2951540A6B100ECE09A /* MKTRoute.m */,
+			);
+			name = Routes;
+			sourceTree = "<group>";
+		};
+		BAC6A04C173B8F7800963BA1 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				BA98BEE616C28666000CA7EE /* MKTConnection.h */,
+				BA98BEE716C28666000CA7EE /* MKTConnection.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		BAC6A04D173B8F8000963BA1 /* GPXLog */ = {
+			isa = PBXGroup;
+			children = (
+				BAF0882F173AF5C0002F00AF /* MKTGpxRecord.h */,
+				BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */,
+				BAF0882A173AF393002F00AF /* MKTGpxSession.h */,
+				BAF0882B173AF393002F00AF /* MKTGpxSession.m */,
+			);
+			name = GPXLog;
+			sourceTree = "<group>";
+		};
+		BAC6A04E173B8FF300963BA1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BAF0C9EC154453D600C31A02 /* HeadingOverlay.h */,
+				BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */,
+				BAF0C9EE154453D600C31A02 /* HeadingOverlayView.h */,
+				BAF0C9EF154453D600C31A02 /* HeadingOverlayView.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		BAC8B0961559AAD200080225 /* Search */ = {

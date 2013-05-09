@@ -2,6 +2,4 @@
 
 @implementation MKTGpxRecord
 
-// Custom logic goes here.
-
 @end

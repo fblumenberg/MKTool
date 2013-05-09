@@ -38,7 +38,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@class NCLogSession;
+@class MKTGpxSession;
 @class IKDebugData;
 
 @interface OsdValue : NSObject {
@@ -49,7 +49,6 @@
   NSTimer *followMeTimer;
 
   IKNaviData *_data;
-  NCLogSession *_ncLogSession;
   NSTimeInterval _logInterval;
   BOOL _logActive;
 
@@ -58,10 +57,19 @@
 
 
   NSString *motorData[12];
+  NSInteger motorTemp[12];
+  NSInteger motorCurrent[12];
 }
 
 
-@property(retain) NCLogSession *ncLogSession;
+@property(retain) MKTGpxSession *gpxLogSession;
+@property(readonly) BOOL isGpxLogOn;
+
+- (void)startGpxLog;
+- (void)stopGpxLog;
+
+
+
 @property(weak) id <OsdValueDelegate> delegate;
 @property(readonly, retain) IKNaviData *data;
 
@@ -99,6 +107,8 @@
 
 - (void)startRequesting;
 - (void)stopRequesting;
+
+
 
 - (NSString *)motorDataForIndex:(NSUInteger)index;
 
