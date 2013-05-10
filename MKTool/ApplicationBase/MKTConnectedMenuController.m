@@ -215,13 +215,15 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void)startRequestingDebugData {
   
-  _requestTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                  target:self
-                                                selector:@selector(requestDebugData)
-                                                userInfo:nil
-                                                 repeats:YES];
-  
-  [self performSelector:@selector(requestDebugData) withObject:self afterDelay:0.1];
+  if(_requestTimer==nil){
+    _requestTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                     target:self
+                                                   selector:@selector(requestDebugData)
+                                                   userInfo:nil
+                                                    repeats:YES];
+    
+    [self performSelector:@selector(requestDebugData) withObject:self afterDelay:0.1];
+  }
 }
 
 - (void)stopRequestingDebugData {
