@@ -91,7 +91,7 @@
                                                           title:NSLocalizedString(@"Altitude", @"WP Altitude title") valueTransformer:nil];
 
     stepperField.maximumValue = 500;
-    stepperField.minimumValue = 0;
+    stepperField.minimumValue = -500;
 
     [attributeSection addFormField:stepperField];
     //------------------------------------------------------------------------------------------------------------------------
