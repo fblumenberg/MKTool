@@ -29,7 +29,6 @@
 
 - (void)testCreation {
   
-  CoreDataStore *store = [CoreDataStore mainStore];
   MKTGpxRecord *r = [MKTGpxRecord create];
   
   GHAssertNotNil(r.timestamp, nil);

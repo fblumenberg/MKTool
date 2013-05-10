@@ -666,6 +666,12 @@
 		BAD501671541DA63004BA9A6 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501631541DA63004BA9A6 /* MGSplitDividerView.m */; };
 		BAD501681541DA63004BA9A6 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501651541DA63004BA9A6 /* MGSplitViewController.m */; };
 		BAD5016B1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */; };
+		BADBC272173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */; };
+		BADBC274173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC273173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m */; };
+		BADBC277173C2B1C00B5EE4A /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
+		BADBC278173C2C3300B5EE4A /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
+		BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
+		BADBC27C173C446700B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
 		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
 		BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */; };
 		BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */; };
@@ -1152,6 +1158,13 @@
 		BAD501651541DA63004BA9A6 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
 		BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MGSplitViewController.m"; sourceTree = "<group>"; };
 		BAD5016C1541E02A004BA9A6 /* UIViewController+MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MGSplitViewController.h"; sourceTree = "<group>"; };
+		BADBC270173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxLoggingListViewController.h; sourceTree = "<group>"; };
+		BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxLoggingListViewController.m; sourceTree = "<group>"; };
+		BADBC273173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTGPXSessionWriteGPXTest.m; path = GPXLog/MKTGPXSessionWriteGPXTest.m; sourceTree = "<group>"; };
+		BADBC275173C2B1C00B5EE4A /* MKTGpxSession+GPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTGpxSession+GPX.h"; sourceTree = "<group>"; };
+		BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTGpxSession+GPX.m"; sourceTree = "<group>"; };
+		BADBC279173C41C900B5EE4A /* MKTGPXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGPXExtensions.h; sourceTree = "<group>"; };
+		BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGPXExtensions.m; sourceTree = "<group>"; };
 		BAEE75CA1542D59600A92FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteContainerViewController.h; sourceTree = "<group>"; };
 		BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteContainerViewController.m; sourceTree = "<group>"; };
@@ -1805,6 +1818,7 @@
 				BAB2F27B1540A19600ECE09A /* ApplicationBase */,
 				BA98BEF216C28886000CA7EE /* Communication */,
 				BAB2F28D1540A6B100ECE09A /* CoreData */,
+				BADBC26F173C1F0D00B5EE4A /* GpxLogging */,
 				BA98BF4B16C288A5000CA7EE /* MKSettings */,
 				BAB2F20E15409C8C00ECE09A /* MKTDetailViewController.h */,
 				BAB2F20F15409C8C00ECE09A /* MKTDetailViewController.m */,
@@ -2006,6 +2020,10 @@
 				BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */,
 				BAF0882A173AF393002F00AF /* MKTGpxSession.h */,
 				BAF0882B173AF393002F00AF /* MKTGpxSession.m */,
+				BADBC275173C2B1C00B5EE4A /* MKTGpxSession+GPX.h */,
+				BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */,
+				BADBC279173C41C900B5EE4A /* MKTGPXExtensions.h */,
+				BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */,
 			);
 			name = GPXLog;
 			sourceTree = "<group>";
@@ -2052,6 +2070,15 @@
 				BAB2F2801540A5B600ECE09A /* INISection.m */,
 			);
 			name = INIFile;
+			sourceTree = "<group>";
+		};
+		BADBC26F173C1F0D00B5EE4A /* GpxLogging */ = {
+			isa = PBXGroup;
+			children = (
+				BADBC270173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.h */,
+				BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */,
+			);
+			path = GpxLogging;
 			sourceTree = "<group>";
 		};
 		BAEE75D315431CC600A92FA4 /* Point */ = {
@@ -2174,6 +2201,7 @@
 			children = (
 				BAF08835173AF82C002F00AF /* MKTGPXRecordTest.m */,
 				BAF08837173AFC17002F00AF /* MKTGPXSessionTest.m */,
+				BADBC273173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m */,
 			);
 			name = GPXLog;
 			sourceTree = "<group>";
@@ -3156,6 +3184,9 @@
 				BAF0882C173AF393002F00AF /* MKTGpxSession.m in Sources */,
 				BAF08831173AF5C1002F00AF /* _MKTGpxRecord.m in Sources */,
 				BAF08832173AF5C1002F00AF /* MKTGpxRecord.m in Sources */,
+				BADBC272173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m in Sources */,
+				BADBC277173C2B1C00B5EE4A /* MKTGpxSession+GPX.m in Sources */,
+				BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3220,6 +3251,9 @@
 				BAF0883A173AFD35002F00AF /* MKTGpxSession.m in Sources */,
 				BAF0883B173AFD35002F00AF /* _MKTGpxRecord.m in Sources */,
 				BAF0883C173AFD35002F00AF /* _MKTGpxSession.m in Sources */,
+				BADBC274173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m in Sources */,
+				BADBC278173C2C3300B5EE4A /* MKTGpxSession+GPX.m in Sources */,
+				BADBC27C173C446700B5EE4A /* MKTGPXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

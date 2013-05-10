@@ -21,15 +21,13 @@
 // THE SOFTWARE.
 //
 // ///////////////////////////////////////////////////////////////////////////////
-#import "_MKTGpxSession.h"
 
-#import <MapKit/MapKit.h>
+#import <UIKit/UIKit.h>
 
-@interface MKTGpxSession : _MKTGpxSession {}
+@class DetailViewController;
 
-@property(nonatomic, readwrite) MKCoordinateRegion region;
+@interface MKTGpxLoggingListViewController : UITableViewController
 
-+ (NSFetchedResultsController *)fetchedResultsController;
+//@property (strong, nonatomic) DetailViewController *detailViewController;
 
-- (NSArray *)orderedRecords;
 @end

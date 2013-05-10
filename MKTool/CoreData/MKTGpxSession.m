@@ -79,4 +79,39 @@
   
   return YKCLLocationCoordinate2DNull;
 }
+
+- (NSArray *)orderedRecords {
+  
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session=%@", self];
+  return [MKTGpxRecord allForPredicate:predicate orderBy:@"timestamp" ascending:YES];
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
++ (NSFetchedResultsController *)fetchedResultsController {
+  
+  CoreDataStore *store = [CoreDataStore mainStore];
+  
+  // Create the fetch request for the entity.
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+  
+  fetchRequest.entity = [MKTGpxSession entityInManagedObjectContext:store.context];
+  fetchRequest.fetchBatchSize = 20;
+  
+  // Edit the sort key as appropriate.
+  NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"startTime" ascending:YES]];
+  fetchRequest.sortDescriptors = sortDescriptors;
+  
+  // Edit the section name key path and cache name if appropriate.
+  // nil for section name key path means "no sections".
+  NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                              managedObjectContext:store.context
+                                                                                                sectionNameKeyPath:nil cacheName:@"Root"];
+  return aFetchedResultsController;
+}
 @end
+
+

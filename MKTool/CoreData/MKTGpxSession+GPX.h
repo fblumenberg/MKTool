@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2013, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,15 +21,11 @@
 // THE SOFTWARE.
 //
 // ///////////////////////////////////////////////////////////////////////////////
-#import "_MKTGpxSession.h"
 
-#import <MapKit/MapKit.h>
+#import "MKTGpxSession.h"
 
-@interface MKTGpxSession : _MKTGpxSession {}
+@interface MKTGpxSession (GPX)
 
-@property(nonatomic, readwrite) MKCoordinateRegion region;
+- (BOOL)writeSessionToGPXFile:(NSString *)path;
 
-+ (NSFetchedResultsController *)fetchedResultsController;
-
-- (NSArray *)orderedRecords;
 @end

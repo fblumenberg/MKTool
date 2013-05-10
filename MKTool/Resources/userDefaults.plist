@@ -5,7 +5,7 @@
 	<key>kGpxLoggingActive</key>
 	<false/>
 	<key>kGpxLoggingInterval</key>
-	<real>0.5</real>
+	<integer>500</integer>
 	<key>WpDefaultAltitude</key>
 	<integer>15</integer>
 	<key>WpDefaultHoldTime</key>

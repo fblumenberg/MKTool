@@ -354,7 +354,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 - (void)layoutLayers {
 
-  NSLog(@"layoutLayers 1:%f 2:%f 3:%f", heading, targetDeviation, homeDeviation);
+  //NSLog(@"layoutLayers 1:%f 2:%f 3:%f", heading, targetDeviation, homeDeviation);
 
   _degreeMarksLayer.transform = CATransform3DMakeRotation(-radians(heading), 0, 0, 1.0);
   _targetDeviationLayer.transform = CATransform3DMakeRotation(-radians(targetDeviation), 0, 0, 1.0);

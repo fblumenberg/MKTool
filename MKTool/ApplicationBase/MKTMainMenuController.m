@@ -27,6 +27,7 @@
 
 #import "MKTConnectionsListViewController.h"
 #import "MKTRoutesListViewController.h"
+#import "MKTGpxLoggingListViewController.h"
 
 #import "MKTConnection.h"
 #import "MKTConnectedMenuController.h"
@@ -136,7 +137,7 @@
     return editConnectionRow + 1;
   }
   else if (section == functionsSection) {
-    return 1;
+    return 2;
   }
 
   return 0;
@@ -204,6 +205,9 @@ DEFINE_KEY(kFunctionCellId)
     case 0:
       cell.textLabel.text = NSLocalizedString(@"Routes", @"Waypointlist cell");
       break;
+    case 1:
+      cell.textLabel.text = NSLocalizedString(@"GPX-Logging", @"GpxLogging cell");
+      break;
   }
   cell.accessoryView = nil;
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -259,6 +263,9 @@ DEFINE_KEY(kFunctionCellId)
     switch (indexPath.row) {
       case 0:
         controler = [MKTRoutesListViewController new];
+        break;
+      case 1:
+        controler = [MKTGpxLoggingListViewController new];
         break;
     }
 

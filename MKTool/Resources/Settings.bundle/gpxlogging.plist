@@ -8,7 +8,7 @@
 			<key>DefaultValue</key>
 			<false/>
 			<key>Key</key>
-			<string>IKGpxLoggingActive</string>
+			<string>kGpxLoggingActive</string>
 			<key>Title</key>
 			<string>SettingsActivateGpxLogging</string>
 			<key>Type</key>
@@ -18,7 +18,7 @@
 			<key>DefaultValue</key>
 			<integer>500</integer>
 			<key>Key</key>
-			<string>IKGpxLoggingInterval</string>
+			<string>kGpxLoggingInterval</string>
 			<key>Title</key>
 			<string>SettingsGpxLoggingInterval</string>
 			<key>Titles</key>

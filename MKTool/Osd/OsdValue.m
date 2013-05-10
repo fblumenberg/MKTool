@@ -449,6 +449,18 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self.audioPlayer play];
   else
     [self.audioPlayer stop];
+  
+  //////////////////////////////////////
+  
+  if(_logActive){
+    if(self.isFlying){
+      if(!self.isGpxLogOn)
+        [self startGpxLog];
+    }
+    else{
+      [self stopGpxLog];
+    }
+  }
 }
 
 - (void)debugValueNotification:(NSNotification *)aNotification {
@@ -481,7 +493,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   if (self.isGpxLogOn)
     [self stopGpxLog];
 
-  if (_logActive && self.areEnginesOn && self.isFlying) {
+  if (self.areEnginesOn && self.isFlying) {
 
     self.gpxLogSession = [MKTGpxSession create];
 
@@ -580,6 +592,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   record.extensions = extensions;
   
   [self.gpxLogSession addRecordsObject:record];
+  DDLogVerbose(@"Did create a GPX log record");
 }
 
 #pragma mark - Location Manager Stuff
