@@ -32,4 +32,5 @@
 + (NSFetchedResultsController *)fetchedResultsController;
 
 - (NSArray *)orderedRecords;
+- (void)calculateCoordinateRegionForRecords;
 @end

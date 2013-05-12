@@ -749,6 +749,8 @@
 		BAF0CA901549D27300C31A02 /* MKTRouteDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA891549D1F400C31A02 /* MKTRouteDropboxController.m */; };
 		BAF0CA911549D27300C31A02 /* MKTRouteSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA8B1549D1F400C31A02 /* MKTRouteSyncModel.m */; };
 		BAF0CA991549F5E500C31A02 /* white_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF0CA981549F5E500C31A02 /* white_texture.png */; };
+		BAFC630617402FB500BC0252 /* MKTGpxSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */; };
+		BAFC63081740368300BC0252 /* MKTGpxSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */; };
 		BAFD64E4171F2A14000767F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFD64E3171F2A14000767F0 /* star.png */; };
 		BAFD64E5171F2A14000767F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFD64E3171F2A14000767F0 /* star.png */; };
 		E682664B2D424080A1486474 /* libPods-MKToolCydia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5109A5E54AFC4C0193D94DFD /* libPods-MKToolCydia.a */; };
@@ -1271,6 +1273,10 @@
 		BAF0CA931549E0B400C31A02 /* MKRouteDropBoxSyncOneOlderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneOlderTest.m; sourceTree = "<group>"; };
 		BAF0CA941549E0B400C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneLocalRemoteTest.m; sourceTree = "<group>"; };
 		BAF0CA981549F5E500C31A02 /* white_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_texture.png; sourceTree = "<group>"; };
+		BAFC630317402FB400BC0252 /* MKTGpxSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxSessionViewController.h; sourceTree = "<group>"; };
+		BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxSessionViewController.m; sourceTree = "<group>"; };
+		BAFC63091740368300BC0252 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/MKTGpxSessionViewController.xib; sourceTree = "<group>"; };
+		BAFC630B1740368E00BC0252 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/MKTGpxSessionViewController.xib; sourceTree = "<group>"; };
 		BAFD64E3171F2A14000767F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKToolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.xcconfig"; path = "Pods/Pods-MKToolCydia.xcconfig"; sourceTree = SOURCE_ROOT; };
@@ -2077,6 +2083,9 @@
 			children = (
 				BADBC270173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.h */,
 				BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */,
+				BAFC630317402FB400BC0252 /* MKTGpxSessionViewController.h */,
+				BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */,
+				BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */,
 			);
 			path = GpxLogging;
 			sourceTree = "<group>";
@@ -2747,6 +2756,7 @@
 				BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */,
 				BA1F155A16FF2AE500036441 /* Default-568h@2x.png in Resources */,
 				BAFD64E4171F2A14000767F0 /* star.png in Resources */,
+				BAFC63081740368300BC0252 /* MKTGpxSessionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3187,6 +3197,7 @@
 				BADBC272173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m in Sources */,
 				BADBC277173C2B1C00B5EE4A /* MKTGpxSession+GPX.m in Sources */,
 				BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */,
+				BAFC630617402FB500BC0252 /* MKTGpxSessionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3324,6 +3335,15 @@
 				BAB2F2AF1540A7F800ECE09A /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAFC63091740368300BC0252 /* en */,
+				BAFC630B1740368E00BC0252 /* de */,
+			);
+			name = MKTGpxSessionViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

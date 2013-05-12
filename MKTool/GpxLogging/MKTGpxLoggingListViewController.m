@@ -37,6 +37,7 @@
 #import "InnerBand.h"
 #import "MKTGpxSession.h"
 #import "MKTGpxRecord.h"
+#import "MKTGpxSessionViewController.h"
 
 @interface MKTGpxLoggingListViewController () <NSFetchedResultsControllerDelegate> {
   NSMutableArray *_objects;
@@ -47,13 +48,14 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)addNewRoute;
 //- (void)showRouteViewController:(MKTRoute *)route;
 
-- (void)syncRoutes;
+//- (void)syncRoutes;
+
+- (void)deleteSelectedSession;
 
 @property(nonatomic, strong) UIBarButtonItem *spacer;
-@property(nonatomic, strong) UIBarButtonItem *addButton;
+@property(nonatomic, strong) UIBarButtonItem *deleteButton;
 @property(nonatomic, strong) UIBarButtonItem *syncButton;
 
 @end
@@ -61,7 +63,7 @@
 @implementation MKTGpxLoggingListViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
-@synthesize spacer,syncButton,addButton;
+@synthesize spacer,syncButton,deleteButton;
 
 - (id)init {
   self = [super initWithStyle:UITableViewStylePlain];
@@ -80,10 +82,9 @@
 
   self.navigationItem.title = self.title;
   
-  self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                             target:self
-                                                                             action:@selector(addNewRoute)];
-  self.addButton.style = UIBarButtonItemStyleBordered;
+  self.deleteButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Delete", @"Delete toolbar button") style:UIBarButtonItemStyleBordered
+                                                      target:self action:@selector(deleteSelectedSession)];
+  self.deleteButton.tintColor = [UIColor redColor];
 
   
   self.syncButton = [[UIBarButtonItem alloc]
@@ -96,14 +97,7 @@
                    initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                    target:nil action:nil];
 
-  [self setToolbarItems:[NSArray arrayWithObjects:
-                         self.editButtonItem,
-                         self.spacer,
-                         self.syncButton,
-                         self.spacer,
-                         self.addButton,
-                         nil]];
-
+  [self setToolbarItems:@[self.editButtonItem]];
   
   self.navigationController.toolbarHidden =NO;
   self.tableView.allowsSelectionDuringEditing = NO;
@@ -127,6 +121,58 @@
   }
 }
 
+- (void)updateToolbar {
+  
+  NSMutableArray *tbArray = [NSMutableArray array];
+  
+  [tbArray addObject:self.editButtonItem];
+  [tbArray addObject:self.spacer];
+  
+  
+  if (self.tableView.isEditing) {
+    [tbArray addObject:self.deleteButton];
+  }
+  
+  [self setToolbarItems:tbArray];
+  
+  [self updateToolbarState];
+}
+
+- (void)updateToolbarState {
+  if (self.isEditing) {
+    NSUInteger count = [self.tableView indexPathsForSelectedRows].count;
+    BOOL hasSelection = count > 0;
+    
+    self.deleteButton.enabled = hasSelection;
+    
+    if (hasSelection) {
+      self.deleteButton.title = [NSString stringWithFormat:NSLocalizedString(@"Delete(%d)", @"Delete toolbar button"), count];
+    }
+    else {
+      self.deleteButton.title = NSLocalizedString(@"Delete", @"Delete toolbar button");
+    }
+  }
+}
+
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+  
+  self.tableView.allowsMultipleSelectionDuringEditing = editing;
+  [super setEditing:editing animated:animated];
+  [self.tableView setEditing:editing animated:animated];
+  
+  [self updateToolbar];
+}
+
+
+- (void)deleteSelectedSession {
+  
+  for (NSIndexPath* indexPath in [self.tableView indexPathsForSelectedRows]) {
+    MKTGpxSession* session = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [session destroy];
+  }
+  
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Table View
@@ -194,24 +240,45 @@
   return NO;
 }
 
-//- (void)showRouteViewController:(MKTRoute *)route {
-//    if(IS_IPAD()){
-//        MKTRouteMasterViewController *routeController = [[MKTRouteMasterViewController alloc] initWithRoute:route];
-//        [self.navigationController pushViewController:routeController animated:YES];
-//    }
-//    else       {
-//        MKTRouteContainerViewController *routeController = [[MKTRouteContainerViewController alloc] initWithRoute:route];
-//        [self.navigationController pushViewController:routeController animated:YES];
-//    }
-//}
-//
+- (void)showSessionViewController:(MKTGpxSession *)session {
+  
+  MKTGpxSessionViewController* sessionViewController = [[MKTGpxSessionViewController alloc] initWithSession:session];
+  
+  UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+  
+  
+  if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+    [(UINavigationController *) rootViewController pushViewController:sessionViewController animated:YES];
+  }
+  else if ([rootViewController isKindOfClass:[MGSplitViewController class]]) {
+    
+    MGSplitViewController *splitViewController = (MGSplitViewController *) rootViewController;
+    
+    UIViewController *controller = splitViewController.detailViewController;
+    if ([controller isKindOfClass:[UINavigationController class]]) {
+      controller.navigationItem.hidesBackButton = YES;
+      
+      [(UINavigationController *) controller popToRootViewControllerAnimated:NO];
+      [(UINavigationController *) controller pushViewController:sessionViewController animated:YES];
+    }
+  }
+}
+
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [self updateToolbarState];
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-//  if (!tableView.isEditing) {
-//    MKTRoute *route = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//
-//      [self showRouteViewController:route];
-//  }
+  if (!tableView.isEditing) {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MKTGpxSession* session = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self showSessionViewController:session];
+  }
+
+  [self updateToolbarState];
 }
 
 
@@ -280,11 +347,14 @@
 - (NSFetchedResultsController *)fetchedResultsController {
 
   if (_fetchedResultsController != nil) {
+    NSLog(@"fetchedResultsController return %@",_fetchedResultsController);
     return _fetchedResultsController;
   }
 
   _fetchedResultsController = [MKTGpxSession fetchedResultsController];
   _fetchedResultsController.delegate = self;
+
+  NSLog(@"fetchedResultsController create %@",_fetchedResultsController);
 
   NSError *error = nil;
   if (![self.fetchedResultsController performFetch:&error]) {

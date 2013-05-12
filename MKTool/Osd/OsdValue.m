@@ -519,6 +519,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     logTimer = nil;
 
     self.gpxLogSession.endTime = [NSDate date];
+    [self.gpxLogSession calculateCoordinateRegionForRecords];
 
     [[CoreDataStore mainStore] save];
 

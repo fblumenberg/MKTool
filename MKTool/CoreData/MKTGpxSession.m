@@ -22,6 +22,7 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
+#import <MapKit/MapKit.h>
 #import "InnerBand.h"
 #import "YKCLUtils.h"
 
@@ -50,6 +51,20 @@
   NSData *data = [NSData dataWithBytes:&region length:sizeof(region)];
   self.regionData = data;
 }
+
+
+-(void) calculateCoordinateRegionForRecords {
+  MKMapRect r = MKMapRectNull;
+  
+  for (MKTGpxRecord* record in self.records) {
+    IKGPSPos* gpsPos=record.gpsPos;
+    MKMapPoint p = MKMapPointForCoordinate(gpsPos.coordinate);
+    r = MKMapRectUnion(r, MKMapRectMake(p.x, p.y, 0, 0));
+  }
+
+  self.region = MKCoordinateRegionForMapRect(r);
+}
+
 
 - (CLLocationCoordinate2D)centerCoordinate{
   
@@ -109,7 +124,7 @@
   // nil for section name key path means "no sections".
   NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                               managedObjectContext:store.context
-                                                                                                sectionNameKeyPath:nil cacheName:@"Root"];
+                                                                                                sectionNameKeyPath:nil cacheName:@"MKTGpxSession"];
   return aFetchedResultsController;
 }
 @end
