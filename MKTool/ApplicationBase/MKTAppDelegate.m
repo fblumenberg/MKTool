@@ -24,7 +24,9 @@
 
 #import <Crashlytics/Crashlytics.h>
 
+
 #ifdef CYDIA
+NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 //#import "BWQuincyManager.h"
 #else
 #import "TestFlight.h"
