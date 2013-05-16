@@ -33,13 +33,14 @@
 #import "UIViewController+MGSplitViewController.h"
 
 #import "MKTGpxLoggingListViewController.h"
+#import "MKTGpxDropboxController.h"
 
 #import "InnerBand.h"
 #import "MKTGpxSession.h"
 #import "MKTGpxRecord.h"
 #import "MKTGpxSessionViewController.h"
 
-@interface MKTGpxLoggingListViewController () <NSFetchedResultsControllerDelegate> {
+@interface MKTGpxLoggingListViewController () <NSFetchedResultsControllerDelegate,MKTGpxDropboxControllerDelegate> {
   NSMutableArray *_objects;
   BOOL userDrivenDataModelChange;
 }
@@ -48,15 +49,12 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
-//- (void)showRouteViewController:(MKTRoute *)route;
-
-//- (void)syncRoutes;
-
 - (void)deleteSelectedSession;
 
 @property(nonatomic, strong) UIBarButtonItem *spacer;
 @property(nonatomic, strong) UIBarButtonItem *deleteButton;
 @property(nonatomic, strong) UIBarButtonItem *syncButton;
+@property(nonatomic,strong) MKTGpxDropboxController* dropboxController;
 
 @end
 
@@ -68,7 +66,7 @@
 - (id)init {
   self = [super initWithStyle:UITableViewStylePlain];
   if (self) {
-    self.title = NSLocalizedString(@"GPX-Loggin", @"GPX-Logging List title");
+    self.title = NSLocalizedString(@"GPX-Logging", @"GPX-Logging List title");
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
       self.clearsSelectionOnViewWillAppear = YES;
       self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
@@ -79,24 +77,24 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
+  
+  self.dropboxController = [MKTGpxDropboxController new];
+  self.dropboxController.delegate = self;
+  
   self.navigationItem.title = self.title;
   
   self.deleteButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Delete", @"Delete toolbar button") style:UIBarButtonItemStyleBordered
                                                       target:self action:@selector(deleteSelectedSession)];
   self.deleteButton.tintColor = [UIColor redColor];
-
   
-  self.syncButton = [[UIBarButtonItem alloc]
-                      initWithImage:[UIImage imageNamed:@"icon-backforth.png"]
-                      style:UIBarButtonItemStyleBordered
-                      target:self
-                      action:@selector(syncRoutes)];
-
+  
+  self.syncButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Send", @"Send toolbar button") style:UIBarButtonItemStyleBordered
+                                                    target:self action:@selector(sendSelectedSession)];
+  
   self.spacer = [[UIBarButtonItem alloc]
-                   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                   target:nil action:nil];
-
+                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                 target:nil action:nil];
+  
   [self setToolbarItems:@[self.editButtonItem]];
   
   self.navigationController.toolbarHidden =NO;
@@ -111,6 +109,22 @@
   [super viewWillAppear:animated];
   
   [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+  [super viewWillDisappear:animated];
+  
+  UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+  
+  if ([rootViewController isKindOfClass:[MGSplitViewController class]]) {
+    
+    MGSplitViewController *splitViewController = (MGSplitViewController *) rootViewController;
+    
+    UIViewController *controller = splitViewController.detailViewController;
+    if ([controller isKindOfClass:[UINavigationController class]]) {
+      [(UINavigationController *) controller popToRootViewControllerAnimated:YES];
+    }
+  }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -130,6 +144,8 @@
   
   
   if (self.tableView.isEditing) {
+    [tbArray addObject:self.syncButton];
+    [tbArray addObject:self.spacer];
     [tbArray addObject:self.deleteButton];
   }
   
@@ -147,9 +163,11 @@
     
     if (hasSelection) {
       self.deleteButton.title = [NSString stringWithFormat:NSLocalizedString(@"Delete(%d)", @"Delete toolbar button"), count];
+      self.syncButton.title = [NSString stringWithFormat:NSLocalizedString(@"Send(%d)", @"Send toolbar button"), count];
     }
     else {
       self.deleteButton.title = NSLocalizedString(@"Delete", @"Delete toolbar button");
+      self.syncButton.title = NSLocalizedString(@"Send", @"Send toolbar button");
     }
   }
 }
@@ -174,6 +192,7 @@
   
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Table View
 ///////////////////////////////////////////////////////////////////////////////////
@@ -189,12 +208,12 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+  
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil)
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-
+  
   [self configureCell:cell atIndexPath:indexPath];
   return cell;
 }
@@ -213,7 +232,7 @@
                                [session.records count]];
   
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+  
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -223,10 +242,10 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
-
+    
     [[self.fetchedResultsController objectAtIndexPath:indexPath] destroy];
     [[CoreDataStore mainStore] save];
-
+    
   }
   else if (editingStyle == UITableViewCellEditingStyleInsert) {
     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -271,13 +290,13 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+  
   if (!tableView.isEditing) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MKTGpxSession* session = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self showSessionViewController:session];
   }
-
+  
   [self updateToolbarState];
 }
 
@@ -293,13 +312,13 @@
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-
+  
   if (userDrivenDataModelChange) return;
   switch (type) {
     case NSFetchedResultsChangeInsert:
       [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
       break;
-
+      
     case NSFetchedResultsChangeDelete:
       [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
       break;
@@ -310,23 +329,23 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
   UITableView *tableView = self.tableView;
-
+  
   if (userDrivenDataModelChange) return;
   switch (type) {
-
+      
     case NSFetchedResultsChangeInsert:
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
-
+      
     case NSFetchedResultsChangeDelete:
       [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
-
+      
     case NSFetchedResultsChangeUpdate:
       NSLog(@"Update");
       [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
       break;
-
+      
     case NSFetchedResultsChangeMove:
       [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -345,27 +364,65 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 - (NSFetchedResultsController *)fetchedResultsController {
-
+  
   if (_fetchedResultsController != nil) {
     NSLog(@"fetchedResultsController return %@",_fetchedResultsController);
     return _fetchedResultsController;
   }
-
+  
   _fetchedResultsController = [MKTGpxSession fetchedResultsController];
   _fetchedResultsController.delegate = self;
-
+  
   NSLog(@"fetchedResultsController create %@",_fetchedResultsController);
-
+  
   NSError *error = nil;
   if (![self.fetchedResultsController performFetch:&error]) {
     abort();
   }
-
+  
   return _fetchedResultsController;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Synchronizing
 ///////////////////////////////////////////////////////////////////////////////////
+
+- (void)sendSelectedSession {
+  
+  [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+  [self.dropboxController connectAndPrepareFromController:self];
+}
+
+- (void)sendSessionComplete{
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+  [self setEditing:NO animated:YES];
+}
+
+- (void)dropboxReady:(MKTGpxDropboxController*)controller{
+  NSArray *sessions = [[self.tableView indexPathsForSelectedRows] map:^id(NSIndexPath* indexPath) {
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+  }];
+  
+  [self.dropboxController syncronizeSessions:sessions fromController:self];
+}
+
+- (void)controller:(MKTGpxDropboxController*)crontroller dropboxInitFailedWithError:(NSError*)error{
+  [self sendSessionComplete];
+}
+
+- (void)controller:(MKTGpxDropboxController*)crontroller syncFailedWithError:(NSError*)error{
+  [self sendSessionComplete];
+}
+
+- (void)controllerSyncCompleted:(MKTGpxDropboxController*)crontroller{
+  [self sendSessionComplete];
+}
+
+- (void)controllerPausedInit:(MKTGpxDropboxController*)crontroller{
+  [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+}
+- (void)controllerRestartedInit:(MKTGpxDropboxController*)crontroller{
+  [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+}
 
 @end

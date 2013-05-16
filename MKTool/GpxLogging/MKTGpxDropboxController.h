@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2013, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,17 +21,42 @@
 // THE SOFTWARE.
 //
 // ///////////////////////////////////////////////////////////////////////////////
-#import "_MKTGpxSession.h"
+#import <Foundation/Foundation.h>
 
-#import <MapKit/MapKit.h>
+@class DBPath;
+@class MKTGpxSession;
+@protocol MKTGpxDropboxControllerDelegate;
 
-@interface MKTGpxSession : _MKTGpxSession {}
+@interface MKTGpxDropboxController : NSObject
 
-@property(nonatomic, readwrite) MKCoordinateRegion region;
-@property(nonatomic, readonly) NSString* fileName;
++ (void)showError:(NSError *)error withTitle:(NSString *)title;
 
-+ (NSFetchedResultsController *)fetchedResultsController;
+- (void)connectAndPrepareFromController:(UIViewController*)controller;
 
-- (NSArray *)orderedRecords;
-- (void)calculateCoordinateRegionForRecords;
+- (void)syncronizeSession:(MKTGpxSession*)session fromController:(UIViewController*)controller;
+- (void)syncronizeSessions:(NSArray*)sessions fromController:(UIViewController*)controller;
+
+
+@property(strong) DBPath* dataPath;
+
+@property(readonly) BOOL isSyncing;
+@property(readonly) BOOL isReady;
+
+@property(nonatomic, weak) id<MKTGpxDropboxControllerDelegate> delegate;
+
+@end
+
+@protocol MKTGpxDropboxControllerDelegate <NSObject>
+
+- (void)dropboxReady:(MKTGpxDropboxController*)controller;
+- (void)controller:(MKTGpxDropboxController*)crontroller dropboxInitFailedWithError:(NSError*)error;
+
+- (void)controller:(MKTGpxDropboxController*)crontroller syncFailedWithError:(NSError*)error;
+- (void)controllerSyncCompleted:(MKTGpxDropboxController*)crontroller;
+
+@optional
+
+- (void)controllerPausedInit:(MKTGpxDropboxController*)crontroller;
+- (void)controllerRestartedInit:(MKTGpxDropboxController*)crontroller;
+
 @end

@@ -73,7 +73,7 @@
     IKGPSPos* gpsPos = r.gpsPos;
     GPXTrackPoint* trackPoint = [trackSegment newTrackpointWithLatitude:gpsPos.coordinate.latitude longitude:gpsPos.coordinate.longitude];
     
-    trackPoint.elevation = gpsPos.altitude;
+    trackPoint.elevation = gpsPos.altitude / 1000.0;
     trackPoint.time = r.timestamp;
     trackPoint.satellites = [r.satellites integerValue];
     
@@ -86,9 +86,9 @@
   
   //---------------------------------------------------------
 
-  NSLog(@"OUT:%@", root.gpx);
+//  NSLog(@"OUT:%@", root.gpx);
   
-  return [root.gpx writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+  return [root.gpx writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:nil];
 }
 
 @end

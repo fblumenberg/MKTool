@@ -30,13 +30,20 @@
 #import "MKTGpxRecord.h"
 
 #import "IKNaviData.h"
+#import "GHNSDate+Formatters.h"
 
 @implementation MKTGpxSession
 
-- (void)awakeFromInsert{
-  self.startTime = [NSDate date];
+@synthesize fileName = _fileName;
+
+- (void)awakeFromFetch{
+  _fileName = [[self.startTime gh_formatISO8601] stringByAppendingPathExtension:@"gpx"];
 }
 
+- (void)awakeFromInsert{
+  self.startTime = [NSDate date];
+  _fileName = [self.startTime gh_formatISO8601];
+}
 
 - (MKCoordinateRegion)region {
   

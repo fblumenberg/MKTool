@@ -996,3 +996,16 @@
 /* BT search button */
 "Search Bluetooth" = "Search Bluetooth Device";
 
+/* GPX-Logging List title
+   GpxLogging cell */
+"GPX-Logging" = "GPX-Logging";
+
+/* HUD device */
+"Search MK" = "Search MK";
+
+/* Send toolbar button */
+"Send" = "Send";
+
+/* Send toolbar button */
+"Send(%d)" = "Send(%d)";
+
