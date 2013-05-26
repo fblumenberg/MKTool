@@ -77,6 +77,7 @@
 		76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */; };
 		BA0E48FB15869056000F382C /* icon-locate-gps.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48F915869056000F382C /* icon-locate-gps.png */; };
 		BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */; };
+		BA18B61A17521CE7001EB74B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA18B61917521CE7001EB74B /* Default-568h@2x.png */; };
 		BA18C41D154B1297005C882A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41B154B1297005C882A /* libTestFlight.a */; };
 		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
 		BA1B06B81584DF6200C6C964 /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
@@ -364,6 +365,7 @@
 		76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Images.m"; sourceTree = "<group>"; };
 		BA0E48F915869056000F382C /* icon-locate-gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps.png"; sourceTree = "<group>"; };
 		BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps@2x.png"; sourceTree = "<group>"; };
+		BA18B61917521CE7001EB74B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA18C41B154B1297005C882A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		BA18C41C154B1297005C882A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -796,6 +798,7 @@
 		BA9373D8154B488500E444EC /* Default */ = {
 			isa = PBXGroup;
 			children = (
+				BA18B61917521CE7001EB74B /* Default-568h@2x.png */,
 				BA9373E1154B498A00E444EC /* Default@2x.png */,
 				BA9373E2154B498A00E444EC /* Default-Landscape@2x~ipad.png */,
 				BA9373E3154B498A00E444EC /* Default-Landscape~ipad.png */,
@@ -1595,6 +1598,7 @@
 				BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */,
 				BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */,
 				BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */,
+				BA18B61A17521CE7001EB74B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
