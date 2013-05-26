@@ -1877,7 +1877,7 @@
 		BA27D55C155F294F00C6B37E /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 155;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1902,7 +1902,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3A4A80BF-6DC6-4385-B6FA-7902387C9FC0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2324D20D-CF59-44EB-8D05-2F213F2E6C1F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
@@ -1963,7 +1963,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0813BE00-8E2F-4D21-99BE-381811D342FD";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2025,7 +2025,7 @@
 		BAB2F22115409C8D00ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 155;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2050,7 +2050,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8EF5439B-0F0E-4642-ABE4-70CF1196DF7C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8FC9476C-4967-495E-839A-A0ABCEEF1CF7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
