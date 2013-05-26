@@ -50,7 +50,7 @@
     pt.headingValue = [p getInt:@"Heading" section:sectionName];
     pt.speedValue = [p getInt:@"Speed" section:sectionName];
     pt.cameraAngleValue = [p getInt:@"CAM-Nick" section:sectionName];
-    pt.typeValue = [p getInt:@"Type" section:sectionName];
+    pt.typeValue = [p getInt:@"Type" section:sectionName]-1;
     pt.prefix = [p get:@"Prefix" section:sectionName];
 
     [self addPointsObject:pt];
@@ -118,7 +118,7 @@
     [p setNumber:pt.heading forName:@"Heading" section:sectionName];
     [p setNumber:pt.speed forName:@"Speed" section:sectionName];
     [p setNumber:pt.cameraAngle forName:@"CAM-Nick" section:sectionName];
-    [p setNumber:pt.type forName:@"Type" section:sectionName];
+    [p setNumber:@(pt.typeValue+1) forName:@"Type" section:sectionName];
     [p set:pt.prefix forName:@"Prefix" section:sectionName];
     
   }];
