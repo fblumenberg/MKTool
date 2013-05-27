@@ -76,6 +76,7 @@
 		76FAA0F81553C61F00419D77 /* darkGreyButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 76FAA0F41553C61F00419D77 /* darkGreyButtonHighlight.png */; };
 		76FAA0F91553C61F00419D77 /* darkGreyButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76FAA0F51553C61F00419D77 /* darkGreyButtonHighlight@2x.png */; };
 		76FAA0FC1553CF6F00419D77 /* UIButton+Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */; };
+		BA079621175296C9003268C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA079620175296C9003268C7 /* Default-568h@2x.png */; };
 		BA0E48FB15869056000F382C /* icon-locate-gps.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48F915869056000F382C /* icon-locate-gps.png */; };
 		BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */; };
 		BA18C41F154B1301005C882A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA18C41E154B1301005C882A /* libz.dylib */; };
@@ -324,6 +325,7 @@
 		76FAA0F51553C61F00419D77 /* darkGreyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkGreyButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		76FAA0FA1553CF6F00419D77 /* UIButton+Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Images.h"; sourceTree = "<group>"; };
 		76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Images.m"; sourceTree = "<group>"; };
+		BA079620175296C9003268C7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA0E48F915869056000F382C /* icon-locate-gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps.png"; sourceTree = "<group>"; };
 		BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps@2x.png"; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -687,6 +689,7 @@
 		BA9373D8154B488500E444EC /* Default */ = {
 			isa = PBXGroup;
 			children = (
+				BA079620175296C9003268C7 /* Default-568h@2x.png */,
 				BA9373E1154B498A00E444EC /* Default@2x.png */,
 				BA9373E2154B498A00E444EC /* Default-Landscape@2x~ipad.png */,
 				BA9373E3154B498A00E444EC /* Default-Landscape~ipad.png */,
@@ -1369,6 +1372,7 @@
 				BA0E48FC15869056000F382C /* icon-locate-gps@2x.png in Resources */,
 				BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */,
 				BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */,
+				BA079621175296C9003268C7 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1644,7 +1648,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 155;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1654,7 +1658,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3A4A80BF-6DC6-4385-B6FA-7902387C9FC0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2324D20D-CF59-44EB-8D05-2F213F2E6C1F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
@@ -1708,7 +1712,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CA82C6E-BF5B-43A3-BB46-ECC1C8C1AF22";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0813BE00-8E2F-4D21-99BE-381811D342FD";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1761,7 +1765,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 155;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1771,7 +1775,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8EF5439B-0F0E-4642-ABE4-70CF1196DF7C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8FC9476C-4967-495E-839A-A0ABCEEF1CF7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
