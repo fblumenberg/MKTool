@@ -15,7 +15,7 @@
 
 @implementation MKTRoute (MKTRoute_WPL)
 
-- (BOOL)addPointAtIndex:(int)index fromWpl:(INIParser*)p{
+- (BOOL)addPointAtIndex:(int)index fromWpl:(INIParser*)p wpTypeZero:(BOOL)wpTypeZero {
   
   
   BOOL result =YES;
@@ -50,7 +50,12 @@
     pt.headingValue = [p getInt:@"Heading" section:sectionName];
     pt.speedValue = [p getInt:@"Speed" section:sectionName];
     pt.cameraAngleValue = [p getInt:@"CAM-Nick" section:sectionName];
-    pt.typeValue = [p getInt:@"Type" section:sectionName]-1;
+    
+    if(wpTypeZero)
+      pt.typeValue = [p getInt:@"Type" section:sectionName];
+    else
+      pt.typeValue = [p getInt:@"Type" section:sectionName]-1;
+
     pt.prefix = [p get:@"Prefix" section:sectionName];
 
     [self addPointsObject:pt];
@@ -75,14 +80,21 @@
     int numberOfPoints=[p getInt:@"NumberOfWaypoints" section:@"General"];
     
     self.fileName = path.lastPathComponent;
+
+    BOOL wpTypeZero = NO;
+    if([p exists:@"Name" section:@"General"]){
+      wpTypeZero = [self hasZeroTypePoints:p numberOfPoints:numberOfPoints];
+    }
+    
     self.name = [p get:@"Name" section:@"General"];
+    
     if(self.name == nil )
       self.name = [self.fileName stringByDeletingPathExtension];
     
     [self removePoints:self.points];
     
     for(int i=1;result &&  i<=numberOfPoints;i++){
-      result = [self addPointAtIndex:i fromWpl:p];
+      result = [self addPointAtIndex:i fromWpl:p wpTypeZero:wpTypeZero];
     }
     
     if(self.points.count!=numberOfPoints){
@@ -128,5 +140,17 @@
   return retVal;
 }
 
+- (BOOL)hasZeroTypePoints:(INIParser*)p numberOfPoints:(NSInteger)numberOfPoints {
+  
+  BOOL result=NO;
+  
+  for(int i=1;!result &&  i<=numberOfPoints;i++){
+    NSString* sectionName = [NSString stringWithFormat:@"Point%d",i];
+    int type = [p getInt:@"Type" section:sectionName];
+    result = result || (type==0);
+  }
+  
+  return result;
+}
 
 @end
