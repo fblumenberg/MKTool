@@ -90,6 +90,7 @@
 		BA671A321753DB1A00025D24 /* TestMKTool.1.0.2.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A301753DB1A00025D24 /* TestMKTool.1.0.2.wpl */; };
 		BA671A331753DB1A00025D24 /* TestMKTool.1.0.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A311753DB1A00025D24 /* TestMKTool.1.0.wpl */; };
 		BA671A351753DDF400025D24 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A341753DDF400025D24 /* Default-568h@2x.png */; };
+		BA671A371753F0F500025D24 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = BA671A361753F0F500025D24 /* iTunesArtwork@2x */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -342,6 +343,7 @@
 		BA671A301753DB1A00025D24 /* TestMKTool.1.0.2.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.2.wpl; sourceTree = "<group>"; };
 		BA671A311753DB1A00025D24 /* TestMKTool.1.0.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.wpl; sourceTree = "<group>"; };
 		BA671A341753DDF400025D24 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BA671A361753F0F500025D24 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C7154B3B9800E444EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C8154B435600E444EC /* icon-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-close.png"; sourceTree = "<group>"; };
@@ -1069,6 +1071,7 @@
 		BAF0CA041545CCEE00C31A02 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				BA671A361753F0F500025D24 /* iTunesArtwork@2x */,
 				BAF0CA051545CCEE00C31A02 /* Icon-iPad.png */,
 				BAF0CA061545CCEE00C31A02 /* Icon-iPad@2x.png */,
 				BAF0CA071545CCEE00C31A02 /* Icon-iPhone.png */,
@@ -1346,6 +1349,7 @@
 				BAB5321F1594E99500AC1BD8 /* icon-pagecurl.png in Resources */,
 				BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */,
 				BA079621175296C9003268C7 /* Default-568h@2x.png in Resources */,
+				BA671A371753F0F500025D24 /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
