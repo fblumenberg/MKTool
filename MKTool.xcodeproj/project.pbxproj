@@ -94,6 +94,9 @@
 		BA56918916F9068F007A33D0 /* MKTRouteTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */; };
 		BA56918C16F91048007A33D0 /* icon-ul1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56918A16F9103E007A33D0 /* icon-ul1.png */; };
 		BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56918B16F91043007A33D0 /* icon-ul1@2x.png */; };
+		BA671A3A175536A000025D24 /* TestMKTool.1.0.2.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */; };
+		BA671A3B175536A000025D24 /* TestMKTool.1.0.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */; };
+		BA671A3D17553ABF00025D24 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3C17553ABF00025D24 /* Default-568h@2x.png */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -851,6 +854,9 @@
 		BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTransferViewController.m; sourceTree = "<group>"; };
 		BA56918A16F9103E007A33D0 /* icon-ul1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1.png"; sourceTree = "<group>"; };
 		BA56918B16F91043007A33D0 /* icon-ul1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1@2x.png"; sourceTree = "<group>"; };
+		BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.2.wpl; sourceTree = "<group>"; };
+		BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.wpl; sourceTree = "<group>"; };
+		BA671A3C17553ABF00025D24 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA6EB18D170766B00009B4A6 /* MKTool-Cydia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MKTool-Cydia-Info.plist"; path = "ApplicationBase/MKTool-Cydia-Info.plist"; sourceTree = "<group>"; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C7154B3B9800E444EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1772,6 +1778,7 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
+				BA671A3C17553ABF00025D24 /* Default-568h@2x.png */,
 				BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
@@ -1991,6 +1998,8 @@
 		BAB2F2F81540AE7000ECE09A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */,
+				BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */,
 				BAA229E31541F02C004F92AA /* icon-calculate@2x.png */,
 				BAB2F2F91540AE7000ECE09A /* Test.wpl */,
 				BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */,
@@ -2782,6 +2791,9 @@
 				BA98C01E16C290AD000CA7EE /* ValueOsdViewController-iPad.xib in Resources */,
 				BA98C02216C290AD000CA7EE /* ValueOsdViewController.xib in Resources */,
 				BA56918216F8E9B2007A33D0 /* userDefaults.plist in Resources */,
+				BA671A3A175536A000025D24 /* TestMKTool.1.0.2.wpl in Resources */,
+				BA671A3B175536A000025D24 /* TestMKTool.1.0.wpl in Resources */,
+				BA671A3D17553ABF00025D24 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
