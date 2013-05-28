@@ -3493,7 +3493,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8FC9476C-4967-495E-839A-A0ABCEEF1CF7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DC63D70-C8D8-4AEA-A120-8CF6D99A2C74";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Testflight;
@@ -3795,7 +3795,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
 				CURRENT_PROJECT_VERSION = 168;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3809,7 +3809,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0813BE00-8E2F-4D21-99BE-381811D342FD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
