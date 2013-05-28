@@ -156,6 +156,7 @@
     self.failSafe.badgeScaleFactor = 1.5;
     self.out1.badgeScaleFactor = 1.5;
     self.out2.badgeScaleFactor = 1.5;
+    self.gpxLogging.badgeScaleFactor = 1.5;
   }
   else {
     self.altitudeControl.badgeScaleFactor = 1.0;
@@ -165,6 +166,7 @@
     self.failSafe.badgeScaleFactor = 1.0;
     self.out1.badgeScaleFactor = 1.0;
     self.out2.badgeScaleFactor = 1.0;
+    self.gpxLogging.badgeScaleFactor = 1.0;
   }
 
   self.altitudeControl.badgeInsetColor = self.functionOffColor;
@@ -185,6 +187,9 @@
 
   self.out2.badgeInsetColor = self.functionOffColor;
   self.out2.badgeShining = YES;
+
+  self.gpxLogging.badgeInsetColor = self.functionOffColor;
+  self.gpxLogging.badgeShining = YES;
 }
 
 - (void)updateStateView:(OsdValue *)value {
@@ -235,6 +240,11 @@
   self.flightTime.text = [NSString stringWithFormat:@"%02d:%02d", data->FlyingTime / 60, data->FlyingTime % 60];
 
   [self.gpsMode setNeedsDisplay];
+  
+  self.gpxLogging.badgeInsetColor = value.isGpxLogOn ? self.functionOnColor : self.functionOffColor;
+  self.gpxLogging.badgeText = @"GPX";
+  [self.gpxLogging setNeedsDisplay];
+
 }
 
 - (void)updateBatteryView:(OsdValue *)value {

@@ -42,6 +42,7 @@
 @property(nonatomic, retain) IBOutlet CustomBadge *failSafe;
 @property(nonatomic, retain) IBOutlet CustomBadge *out1;
 @property(nonatomic, retain) IBOutlet CustomBadge *out2;
+@property(nonatomic, retain) IBOutlet CustomBadge *gpxLogging;
 
 @property(nonatomic, retain) UIColor *gpsOkColor;
 @property(nonatomic, retain) UIColor *functionOffColor;
