@@ -97,6 +97,7 @@
 		BA671A3A175536A000025D24 /* TestMKTool.1.0.2.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */; };
 		BA671A3B175536A000025D24 /* TestMKTool.1.0.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */; };
 		BA671A3D17553ABF00025D24 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3C17553ABF00025D24 /* Default-568h@2x.png */; };
+		BA671A3F17554D1C00025D24 /* speed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3E17554D1C00025D24 /* speed@2x.png */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -857,6 +858,7 @@
 		BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.2.wpl; sourceTree = "<group>"; };
 		BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.wpl; sourceTree = "<group>"; };
 		BA671A3C17553ABF00025D24 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BA671A3E17554D1C00025D24 /* speed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speed@2x.png"; sourceTree = "<group>"; };
 		BA6EB18D170766B00009B4A6 /* MKTool-Cydia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MKTool-Cydia-Info.plist"; path = "ApplicationBase/MKTool-Cydia-Info.plist"; sourceTree = "<group>"; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C7154B3B9800E444EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1692,6 +1694,7 @@
 		BA98C05816C2D620000CA7EE /* OSD */ = {
 			isa = PBXGroup;
 			children = (
+				BA671A3E17554D1C00025D24 /* speed@2x.png */,
 				BA98C05916C2D622000CA7EE /* annotation-current.png */,
 				BA98C05A16C2D622000CA7EE /* annotation-home.png */,
 				BA98C05B16C2D622000CA7EE /* annotation-target.png */,
@@ -2771,6 +2774,7 @@
 				BA1F155A16FF2AE500036441 /* Default-568h@2x.png in Resources */,
 				BAFD64E4171F2A14000767F0 /* star.png in Resources */,
 				BAFC63081740368300BC0252 /* MKTGpxSessionViewController.xib in Resources */,
+				BA671A3F17554D1C00025D24 /* speed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
