@@ -115,12 +115,14 @@
     [self setFormField:discoveryButton hidden:NO];
   }
   else if ([connectionClass isEqualToString:@"MKIpConnection"]){
+    [self.model setValue:@"127.0.0.1:64400" forKey:@"address"];
     [self setFormField:address hidden:NO];
     [self setFormField:connectionData hidden:YES];
     [self setFormField:infoWLAN hidden:NO];
     [self setFormField:discoveryButton hidden:YES];
   }
   else{
+    [self.model setValue:@"/dev/tty.iap" forKey:@"address"];
     [self setFormField:address hidden:NO];
     [self setFormField:connectionData hidden:YES];
     [self setFormField:infoWLAN hidden:YES];
