@@ -98,6 +98,15 @@
 		BA671A3B175536A000025D24 /* TestMKTool.1.0.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */; };
 		BA671A3D17553ABF00025D24 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3C17553ABF00025D24 /* Default-568h@2x.png */; };
 		BA671A3F17554D1C00025D24 /* speed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3E17554D1C00025D24 /* speed@2x.png */; };
+		BA671A4017567AC700025D24 /* MKTGpxLoggingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */; };
+		BA671A4117567ADF00025D24 /* MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */; };
+		BA671A4217567ADF00025D24 /* MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882B173AF393002F00AF /* MKTGpxSession.m */; };
+		BA671A4317567ADF00025D24 /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
+		BA671A4417567ADF00025D24 /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
+		BA671A4517567B0F00025D24 /* MKTGpxSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */; };
+		BA671A4617567B0F00025D24 /* MKTGpxDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */; };
+		BA671A4717567B6A00025D24 /* _MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882E173AF5C0002F00AF /* _MKTGpxRecord.m */; };
+		BA671A4817567B6A00025D24 /* _MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08828173AF37D002F00AF /* _MKTGpxSession.m */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -3068,6 +3077,15 @@
 				BA94CAAC1706FE1400AC0934 /* MKTRouteTransferController.m in Sources */,
 				BA94CAAD1706FE1400AC0934 /* MKTRouteTransferViewController.m in Sources */,
 				BA94CAAE1706FE1400AC0934 /* DBFileInfo+Dictionary.m in Sources */,
+				BA671A4017567AC700025D24 /* MKTGpxLoggingListViewController.m in Sources */,
+				BA671A4117567ADF00025D24 /* MKTGpxRecord.m in Sources */,
+				BA671A4217567ADF00025D24 /* MKTGpxSession.m in Sources */,
+				BA671A4317567ADF00025D24 /* MKTGpxSession+GPX.m in Sources */,
+				BA671A4417567ADF00025D24 /* MKTGPXExtensions.m in Sources */,
+				BA671A4517567B0F00025D24 /* MKTGpxSessionViewController.m in Sources */,
+				BA671A4617567B0F00025D24 /* MKTGpxDropboxController.m in Sources */,
+				BA671A4717567B6A00025D24 /* _MKTGpxRecord.m in Sources */,
+				BA671A4817567B6A00025D24 /* _MKTGpxSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
