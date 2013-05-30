@@ -116,7 +116,14 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   state = RouteControllerIsUploading;
   
   DDLogInfo(@"Start uploading route  from %d to%d",currIndex,lastIndex);
-  
+
+  if([self.points count]==0){
+    DDLogVerbose(@"No points in list,");
+    if ([self.delegate respondsToSelector:@selector(routeControllerFinishedUpload:)])
+      [self.delegate routeControllerFinishedUpload:self];
+    return;
+  }
+
   [self uploadClearPoint];
 
 }
