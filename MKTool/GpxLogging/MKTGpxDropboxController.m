@@ -73,6 +73,10 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
+- (void)dealloc{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)loadGpxFilesFromDropBox {
   DDLogVerbose(@"Try to get the content for our datapath %@", self.dataPath);

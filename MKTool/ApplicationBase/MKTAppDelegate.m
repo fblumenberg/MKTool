@@ -100,8 +100,10 @@
 
 #endif
   
+#ifndef DEBUG
   [Crashlytics startWithAPIKey:kCRASHLYTICS_KEY];
-    
+#endif
+  
   [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {
     NSLog(@"Set log level for class %@",class);
     [DDLog setLogLevel:LOG_LEVEL_VERBOSE forClassWithName:class];
