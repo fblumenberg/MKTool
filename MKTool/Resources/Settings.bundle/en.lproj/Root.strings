@@ -5,7 +5,7 @@
 "SettingsCrashTitle" = "Bug report";
 "SettingsLoggingTitle" = "Logging";
 "SettingsActivateSync" = "Synchronization";
-"SettingsNCLoggingTitle" = "NC-Logging";
+"SettingsGpxLoggingTitle" = "GPX-Logging";
 "SettingsWaypointsTitle" = "Waypoints";
 "SettingsFollowMeTitle" = "Follow Me";
 "SettingsActivateOSDSound" = "OSD Alarm Sound";

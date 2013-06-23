@@ -52,7 +52,11 @@
     paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    [paramSection addPotiFieldForKeyPath:@"NaviGpsModeControl" title:NSLocalizedString(@"GPS Mode control", @"MKParam NaviCtrl")];
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95)
+      [paramSection addStepperFieldForKeyPath:@"NaviGpsModeChannel" title:NSLocalizedString(@"GPS Mode Ch.", @"MKParam NaviCtrl")];
+    else
+      [paramSection addPotiFieldForKeyPath:@"NaviGpsModeChannel" title:NSLocalizedString(@"GPS Mode control", @"MKParam NaviCtrl")];
+    
     if (((IKParamSet *)aModel).Revision.integerValue >= 88){
       [paramSection addSwitchFieldForKeyPath:@"ExtraConfig_GPS_AID" title:NSLocalizedString(@"Dynamic PH", @"MKParam NaviCtrl") style:switchStyle];
       if (((IKParamSet *)aModel).Revision.integerValue >= 90){

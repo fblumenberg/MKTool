@@ -50,60 +50,73 @@ const struct MKTPointFetchedProperties MKTPointFetchedProperties = {
 	return (MKTPointID*)[super objectID];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
 	if ([key isEqualToString:@"altitudeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"altitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"altitudeRateValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"altitudeRate"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"cameraAngleValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"cameraAngle"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"eventChannelValueValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"eventChannelValue"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"eventFlagValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"eventFlag"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"headingValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"heading"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"holdTimeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"holdTime"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"indexValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"index"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"latitudeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"latitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"longitudeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"longitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"speedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"speed"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"toleranceRadiusValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"toleranceRadius"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"typeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"type"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 
 	return keyPaths;

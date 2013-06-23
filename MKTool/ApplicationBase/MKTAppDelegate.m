@@ -30,7 +30,7 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 //#import "BWQuincyManager.h"
 #else
 #import "TestFlight.h"
-extern void UninstallCrashHandlers(BOOL restore);
+//extern void UninstallCrashHandlers(BOOL restore);
 #endif
 
 #import "MGSplitViewController.h"
@@ -97,8 +97,8 @@ extern void UninstallCrashHandlers(BOOL restore);
 
   [TestFlight takeOff:kTESTFLIGHTTOKEN];
 
-  UninstallCrashHandlers(NO);
-  UninstallCrashHandlers(YES);
+//  UninstallCrashHandlers(NO);
+//  UninstallCrashHandlers(YES);
 
 #endif
   

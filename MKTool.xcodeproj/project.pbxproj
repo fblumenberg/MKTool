@@ -94,6 +94,10 @@
 		BA56918916F9068F007A33D0 /* MKTRouteTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */; };
 		BA56918C16F91048007A33D0 /* icon-ul1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56918A16F9103E007A33D0 /* icon-ul1.png */; };
 		BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56918B16F91043007A33D0 /* icon-ul1@2x.png */; };
+		BA671A3A175536A000025D24 /* TestMKTool.1.0.2.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */; };
+		BA671A3B175536A000025D24 /* TestMKTool.1.0.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */; };
+		BA671A3D17553ABF00025D24 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3C17553ABF00025D24 /* Default-568h@2x.png */; };
+		BA671A3F17554D1C00025D24 /* speed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3E17554D1C00025D24 /* speed@2x.png */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -645,7 +649,6 @@
 		BAB2F2EF1540AD7E00ECE09A /* MKTRoute+Test-Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2EC1540AD7E00ECE09A /* MKTRoute+Test-Test.m */; };
 		BAB2F2F01540AD7E00ECE09A /* MKTRouteTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2ED1540AD7E00ECE09A /* MKTRouteTest2.m */; };
 		BAB2F2F11540AD7E00ECE09A /* MKTRouteWplTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2EE1540AD7E00ECE09A /* MKTRouteWplTest.m */; };
-		BAB2F2F61540AE1700ECE09A /* MKTDropboxBaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F31540AE1700ECE09A /* MKTDropboxBaseTest.m */; };
 		BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2F51540AE1700ECE09A /* MKTRoute+Test.m */; };
 		BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2F91540AE7000ECE09A /* Test.wpl */; };
 		BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */; };
@@ -660,7 +663,6 @@
 		BAB86AA21709D35E0096C957 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */; };
 		BAC7B42F155EC79100FA37DA /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
 		BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */; };
-		BAC8B08D1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m in Resources */ = {isa = PBXBuildFile; fileRef = BAC8B08C1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m */; };
 		BAC8B0991559AAD200080225 /* RecentSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B0981559AAD200080225 /* RecentSearchesController.m */; };
 		BAC8B0A01559B78200080225 /* MKTPlacemarkDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B09F1559B78000080225 /* MKTPlacemarkDataSource.m */; };
 		BAC8B0A31559B81600080225 /* SBTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B0A21559B81400080225 /* SBTableAlert.m */; };
@@ -668,6 +670,12 @@
 		BAD501671541DA63004BA9A6 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501631541DA63004BA9A6 /* MGSplitDividerView.m */; };
 		BAD501681541DA63004BA9A6 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD501651541DA63004BA9A6 /* MGSplitViewController.m */; };
 		BAD5016B1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */; };
+		BADBC272173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */; };
+		BADBC274173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC273173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m */; };
+		BADBC277173C2B1C00B5EE4A /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
+		BADBC278173C2C3300B5EE4A /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
+		BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
+		BADBC27C173C446700B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
 		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
 		BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */; };
 		BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */; };
@@ -678,6 +686,16 @@
 		BAEE75F11543FEA000A92FA4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75F01543FEA000A92FA4 /* QuartzCore.framework */; };
 		BAEE75F91544088200A92FA4 /* FDCurlViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75F81544088200A92FA4 /* FDCurlViewControl.m */; };
 		BAEE75FC15442B0300A92FA4 /* MKTPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75FB15442B0200A92FA4 /* MKTPointAnnotationView.m */; };
+		BAF08829173AF37D002F00AF /* _MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08828173AF37D002F00AF /* _MKTGpxSession.m */; };
+		BAF0882C173AF393002F00AF /* MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882B173AF393002F00AF /* MKTGpxSession.m */; };
+		BAF08831173AF5C1002F00AF /* _MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882E173AF5C0002F00AF /* _MKTGpxRecord.m */; };
+		BAF08832173AF5C1002F00AF /* MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */; };
+		BAF08836173AF82C002F00AF /* MKTGPXRecordTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08835173AF82C002F00AF /* MKTGPXRecordTest.m */; };
+		BAF08838173AFC17002F00AF /* MKTGPXSessionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08837173AFC17002F00AF /* MKTGPXSessionTest.m */; };
+		BAF08839173AFD35002F00AF /* MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */; };
+		BAF0883A173AFD35002F00AF /* MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882B173AF393002F00AF /* MKTGpxSession.m */; };
+		BAF0883B173AFD35002F00AF /* _MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882E173AF5C0002F00AF /* _MKTGpxRecord.m */; };
+		BAF0883C173AFD35002F00AF /* _MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08828173AF37D002F00AF /* _MKTGpxSession.m */; };
 		BAF0C9F0154453F900C31A02 /* HeadingOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */; };
 		BAF0C9F1154453F900C31A02 /* HeadingOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0C9EF154453D600C31A02 /* HeadingOverlayView.m */; };
 		BAF0C9F615445CC200C31A02 /* delete-point-btn-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF0C9F215445CC200C31A02 /* delete-point-btn-pressed.png */; };
@@ -732,13 +750,12 @@
 		BAF0CA861549D03500C31A02 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA851549CEDA00C31A02 /* MBProgressHUD.m */; };
 		BAF0CA8C1549D1F400C31A02 /* MKTRouteDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA891549D1F400C31A02 /* MKTRouteDropboxController.m */; };
 		BAF0CA8D1549D1F400C31A02 /* MKTRouteSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA8B1549D1F400C31A02 /* MKTRouteSyncModel.m */; };
-		BAF0CA8F1549D23300C31A02 /* MKTRouteSyncModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA8E1549D23300C31A02 /* MKTRouteSyncModelTest.m */; };
 		BAF0CA901549D27300C31A02 /* MKTRouteDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA891549D1F400C31A02 /* MKTRouteDropboxController.m */; };
 		BAF0CA911549D27300C31A02 /* MKTRouteSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA8B1549D1F400C31A02 /* MKTRouteSyncModel.m */; };
-		BAF0CA951549E0B500C31A02 /* MKRouteDropBoxSyncAllLocalRemoteTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA921549E0B400C31A02 /* MKRouteDropBoxSyncAllLocalRemoteTest.m */; };
-		BAF0CA961549E0B500C31A02 /* MKRouteDropBoxSyncOneOlderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA931549E0B400C31A02 /* MKRouteDropBoxSyncOneOlderTest.m */; };
-		BAF0CA971549E0B500C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA941549E0B400C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m */; };
 		BAF0CA991549F5E500C31A02 /* white_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF0CA981549F5E500C31A02 /* white_texture.png */; };
+		BAFC630617402FB500BC0252 /* MKTGpxSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */; };
+		BAFC63081740368300BC0252 /* MKTGpxSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */; };
+		BAFC630E17454F0200BC0252 /* MKTGpxDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */; };
 		BAFD64E4171F2A14000767F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFD64E3171F2A14000767F0 /* star.png */; };
 		BAFD64E5171F2A14000767F0 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFD64E3171F2A14000767F0 /* star.png */; };
 		E682664B2D424080A1486474 /* libPods-MKToolCydia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5109A5E54AFC4C0193D94DFD /* libPods-MKToolCydia.a */; };
@@ -838,6 +855,10 @@
 		BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTransferViewController.m; sourceTree = "<group>"; };
 		BA56918A16F9103E007A33D0 /* icon-ul1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1.png"; sourceTree = "<group>"; };
 		BA56918B16F91043007A33D0 /* icon-ul1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1@2x.png"; sourceTree = "<group>"; };
+		BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.2.wpl; sourceTree = "<group>"; };
+		BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.wpl; sourceTree = "<group>"; };
+		BA671A3C17553ABF00025D24 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BA671A3E17554D1C00025D24 /* speed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speed@2x.png"; sourceTree = "<group>"; };
 		BA6EB18D170766B00009B4A6 /* MKTool-Cydia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MKTool-Cydia-Info.plist"; path = "ApplicationBase/MKTool-Cydia-Info.plist"; sourceTree = "<group>"; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C7154B3B9800E444EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1148,6 +1169,13 @@
 		BAD501651541DA63004BA9A6 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
 		BAD5016A1541E01E004BA9A6 /* UIViewController+MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MGSplitViewController.m"; sourceTree = "<group>"; };
 		BAD5016C1541E02A004BA9A6 /* UIViewController+MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MGSplitViewController.h"; sourceTree = "<group>"; };
+		BADBC270173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxLoggingListViewController.h; sourceTree = "<group>"; };
+		BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxLoggingListViewController.m; sourceTree = "<group>"; };
+		BADBC273173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTGPXSessionWriteGPXTest.m; path = GPXLog/MKTGPXSessionWriteGPXTest.m; sourceTree = "<group>"; };
+		BADBC275173C2B1C00B5EE4A /* MKTGpxSession+GPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTGpxSession+GPX.h"; sourceTree = "<group>"; };
+		BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTGpxSession+GPX.m"; sourceTree = "<group>"; };
+		BADBC279173C41C900B5EE4A /* MKTGPXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGPXExtensions.h; sourceTree = "<group>"; };
+		BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGPXExtensions.m; sourceTree = "<group>"; };
 		BAEE75CA1542D59600A92FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteContainerViewController.h; sourceTree = "<group>"; };
 		BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteContainerViewController.m; sourceTree = "<group>"; };
@@ -1162,6 +1190,17 @@
 		BAEE75F81544088200A92FA4 /* FDCurlViewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDCurlViewControl.m; sourceTree = "<group>"; };
 		BAEE75FA15442B0200A92FA4 /* MKTPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointAnnotationView.h; sourceTree = "<group>"; };
 		BAEE75FB15442B0200A92FA4 /* MKTPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointAnnotationView.m; sourceTree = "<group>"; };
+		BAF08826173AEDE0002F00AF /* MKModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MKModel 3.xcdatamodel"; sourceTree = "<group>"; };
+		BAF08827173AF37D002F00AF /* _MKTGpxSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MKTGpxSession.h; sourceTree = "<group>"; };
+		BAF08828173AF37D002F00AF /* _MKTGpxSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MKTGpxSession.m; sourceTree = "<group>"; };
+		BAF0882A173AF393002F00AF /* MKTGpxSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxSession.h; sourceTree = "<group>"; };
+		BAF0882B173AF393002F00AF /* MKTGpxSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxSession.m; sourceTree = "<group>"; };
+		BAF0882D173AF5BF002F00AF /* _MKTGpxRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MKTGpxRecord.h; sourceTree = "<group>"; };
+		BAF0882E173AF5C0002F00AF /* _MKTGpxRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MKTGpxRecord.m; sourceTree = "<group>"; };
+		BAF0882F173AF5C0002F00AF /* MKTGpxRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxRecord.h; sourceTree = "<group>"; };
+		BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxRecord.m; sourceTree = "<group>"; };
+		BAF08835173AF82C002F00AF /* MKTGPXRecordTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTGPXRecordTest.m; path = GPXLog/MKTGPXRecordTest.m; sourceTree = "<group>"; };
+		BAF08837173AFC17002F00AF /* MKTGPXSessionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTGPXSessionTest.m; path = GPXLog/MKTGPXSessionTest.m; sourceTree = "<group>"; };
 		BAF0C9EC154453D600C31A02 /* HeadingOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadingOverlay.h; path = MKTool/Waypoints/HeadingOverlay.h; sourceTree = SOURCE_ROOT; };
 		BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeadingOverlay.m; path = MKTool/Waypoints/HeadingOverlay.m; sourceTree = SOURCE_ROOT; };
 		BAF0C9EE154453D600C31A02 /* HeadingOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadingOverlayView.h; path = MKTool/Waypoints/HeadingOverlayView.h; sourceTree = SOURCE_ROOT; };
@@ -1243,6 +1282,12 @@
 		BAF0CA931549E0B400C31A02 /* MKRouteDropBoxSyncOneOlderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneOlderTest.m; sourceTree = "<group>"; };
 		BAF0CA941549E0B400C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRouteDropBoxSyncOneLocalRemoteTest.m; sourceTree = "<group>"; };
 		BAF0CA981549F5E500C31A02 /* white_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_texture.png; sourceTree = "<group>"; };
+		BAFC630317402FB400BC0252 /* MKTGpxSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxSessionViewController.h; sourceTree = "<group>"; };
+		BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxSessionViewController.m; sourceTree = "<group>"; };
+		BAFC63091740368300BC0252 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTGpxSessionViewController.xib; sourceTree = "<group>"; };
+		BAFC630B1740368E00BC0252 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MKTGpxSessionViewController.xib; sourceTree = "<group>"; };
+		BAFC630C17454F0200BC0252 /* MKTGpxDropboxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxDropboxController.h; sourceTree = "<group>"; };
+		BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxDropboxController.m; sourceTree = "<group>"; };
 		BAFD64E3171F2A14000767F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKToolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.xcconfig"; path = "Pods/Pods-MKToolCydia.xcconfig"; sourceTree = SOURCE_ROOT; };
@@ -1649,6 +1694,7 @@
 		BA98C05816C2D620000CA7EE /* OSD */ = {
 			isa = PBXGroup;
 			children = (
+				BA671A3E17554D1C00025D24 /* speed@2x.png */,
 				BA98C05916C2D622000CA7EE /* annotation-current.png */,
 				BA98C05A16C2D622000CA7EE /* annotation-home.png */,
 				BA98C05B16C2D622000CA7EE /* annotation-target.png */,
@@ -1699,6 +1745,7 @@
 		BAA229F31541F811004F92AA /* Waypoints */ = {
 			isa = PBXGroup;
 			children = (
+				BAC6A04E173B8FF300963BA1 /* Map */,
 				BA56918316F8EBEE007A33D0 /* Transfer */,
 				76704D9115921DF10073EC56 /* MKTCircleOverlay.h */,
 				76704D9215921DF10073EC56 /* MKTCircleOverlay.m */,
@@ -1734,6 +1781,7 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
+				BA671A3C17553ABF00025D24 /* Default-568h@2x.png */,
 				BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
@@ -1789,6 +1837,7 @@
 				BAB2F27B1540A19600ECE09A /* ApplicationBase */,
 				BA98BEF216C28886000CA7EE /* Communication */,
 				BAB2F28D1540A6B100ECE09A /* CoreData */,
+				BADBC26F173C1F0D00B5EE4A /* GpxLogging */,
 				BA98BF4B16C288A5000CA7EE /* MKSettings */,
 				BAB2F20E15409C8C00ECE09A /* MKTDetailViewController.h */,
 				BAB2F20F15409C8C00ECE09A /* MKTDetailViewController.m */,
@@ -1875,22 +1924,11 @@
 		BAB2F28D1540A6B100ECE09A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BA98BEE616C28666000CA7EE /* MKTConnection.h */,
-				BA98BEE716C28666000CA7EE /* MKTConnection.m */,
+				BAC6A04D173B8F8000963BA1 /* GPXLog */,
+				BAC6A04C173B8F7800963BA1 /* Connection */,
+				BAC6A04B173B8F6C00963BA1 /* Routes */,
 				BAB2F29A1540A72F00ECE09A /* Generated */,
 				BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */,
-				BAB2F2901540A6B100ECE09A /* MKTPoint.h */,
-				BAB2F2911540A6B100ECE09A /* MKTPoint.m */,
-				BAB2F2921540A6B100ECE09A /* MKTRoute+WPL.h */,
-				BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */,
-				BAB2F2941540A6B100ECE09A /* MKTRoute.h */,
-				BAB2F2951540A6B100ECE09A /* MKTRoute.m */,
-				BAF0C9EC154453D600C31A02 /* HeadingOverlay.h */,
-				BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */,
-				BAF0C9EE154453D600C31A02 /* HeadingOverlayView.h */,
-				BAF0C9EF154453D600C31A02 /* HeadingOverlayView.m */,
-				BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */,
-				BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1898,6 +1936,10 @@
 		BAB2F29A1540A72F00ECE09A /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				BAF0882E173AF5C0002F00AF /* _MKTGpxRecord.m */,
+				BAF0882D173AF5BF002F00AF /* _MKTGpxRecord.h */,
+				BAF08827173AF37D002F00AF /* _MKTGpxSession.h */,
+				BAF08828173AF37D002F00AF /* _MKTGpxSession.m */,
 				BA98BEE416C28666000CA7EE /* _MKTConnection.h */,
 				BA98BEE516C28666000CA7EE /* _MKTConnection.m */,
 				BAB2F29B1540A73D00ECE09A /* _MKTPoint.h */,
@@ -1911,6 +1953,7 @@
 		BAB2F2AB1540A7F800ECE09A /* MKToolTests */ = {
 			isa = PBXGroup;
 			children = (
+				BAF08833173AF7B8002F00AF /* GPXLog */,
 				BA98BF9B16C28986000CA7EE /* Communication */,
 				BAB2F2E91540AD7500ECE09A /* INI */,
 				BAB2F2F41540AE1700ECE09A /* MKTRoute+Test.h */,
@@ -1958,11 +2001,63 @@
 		BAB2F2F81540AE7000ECE09A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */,
+				BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */,
 				BAA229E31541F02C004F92AA /* icon-calculate@2x.png */,
 				BAB2F2F91540AE7000ECE09A /* Test.wpl */,
 				BAB2F2FA1540AE7000ECE09A /* TestInvalid.wpl */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BAC6A04B173B8F6C00963BA1 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */,
+				BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */,
+				BAB2F2901540A6B100ECE09A /* MKTPoint.h */,
+				BAB2F2911540A6B100ECE09A /* MKTPoint.m */,
+				BAB2F2921540A6B100ECE09A /* MKTRoute+WPL.h */,
+				BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */,
+				BAB2F2941540A6B100ECE09A /* MKTRoute.h */,
+				BAB2F2951540A6B100ECE09A /* MKTRoute.m */,
+			);
+			name = Routes;
+			sourceTree = "<group>";
+		};
+		BAC6A04C173B8F7800963BA1 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				BA98BEE616C28666000CA7EE /* MKTConnection.h */,
+				BA98BEE716C28666000CA7EE /* MKTConnection.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		BAC6A04D173B8F8000963BA1 /* GPXLog */ = {
+			isa = PBXGroup;
+			children = (
+				BAF0882F173AF5C0002F00AF /* MKTGpxRecord.h */,
+				BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */,
+				BAF0882A173AF393002F00AF /* MKTGpxSession.h */,
+				BAF0882B173AF393002F00AF /* MKTGpxSession.m */,
+				BADBC275173C2B1C00B5EE4A /* MKTGpxSession+GPX.h */,
+				BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */,
+				BADBC279173C41C900B5EE4A /* MKTGPXExtensions.h */,
+				BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */,
+			);
+			name = GPXLog;
+			sourceTree = "<group>";
+		};
+		BAC6A04E173B8FF300963BA1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BAF0C9EC154453D600C31A02 /* HeadingOverlay.h */,
+				BAF0C9ED154453D600C31A02 /* HeadingOverlay.m */,
+				BAF0C9EE154453D600C31A02 /* HeadingOverlayView.h */,
+				BAF0C9EF154453D600C31A02 /* HeadingOverlayView.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		BAC8B0961559AAD200080225 /* Search */ = {
@@ -1996,6 +2091,20 @@
 				BAB2F2801540A5B600ECE09A /* INISection.m */,
 			);
 			name = INIFile;
+			sourceTree = "<group>";
+		};
+		BADBC26F173C1F0D00B5EE4A /* GpxLogging */ = {
+			isa = PBXGroup;
+			children = (
+				BADBC270173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.h */,
+				BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */,
+				BAFC630317402FB400BC0252 /* MKTGpxSessionViewController.h */,
+				BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */,
+				BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */,
+				BAFC630C17454F0200BC0252 /* MKTGpxDropboxController.h */,
+				BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */,
+			);
+			path = GpxLogging;
 			sourceTree = "<group>";
 		};
 		BAEE75D315431CC600A92FA4 /* Point */ = {
@@ -2111,6 +2220,16 @@
 				BAEE75F81544088200A92FA4 /* FDCurlViewControl.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		BAF08833173AF7B8002F00AF /* GPXLog */ = {
+			isa = PBXGroup;
+			children = (
+				BAF08835173AF82C002F00AF /* MKTGPXRecordTest.m */,
+				BAF08837173AFC17002F00AF /* MKTGPXSessionTest.m */,
+				BADBC273173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m */,
+			);
+			name = GPXLog;
 			sourceTree = "<group>";
 		};
 		BAF0CA041545CCEE00C31A02 /* Icons */ = {
@@ -2654,6 +2773,8 @@
 				BA56918D16F91048007A33D0 /* icon-ul1@2x.png in Resources */,
 				BA1F155A16FF2AE500036441 /* Default-568h@2x.png in Resources */,
 				BAFD64E4171F2A14000767F0 /* star.png in Resources */,
+				BAFC63081740368300BC0252 /* MKTGpxSessionViewController.xib in Resources */,
+				BA671A3F17554D1C00025D24 /* speed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2665,7 +2786,6 @@
 				BAB2F2FB1540AE7000ECE09A /* Test.wpl in Resources */,
 				BAB2F2FC1540AE7000ECE09A /* TestInvalid.wpl in Resources */,
 				BAA229E41541F02C004F92AA /* icon-calculate@2x.png in Resources */,
-				BAC8B08D1558788D00080225 /* MKRouteDropBoxSyncOneLocalRemoteSonderzeichenTest.m in Resources */,
 				BA98C00416C290AD000CA7EE /* FollowMeOsdViewController-iPad.xib in Resources */,
 				BA98C00816C290AD000CA7EE /* FollowMeOsdViewController.xib in Resources */,
 				BA98C00C16C290AD000CA7EE /* MapOsdViewController-iPad.xib in Resources */,
@@ -2675,6 +2795,9 @@
 				BA98C01E16C290AD000CA7EE /* ValueOsdViewController-iPad.xib in Resources */,
 				BA98C02216C290AD000CA7EE /* ValueOsdViewController.xib in Resources */,
 				BA56918216F8E9B2007A33D0 /* userDefaults.plist in Resources */,
+				BA671A3A175536A000025D24 /* TestMKTool.1.0.2.wpl in Resources */,
+				BA671A3B175536A000025D24 /* TestMKTool.1.0.wpl in Resources */,
+				BA671A3D17553ABF00025D24 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3088,6 +3211,15 @@
 				BA56918616F8EBFC007A33D0 /* MKTRouteTransferController.m in Sources */,
 				BA56918916F9068F007A33D0 /* MKTRouteTransferViewController.m in Sources */,
 				BAB4305D1704E5CD00BEC0B5 /* DBFileInfo+Dictionary.m in Sources */,
+				BAF08829173AF37D002F00AF /* _MKTGpxSession.m in Sources */,
+				BAF0882C173AF393002F00AF /* MKTGpxSession.m in Sources */,
+				BAF08831173AF5C1002F00AF /* _MKTGpxRecord.m in Sources */,
+				BAF08832173AF5C1002F00AF /* MKTGpxRecord.m in Sources */,
+				BADBC272173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m in Sources */,
+				BADBC277173C2B1C00B5EE4A /* MKTGpxSession+GPX.m in Sources */,
+				BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */,
+				BAFC630617402FB500BC0252 /* MKTGpxSessionViewController.m in Sources */,
+				BAFC630E17454F0200BC0252 /* MKTGpxDropboxController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3111,14 +3243,9 @@
 				BAB2F2EF1540AD7E00ECE09A /* MKTRoute+Test-Test.m in Sources */,
 				BAB2F2F01540AD7E00ECE09A /* MKTRouteTest2.m in Sources */,
 				BAB2F2F11540AD7E00ECE09A /* MKTRouteWplTest.m in Sources */,
-				BAB2F2F61540AE1700ECE09A /* MKTDropboxBaseTest.m in Sources */,
 				BAB2F2F71540AE1700ECE09A /* MKTRoute+Test.m in Sources */,
-				BAF0CA8F1549D23300C31A02 /* MKTRouteSyncModelTest.m in Sources */,
 				BAF0CA901549D27300C31A02 /* MKTRouteDropboxController.m in Sources */,
 				BAF0CA911549D27300C31A02 /* MKTRouteSyncModel.m in Sources */,
-				BAF0CA951549E0B500C31A02 /* MKRouteDropBoxSyncAllLocalRemoteTest.m in Sources */,
-				BAF0CA961549E0B500C31A02 /* MKRouteDropBoxSyncOneOlderTest.m in Sources */,
-				BAF0CA971549E0B500C31A02 /* MKRouteDropBoxSyncOneLocalRemoteTest.m in Sources */,
 				BA1B06B81584DF6200C6C964 /* DBSession+MKT.m in Sources */,
 				BA98BFA316C28986000CA7EE /* MKCommandChannelsTest.m in Sources */,
 				BA98BFA416C28986000CA7EE /* MKCommandDebugDataTest.m in Sources */,
@@ -3151,6 +3278,15 @@
 				BA98C03D16C29609000CA7EE /* InnerShadowDrawing.m in Sources */,
 				BA98C03F16C29609000CA7EE /* InnerShadowView.m in Sources */,
 				BA56918116F8DF94007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */,
+				BAF08836173AF82C002F00AF /* MKTGPXRecordTest.m in Sources */,
+				BAF08838173AFC17002F00AF /* MKTGPXSessionTest.m in Sources */,
+				BAF08839173AFD35002F00AF /* MKTGpxRecord.m in Sources */,
+				BAF0883A173AFD35002F00AF /* MKTGpxSession.m in Sources */,
+				BAF0883B173AFD35002F00AF /* _MKTGpxRecord.m in Sources */,
+				BAF0883C173AFD35002F00AF /* _MKTGpxSession.m in Sources */,
+				BADBC274173C255C00B5EE4A /* MKTGPXSessionWriteGPXTest.m in Sources */,
+				BADBC278173C2C3300B5EE4A /* MKTGpxSession+GPX.m in Sources */,
+				BADBC27C173C446700B5EE4A /* MKTGPXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3223,6 +3359,15 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAFC63091740368300BC0252 /* en */,
+				BAFC630B1740368E00BC0252 /* de */,
+			);
+			name = MKTGpxSessionViewController.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -3257,7 +3402,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3266,6 +3411,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3334,7 +3480,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3343,10 +3489,11 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8FC9476C-4967-495E-839A-A0ABCEEF1CF7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DC63D70-C8D8-4AEA-A120-8CF6D99A2C74";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Testflight;
@@ -3410,7 +3557,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3419,6 +3566,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3458,7 +3606,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3483,7 +3631,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3505,7 +3653,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3526,7 +3674,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3548,7 +3696,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3626,7 +3774,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3635,6 +3783,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3646,8 +3795,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 167;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
+				CURRENT_PROJECT_VERSION = 169;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3656,10 +3805,11 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0813BE00-8E2F-4D21-99BE-381811D342FD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3789,10 +3939,11 @@
 		BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BAF08826173AEDE0002F00AF /* MKModel 3.xcdatamodel */,
 				BA98C04216C29B6C000CA7EE /* MKModel 2.xcdatamodel */,
 				BAB2F28F1540A6B100ECE09A /* MKModel.xcdatamodel */,
 			);
-			currentVersion = BA98C04216C29B6C000CA7EE /* MKModel 2.xcdatamodel */;
+			currentVersion = BAF08826173AEDE0002F00AF /* MKModel 3.xcdatamodel */;
 			path = MKModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -1,0 +1,69 @@
+[General]
+FileVersion = 3
+Name = Route test
+NumberOfWaypoints = 5
+[Point3]
+Radius = 5
+Latitude = 49.85948753895583
+Heading = 0
+Longitude = 8.686684388354848
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 0
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point4]
+Radius = 5
+Latitude = 49.85913655619667
+Heading = 0
+Longitude = 8.687017719383675
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 0
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point1]
+Radius = 5
+Latitude = 49.85996745003064
+Heading = 0
+Longitude = 8.686762165594899
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 0
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point5]
+Radius = 5
+Latitude = 49.85891450456291
+Heading = 0
+Longitude = 8.687417716618256
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 0
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point2]
+Radius = 5
+Latitude = 49.8595734935286
+Heading = 0
+Longitude = 8.687139940760886
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 1
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P

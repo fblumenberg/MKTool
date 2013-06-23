@@ -60,7 +60,7 @@
   // nil for section name key path means "no sections".
   NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                               managedObjectContext:store.context
-                                                                                                sectionNameKeyPath:nil cacheName:@"Root"];
+                                                                                                sectionNameKeyPath:nil cacheName:nil];
   return aFetchedResultsController;
 }
 
@@ -82,7 +82,7 @@
   // nil for section name key path means "no sections".
   NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                               managedObjectContext:store.context
-                                                                                                sectionNameKeyPath:nil cacheName:@"Root"];
+                                                                                                sectionNameKeyPath:nil cacheName:nil];
   return aFetchedResultsController;
 }
 

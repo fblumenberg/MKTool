@@ -85,7 +85,7 @@
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
 	DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
 	if (account) {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMKTDropboxResponseNotification object:self];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kMKTDropboxResponseNotification object:self];
     return YES;
   }
   

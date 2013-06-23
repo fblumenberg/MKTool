@@ -177,4 +177,91 @@
   //  [MKTPoint attributesForPoint] ; 
 }
 
+
+- (void)testWriteFileCheckType {
+  
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSString *bundlePath = [bundle bundlePath];
+  NSLog(@"Bundle: %@", bundle);
+  
+  NSString *someFile = [bundlePath stringByAppendingPathComponent:@"Test.wpl"];
+  NSLog(@"File in Bundle: %@", someFile);
+  
+  MKTRoute* route = [MKTRoute create];
+  
+  BOOL result = [route loadRouteFromWplFile:someFile];
+  GHAssertTrue(result,nil);
+
+  NSArray* points = [route orderedPoints];
+  
+  MKTPoint* p;
+  
+  p = [points objectAtIndex:0];
+  GHAssertEquals((MKTPointType)p.typeValue, MKTPointTypeWP, nil);
+
+  p = [points objectAtIndex:1];
+  GHAssertEquals((MKTPointType)p.typeValue, MKTPointTypePOI, nil);
+
+  result = [route writeRouteToWplFile:tmpFile];
+  GHAssertTrue(result,nil);
+  
+  
+  INIParser* iniParser = [[INIParser alloc] initWithContentsOfFile:tmpFile encoding:NSUTF8StringEncoding error:nil];
+
+  int type = [iniParser getInt:@"Type" section:@"Point1"];
+  GHAssertEquals(type,1,nil);
+  
+  type = [iniParser getInt:@"Type" section:@"Point2"];
+  GHAssertEquals(type,2,nil);
+}
+
+- (void)testWriteFileLoad_1_0_CheckType {
+  
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSString *bundlePath = [bundle bundlePath];
+  NSLog(@"Bundle: %@", bundle);
+  
+  NSString *someFile = [bundlePath stringByAppendingPathComponent:@"TestMKTool.1.0.wpl"];
+  NSLog(@"File in Bundle: %@", someFile);
+  
+  MKTRoute* route = [MKTRoute create];
+  BOOL result = [route loadRouteFromWplFile:someFile];
+  GHAssertTrue(result,nil);
+  
+  NSArray* points = [route orderedPoints];
+  
+  MKTPoint* p;
+  
+  p = [points objectAtIndex:0];
+  GHAssertEquals((MKTPointType)p.typeValue, MKTPointTypeWP, nil);
+  
+  p = [points objectAtIndex:1];
+  GHAssertEquals((MKTPointType)p.typeValue, MKTPointTypePOI, nil);
+}
+
+- (void)testWriteFileLoad_1_0_2_CheckType {
+  
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSString *bundlePath = [bundle bundlePath];
+  NSLog(@"Bundle: %@", bundle);
+  
+  NSString *someFile = [bundlePath stringByAppendingPathComponent:@"TestMKTool.1.0.2.wpl"];
+  NSLog(@"File in Bundle: %@", someFile);
+  
+  MKTRoute* route = [MKTRoute create];
+  BOOL result = [route loadRouteFromWplFile:someFile];
+  GHAssertTrue(result,nil);
+  
+  NSArray* points = [route orderedPoints];
+  
+  MKTPoint* p;
+  
+  p = [points objectAtIndex:0];
+  GHAssertEquals((MKTPointType)p.typeValue, MKTPointTypeWP, nil);
+  
+  p = [points objectAtIndex:1];
+  GHAssertEquals((MKTPointType)p.typeValue, MKTPointTypePOI, nil);
+}
+
+
 @end

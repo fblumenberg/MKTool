@@ -1,0 +1,3 @@
+﻿"SettingsGpxLoggingInterval" = "Interval";
+"SettingsActivateGpxLogging" = "GPX-Logging activated";
+"SettingsActivateGpxLoggingDescription" = "If activated, the OSD data will be saved.";
