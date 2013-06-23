@@ -71,8 +71,11 @@
                                                                 selectionMode:IBAPickListSelectionModeSingle
                                                                       options:pickListOptions]];
 
-
-    [paramSection addPotiFieldForKeyPath:@"CareFreeModeControl" title:NSLocalizedString(@"Carefree control", @"MKParam Misc")];
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95)
+      [paramSection addStepperFieldForKeyPath:@"CareFreeChannel" title:NSLocalizedString(@"Carefree Ch.", @"MKParam Misc")];
+    else
+      [paramSection addPotiFieldForKeyPath:@"CareFreeChannel" title:NSLocalizedString(@"Carefree control", @"MKParam Misc")];
+    
     if (((IKParamSet *)aModel).Revision.integerValue >= 88)
     [paramSection addSwitchFieldForKeyPath:@"ExtraConfig_LEARNABLE_CAREFREE" title:NSLocalizedString(@"Teachable Carefree", @"MKParam Misc") style:switchStyle];
 
