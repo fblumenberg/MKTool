@@ -599,6 +599,7 @@
 		BAA22A0E1541FB49004F92AA /* SettingsFieldStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA22A081541FB49004F92AA /* SettingsFieldStyle.m */; };
 		BAA22A0F1541FB49004F92AA /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA22A0A1541FB49004F92AA /* StringToNumberTransformer.m */; };
 		BAA22A101541FB49004F92AA /* WPCamAngleTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA22A0C1541FB49004F92AA /* WPCamAngleTransformer.m */; };
+		BAA2C932177B15B700119E63 /* MKTParamChannelValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA2C931177B15B700119E63 /* MKTParamChannelValueTransformer.m */; };
 		BAB2F1FA15409C8C00ECE09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1F915409C8C00ECE09A /* UIKit.framework */; };
 		BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FB15409C8C00ECE09A /* Foundation.framework */; };
 		BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F1FD15409C8C00ECE09A /* CoreGraphics.framework */; };
@@ -1086,6 +1087,8 @@
 		BAA22A0A1541FB49004F92AA /* StringToNumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToNumberTransformer.m; sourceTree = "<group>"; };
 		BAA22A0B1541FB49004F92AA /* WPCamAngleTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCamAngleTransformer.h; sourceTree = "<group>"; };
 		BAA22A0C1541FB49004F92AA /* WPCamAngleTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCamAngleTransformer.m; sourceTree = "<group>"; };
+		BAA2C930177B15B700119E63 /* MKTParamChannelValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTParamChannelValueTransformer.h; sourceTree = "<group>"; };
+		BAA2C931177B15B700119E63 /* MKTParamChannelValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTParamChannelValueTransformer.m; sourceTree = "<group>"; };
 		BAB2F1F515409C8C00ECE09A /* MKTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB2F1F915409C8C00ECE09A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BAB2F1FB15409C8C00ECE09A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1762,10 +1765,12 @@
 		BAA22A041541FB48004F92AA /* IBAFormsHelper */ = {
 			isa = PBXGroup;
 			children = (
-				76DB5A5A154A8302002FFA78 /* MKParamPotiValueTransformer.h */,
-				76DB5A5B154A8302002FFA78 /* MKParamPotiValueTransformer.m */,
 				76DB5A57154A824A002FFA78 /* IBAFormSection+Create.h */,
 				76DB5A58154A824A002FFA78 /* IBAFormSection+Create.m */,
+				76DB5A5A154A8302002FFA78 /* MKParamPotiValueTransformer.h */,
+				76DB5A5B154A8302002FFA78 /* MKParamPotiValueTransformer.m */,
+				BAA2C930177B15B700119E63 /* MKTParamChannelValueTransformer.h */,
+				BAA2C931177B15B700119E63 /* MKTParamChannelValueTransformer.m */,
 				BAA22A051541FB49004F92AA /* SettingsButtonStyle.h */,
 				BAA22A061541FB49004F92AA /* SettingsButtonStyle.m */,
 				BAA22A071541FB49004F92AA /* SettingsFieldStyle.h */,
@@ -3220,6 +3225,7 @@
 				BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */,
 				BAFC630617402FB500BC0252 /* MKTGpxSessionViewController.m in Sources */,
 				BAFC630E17454F0200BC0252 /* MKTGpxDropboxController.m in Sources */,
+				BAA2C932177B15B700119E63 /* MKTParamChannelValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

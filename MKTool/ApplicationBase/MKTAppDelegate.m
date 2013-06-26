@@ -30,7 +30,7 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 //#import "BWQuincyManager.h"
 #else
 #import "TestFlight.h"
-//extern void UninstallCrashHandlers(BOOL restore);
+extern void UninstallCrashHandlers(BOOL restore);
 #endif
 
 #import "MGSplitViewController.h"
@@ -91,15 +91,16 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 #else
   
 #ifdef TESTING
-  #pragma message("Build for Testflightapp. Use Device UUID")
+#pragma message("Build for Testflightapp. Use Device UUID")
   [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+  
 #endif
-
+  
   [TestFlight takeOff:kTESTFLIGHTTOKEN];
-
-//  UninstallCrashHandlers(NO);
-//  UninstallCrashHandlers(YES);
-
+  
+  UninstallCrashHandlers(NO);
+  UninstallCrashHandlers(YES);
+  
 #endif
   
   [Crashlytics startWithAPIKey:kCRASHLYTICS_KEY];

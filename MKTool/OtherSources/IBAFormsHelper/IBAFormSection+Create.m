@@ -29,12 +29,16 @@
 @implementation IBAFormSection (Creation)
 
 - (IBAStepperFormField*)addStepperFieldForKeyPath:(NSString *)keyPath title:(NSString *)title {
+  return [self addStepperFieldForKeyPath:keyPath title:title displayValueTransformer:nil];
+}
 
+- (IBAStepperFormField*)addStepperFieldForKeyPath:(NSString *)keyPath title:(NSString *)title displayValueTransformer:(NSValueTransformer*)displayValueTransformer{
   IBAStepperFormField *stepperField;
   stepperField = [[IBAStepperFormField alloc] initWithKeyPath:keyPath
                                                         title:title
                                              valueTransformer:nil];
   
+  stepperField.displayValueTransformer = displayValueTransformer;
   [self addFormField:stepperField];
   return stepperField;
 }

@@ -93,6 +93,9 @@ static NSUInteger kNumberOfSettings = 5;
     [settings addObject:[NSNull null]];
   }
   self.settings = settings;
+  
+  activeSetting = 0xFF;
+
 }
 
 #pragma mark - Memory management

@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2013, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,21 +22,11 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import <IBAForms/IBAForms.h>
 
-@interface IBAFormSection (Creation)
+#import "StringToNumberTransformer.h"
 
-- (IBAStepperFormField*)addStepperFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
-- (IBAStepperFormField*)addStepperFieldForKeyPath:(NSString *)keyPath title:(NSString *)title displayValueTransformer:(NSValueTransformer*)displayValueTransformer;
-- (IBATextFormField*)addNumberFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
-- (void)addSwitchFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
-- (void)addSwitchFieldForKeyPath:(NSString *)keyPath title:(NSString *)title style:(IBAFormFieldStyle *)style;
-- (void)addTextFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
-- (void)addPotiFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
-- (void)addPotiFieldWithOutForKeyPath:(NSString *)keyPath title:(NSString *)title;
+@interface MKTParamChannelValueTransformer : NSValueTransformer
 
-- (void)addChannelsForKeyPath:(NSString *)keyPath title:(NSString *)title;
-- (void)addChannelsPlusForKeyPath:(NSString *)keyPath title:(NSString *)title;
-
++ (id)instance;
 
 @end

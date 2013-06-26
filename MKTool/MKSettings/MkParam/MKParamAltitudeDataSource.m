@@ -29,6 +29,7 @@
 
 #import "MKParamMainController.h"
 #import "MKParamPotiValueTransformer.h"
+#import "MKTParamChannelValueTransformer.h"
 #import "StringToNumberTransformer.h"
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"
@@ -38,62 +39,91 @@
 - (id)initWithModel:(id)aModel {
   self = [super initWithModel:aModel];
   if (self) {
-
+    
     //------------------------------------------------------------------------------------------------------------------------
     IBAFormSection *basicFieldSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     basicFieldSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
-
+    
     [basicFieldSection addSwitchFieldForKeyPath:@"GlobalConfig_HOEHENREGELUNG" title:NSLocalizedString(@"Enable altitude control", @"MKParam Altitude")];
-
+    
     //------------------------------------------------------------------------------------------------------------------------
     IBAFormSection *mainSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     mainSection.formFieldStyle = [[SettingsFieldStyle alloc] init] ;
-
+    
     NSArray *pickListOptions = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:
-            NSLocalizedString(@"Vario altitude", @"MKParam Altitude"),
-            NSLocalizedString(@"Height limitation", @"MKParam Altitude"),
-            nil]];
-
+                                                                                 NSLocalizedString(@"Vario altitude", @"MKParam Altitude"),
+                                                                                 NSLocalizedString(@"Height limitation", @"MKParam Altitude"),
+                                                                                 nil]];
+    
     IBASingleIndexTransformer *transformer = [[IBASingleIndexTransformer alloc] initWithPickListOptions:pickListOptions] ;
-
+    
     [mainSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"ExtraConfig_HEIGHT_LIMIT"
-                                                                       title:NSLocalizedString(@"Control mode", @"MKParam Altitude") valueTransformer:transformer
-                                                               selectionMode:IBAPickListSelectionModeSingle
-                                                                     options:pickListOptions]];
-
+                                                                      title:NSLocalizedString(@"Control mode", @"MKParam Altitude") valueTransformer:transformer
+                                                              selectionMode:IBAPickListSelectionModeSingle
+                                                                    options:pickListOptions]];
+    
     [mainSection addSwitchFieldForKeyPath:@"GlobalConfig_HOEHEN_SCHALTER" title:NSLocalizedString(@"Switch for setpoint", @"MKParam Altitude")];
     [mainSection addSwitchFieldForKeyPath:@"GlobalConfig_HOEHEN_SCHALTER" title:NSLocalizedString(@"Acoustic vario", @"MKParam Altitude")];
-
+    
     //------------------------------------------------------------------------------------------------------------------------
     IBAFormSection *paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
-
-    [paramSection addPotiFieldForKeyPath:@"MaxHoehe" title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
+    
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
+      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"HoeheChannel"
+                                                                                 title:NSLocalizedString(@"Setpoint Ch.", @"MKParam Altitude")];
+      
+      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
+      stepperField.minimumValue = 0;
+      stepperField.maximumValue = 32;
+      
+      [paramSection addFormField:stepperField];
+    }
+    else
+      [paramSection addPotiFieldForKeyPath:@"HoeheChannel" title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
+    
     [paramSection addNumberFieldForKeyPath:@"Hoehe_MinGas" title:NSLocalizedString(@"Min. Gas", @"MKParam Altitude")];
     [paramSection addNumberFieldForKeyPath:@"Hoehe_HoverBand" title:NSLocalizedString(@"Hover variation", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Hoehe_P" title:NSLocalizedString(@"Altitude-P", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Hoehe_GPS_Z" title:NSLocalizedString(@"GPS-Z", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Luftdruck_D" title:NSLocalizedString(@"Barometric-D", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Hoehe_ACC_Wirkung" title:NSLocalizedString(@"Z-ACC", @"MKParam Altitude")];
-
+    
     //------------------------------------------------------------------------------------------------------------------------
     IBAFormSection *paramSection2 = [self addSectionWithHeaderTitle:nil footerTitle:NSLocalizedString(@"0 - automatic / 127 - middle position", @"MKParam Altitude")];
     paramSection2.formFieldStyle = [[SettingsFieldStyle alloc] init];
-
+    
     [paramSection2 addNumberFieldForKeyPath:@"Hoehe_Verstaerkung" title:NSLocalizedString(@"Gain/Rate", @"MKParam Altitude")];
     if (((IKParamSet *)aModel).Revision.integerValue >= 88)
-    [paramSection2 addNumberFieldForKeyPath:@"MaxAltitude" title:NSLocalizedString(@"Max. Altitude", @"MKParam Altitude")];
+      [paramSection2 addNumberFieldForKeyPath:@"MaxAltitude" title:NSLocalizedString(@"Max. Altitude", @"MKParam Altitude")];
     [paramSection2 addNumberFieldForKeyPath:@"Hoehe_StickNeutralPoint" title:NSLocalizedString(@"Stick neutral point", @"MKParam Altitude")];
-
+    
+    //------------------------------------------------------------------------------------------------------------------------
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
+      IBAFormSection *paramSection3 = [self addSectionWithHeaderTitle:nil footerTitle:NSLocalizedString(@"0 - automatic / 127 - middle position", @"MKParam Altitude")];
+      paramSection3.formFieldStyle = [[SettingsFieldStyle alloc] init];
+      
+      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"StartLandChannel"
+                                                                                 title:NSLocalizedString(@"StartLandChannel", @"MKParam Altitude")];
+      
+      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
+      stepperField.minimumValue = 0;
+      stepperField.maximumValue = 32;
+      [paramSection3 addFormField:stepperField];
+      
+      [paramSection3 addStepperFieldForKeyPath:@"LandingSpeed" title:NSLocalizedString(@"LandingSpeed", @"MKParam Altitude")];
+    }
+    
+    
   }
-
+  
   return self;
 }
 
 
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
   [super setModelValue:value forKeyPath:keyPath];
-
+  
   NSLog(@"%@", [self.model description]);
 }
 
