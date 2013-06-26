@@ -25,14 +25,20 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 
-//#import "iKopterAppDelegate.h"
+#import "DDLog.h"
 #import "OsdValue.h"
 #import "MKConnectionController.h"
 #import "MKDataConstants.h"
-//#import "NCLogSession.h"
-//#import "NCLogRecord.h"
+#import "MKTGpxSession.h"
+#import "MKTGpxRecord.h"
 #import "IKDebugData.h"
 #import "IKPoint.h"
+#import "IKDeviceVersion.h"
+#import "InnerBand.h"
+
+#define kGpxLoggingInterval @"kGpxLoggingInterval"
+#define kGpxLoggingActive @"kGpxLoggingInterval"
+
 
 static const NSString *errorMsg[30] = {
         @"No Error",
@@ -69,16 +75,39 @@ static const NSString *errorMsg[30] = {
 
 @interface OsdValue () <CLLocationManagerDelegate>
 - (void)sendOsdRefreshRequest;
+
 - (void)sendFollowMeRequest;
+
 - (void)logNCData;
+
 - (void)osdNotification:(NSNotification *)aNotification;
+
 - (void)debugValueNotification:(NSNotification *)aNotification;
+
 - (void)motorDataNotification:(NSNotification *)aNotification;
 
 @property(retain) IKNaviData *data;
 @property(retain) CLLocationManager *lm;
 @property(retain) AVAudioPlayer *audioPlayer;
+@property(retain) IKDebugData *debugData;
 
+@end
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark - DDRegisteredDynamicLogging
+static int ddLogLevel = LOG_LEVEL_WARN;
+
+@interface OsdValue (DDRegisteredDynamicLogging) <DDRegisteredDynamicLogging>
+@end
+
+@implementation OsdValue (DDRegisteredDynamicLogging)
++ (int)ddLogLevel {
+  return ddLogLevel;
+}
+
++ (void)ddSetLogLevel:(int)logLevel {
+  ddLogLevel = logLevel;
+}
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,7 +116,6 @@ static const NSString *errorMsg[30] = {
 
 @synthesize delegate = _delegate;
 @synthesize data = _data;
-@synthesize ncLogSession = _ncLogSession;
 @synthesize managedObjectContext;
 @synthesize poiIndex;
 
@@ -112,7 +140,8 @@ static const NSString *errorMsg[30] = {
       followMeTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:
               @selector(sendFollowMeRequest)         userInfo:nil repeats:YES];
 
-    } else {
+    }
+    else {
       followMeRequests = 0;
       [followMeTimer invalidate];
       followMeTimer = nil;
@@ -267,26 +296,17 @@ static const NSString *errorMsg[30] = {
     _logInterval = 1.0;
 
 
-//    NSLog(@"Def:%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
-//
-//    NSString *testValue = [[NSUserDefaults standardUserDefaults] stringForKey:kIKNCLoggingActive];
-//    if (testValue) {
-//      _logActive = [[NSUserDefaults standardUserDefaults] boolForKey:kIKNCLoggingActive];
-//    }
-//
-//    testValue = [[NSUserDefaults standardUserDefaults] stringForKey:kIKNCLoggingInterval];
-//    if (testValue) {
-//      _logInterval = [[NSUserDefaults standardUserDefaults] doubleForKey:kIKNCLoggingInterval];
-//      _logInterval /= 1000.0;
-//    }
-//
-//    if (_logActive) {
-//      iKopterAppDelegate *appDelegate = (iKopterAppDelegate *) [[UIApplication sharedApplication] delegate];
-//      self.managedObjectContext = appDelegate.managedObjectContext;
-//
-//      self.ncLogSession = [NSEntityDescription insertNewObjectForEntityForName:@"NCLogSession" inManagedObjectContext:self.managedObjectContext];
-//      self.ncLogSession.timeStampStart = [NSDate date];
-//    }
+    NSLog(@"Def:%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+
+    NSString *testValue = [[NSUserDefaults standardUserDefaults] stringForKey:kGpxLoggingActive];
+    if (testValue) {
+      _logActive = [[NSUserDefaults standardUserDefaults] boolForKey:kGpxLoggingActive];
+    }
+
+    testValue = [[NSUserDefaults standardUserDefaults] stringForKey:kGpxLoggingInterval];
+    if (testValue) {
+      _logInterval = [[NSUserDefaults standardUserDefaults] doubleForKey:kGpxLoggingInterval]/1000.0;
+    }
 
 //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IKOSDSoundActive"]) {
 //
@@ -341,9 +361,10 @@ static const NSString *errorMsg[30] = {
   self.data = nil;
 
   self.managedObjectContext = nil;
-  self.ncLogSession = nil;
+  self.gpxLogSession = nil;
 }
 
+#pragma mark - MKCommunikation
 
 - (void)startRequesting {
 
@@ -365,16 +386,14 @@ static const NSString *errorMsg[30] = {
            object:nil];
 
 
-  requestTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:
-          @selector(sendOsdRefreshRequest)      userInfo:nil repeats:YES];
+  requestTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                  target:self
+                                                selector:@selector(sendOsdRefreshRequest)
+                                                userInfo:nil repeats:YES];
 
   requestCount = 0;
   [self performSelector:@selector(sendOsdRefreshRequest) withObject:self afterDelay:0.1];
 
-  if (_logActive) {
-    logTimer = [NSTimer scheduledTimerWithTimeInterval:_logInterval target:self selector:
-            @selector(logNCData)              userInfo:nil repeats:YES];
-  }
 }
 
 - (void)stopRequesting {
@@ -384,11 +403,11 @@ static const NSString *errorMsg[30] = {
   [requestTimer invalidate];
   requestTimer = nil;
 
-  [logTimer invalidate];
-  logTimer = nil;
+  [self stopGpxLog];
 
   [followMeTimer invalidate];
   followMeTimer = nil;
+
 
 //  if (_logActive) {
 //    self.ncLogSession.timeStampEnd = [NSDate date];
@@ -430,11 +449,23 @@ static const NSString *errorMsg[30] = {
     [self.audioPlayer play];
   else
     [self.audioPlayer stop];
+  
+  //////////////////////////////////////
+  
+  if(_logActive){
+    if(self.isFlying){
+      if(!self.isGpxLogOn)
+        [self startGpxLog];
+    }
+    else{
+      [self stopGpxLog];
+    }
+  }
 }
 
 - (void)debugValueNotification:(NSNotification *)aNotification {
-  IKDebugData *debugData = [[aNotification userInfo] objectForKey:kIKDataKeyDebugData];
-  poiIndex = [[debugData analogValueAtIndex:16] integerValue];
+  self.debugData = [[aNotification userInfo] objectForKey:kIKDataKeyDebugData];
+  poiIndex = [[self.debugData analogValueAtIndex:16] integerValue];
 }
 
 
@@ -443,23 +474,126 @@ static const NSString *errorMsg[30] = {
 
   IKMotorData *motorValue = [[aNotification userInfo] objectForKey:kIKDataKeyMotorData];
   motorData[index] = nil;
-  if ((motorValue.state & 0x80) == 0x80)
+  motorCurrent[index] = NSIntegerMin;
+  motorTemp[index] = NSIntegerMin;
+
+  if ((motorValue.state & 0x80) == 0x80){
     motorData[index] = [NSString stringWithFormat:@"BL%-2d: %d°C %.0fA", index + 1, motorValue.temperature,
-                                                   motorValue.current / 10.0 /*, motorValue.maxPWM, motorValue.state*/];
+                                                  motorValue.current / 10.0 /*, motorValue.maxPWM, motorValue.state*/];
+    
+    motorCurrent[index] = motorValue.current;
+    motorTemp[index] = motorValue.temperature;
+  }
 }
 
+#pragma mark - GPX Logging
+
+- (void)startGpxLog {
+
+  if (self.isGpxLogOn)
+    [self stopGpxLog];
+
+  if (self.areEnginesOn && self.isFlying) {
+
+    self.gpxLogSession = [MKTGpxSession create];
+
+    IKDeviceVersion *ncVersion = [[MKConnectionController sharedMKConnectionController] versionForAddress:kIKMkAddressNC];
+    IKDeviceVersion *fcVersion = [[MKConnectionController sharedMKConnectionController] versionForAddress:kIKMkAddressFC];
+
+    self.gpxLogSession.descr = [NSString stringWithFormat:@"%@ %@", ncVersion.versionString, fcVersion.versionString];
+    [[CoreDataStore mainStore] save];
+
+    logTimer = [NSTimer scheduledTimerWithTimeInterval:_logInterval
+                                                target:self
+                                              selector:@selector(logNCData)
+                                              userInfo:nil repeats:YES];
+
+  }
+
+}
+
+- (void)stopGpxLog {
+
+  if (logTimer) {
+    [logTimer invalidate];
+    logTimer = nil;
+
+    self.gpxLogSession.endTime = [NSDate date];
+    [self.gpxLogSession calculateCoordinateRegionForRecords];
+
+    [[CoreDataStore mainStore] save];
+
+    self.gpxLogSession = nil;
+  }
+
+}
+
+- (BOOL)isGpxLogOn {
+  return logTimer != nil;
+}
 
 - (void)logNCData {
+  
+  MKTGpxRecord* record = [MKTGpxRecord create];
+  
+  IKMkNaviData* mkData = self.data.data;
+  record.gpsPos = [IKGPSPos positionWithMkPos:&mkData->CurrentPosition];
+  record.satellites = @(mkData->SatsInUse);
+  
+  NSMutableArray* motorValues = [NSMutableArray arrayWithCapacity:12];
+  for(int i=0;i<12;i++){
+    [motorValues pushObject:@(motorTemp[i])];
+  }
+  
+  NSString* motorTempData = [motorValues componentsJoinedByString:@","];
 
-//  NCLogRecord *record = [NSEntityDescription insertNewObjectForEntityForName:@"NCLogRecord" inManagedObjectContext:self.managedObjectContext];
-//  record.timeStamp = [NSDate date];
-//
-//  [record fillFromNCData:self.data];
-//
-//  NSMutableSet *relationshipSet = [self.ncLogSession mutableSetValueForKey:@"records"];
-//  [relationshipSet addObject:record];
-//
-//  qltrace(@"log");
+  [motorValues removeAllObjects];
+  for(int i=0;i<12;i++){
+    [motorValues pushObject:@(motorCurrent[i])];
+  }
+  NSString* motorCurrentData = [motorValues componentsJoinedByString:@","];
+
+  
+  NSDictionary* extensions = @{
+    @"Altimeter": @(mkData->Altimeter / 20),
+    @"Set_Altitude": @(mkData->SetpointAltitude / 20),
+    @"Variometer": @(mkData->Variometer),
+    @"Course": @(mkData->Heading),
+    @"VerticalSpeed": @(mkData->GroundSpeed),
+    @"FlightTime": [NSString stringWithFormat:@"%02d:%02d", mkData->FlyingTime / 60, mkData->FlyingTime % 60],
+    @"Voltage": [NSString stringWithFormat:@"%0.1f", mkData->UBat / 10.0],
+    @"Current": [NSString stringWithFormat:@"%0.1f", mkData->Current / 10.0],
+    @"Capacity": @(mkData->UsedCapacity),
+
+    @"RCQuality": @(mkData->RC_Quality),
+    @"RSSI": @(mkData->RC_Quality),
+    @"Compass": @(mkData->CompassHeading),
+    @"NickAngle": @(mkData->AngleNick),
+    @"RollAngle": @(mkData->AngleRoll),
+
+    @"NCFlags": [NSString stringWithFormat:@"0x%02x", mkData->NCFlags],
+    @"FCFlags2": [NSString stringWithFormat:@"0x%02x,0x%02x", mkData->FCStatusFlags,mkData->FCStatusFlags2],
+
+    @"Thrust": @(mkData->Gas),
+    @"ErrorCode": @(mkData->Errorcode),
+    @"WaypointIndex": @(mkData->WaypointIndex),
+    @"WaypointTotal": @(mkData->WaypointNumber),
+    @"WaypointHoldTime": [NSString stringWithFormat:@"%02d:%02d", mkData->TargetHoldTime / 60, mkData->TargetHoldTime % 60],
+    @"OperatingRadius": @(mkData->OperatingRadius),
+
+    @"HomeDistance": @(mkData->HomePositionDeviation.Distance),
+    @"TargetBearing": @(mkData->TargetPositionDeviation.Bearing),
+    @"TargetDistance": @(mkData->TargetPositionDeviation.Distance),
+
+    @"MotorCurrent": motorCurrentData,
+    @"BL_Temperature": motorTempData,
+
+    };
+
+  record.extensions = extensions;
+  
+  [self.gpxLogSession addRecordsObject:record];
+  DDLogVerbose(@"Did create a GPX log record");
 }
 
 #pragma mark - Location Manager Stuff

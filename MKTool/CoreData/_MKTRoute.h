@@ -41,7 +41,9 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *fileName;
+
+@property (nonatomic, strong) NSString* fileName;
+
 
 
 //- (BOOL)validateFileName:(id*)value_ error:(NSError**)error_;
@@ -49,7 +51,9 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *index;
+
+@property (nonatomic, strong) NSNumber* index;
+
 
 
 @property int16_t indexValue;
@@ -61,7 +65,9 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSDate *lastUpdated;
+
+@property (nonatomic, strong) NSDate* lastUpdated;
+
 
 
 //- (BOOL)validateLastUpdated:(id*)value_ error:(NSError**)error_;
@@ -69,7 +75,9 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *name;
+
+@property (nonatomic, strong) NSString* name;
+
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
@@ -77,7 +85,9 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString *parentRev;
+
+@property (nonatomic, strong) NSString* parentRev;
+
 
 
 //- (BOOL)validateParentRev:(id*)value_ error:(NSError**)error_;
@@ -85,7 +95,9 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-@property (nonatomic, strong) UIImage *thumbnail;
+
+@property (nonatomic, strong) UIImage* thumbnail;
+
 
 
 //- (BOOL)validateThumbnail:(id*)value_ error:(NSError**)error_;
@@ -94,7 +106,7 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet* points;
+@property (nonatomic, strong) NSSet *points;
 
 - (NSMutableSet*)pointsSet;
 
@@ -116,14 +128,14 @@ extern const struct MKTRouteFetchedProperties {
 @interface _MKTRoute (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString *)primitiveFileName;
-- (void)setPrimitiveFileName:(NSString *)value;
+- (NSString*)primitiveFileName;
+- (void)setPrimitiveFileName:(NSString*)value;
 
 
 
 
-- (NSNumber *)primitiveIndex;
-- (void)setPrimitiveIndex:(NSNumber *)value;
+- (NSNumber*)primitiveIndex;
+- (void)setPrimitiveIndex:(NSNumber*)value;
 
 - (int16_t)primitiveIndexValue;
 - (void)setPrimitiveIndexValue:(int16_t)value_;
@@ -131,26 +143,26 @@ extern const struct MKTRouteFetchedProperties {
 
 
 
-- (NSDate *)primitiveLastUpdated;
-- (void)setPrimitiveLastUpdated:(NSDate *)value;
+- (NSDate*)primitiveLastUpdated;
+- (void)setPrimitiveLastUpdated:(NSDate*)value;
 
 
 
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (NSString*)primitiveName;
+- (void)setPrimitiveName:(NSString*)value;
 
 
 
 
-- (NSString *)primitiveParentRev;
-- (void)setPrimitiveParentRev:(NSString *)value;
+- (NSString*)primitiveParentRev;
+- (void)setPrimitiveParentRev:(NSString*)value;
 
 
 
 
-- (UIImage *)primitiveThumbnail;
-- (void)setPrimitiveThumbnail:(UIImage *)value;
+- (UIImage*)primitiveThumbnail;
+- (void)setPrimitiveThumbnail:(UIImage*)value;
 
 
 

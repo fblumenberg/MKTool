@@ -177,7 +177,10 @@
   MKTConnection *connection = [self.fetchedResultsController objectAtIndexPath:indexPath];
   cell.textLabel.text = connection.name;
   cell.imageView.image = [connection cellImage];
-  cell.detailTextLabel.text = connection.address;
+  if([connection.connectionClass isEqualToString:@"MKSimConnection"])
+    cell.detailTextLabel.text = @"";
+  else
+    cell.detailTextLabel.text = connection.address;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

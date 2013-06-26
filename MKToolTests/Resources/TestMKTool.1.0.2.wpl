@@ -1,0 +1,82 @@
+[Point3]
+Radius = 5
+Latitude = 49.8594883952778
+Heading = 0
+Longitude = 8.687284492589527
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 1
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point6]
+Radius = 5
+Latitude = 49.85866483785832
+Heading = 0
+Longitude = 8.687052222192165
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 1
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point4]
+Radius = 5
+Latitude = 49.85924132952587
+Heading = 0
+Longitude = 8.686878019394186
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 1
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point1]
+Radius = 5
+Latitude = 49.86013225766478
+Heading = 0
+Longitude = 8.686692203076319
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 1
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point5]
+Radius = 5
+Latitude = 49.8588744719878
+Heading = 0
+Longitude = 8.687667738745091
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 1
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[Point2]
+Radius = 5
+Latitude = 49.8597579201118
+Heading = 0
+Longitude = 8.6866689760366
+DelayTime = 5
+Speed = 30
+ClimbRate = 20
+CAM-Nick = 0
+Type = 2
+WP_Event_Channel_Value = 0
+Altitude = 15
+Prefix = P
+[General]
+FileVersion = 3
+Name = Route
+NumberOfWaypoints = 6
