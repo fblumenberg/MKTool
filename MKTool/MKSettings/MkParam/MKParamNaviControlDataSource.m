@@ -25,6 +25,7 @@
 
 #import <IBAForms/IBAForms.h>
 #import "MKParamNaviControlDataSource.h"
+#import "MKTParamChannelValueTransformer.h"
 #import "IBAFormSection+Create.h"
 
 #import "MKParamMainController.h"
@@ -52,8 +53,15 @@
     paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 95)
-      [paramSection addStepperFieldForKeyPath:@"NaviGpsModeChannel" title:NSLocalizedString(@"GPS Mode Ch.", @"MKParam NaviCtrl")];
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
+      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"NaviGpsModeChannel"
+                                                                                 title:NSLocalizedString(@"GPS Mode Ch.", @"MKParam NaviCtrl")];
+      
+      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
+      stepperField.minimumValue = 0;
+      stepperField.maximumValue = 32;
+      [paramSection addFormField:stepperField];
+    }
     else
       [paramSection addPotiFieldForKeyPath:@"NaviGpsModeChannel" title:NSLocalizedString(@"GPS Mode control", @"MKParam NaviCtrl")];
     

@@ -29,6 +29,7 @@
 
 #import "MKParamMainController.h"
 #import "MKParamPotiValueTransformer.h"
+#import "MKTParamChannelValueTransformer.h"
 #import "StringToNumberTransformer.h"
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"
@@ -68,8 +69,16 @@
     IBAFormSection *paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
     
-    if (((IKParamSet *)aModel).Revision.integerValue >= 95)
-      [paramSection addStepperFieldForKeyPath:@"HoeheChannel" title:NSLocalizedString(@"Setpoint Ch.", @"MKParam Altitude")];
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
+      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"HoeheChannel"
+                                                                                 title:NSLocalizedString(@"Setpoint Ch.", @"MKParam Altitude")];
+      
+      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
+      stepperField.minimumValue = 0;
+      stepperField.maximumValue = 32;
+      
+      [paramSection addFormField:stepperField];
+    }
     else
       [paramSection addPotiFieldForKeyPath:@"HoeheChannel" title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
     
@@ -94,9 +103,15 @@
       IBAFormSection *paramSection3 = [self addSectionWithHeaderTitle:nil footerTitle:NSLocalizedString(@"0 - automatic / 127 - middle position", @"MKParam Altitude")];
       paramSection3.formFieldStyle = [[SettingsFieldStyle alloc] init];
       
-      [paramSection3 addStepperFieldForKeyPath:@"StartLandChannel" title:NSLocalizedString(@"StartLandChannel", @"MKParam Altitude")];
-      [paramSection3 addStepperFieldForKeyPath:@"LandingSpeed" title:NSLocalizedString(@"LandingSpeed", @"MKParam Altitude")];
+      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"StartLandChannel"
+                                                                                 title:NSLocalizedString(@"StartLandChannel", @"MKParam Altitude")];
       
+      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
+      stepperField.minimumValue = 0;
+      stepperField.maximumValue = 32;
+      [paramSection3 addFormField:stepperField];
+      
+      [paramSection3 addStepperFieldForKeyPath:@"LandingSpeed" title:NSLocalizedString(@"LandingSpeed", @"MKParam Altitude")];
     }
     
     

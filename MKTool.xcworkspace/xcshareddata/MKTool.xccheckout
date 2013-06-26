@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>840436B6-31DD-4E1E-9329-06197423C289</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MKTool</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE2B507D-73B7-4FFC-A285-587830A7F02E</key>
+		<string>https://github.com/fblumenberg/MKTool.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MKTool.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE2B507D-73B7-4FFC-A285-587830A7F02E</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/fblumenberg/MKTool.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE2B507D-73B7-4FFC-A285-587830A7F02E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE2B507D-73B7-4FFC-A285-587830A7F02E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MKTool-2</string>
+		</dict>
+	</array>
+</dict>
+</plist>

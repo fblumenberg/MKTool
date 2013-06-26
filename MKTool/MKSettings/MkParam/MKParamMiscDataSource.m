@@ -25,6 +25,7 @@
 
 #import <IBAForms/IBAForms.h>
 #import "MKParamMiscDataSource.h"
+#import "MKTParamChannelValueTransformer.h"
 #import "IBAFormSection+Create.h"
 
 #import "MKParamMainController.h"
@@ -71,8 +72,16 @@
                                                                 selectionMode:IBAPickListSelectionModeSingle
                                                                       options:pickListOptions]];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 95)
-      [paramSection addStepperFieldForKeyPath:@"CareFreeChannel" title:NSLocalizedString(@"Carefree Ch.", @"MKParam Misc")];
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95){      
+      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"CareFreeChannel"
+                                                                                 title:NSLocalizedString(@"Carefree Ch.", @"MKParam Misc")];
+      
+      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
+      stepperField.minimumValue = 0;
+      stepperField.maximumValue = 32;
+      [paramSection addFormField:stepperField];
+
+    }
     else
       [paramSection addPotiFieldForKeyPath:@"CareFreeChannel" title:NSLocalizedString(@"Carefree control", @"MKParam Misc")];
     
