@@ -1009,3 +1009,135 @@
 /* Send toolbar button */
 "Send(%d)" = "Send(%d)";
 
+/* Channels transformer */
+"-127" = "-127";
+
+/* Channels transformer */
+"0" = "0";
+
+/* Channels transformer */
+"128" = "128";
+
+/* MKParam Misc */
+"Carefree" = "Carefree";
+
+/* Channels transformer */
+"Ch. " = "Ch. ";
+
+/* Channels transformer */
+"Ch. 1" = "Ch. 1";
+
+/* Channels transformer */
+"Ch. 2" = "Ch. 2";
+
+/* Channels transformer */
+"Ch. 3" = "Ch. 3";
+
+/* Channels transformer */
+"Ch. 4" = "Ch. 4";
+
+/* Channels transformer */
+"Ch. 5" = "Ch. 5";
+
+/* Channels transformer */
+"Ch. 6" = "Ch. 6";
+
+/* Channels transformer */
+"Ch. 7" = "Ch. 7";
+
+/* Channels transformer */
+"Ch. 8" = "Ch. 8";
+
+/* Channels transformer */
+"Ch. 9" = "Ch. 9";
+
+/* Channels transformer */
+"Ch. 10" = "Ch. 10";
+
+/* Channels transformer */
+"Ch. 11" = "Ch. 11";
+
+/* Channels transformer */
+"Ch. 12" = "Ch. 12";
+
+/* Channels transformer */
+"Ch. 13" = "Ch. 13";
+
+/* Channels transformer */
+"Ch. 14" = "Ch. 14";
+
+/* Channels transformer */
+"Ch. 15" = "Ch. 15";
+
+/* Channels transformer */
+"Ch. 16" = "Ch. 16";
+
+/* Channels transformer */
+"CH" = "CH";
+
+/* Channels transformer */
+"Free" = "Free";
+
+/* MKParam NaviCtrl */
+"GPS Mode" = "GPS Mode";
+
+/* Channels transformer */
+"Inactive" = "Inactive";
+
+/* MKParam Altitude */
+"LandingSpeed" = "Landing Speed";
+
+/* Channels transformer */
+"OFF" = "OFF";
+
+/* Channels transformer */
+"ON" = "ON";
+
+/* Channels transformer */
+"PH" = "PH";
+
+/* Channels transformer */
+"SCh. 1" = "SCh. 1";
+
+/* Channels transformer */
+"SCh. 2" = "SCh. 2";
+
+/* Channels transformer */
+"SCh. 3" = "SCh. 3";
+
+/* Channels transformer */
+"SCh. 4" = "SCh. 4";
+
+/* Channels transformer */
+"SCh. 5" = "SCh. 5";
+
+/* Channels transformer */
+"SCh. 6" = "SCh. 6";
+
+/* Channels transformer */
+"SCh. 7" = "SCh. 7";
+
+/* Channels transformer */
+"SCh. 8" = "SCh. 8";
+
+/* Channels transformer */
+"SCh. 9" = "SCh. 9";
+
+/* Channels transformer */
+"SCh. 10" = "SCh. 10";
+
+/* Channels transformer */
+"SCh. 11" = "SCh. 11";
+
+/* Channels transformer */
+"SCh. 12" = "SCh. 12";
+
+/* MKParam Altitude */
+"StartLandChannel" = "StartLandChannel";
+
+/* Channels transformer */
+"WP-Event" = "WP-Event";
+
+/* Channels transformer */
+"WP" = "WP";
+

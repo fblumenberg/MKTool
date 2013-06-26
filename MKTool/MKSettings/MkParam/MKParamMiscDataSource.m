@@ -74,7 +74,7 @@
 
     if (((IKParamSet *)aModel).Revision.integerValue >= 95){      
       IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"CareFreeChannel"
-                                                                                 title:NSLocalizedString(@"Carefree Ch.", @"MKParam Misc")];
+                                                                                 title:NSLocalizedString(@"Carefree", @"MKParam Misc")];
       
       stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
       stepperField.minimumValue = 0;

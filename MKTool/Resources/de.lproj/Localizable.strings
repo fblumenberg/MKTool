@@ -1009,3 +1009,39 @@
 /* Send toolbar button */
 "Send(%d)" = "Senden(%d)";
 
+/* Channels transformer */
+"-127" = "127";
+
+/* Channels transformer */
+"0" = "0";
+
+/* Channels transformer */
+"128" = "128";
+
+/* MKParam Misc */
+"Carefree" = "Carefree";
+
+/* Channels transformer */
+"Ch. " = "Ch.";
+
+/* Channels transformer */
+"CH" = "CH";
+
+/* Channels transformer */
+"Free" = "Free";
+
+/* MKParam NaviCtrl */
+"GPS Mode" = "GPS Mode";
+
+/* Channels transformer */
+"Inactive" = "Inaktiv";
+
+/* MKParam Altitude */
+"LandingSpeed" = "Landegeschw.";
+
+/* Channels transformer */
+"OFF" = "AUS";
+
+/* MKParam Altitude */
+"StartLandChannel" = "Starten/Landen";
+

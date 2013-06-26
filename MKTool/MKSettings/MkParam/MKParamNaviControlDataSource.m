@@ -55,9 +55,9 @@
 
     if (((IKParamSet *)aModel).Revision.integerValue >= 95){
       IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"NaviGpsModeChannel"
-                                                                                 title:NSLocalizedString(@"GPS Mode Ch.", @"MKParam NaviCtrl")];
+                                                                                 title:NSLocalizedString(@"GPS Mode", @"MKParam NaviCtrl")];
       
-      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
+      stepperField.displayValueTransformer=[[MKTParamChannelValueTransformer alloc] initForGps];
       stepperField.minimumValue = 0;
       stepperField.maximumValue = 32;
       [paramSection addFormField:stepperField];

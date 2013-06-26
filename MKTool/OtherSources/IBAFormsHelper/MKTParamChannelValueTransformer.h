@@ -29,4 +29,8 @@
 
 + (id)instance;
 
+- (id)initForAltitude;
+- (id)initForGps;
+
+
 @end
