@@ -71,7 +71,7 @@
     
     if (((IKParamSet *)aModel).Revision.integerValue >= 95){
       IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"HoeheChannel"
-                                                                                 title:NSLocalizedString(@"Setpoint, @"MKParam Altitude")];
+                                                                                 title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
       
       stepperField.displayValueTransformer=[[MKTParamChannelValueTransformer alloc] initForAltitude];
       stepperField.minimumValue = 0;
