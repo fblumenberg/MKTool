@@ -754,6 +754,17 @@
 		BAF0CA901549D27300C31A02 /* MKTRouteDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA891549D1F400C31A02 /* MKTRouteDropboxController.m */; };
 		BAF0CA911549D27300C31A02 /* MKTRouteSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0CA8B1549D1F400C31A02 /* MKTRouteSyncModel.m */; };
 		BAF0CA991549F5E500C31A02 /* white_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF0CA981549F5E500C31A02 /* white_texture.png */; };
+		BAFBA162177F2DC000256465 /* MKTGpxLoggingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC271173C1F0D00B5EE4A /* MKTGpxLoggingListViewController.m */; };
+		BAFBA163177F2DC000256465 /* MKTGpxSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */; };
+		BAFBA164177F2DC000256465 /* MKTGpxDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */; };
+		BAFBA165177F2DCF00256465 /* MKTGpxSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */; };
+		BAFBA166177F2F5300256465 /* MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08830173AF5C1002F00AF /* MKTGpxRecord.m */; };
+		BAFBA167177F2F5300256465 /* MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882B173AF393002F00AF /* MKTGpxSession.m */; };
+		BAFBA168177F2F5300256465 /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
+		BAFBA169177F2F5300256465 /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
+		BAFBA16A177F2FB500256465 /* MKTParamChannelValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA2C931177B15B700119E63 /* MKTParamChannelValueTransformer.m */; };
+		BAFBA16B177F304B00256465 /* _MKTGpxRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF0882E173AF5C0002F00AF /* _MKTGpxRecord.m */; };
+		BAFBA16C177F304B00256465 /* _MKTGpxSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF08828173AF37D002F00AF /* _MKTGpxSession.m */; };
 		BAFC630617402FB500BC0252 /* MKTGpxSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630417402FB400BC0252 /* MKTGpxSessionViewController.m */; };
 		BAFC63081740368300BC0252 /* MKTGpxSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAFC630A1740368300BC0252 /* MKTGpxSessionViewController.xib */; };
 		BAFC630E17454F0200BC0252 /* MKTGpxDropboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */; };
@@ -2605,6 +2616,7 @@
 				BA94CB641706FE1400AC0934 /* icon-ul1@2x.png in Resources */,
 				BA94CB651706FE1400AC0934 /* Default-568h@2x.png in Resources */,
 				BAFD64E5171F2A14000767F0 /* star.png in Resources */,
+				BAFBA165177F2DCF00256465 /* MKTGpxSessionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3073,6 +3085,16 @@
 				BA94CAAC1706FE1400AC0934 /* MKTRouteTransferController.m in Sources */,
 				BA94CAAD1706FE1400AC0934 /* MKTRouteTransferViewController.m in Sources */,
 				BA94CAAE1706FE1400AC0934 /* DBFileInfo+Dictionary.m in Sources */,
+				BAFBA162177F2DC000256465 /* MKTGpxLoggingListViewController.m in Sources */,
+				BAFBA163177F2DC000256465 /* MKTGpxSessionViewController.m in Sources */,
+				BAFBA164177F2DC000256465 /* MKTGpxDropboxController.m in Sources */,
+				BAFBA166177F2F5300256465 /* MKTGpxRecord.m in Sources */,
+				BAFBA167177F2F5300256465 /* MKTGpxSession.m in Sources */,
+				BAFBA168177F2F5300256465 /* MKTGpxSession+GPX.m in Sources */,
+				BAFBA169177F2F5300256465 /* MKTGPXExtensions.m in Sources */,
+				BAFBA16A177F2FB500256465 /* MKTParamChannelValueTransformer.m in Sources */,
+				BAFBA16B177F304B00256465 /* _MKTGpxRecord.m in Sources */,
+				BAFBA16C177F304B00256465 /* _MKTGpxSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3408,7 +3430,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3486,7 +3508,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3563,7 +3585,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3612,7 +3634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3637,7 +3659,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3659,7 +3681,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3680,7 +3702,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3702,7 +3724,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3780,7 +3802,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3802,7 +3824,7 @@
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
-				CURRENT_PROJECT_VERSION = 174;
+				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
