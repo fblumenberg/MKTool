@@ -375,7 +375,10 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   NSError* error=nil;
   DBFile* dbFile = [[DBFilesystem sharedFilesystem] openFile:metaData.path error:&error];
   
-towe  else{
+  if(dbFile){
+    [self processDownloadedRouteFile:dbFile metaData:metaData];
+  }
+  else{
     DDLogError(@"The Dropbox download failed with error %@",error);
     _isSyncing = NO;
     [self.delegate controller:self syncFailedWithError:error];
