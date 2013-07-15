@@ -4,13 +4,16 @@ pod 'GHKit'
 pod 'YelpKit', :git => 'https://github.com/fblumenberg/YelpKit'
 pod 'IBAForms', :git => 'https://github.com/fblumenberg/IBAForms'
 pod 'MKCommunication', :git => 'https://github.com/fblumenberg/MKCommunication'
-pod 'TestFlightSDK', '< 1.2.9'
 pod 'CocoaLumberjack'
 pod 'GPXFramework', :git => 'https://github.com/fblumenberg/iOS-GPX-Framework'
 #pod 'GPXFramework', :git => 'file:///Users/frankblumenberg/Develop/Cocoa/iOS-GPX-Framework'
 
 target :MKToolTests do
   pod 'GHUnitIOS'
+end
+
+target :MKTool do
+	pod 'TestFlightSDK', '< 1.2.9'
 end
 
 target :MKToolCydia do

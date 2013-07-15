@@ -21,8 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		360D60FA282E45B7BBEE052D /* libPods-MKTool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E250CB12DE487FA07D3053 /* libPods-MKTool.a */; };
 		5197AC74FF214E6CA9E3038F /* libPods-MKToolTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */; };
-		72D4D83C3D2244DB8DC4E775 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4953AA427A9D42B298C88051 /* libPods.a */; };
 		760A1CDA155413FB00EDDBC5 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD6155413FB00EDDBC5 /* icon-back.png */; };
 		760A1CDB155413FB00EDDBC5 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */; };
 		760A1CDC155413FB00EDDBC5 /* icon-forth.png in Resources */ = {isa = PBXBuildFile; fileRef = 760A1CD8155413FB00EDDBC5 /* icon-forth.png */; };
@@ -775,9 +775,11 @@
 
 /* Begin PBXFileReference section */
 		01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		24E250CB12DE487FA07D3053 /* libPods-MKTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.xcconfig"; path = "Pods/Pods-MKToolTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		4953AA427A9D42B298C88051 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5109A5E54AFC4C0193D94DFD /* libPods-MKToolCydia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKToolCydia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56381BEBDD824F0CA6F230C4 /* Pods-MKTool.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKTool.xcconfig"; path = "Pods/Pods-MKTool.xcconfig"; sourceTree = SOURCE_ROOT; };
 		760A1CD6155413FB00EDDBC5 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
 		760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
 		760A1CD8155413FB00EDDBC5 /* icon-forth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forth.png"; sourceTree = "<group>"; };
@@ -869,7 +871,7 @@
 		BA56918B16F91043007A33D0 /* icon-ul1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1@2x.png"; sourceTree = "<group>"; };
 		BA671A38175536A000025D24 /* TestMKTool.1.0.2.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.2.wpl; sourceTree = "<group>"; };
 		BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestMKTool.1.0.wpl; sourceTree = "<group>"; };
-		BA671A3C17553ABF00025D24 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BA671A3C17553ABF00025D24 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA671A3E17554D1C00025D24 /* speed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speed@2x.png"; sourceTree = "<group>"; };
 		BA6EB18D170766B00009B4A6 /* MKTool-Cydia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MKTool-Cydia-Info.plist"; path = "ApplicationBase/MKTool-Cydia-Info.plist"; sourceTree = "<group>"; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1350,9 +1352,9 @@
 				BAB2F1FA15409C8C00ECE09A /* UIKit.framework in Frameworks */,
 				BAB2F1FC15409C8C00ECE09A /* Foundation.framework in Frameworks */,
 				BAB2F1FE15409C8C00ECE09A /* CoreGraphics.framework in Frameworks */,
-				72D4D83C3D2244DB8DC4E775 /* libPods.a in Frameworks */,
 				BAB430561704BF2200BEC0B5 /* Dropbox.framework in Frameworks */,
 				BAB86AA01709CC9D0096C957 /* Crashlytics.framework in Frameworks */,
+				360D60FA282E45B7BBEE052D /* libPods-MKTool.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1797,8 +1799,6 @@
 		BAB2F1EA15409C8C00ECE09A = {
 			isa = PBXGroup;
 			children = (
-				BA671A3C17553ABF00025D24 /* Default-568h@2x.png */,
-				BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */,
 				BAB2F1FF15409C8C00ECE09A /* MKTool */,
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
@@ -1806,6 +1806,7 @@
 				01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */,
 				2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */,
 				F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */,
+				56381BEBDD824F0CA6F230C4 /* Pods-MKTool.xcconfig */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1824,6 +1825,7 @@
 		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */,
 				BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */,
 				BAB430551704BF2200BEC0B5 /* Dropbox.framework */,
 				BA52014C1559C1A400719A58 /* AddressBook.framework */,
@@ -1843,6 +1845,7 @@
 				BAB2F26C15409F1600ECE09A /* Security.framework */,
 				BAB2F1F915409C8C00ECE09A /* UIKit.framework */,
 				5109A5E54AFC4C0193D94DFD /* libPods-MKToolCydia.a */,
+				24E250CB12DE487FA07D3053 /* libPods-MKTool.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1969,6 +1972,7 @@
 		BAB2F2AB1540A7F800ECE09A /* MKToolTests */ = {
 			isa = PBXGroup;
 			children = (
+				BA671A3C17553ABF00025D24 /* Default-568h@2x.png */,
 				BAF08833173AF7B8002F00AF /* GPXLog */,
 				BA98BF9B16C28986000CA7EE /* Communication */,
 				BAB2F2E91540AD7500ECE09A /* INI */,
@@ -2381,12 +2385,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAB2F21F15409C8D00ECE09A /* Build configuration list for PBXNativeTarget "MKTool" */;
 			buildPhases = (
+				9E30B6E5841F427F803914C8 /* Check Pods Manifest.lock */,
 				BAB2F1F115409C8C00ECE09A /* Sources */,
 				BAB2F1F215409C8C00ECE09A /* Frameworks */,
 				BAB2F1F315409C8C00ECE09A /* Resources */,
 				BA937415154D441D00E444EC /* ShellScript */,
 				9DCF902A8D45430B8F1066C5 /* Copy Pods Resources */,
 				BAB86A9E1709CC6E0096C957 /* ShellScript */,
+				FFE6DEF538FA4A10A1ECCBA7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2849,6 +2855,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
+		9E30B6E5841F427F803914C8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
 		BA937415154D441D00E444EC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2941,6 +2961,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-MKToolCydia-resources.sh\"\n";
+		};
+		FFE6DEF538FA4A10A1ECCBA7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-MKTool-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3427,7 +3461,7 @@
 		};
 		BA27D55C155F294F00C6B37E /* AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 56381BEBDD824F0CA6F230C4 /* Pods-MKTool.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 175;
@@ -3505,7 +3539,7 @@
 		};
 		BA4E5C25170605F600669C67 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 56381BEBDD824F0CA6F230C4 /* Pods-MKTool.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 175;
@@ -3582,7 +3616,7 @@
 		};
 		BA4E5C291706169700669C67 /* Cydia */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 56381BEBDD824F0CA6F230C4 /* Pods-MKTool.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 175;
@@ -3800,7 +3834,7 @@
 		};
 		BAB2F22015409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 56381BEBDD824F0CA6F230C4 /* Pods-MKTool.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 175;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3821,7 +3855,7 @@
 		};
 		BAB2F22115409C8D00ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 56381BEBDD824F0CA6F230C4 /* Pods-MKTool.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
 				CURRENT_PROJECT_VERSION = 175;
