@@ -308,17 +308,65 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self.delegate controller:self syncFailedWithError:error];
   }
   
+}
+
+- (void)processDownloadedRouteData:(NSString *)data metaData:(DBFileInfo *)metaData error:(NSError *)error {
+  if(data){
+    MKTRoute* route = [[MKTRoute allForPredicate:[NSPredicate predicateWithFormat:@"fileName=%@", metaData.path.name]]firstObject];
+    
+    if(!route){
+      route = [MKTRoute create];
+    }
+    
+    if([route loadRouteFromWplString:data withFilename:metaData.path.name]){
+      
+      DDLogVerbose(@"Loaded route %@ from file %@",route,metaData.path.name);
+      route.lastUpdated = [NSDate distantPast]; //we need a definite change for last update
+      [[CoreDataStore mainStore] save];
+      
+      route.lastUpdated = metaData.modifiedTime;
+      DDLogVerbose(@"Set date:%@",metaData.modifiedTime);
+      
+      [[CoreDataStore mainStore] save];
+    }
+    else {
+      DDLogWarn(@"Faile to load the route %@ from file %@",route,metaData.path.name);
+      [[CoreDataStore mainStore].context rollback];
+    }
+    [self performSelector:@selector(startSynchronization) withObject:self afterDelay:0.5];
+  }
+  else{
+    DDLogCError(@"The Dropbox download failed with error %@",error);
+    _isSyncing = NO;
+    [self.delegate controller:self syncFailedWithError:error];
+  }
+}
+
+- (void)processDownloadedRouteFile:(DBFile *)dbFile metaData:(DBFileInfo *)metaData {
   
-//  route.lastUpdated = metadata.lastModifiedDate;
-//  DDLogVerbose(@"Set rev:%@ date:%@",metadata.rev,metadata.lastModifiedDate);
-//  [[CoreDataStore mainStore] save];
-//  
-//  [[NSFileManager defaultManager] removeItemAtPath:srcPath error:nil];
-//
-//
-//  [self.restClient uploadFile:route.fileName toPath:self.dataPath withParentRev:route.parentRev fromPath:localPath];
   
-  
+  DBFileStatus *status = dbFile.status;
+  if (!status.cached) {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^() {
+      
+      NSError* error=nil;
+
+      NSString* data =[dbFile readString:&error];
+      [dbFile close];
+
+      dispatch_async(dispatch_get_main_queue(), ^() {
+        [self processDownloadedRouteData:data metaData:metaData error:error];
+      });
+    });
+
+  }
+  else{
+    NSError* error=nil;
+    NSString* data =[dbFile readString:&error];
+    [dbFile close];
+    [self processDownloadedRouteData:data metaData:metaData error:error];
+  }
 }
 
 - (void)downloadRoute:(DBFileInfo *)metaData {
@@ -327,45 +375,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   NSError* error=nil;
   DBFile* dbFile = [[DBFilesystem sharedFilesystem] openFile:metaData.path error:&error];
   
-  if(dbFile){
-    
-    NSString* data =[dbFile readString:&error];
-    if(data){
-
-      MKTRoute* route = [[MKTRoute allForPredicate:[NSPredicate predicateWithFormat:@"fileName=%@", metaData.path.name]]firstObject];
-      
-      if(!route){
-        route = [MKTRoute create];
-      }
-
-      if([route loadRouteFromWplString:data withFilename:metaData.path.name]){
-        
-        DDLogVerbose(@"Loaded route %@ from file %@",route,metaData.path.name);
-        route.lastUpdated = [NSDate distantPast]; //we need a definite change for last update
-        [[CoreDataStore mainStore] save];
-        
-        route.lastUpdated = metaData.modifiedTime;
-        DDLogVerbose(@"Set date:%@",metaData.modifiedTime);
-        
-        [[CoreDataStore mainStore] save];
-      }
-      else {
-        DDLogWarn(@"Faile to load the route %@ from file %@",route,metaData.path.name);
-        [[CoreDataStore mainStore].context rollback];
-      }
-
-    }
-    else{
-      DDLogCError(@"The Dropbox download failed with error %@",error);
-      _isSyncing = NO;
-      [self.delegate controller:self syncFailedWithError:error];
-    }
-    
-    [dbFile close];
-    [self performSelector:@selector(startSynchronization) withObject:self afterDelay:0.5];
-  }
-  else{
-    DDLogCError(@"The Dropbox download failed with error %@",error);
+towe  else{
+    DDLogError(@"The Dropbox download failed with error %@",error);
     _isSyncing = NO;
     [self.delegate controller:self syncFailedWithError:error];
   }

@@ -193,19 +193,21 @@ extern void UninstallCrashHandlers(BOOL restore);
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
   [[CoreDataStore mainStore] save];
-
-  [[MKConnectionController sharedMKConnectionController] stop];
   
-  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-    ((UINavigationController *) [self.splitViewController masterViewController]).delegate = nil;
-    ((UINavigationController *) [self.splitViewController detailViewController]).delegate = nil;
+  if([[MKConnectionController sharedMKConnectionController] isRunning]){
+    [[MKConnectionController sharedMKConnectionController] stop];
     
-    [((UINavigationController *) [self.splitViewController masterViewController]) popToRootViewControllerAnimated:NO];
-    [((UINavigationController *) [self.splitViewController detailViewController]) popToRootViewControllerAnimated:NO];
-  }
-  else {
-    self.navigationController.delegate = nil;
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+      ((UINavigationController *) [self.splitViewController masterViewController]).delegate = nil;
+      ((UINavigationController *) [self.splitViewController detailViewController]).delegate = nil;
+      
+      [((UINavigationController *) [self.splitViewController masterViewController]) popToRootViewControllerAnimated:NO];
+      [((UINavigationController *) [self.splitViewController detailViewController]) popToRootViewControllerAnimated:NO];
+    }
+    else {
+      self.navigationController.delegate = nil;
+      [self.navigationController popToRootViewControllerAnimated:NO];
+    }
   }
 }
 
