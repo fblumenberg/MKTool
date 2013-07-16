@@ -37,7 +37,7 @@
 #import "InnerBand.h"
 
 #define kGpxLoggingInterval @"kGpxLoggingInterval"
-#define kGpxLoggingActive @"kGpxLoggingInterval"
+#define kGpxLoggingActive @"kGpxLoggingActive"
 
 
 static const NSString *errorMsg[30] = {
