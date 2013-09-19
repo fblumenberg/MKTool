@@ -12,10 +12,6 @@ target :MKToolTests do
   pod 'GHUnitIOS'
 end
 
-target :MKTool do
-	pod 'TestFlightSDK', '< 1.2.9'
-end
-
 target :MKToolCydia do
 #  pod 'QuincyKit'
   pod 'MKCommunicationExtra', :git => 'https://github.com/fblumenberg/MKCommunicationExtra.git'
