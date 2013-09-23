@@ -10,9 +10,11 @@
 
 @class MGSplitViewController;
 @interface MGSplitDividerView : UIView {
+	MGSplitViewController *__unsafe_unretained splitViewController;
+	BOOL allowsDragging;
 }
 
-@property (nonatomic, weak) MGSplitViewController *splitViewController; // weak ref.
+@property (nonatomic, unsafe_unretained) MGSplitViewController *splitViewController; // weak ref.
 @property (nonatomic, assign) BOOL allowsDragging;
 
 - (void)drawGripThumbInRect:(CGRect)rect;
