@@ -27,10 +27,6 @@
 
 #ifdef CYDIA
 NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
-//#import "BWQuincyManager.h"
-#else
-#import "TestFlight.h"
-extern void UninstallCrashHandlers(BOOL restore);
 #endif
 
 #import "MGSplitViewController.h"
@@ -88,19 +84,6 @@ extern void UninstallCrashHandlers(BOOL restore);
 
 #ifdef CYDIA
 //  [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://frankblumenberg.de/crashlog/crash_v200.php"];
-#else
-  
-#ifdef TESTING
-#pragma message("Build for Testflightapp. Use Device UUID")
-  [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
-  
-#endif
-  
-  [TestFlight takeOff:kTESTFLIGHTTOKEN];
-  
-  UninstallCrashHandlers(NO);
-  UninstallCrashHandlers(YES);
-  
 #endif
   
   [Crashlytics startWithAPIKey:kCRASHLYTICS_KEY];
