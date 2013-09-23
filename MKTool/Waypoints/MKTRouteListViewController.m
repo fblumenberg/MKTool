@@ -310,7 +310,7 @@
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-  [textField setTextAlignment:UITextAlignmentLeft];
+  [textField setTextAlignment:NSTextAlignmentLeft];
   return YES;
 }
 
