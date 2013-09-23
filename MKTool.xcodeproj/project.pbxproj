@@ -677,6 +677,8 @@
 		BADBC278173C2C3300B5EE4A /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
 		BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
 		BADBC27C173C446700B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
+		BAEE24FD17F0C3EF002453C9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEE24FC17F0C3EF002453C9 /* Media.xcassets */; };
+		BAEE24FE17F0C3EF002453C9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEE24FC17F0C3EF002453C9 /* Media.xcassets */; };
 		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
 		BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */; };
 		BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE75D61543EB8400A92FA4 /* MKTRouteMapViewController.m */; };
@@ -1191,6 +1193,7 @@
 		BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTGpxSession+GPX.m"; sourceTree = "<group>"; };
 		BADBC279173C41C900B5EE4A /* MKTGPXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGPXExtensions.h; sourceTree = "<group>"; };
 		BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGPXExtensions.m; sourceTree = "<group>"; };
+		BAEE24FC17F0C3EF002453C9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		BAEE75CA1542D59600A92FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteContainerViewController.h; sourceTree = "<group>"; };
 		BAEE75D11543062300A92FA4 /* MKTRouteContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteContainerViewController.m; sourceTree = "<group>"; };
@@ -1867,6 +1870,7 @@
 				BAEE75E51543FDB000A92FA4 /* Resources */,
 				BA98C02316C29607000CA7EE /* Views */,
 				BAA229F31541F811004F92AA /* Waypoints */,
+				BAEE24FC17F0C3EF002453C9 /* Media.xcassets */,
 			);
 			path = MKTool;
 			sourceTree = "<group>";
@@ -2511,6 +2515,7 @@
 				BA94CAF81706FE1400AC0934 /* Default-Landscape@2x~ipad.png in Resources */,
 				BA94CAF91706FE1400AC0934 /* Default-Landscape~ipad.png in Resources */,
 				BA94CAFA1706FE1400AC0934 /* Default-Portrait@2x~ipad.png in Resources */,
+				BAEE24FE17F0C3EF002453C9 /* Media.xcassets in Resources */,
 				BA94CAFB1706FE1400AC0934 /* Default-Portrait~ipad.png in Resources */,
 				BA94CAFC1706FE1400AC0934 /* Default.png in Resources */,
 				BA94CAFD1706FE1400AC0934 /* blackButton.png in Resources */,
@@ -2733,6 +2738,7 @@
 				BA98C00B16C290AD000CA7EE /* MapOsdViewController-iPad.xib in Resources */,
 				BA98C00F16C290AD000CA7EE /* MapOsdViewController.xib in Resources */,
 				BA98C01516C290AD000CA7EE /* OsdViewController.xib in Resources */,
+				BAEE24FD17F0C3EF002453C9 /* Media.xcassets in Resources */,
 				BA98C01916C290AD000CA7EE /* RawOsdViewController.xib in Resources */,
 				BA98C01D16C290AD000CA7EE /* ValueOsdViewController-iPad.xib in Resources */,
 				BA98C02116C290AD000CA7EE /* ValueOsdViewController.xib in Resources */,
@@ -3447,6 +3453,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 178;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3525,6 +3533,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
 				CURRENT_PROJECT_VERSION = 178;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3602,6 +3612,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 178;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3820,6 +3832,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 178;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3841,6 +3855,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Blumenberg (UC3926TG95)";
 				CURRENT_PROJECT_VERSION = 178;
 				FRAMEWORK_SEARCH_PATHS = (
