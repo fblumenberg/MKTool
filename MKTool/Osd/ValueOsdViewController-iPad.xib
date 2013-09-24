@@ -810,15 +810,26 @@
     <resources>
         <image name="altitude.png" width="30" height="30"/>
         <image name="battery.png" width="60" height="60"/>
+        <image name="battery.png" width="60" height="60"/>
+        <image name="compass.png" width="60" height="60"/>
         <image name="compass.png" width="60" height="60"/>
         <image name="flag60.png" width="43" height="50"/>
+        <image name="flag60.png" width="43" height="50"/>
+        <image name="flightTime.png" width="30" height="30"/>
         <image name="flightTime.png" width="30" height="30"/>
         <image name="home.png" width="60" height="60"/>
+        <image name="home.png" width="60" height="60"/>
+        <image name="nick.png" width="60" height="60"/>
         <image name="nick.png" width="60" height="60"/>
         <image name="poi60.png" width="31" height="45"/>
+        <image name="poi60.png" width="31" height="45"/>
+        <image name="roll.png" width="60" height="60"/>
         <image name="roll.png" width="60" height="60"/>
         <image name="satelite.png" width="60" height="60"/>
+        <image name="satelite.png" width="60" height="60"/>
         <image name="speed.png" width="30" height="30"/>
+        <image name="speed.png" width="30" height="30"/>
+        <image name="target.png" width="60" height="60"/>
         <image name="target.png" width="60" height="60"/>
     </resources>
 </document>

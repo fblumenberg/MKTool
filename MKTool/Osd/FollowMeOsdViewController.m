@@ -79,10 +79,10 @@
     self.followMeBadge.badgeScaleFactor = 1.0;
   }
   self.followMeBadge.badgeInsetColor = self.functionOffColor;
-  self.followMeBadge.badgeShining = YES;
+  self.followMeBadge.badgeShining = NO;
   
   self.altitudeControl.badgeInsetColor = self.functionOffColor;
-  self.altitudeControl.badgeShining = YES;
+  self.altitudeControl.badgeShining = NO;
   
   
   [self updateFollowMe:self.osdValue];

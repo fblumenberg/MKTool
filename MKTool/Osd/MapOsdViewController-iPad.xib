@@ -309,6 +309,8 @@
     </objects>
     <resources>
         <image name="flightTime.png" width="30" height="30"/>
+        <image name="flightTime.png" width="30" height="30"/>
+        <image name="satelite.png" width="60" height="60"/>
         <image name="satelite.png" width="60" height="60"/>
     </resources>
 </document>

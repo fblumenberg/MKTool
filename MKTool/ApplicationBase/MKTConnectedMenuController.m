@@ -270,6 +270,10 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     
     nc.navigationBar.barStyle = UIBarStyleDefault;
     nc.navigationBar.translucent = YES;
+    if ([UINavigationController instancesRespondToSelector:@selector(edgesForExtendedLayout)]) {
+      nc.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+
     
     if (IS_IPAD()) 
       [self.splitViewController presentModalViewController:nc animated:YES];
@@ -337,6 +341,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
   CustomBadge *badge = [CustomBadge customBadgeWithString:@"UNK"];
   badge.badgeInsetColor = [MKTCommonColors functionOffColor];
+  badge.badgeShining = NO;
   item.accessoryView = badge;
   item.selectionStyle = UITableViewCellSelectionStyleNone;
   if ([[MKConnectionController sharedMKConnectionController] isRunning]) {

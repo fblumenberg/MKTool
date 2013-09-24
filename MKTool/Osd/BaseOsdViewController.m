@@ -170,26 +170,26 @@
   }
 
   self.altitudeControl.badgeInsetColor = self.functionOffColor;
-  self.altitudeControl.badgeShining = YES;
+  self.altitudeControl.badgeShining = NO;
 
   self.careFree.badgeInsetColor = self.functionOffColor;
-  self.careFree.badgeShining = YES;
+  self.careFree.badgeShining = NO;
 
   self.gpsMode.badgeInsetColor = self.functionOffColor;
-  self.gpsMode.badgeShining = YES;
+  self.gpsMode.badgeShining = NO;
 
   self.failSafe.badgeInsetColor = self.functionOffColor;
-  self.failSafe.badgeShining = YES;
+  self.failSafe.badgeShining = NO;
 
 
   self.out1.badgeInsetColor = self.functionOffColor;
-  self.out1.badgeShining = YES;
+  self.out1.badgeShining = NO;
 
   self.out2.badgeInsetColor = self.functionOffColor;
-  self.out2.badgeShining = YES;
+  self.out2.badgeShining = NO;
 
   self.gpxLogging.badgeInsetColor = self.functionOffColor;
-  self.gpxLogging.badgeShining = YES;
+  self.gpxLogging.badgeShining = NO;
 }
 
 - (void)updateStateView:(OsdValue *)value {
