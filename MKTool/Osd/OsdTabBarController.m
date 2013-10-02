@@ -144,6 +144,7 @@
   self.osdValue.delegate = self;
 
   self.followMeViewController.osdValue = self.osdValue;
+  
 }
 
 - (void)viewDidUnload {
@@ -186,6 +187,16 @@
 - (void)dismissView {
   [self dismissModalViewControllerAnimated:YES];
 }
+
+- (BOOL) prefersStatusBarHidden {
+  return YES;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+  return UIStatusBarStyleLightContent; // For light status bar
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////
 #pragma mark - View rotation 

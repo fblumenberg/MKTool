@@ -280,6 +280,13 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+  
+  NSLog(@"%f",self.topLayoutGuide.length);
+
+  
   motorLabels = [[NSArray alloc] initWithObjects:self.motorData1, self.motorData2, self.motorData3, self.motorData4,
                                                  self.motorData5, self.motorData6, self.motorData7, self.motorData8, nil];
 }
@@ -287,6 +294,19 @@
 - (void)viewDidUnload {
   [super viewDidUnload];
 }
+
+- (void) viewDidLayoutSubviews {
+  CGRect viewBounds = self.view.bounds;
+  CGFloat topBarOffset = self.topLayoutGuide.length;
+  viewBounds.origin.y = topBarOffset;
+  viewBounds.size.height -= topBarOffset;
+  self.view.frame = viewBounds;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+  return UIStatusBarStyleLightContent; // For light status bar
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return YES;

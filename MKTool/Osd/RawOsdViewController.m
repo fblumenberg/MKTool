@@ -33,6 +33,26 @@
   self.osdText = nil;
 }
 
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+}
+
+- (void) viewDidLayoutSubviews {
+  CGRect viewBounds = self.view.bounds;
+  CGFloat topBarOffset = self.topLayoutGuide.length;
+  viewBounds.origin.y = topBarOffset;
+  viewBounds.size.height -= topBarOffset;
+  self.view.frame = viewBounds;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+  return UIStatusBarStyleLightContent; // For light status bar
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return YES;
 }
