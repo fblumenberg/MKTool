@@ -207,7 +207,7 @@ static NSUInteger kNumberOfSettings = 5;
   NSUInteger row = [indexPath row];
   IKParamSet *setting = [self.settings objectAtIndex:row];
 
-  cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Setting #%d", @"Setting i"), row];
+  cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Setting #%d", @"Setting i"), row+1];
   if ((NSNull *) setting == [NSNull null]) {
   }
   else {
