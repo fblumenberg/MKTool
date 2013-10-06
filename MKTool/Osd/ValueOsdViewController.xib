@@ -45,15 +45,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="56" userLabel="Label - No Data">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="64"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </label>
                 <view tag="4000" contentMode="scaleToFill" id="83" customClass="InnerShadowView">
                     <rect key="frame" x="5" y="231" width="310" height="175"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
@@ -168,10 +159,6 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="35" userLabel="Image View - Height">
-                            <rect key="frame" x="13" y="10" width="30" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -269,6 +256,15 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
+                <label hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="56" userLabel="Label - No Data">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="64"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
         </view>
@@ -342,10 +338,6 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="altitude.png" id="102" userLabel="Image View - Height">
-                            <rect key="frame" x="13" y="10" width="30" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -508,7 +500,6 @@
         </view>
     </objects>
     <resources>
-        <image name="altitude.png" width="30" height="30"/>
         <image name="battery" width="60" height="60"/>
         <image name="battery.png" width="60" height="60"/>
         <image name="compass30" width="30" height="30"/>
