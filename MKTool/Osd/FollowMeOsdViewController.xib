@@ -514,13 +514,16 @@
     <resources>
         <image name="altitude.png" width="30" height="30"/>
         <image name="battery" width="60" height="60"/>
+        <image name="battery" width="60" height="60"/>
         <image name="compass30" width="30" height="30"/>
         <image name="compass30.png" width="30" height="30"/>
+        <image name="flag" width="22" height="26"/>
         <image name="flag" width="22" height="26"/>
         <image name="flightTime" width="30" height="30"/>
         <image name="flightTime.png" width="30" height="30"/>
         <image name="home30" width="30" height="30"/>
         <image name="home30.png" width="30" height="30"/>
+        <image name="satelite30" width="30" height="30"/>
         <image name="satelite30" width="30" height="30"/>
         <image name="speed" width="30" height="30"/>
         <image name="speed.png" width="30" height="30"/>

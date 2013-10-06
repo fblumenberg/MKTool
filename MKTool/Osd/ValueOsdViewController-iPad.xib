@@ -828,6 +828,7 @@
         <image name="satelite" width="60" height="60"/>
         <image name="satelite.png" width="60" height="60"/>
         <image name="speed.png" width="30" height="30"/>
+        <image name="speed.png" width="30" height="30"/>
         <image name="target" width="60" height="60"/>
         <image name="target.png" width="60" height="60"/>
     </resources>
