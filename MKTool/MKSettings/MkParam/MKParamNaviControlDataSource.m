@@ -87,7 +87,7 @@
     [paramSection addNumberFieldForKeyPath:@"NaviGpsD" title:NSLocalizedString(@"GPS-D", @"MKParam NaviCtrl")];
     [paramSection addNumberFieldForKeyPath:@"NaviGpsDLimit" title:NSLocalizedString(@"GPS-D limit", @"MKParam NaviCtrl")];
 
-    [paramSection addPotiFieldForKeyPath:@"NaviGpsACC" title:NSLocalizedString(@"GPS ACC", @"MKParam NaviCtrl")];
+    [paramSection addPotiFieldForKeyPath:@"NaviGpsA" title:NSLocalizedString(@"GPS ACC", @"MKParam NaviCtrl")];
     [paramSection addPotiFieldForKeyPath:@"NaviAccCompensation" title:NSLocalizedString(@"GPS ACC comp.", @"MKParam NaviCtrl")];
     [paramSection addPotiFieldForKeyPath:@"NaviWindCorrection" title:NSLocalizedString(@"GPS wind corr.", @"MKParam NaviCtrl")];
     [paramSection addNumberFieldForKeyPath:@"NaviOperatingRadius" title:NSLocalizedString(@"GPS max. radius", @"MKParam NaviCtrl")];
