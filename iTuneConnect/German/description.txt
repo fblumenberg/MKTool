@@ -1,6 +1,14 @@
+MK Tool erlaubt es ihnen, mit ihrem Mikrokopter über WLAN zu kommunizieren.
+
+- Überwachen Sie den aktuellen Flugzustand mit Hilfe des OSD.
+- Ändern und überprüfen Sie die Parametereinstellungen. 
+- Erstellen Sie eine GPX-Log für spätere Auswertungen.
+- Übertragen Sie die Flugrouten für den Wegpunktflug.
+
+
 MK Tool hilft ihnen Flugrouten für den Wegpunktflug mit Ihrem Mikrokopter zu erstellen und zu bearbeiten.
 
-- Erstellen und bearbeiten intuitiv in der Kartenansicht
+- Erstellen und bearbeiten intuitiv in der Kartenansicht.
 - Generieren Sie Flugrouten für verschiedene Muster (Gebiet, Kreis, Panorama).
-- Synchronisieren Sie die Routen mit Hilfer der Dropbox.
-- Kompatipel mit der Mikrokopter Software.
+- Synchronisieren Sie die Routen mit Hilfe der Dropbox.
+- Kompatibel mit der Mikrokopter Software.

@@ -1,3 +1,10 @@
+MK Tool enables you to communicate with your Mikrokopter  via WLAN.
+
+- View the current flight state using the OSD
+- Edit and save the MK-parameters 
+- Create GPX log files
+- Transfer the flight plans for flying with waypoints. 
+
 MK Tool helps you to build and edit the flight plan for flying with waypoints.  
 
 - Easy creation and editing inside the map
