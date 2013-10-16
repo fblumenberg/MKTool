@@ -184,6 +184,9 @@
 - (void)deletePointsAtIndexPaths:(NSArray *)indexPaths {
 
   NSArray *orderedPoints = [self orderedPoints];
+  if([orderedPoints count]==0)
+    return;
+
   NSArray *pointsToDelete = [indexPaths map:(ib_enum_id_t) ^(NSIndexPath *obj) {
     return [orderedPoints objectAtIndex:obj.row];
   }];
