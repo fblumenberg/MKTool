@@ -1,6 +1,6 @@
 platform :ios, '5.0'
 pod 'BlocksKit'
-pod 'GHKit'
+pod 'GHKit', '1.0.0'
 pod 'YelpKit', :git => 'https://github.com/fblumenberg/YelpKit'
 pod 'IBAForms', :git => 'https://github.com/fblumenberg/IBAForms'
 pod 'MKCommunication', :git => 'https://github.com/fblumenberg/MKCommunication'
