@@ -58,7 +58,17 @@
     [paramSection addNumberFieldForKeyPath:@"Gas_Min" title:NSLocalizedString(@"Min. Gas", @"MKParam Misc")];
     [paramSection addNumberFieldForKeyPath:@"Gas_Max" title:NSLocalizedString(@"Max. Gas", @"MKParam Misc")];
 
+    //------------------------------------------------------------------------------------------------------------------------
+    paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+    paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
+
     [paramSection addNumberFieldForKeyPath:@"UnterspannungsWarnung" title:NSLocalizedString(@"Low voltage level", @"MKParam Misc")];
+
+    if (((IKParamSet *)aModel).Revision.integerValue >= 88){
+      [paramSection addNumberFieldForKeyPath:@"AutoLandingVoltage" title:NSLocalizedString(@"Autolanding voltage level", @"MKParam Misc")];
+      [paramSection addNumberFieldForKeyPath:@"ComingHomeVoltage" title:NSLocalizedString(@"CH voltage level", @"MKParam Misc")];
+    }
+    
 
     NSArray *pickListOptions = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:
             NSLocalizedString(@"3.0 V", @"MKParam Misc"),
@@ -72,7 +82,11 @@
                                                                 selectionMode:IBAPickListSelectionModeSingle
                                                                       options:pickListOptions]];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 95){      
+    //------------------------------------------------------------------------------------------------------------------------
+    paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+    paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
+
+    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
       IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"CareFreeChannel"
                                                                                  title:NSLocalizedString(@"Carefree", @"MKParam Misc")];
       
