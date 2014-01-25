@@ -57,7 +57,7 @@
                name:MKData3DNotification
              object:nil];
 
-    [self performSelector:@selector(sendOsdRefreshRequest) withObject:self afterDelay:0.1];
+//    [self performSelector:@selector(sendOsdRefreshRequest) withObject:self afterDelay:0.1];
 
   }
   return self;

@@ -182,11 +182,13 @@
                  target:self
                  action:@selector(uploadRoute)];
 
+  /*
   self.dlButton = [[UIBarButtonItem alloc]
           initWithImage:[UIImage imageNamed:@"icon-dl1.png"]
                   style:UIBarButtonItemStyleBordered
                  target:self
                  action:@selector(downloadRoute)];
+   */
 }
 
 - (void)viewDidLoad {
