@@ -182,12 +182,12 @@
 
 -(void)deleteSession{
   
-  UIActionSheet *deleteQuerySheet = [UIActionSheet actionSheetWithTitle:nil];
-  [deleteQuerySheet setDestructiveButtonWithTitle:NSLocalizedString(@"Delete", @"Delete Button") handler:^{
+  UIActionSheet *deleteQuerySheet = [UIActionSheet bk_actionSheetWithTitle:nil];
+  [deleteQuerySheet bk_setDestructiveButtonWithTitle:NSLocalizedString(@"Delete", @"Delete Button") handler:^{
     [self.session destroy];
     [self.navigationController popToRootViewControllerAnimated:YES];
   }];
-  [deleteQuerySheet setCancelButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel Button") handler:^{}];
+  [deleteQuerySheet bk_setCancelButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel Button") handler:^{}];
   [deleteQuerySheet showInView:self.view];
   
   [deleteQuerySheet showFromBarButtonItem:self.deleteItem animated:YES];

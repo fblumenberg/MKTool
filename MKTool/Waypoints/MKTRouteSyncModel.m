@@ -84,7 +84,7 @@
 
   NSMutableArray *items = [[self.routes map:^(MKTRoute *r) {
 
-    DBFileInfo *data = [self.metaData match:^(DBFileInfo *obj) {
+    DBFileInfo *data = [self.metaData bk_match:^(DBFileInfo *obj) {
       return [r.fileName isEqualToString:obj.path.name];
     }];
 
@@ -94,13 +94,13 @@
     return [MKTSyncItem itemWith:r andData:data];
   }] mutableCopy];
 
-  [dataItems each:^(DBFileInfo *d) {
+  [dataItems bk_each:^(DBFileInfo *d) {
     [items pushObject:[MKTSyncItem itemWith:nil andData:d]];
   }];
 
   NSLog(@"items before preparing %@", items);
 
-  [items each:^(MKTSyncItem *item) {
+  [items bk_each:^(MKTSyncItem *item) {
     [self prepareSync:item option:option];
   }];
 

@@ -27,7 +27,7 @@
 #import "MKTConnection.h"
 
 #import "InnerBand.h"
-#import "NSObject+BlockObservation.h"
+//#import "NSObject+BlockObservation.h"
 
 @implementation MKTConnectionViewController
 

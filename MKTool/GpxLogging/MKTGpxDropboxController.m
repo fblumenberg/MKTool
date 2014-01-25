@@ -167,7 +167,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 -(BOOL) writeGpxFileForSession:(MKTGpxSession*)session error:(DBError **)error{
   
-  DBFileInfo *data = [self.routesInDB match:^(DBFileInfo *obj) {
+  DBFileInfo *data = [self.routesInDB bk_match:^(DBFileInfo *obj) {
     return [session.fileName isEqualToString:obj.path.name];
   }];
 

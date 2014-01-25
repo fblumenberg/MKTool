@@ -38,7 +38,7 @@
   
   [super addChildTagToGpx:gpx indentationLevel:indentationLevel];
   
-  [self.dictionary each:^(id key, id obj){
+  [self.dictionary bk_each:^(id key, id obj){
     [self gpx:gpx addPropertyForValue:[obj description] tagName:key indentationLevel:indentationLevel];
   }];
 }

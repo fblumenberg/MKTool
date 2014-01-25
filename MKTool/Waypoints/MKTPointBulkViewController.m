@@ -50,7 +50,7 @@
   NSMutableDictionary *model = [[MKTPoint attributesForPoint] mutableCopy];
 
   NSArray *keys = [NSArray arrayWithObjects:@"index", @"latitude", @"longitude", nil];
-  [keys each:^(NSString *key) {
+  [keys bk_each:^(NSString *key) {
     [model removeObjectForKey:key];
   }];
 
@@ -59,7 +59,7 @@
 
   if (points.count > 0) {
     MKTPoint *p = [points objectAtIndex:0];
-    [keys each:^(NSString *key) {
+    [keys bk_each:^(NSString *key) {
       [model setValue:[p valueForKey:key] forKey:key];
     }];
   }

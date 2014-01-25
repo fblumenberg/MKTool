@@ -605,7 +605,7 @@
   indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
 
 
-  if ([[self.tableView indexPathsForVisibleRows] match:^BOOL(NSIndexPath *i) {
+  if ([[self.tableView indexPathsForVisibleRows] bk_match:^BOOL(NSIndexPath *i) {
     return [i isEqual:indexPath];
   }]) {
     [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
@@ -653,7 +653,7 @@
   MKTPointBulkViewController *controller = [[MKTPointBulkViewController alloc] initWithPoints:pointsToChange];
   UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
 
-  [[self.tableView indexPathsForSelectedRows] each:^(NSIndexPath *indexPath) {
+  [[self.tableView indexPathsForSelectedRows] bk_each:^(NSIndexPath *indexPath) {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
   }];
 

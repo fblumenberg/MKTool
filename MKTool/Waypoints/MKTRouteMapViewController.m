@@ -541,7 +541,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
 - (void)clearAllSelections {
 
-  [self.mapView.annotations each:^(id <MKAnnotation> a) {
+  [self.mapView.annotations bk_each:^(id <MKAnnotation> a) {
     [self.mapView deselectAnnotation:a animated:YES];
   }];
 }

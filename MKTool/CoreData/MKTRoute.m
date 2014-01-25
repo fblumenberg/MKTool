@@ -182,25 +182,27 @@
 
 
 - (void)deletePointsAtIndexPaths:(NSArray *)indexPaths {
-
+  
   NSArray *orderedPoints = [self orderedPoints];
-  NSArray *pointsToDelete = [indexPaths map:(ib_enum_id_t) ^(NSIndexPath *obj) {
-    return [orderedPoints objectAtIndex:obj.row];
-  }];
-
-  for (MKTPoint *p in pointsToDelete) {
-    int oldIndex = p.indexValue;
-    [p destroy];
-
-    for (MKTPoint *p in [self orderedPoints]) {
-      if (p.headingValue < 0 && p.headingValue == -oldIndex) {
-        p.headingValue = 0;
+  if([orderedPoints count]>0){
+    NSArray *pointsToDelete = [indexPaths map:(ib_enum_id_t) ^(NSIndexPath *obj) {
+      return [orderedPoints objectAtIndex:obj.row];
+    }];
+    
+    for (MKTPoint *p in pointsToDelete) {
+      int oldIndex = p.indexValue;
+      [p destroy];
+      
+      for (MKTPoint *p in [self orderedPoints]) {
+        if (p.headingValue < 0 && p.headingValue == -oldIndex) {
+          p.headingValue = 0;
+        }
       }
     }
+    
+    [self updatePointsOrder];
+    [[CoreDataStore mainStore] save];
   }
-
-  [self updatePointsOrder];
-  [[CoreDataStore mainStore] save];
 }
 
 - (MKTPoint *)pointWithIndexx:(int)index{
