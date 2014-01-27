@@ -28,11 +28,14 @@
 
 @class OsdValue;
 
-@protocol OsdValueDelegate
+@protocol OsdValueDelegate<NSObject>
 
 - (void)newValue:(OsdValue *)value;
 
-@optional - (void)noDataAvailable;
+@optional
+
+- (void)noDataAvailable;
+- (void)newRouteDataAvailable:(NSArray*)points;
 
 @end
 
@@ -70,10 +73,12 @@
 
 
 
-@property(weak) id <OsdValueDelegate> delegate;
+@property(weak) id<OsdValueDelegate> delegate;
 @property(readonly, retain) IKNaviData *data;
 
 @property(nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@property(readonly) NSArray* routePoints;
 
 @property(readonly) BOOL areEnginesOn;
 @property(readonly) BOOL isFlying;

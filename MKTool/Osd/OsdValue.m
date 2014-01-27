@@ -36,6 +36,8 @@
 #import "IKDeviceVersion.h"
 #import "InnerBand.h"
 
+#import "MKTRouteTransferController.h"
+
 #define kGpxLoggingInterval @"kGpxLoggingInterval"
 #define kGpxLoggingActive @"kGpxLoggingActive"
 
@@ -73,7 +75,7 @@ static const NSString *errorMsg[30] = {
         @"ERR:Max Altitude"
 };
 
-@interface OsdValue () <CLLocationManagerDelegate>
+@interface OsdValue () <CLLocationManagerDelegate, MKTRouteTransferControllerDelegate>
 - (void)sendOsdRefreshRequest;
 
 - (void)sendFollowMeRequest;
@@ -90,6 +92,9 @@ static const NSString *errorMsg[30] = {
 @property(retain) CLLocationManager *lm;
 @property(retain) AVAudioPlayer *audioPlayer;
 @property(retain) IKDebugData *debugData;
+
+@property(readwrite,strong) NSArray* routePoints;
+@property(strong) MKTRouteTransferController* routeTransferController;
 
 @end
 
@@ -320,6 +325,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 //      [self.audioPlayer prepareToPlay];
 //    }
 
+    self.routeTransferController = [[MKTRouteTransferController alloc] initWithRoute:nil delegate:self];
 
     for (int i = 0; i < 12; i++)
       motorData[i] = nil;
@@ -460,6 +466,10 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     else{
       [self stopGpxLog];
     }
+  }
+  
+  if(self.data.data->WaypointNumber!=[self.routePoints count] && self.routeTransferController.state == RouteControllerIsIdle){
+    [self.routeTransferController downloadRouteFromNaviCtrl];
   }
 }
 
@@ -670,5 +680,15 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
   return motorData[index];
 }
+
+- (void)routeControllerFinishedDownload:(MKTRouteTransferController *)controller{
+  self.routePoints = [NSArray arrayWithArray:self.routeTransferController.points];
+  if ([self.delegate respondsToSelector:@selector(newRouteDataAvailable:)]) {
+      [self.delegate newRouteDataAvailable:self.routePoints];
+  }
+  
+}
+
+
 
 @end

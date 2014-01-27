@@ -27,10 +27,14 @@
 #import "HeadingOverlay.h"
 #import "HeadingOverlayView.h"
 #import "IKPoint.h"
+#import <BlocksKit.h>
+
+//#import "MKTPoint.h"
+//#import "MKTPointAnnotationView.h"
+#import "MKTCircleOverlay.h"
 
 @interface MapOsdViewController ()
 
-- (void)updateRouteOverlay;
 - (void)updateViewWithOrientation:(UIInterfaceOrientation)orientation;
 
 @end
@@ -135,9 +139,9 @@
 
       annotationView.centerOffset = CGPointMake(0.0, -16.0);
     }
-
     return annotationView;
   }
+  
   return nil;
 }
 
@@ -190,10 +194,6 @@
     needRegionAdjustment = NO;
   }
 
-//  if (value.data.data->WaypointNumber > 0 && self.routeController.route == nil && self.routeController.state == RouteControllerIsIdle) {
-//    [self.routeController downloadRouteFromNaviCtrl];
-//  }
-
   //-----------------------------------------------------------------------
   [self updateHeightView:value];
   //-----------------------------------------------------------------------
@@ -201,6 +201,11 @@
   //-----------------------------------------------------------------------
   [self updateStateView:value];
   //-----------------------------------------------------------------------
+  
+  
+  if([[self currentRouteAnnotations] count]!=[value.routePoints count]){
+    [self newRouteDataAvailable:value.routePoints];
+  }
 
 }
 
@@ -208,107 +213,149 @@
 
 }
 
-#pragma mark - RouteControllerDelegate
-//- (void)routeControllerFinishedDownload:(RouteController *)controller {
-//
-//  if ([controller.route.points count] > 0)
-//    [self updateRouteOverlay];
-//}
+- (void)newRouteDataAvailable:(NSArray*) points{
+  
+  NSArray* toRemove = [self currentRouteAnnotations];
+  
+  [self.mapView removeAnnotations:toRemove];
+  
+  NSArray* toAdd = [points bk_map:^ id(id obj){
+    IKPoint* p = (IKPoint*)obj;
+    MapLocation* m = [[MapLocation alloc] init];
+    
+    m.coordinate = p.coordinate;
+    m.type = p.type==POINT_TYPE_WP?IKMapLocationWayPoint:IKMapLocationPOI;
+    return m;
+  }];
+  
+  [self.mapView addAnnotations:toAdd];
+  
+  [self updateRouteOverlay:points];
+}
 
+- (NSArray*)currentRouteAnnotations{
+  return  [self.mapView.annotations bk_select:^BOOL (id obj) {
+    
+    if ([obj isKindOfClass:[MapLocation class]])
+      return (((MapLocation *) obj).type == IKMapLocationWayPoint || ((MapLocation *) obj).type == IKMapLocationPOI);
+    
+    return NO;
+  }];
+}
 
 #pragma mark Overlays
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay {
-
+  
   if ([overlay isKindOfClass:[MKPolyline class]]) {
-
-    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:(MKPolyline *)overlay];
+    
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:(MKPolyline *) overlay];
     polylineView.strokeColor = [UIColor blueColor];
     polylineView.lineWidth = 1.5;
     return polylineView;
   }
   else if ([overlay isKindOfClass:[HeadingOverlay class]]) {
-
-    HeadingOverlayView *circleView = [[HeadingOverlayView alloc] initWithHeadingOverlay:(HeadingOverlay *)overlay];
+    
+    HeadingOverlayView *circleView = [[HeadingOverlayView alloc] initWithHeadingOverlay:(HeadingOverlay *) overlay];
     circleView.strokeColor = [UIColor yellowColor];
-
+    
     circleView.fillColor = [circleView.strokeColor colorWithAlphaComponent:0.4];
     circleView.lineWidth = 1.5;
     return circleView;
   }
-  else if ([overlay isKindOfClass:[MKCircle class]]) {
-    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:(MKCircle *)overlay];
-    if ([((MKCircle *) overlay).title length] > 0) {
-      circleView.strokeColor = [UIColor redColor];
-    }
-    else {
-      circleView.strokeColor = [UIColor greenColor];
-    }
-    circleView.fillColor = [circleView.strokeColor colorWithAlphaComponent:0.4];
-    circleView.lineWidth = 1.5;
+  else if ([overlay isKindOfClass:[MKTCircleOverlay class]]) {
+    
+    MKTCircleOverlay *circleOverlay = (MKTCircleOverlay *) overlay;
+    
+    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:circleOverlay.circle];
+    circleView.strokeColor = circleOverlay.strokeColor;
+    circleView.fillColor = circleOverlay.fillColor;
+    circleView.lineWidth = circleOverlay.lineWidth;
+    
     return circleView;
   }
-
+  
   return nil;
 }
 
 
-- (void)updateRouteOverlay {
+- (void)updateRouteOverlay:(NSArray*) points {
 
-//  NSArray *points = self.routeController.route.points;
-//  CLLocationCoordinate2D coordinates[[points count]];
-//
-//  [self.mapView removeOverlays:self.mapView.overlays];
-//
-//  int i = 0;
-//  for (IKPoint *p in points) {
-//    if (p.type == POINT_TYPE_WP) {
-//      coordinates[i] = p.coordinate;
-//
-//      MKCircle *c = [MKCircle circleWithCenterCoordinate:p.coordinate radius:p.toleranceRadius];
-//      if (i == 0)
-//        c.title = @"start";
-//
-//      [self.mapView addOverlay:c];
-//
-//      BOOL createOverlay = YES;
-//      if (p.heading != 0) {
-//
-//        double angle = p.heading;
-//        if (p.heading < 0) {
-//
-//          int idx = (-p.heading) - 1;
-//          if (idx >= 0 && idx < [points count]) {
-//
-//            IKPoint *poi = [points objectAtIndex:idx];
-//
-//            MKMapPoint pPoint = MKMapPointForCoordinate(p.coordinate);
-//            MKMapPoint poiPoint = MKMapPointForCoordinate(poi.coordinate);
-//
-//            double ank = poiPoint.x - pPoint.x;
-//            double gek = poiPoint.y - pPoint.y;
-//
-//            angle = (atan(gek / ank) * 180.0) / M_PI;
-//            if (ank < 0)
-//              angle += 180.0;
-//          }
-//          else {
-//            createOverlay = NO;
-//          }
-//        }
-//        if (createOverlay) {
-//          HeadingOverlay *h = [HeadingOverlay headingWithCenterCoordinate:p.coordinate radius:10 angle:angle];
-//          [self.mapView addOverlay:h];
-//        }
-//      }
-//
-//      i++;
-//
-//    }
-//  }
-//
-//  [self.mapView addOverlay:[MKPolyline polylineWithCoordinates:coordinates count:i]];
-//
+  CLLocationCoordinate2D coordinates[[points count]];
+  
+  [self.mapView removeOverlays:self.mapView.overlays];
+  
+  int i = 0;
+  for (IKPoint *p in points) {
+    if (p.type == POINT_TYPE_WP) {
+      coordinates[i] = p.coordinate;
+      
+      MKTCircleOverlay *c = [MKTCircleOverlay circleWithCenterCoordinate:p.coordinate radius:p.toleranceRadius];
+      
+      if (i == 0) {
+        c.strokeColor = [UIColor redColor];
+        
+        if (NO) {
+          MKTCircleOverlay *fence = [MKTCircleOverlay circleWithCenterCoordinate:p.coordinate radius:125];
+          fence.lineWidth = 1.5;
+          fence.strokeColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
+          [self.mapView addOverlay:fence];
+          
+          fence = [MKTCircleOverlay circleWithCenterCoordinate:p.coordinate radius:250];
+          fence.lineWidth = 1.5;
+          fence.strokeColor = [UIColor redColor];
+          [self.mapView addOverlay:fence];
+        }
+      }
+      else
+        c.strokeColor = [UIColor greenColor];
+      
+      c.fillColor = [c.strokeColor colorWithAlphaComponent:0.4];
+      c.lineWidth = 1.5;
+      
+      [self.mapView addOverlay:c];
+      
+      BOOL createOverlay = YES;
+      if (p.heading != 0) {
+        
+        double angle = p.heading;
+        if (p.heading < 0) {
+          
+          int idx = (-p.heading) - 1;
+          if (idx >= 0 && idx < points.count) {
+            
+            IKPoint *poi = [points objectAtIndex:idx];
+            
+            MKMapPoint pPoint = MKMapPointForCoordinate(p.coordinate);
+            MKMapPoint poiPoint = MKMapPointForCoordinate(poi.coordinate);
+            
+            double ank = poiPoint.x - pPoint.x;
+            double gek = poiPoint.y - pPoint.y;
+            
+            angle = (atan(gek / ank) * 180.0) / M_PI;
+            if (ank < 0)
+              angle += 180.0;
+          }
+          else {
+            createOverlay = NO;
+          }
+        }
+        else {
+          angle -= 90.0;
+        }
+        if (createOverlay) {
+          HeadingOverlay *h = [HeadingOverlay headingWithCenterCoordinate:p.coordinate radius:10 angle:angle];
+          [self.mapView addOverlay:h];
+        }
+      }
+      
+      i++;
+      
+    }
+  }
+  
+  [self.mapView addOverlay:[MKPolyline polylineWithCoordinates:coordinates count:i]];
+  
 }
 
 
