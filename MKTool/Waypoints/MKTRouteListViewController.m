@@ -28,7 +28,7 @@
 #import "InnerBand.h"
 #import "MKTRouteListViewController.h"
 #import "MKTRouteMapViewController.h"
-#import "MKTRouteTransferViewController.h"
+#import "MKTRouteTransferViewController2.h"
 #import "MKTPointViewController.h"
 #import "MKTPointBulkViewController.h"
 #import "MKTPoint.h"
@@ -733,7 +733,7 @@
 
 - (void)uploadRoute {
 
-  MKTRouteTransferViewController *controller = [[MKTRouteTransferViewController alloc] initWithRoute:self.route];
+  MKTRouteTransferViewController2 *controller = [[MKTRouteTransferViewController2 alloc] initWithRoute:self.route];
   UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:controller];
 
   if (IS_IPAD()) {

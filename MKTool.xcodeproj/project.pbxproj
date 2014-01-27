@@ -98,6 +98,10 @@
 		BA671A3B175536A000025D24 /* TestMKTool.1.0.wpl in Resources */ = {isa = PBXBuildFile; fileRef = BA671A39175536A000025D24 /* TestMKTool.1.0.wpl */; };
 		BA671A3D17553ABF00025D24 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3C17553ABF00025D24 /* Default-568h@2x.png */; };
 		BA671A3F17554D1C00025D24 /* speed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA671A3E17554D1C00025D24 /* speed@2x.png */; };
+		BA70DF661896BC8400DF3694 /* MKTRouteTransferViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70DF641896BC8400DF3694 /* MKTRouteTransferViewController2.m */; };
+		BA70DF671896BC8400DF3694 /* MKTRouteTransferViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70DF641896BC8400DF3694 /* MKTRouteTransferViewController2.m */; };
+		BA70DF681896BC8400DF3694 /* MKTRouteTransferViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA70DF651896BC8400DF3694 /* MKTRouteTransferViewController2.xib */; };
+		BA70DF691896BC8400DF3694 /* MKTRouteTransferViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA70DF651896BC8400DF3694 /* MKTRouteTransferViewController2.xib */; };
 		BA9373C4154B3B8300E444EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C6154B3B8300E444EC /* Localizable.strings */; };
 		BA9373D0154B435600E444EC /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C8154B435600E444EC /* icon-close.png */; };
 		BA9373D1154B435600E444EC /* icon-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9373C9154B435600E444EC /* icon-close@2x.png */; };
@@ -789,6 +793,9 @@
 		BA671A3C17553ABF00025D24 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA671A3E17554D1C00025D24 /* speed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speed@2x.png"; sourceTree = "<group>"; };
 		BA6EB18D170766B00009B4A6 /* MKTool-Cydia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MKTool-Cydia-Info.plist"; path = "ApplicationBase/MKTool-Cydia-Info.plist"; sourceTree = "<group>"; };
+		BA70DF631896BC8400DF3694 /* MKTRouteTransferViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteTransferViewController2.h; sourceTree = "<group>"; };
+		BA70DF641896BC8400DF3694 /* MKTRouteTransferViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTransferViewController2.m; sourceTree = "<group>"; };
+		BA70DF651896BC8400DF3694 /* MKTRouteTransferViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKTRouteTransferViewController2.xib; sourceTree = "<group>"; };
 		BA9373C5154B3B8300E444EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C7154B3B9800E444EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA9373C8154B435600E444EC /* icon-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-close.png"; sourceTree = "<group>"; };
@@ -1343,6 +1350,9 @@
 				BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */,
 				BA56918416F8EBFC007A33D0 /* MKTRouteTransferController.h */,
 				BA56918516F8EBFC007A33D0 /* MKTRouteTransferController.m */,
+				BA70DF631896BC8400DF3694 /* MKTRouteTransferViewController2.h */,
+				BA70DF641896BC8400DF3694 /* MKTRouteTransferViewController2.m */,
+				BA70DF651896BC8400DF3694 /* MKTRouteTransferViewController2.xib */,
 			);
 			name = Transfer;
 			sourceTree = "<group>";
@@ -2328,6 +2338,7 @@
 				BA94CAE91706FE1400AC0934 /* IASKPSToggleSwitchSpecifierViewCell.xib in Resources */,
 				BA94CAEA1706FE1400AC0934 /* IASKSpecifierValuesView.xib in Resources */,
 				BA94CAEB1706FE1400AC0934 /* Settings.bundle in Resources */,
+				BA70DF691896BC8400DF3694 /* MKTRouteTransferViewController2.xib in Resources */,
 				BA94CAEC1706FE1400AC0934 /* white_texture.png in Resources */,
 				BA94CAED1706FE1400AC0934 /* WPGenBaseViewController.xib in Resources */,
 				BA94CAEE1706FE1400AC0934 /* Localizable.strings in Resources */,
@@ -2525,6 +2536,7 @@
 				BA98C01516C290AD000CA7EE /* OsdViewController.xib in Resources */,
 				BAEE24FD17F0C3EF002453C9 /* Media.xcassets in Resources */,
 				BA98C01916C290AD000CA7EE /* RawOsdViewController.xib in Resources */,
+				BA70DF681896BC8400DF3694 /* MKTRouteTransferViewController2.xib in Resources */,
 				BA98C01D16C290AD000CA7EE /* ValueOsdViewController-iPad.xib in Resources */,
 				BA98C02116C290AD000CA7EE /* ValueOsdViewController.xib in Resources */,
 				BA98C04E16C2D5FE000CA7EE /* icon-bluetooth.png in Resources */,
@@ -2719,6 +2731,7 @@
 				BA94CA281706FE1400AC0934 /* MKTAppDelegate.m in Sources */,
 				BA94CA291706FE1400AC0934 /* MKTDetailViewController.m in Sources */,
 				BA94CA2A1706FE1400AC0934 /* INIParser.m in Sources */,
+				BA70DF671896BC8400DF3694 /* MKTRouteTransferViewController2.m in Sources */,
 				BA94CA2B1706FE1400AC0934 /* INISection.m in Sources */,
 				BA94CA2C1706FE1400AC0934 /* InnerBand.m in Sources */,
 				BA94CA2D1706FE1400AC0934 /* MKModel.xcdatamodeld in Sources */,
@@ -2872,6 +2885,7 @@
 				BAB2F20A15409C8C00ECE09A /* MKTAppDelegate.m in Sources */,
 				BAB2F21015409C8C00ECE09A /* MKTDetailViewController.m in Sources */,
 				BAB2F2831540A5B600ECE09A /* INIParser.m in Sources */,
+				BA70DF661896BC8400DF3694 /* MKTRouteTransferViewController2.m in Sources */,
 				BAB2F2841540A5B600ECE09A /* INISection.m in Sources */,
 				BAB2F2851540A5B600ECE09A /* InnerBand.m in Sources */,
 				BAB2F2961540A6B100ECE09A /* MKModel.xcdatamodeld in Sources */,
