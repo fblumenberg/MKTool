@@ -1,4 +1,4 @@
-CYDIAREPOSITORY=/Users/frankblumenberg/Develop/Cocoa/Mikrocopter/Cydia-Repo/repo/
+CYDIAREPOSITORY=/Users/frankblumenberg/Develop/Cocoa/Mikrokopter/Cydia-Repo/repo
 PROJECTMAIN=$(pwd)
 PROJECT_NAME="iKopter2"
 APPMAIN=${PROJECTMAIN}/Cydia/$PROJECT_NAME/Applications/${PROJECT_NAME}.app
