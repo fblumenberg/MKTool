@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////
 // Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
@@ -22,6 +22,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+#import <GHKit/GHKit.h>
+
 #import "MKTRouteTransferController.h"
 
 #import "MKConnectionController.h"
@@ -34,6 +36,10 @@
 
 
 @interface MKTRouteTransferController ()
+
+@property(strong) NSTimer* timeoutTimer;
+
+@property(strong) MKTRoute* route;
 
 - (void)uploadClearPoint;
 
@@ -72,17 +78,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   self = [super init];
   if (self) {
     self.delegate = aDelegate;
+    self.route = route;
 
-    self.points = [NSMutableArray arrayWithCapacity:[route count]];
-    for (MKTPoint *p in [route orderedPoints]) {
-      
-      IKPoint *ikPoint = [p toIKPoint];
-      [self.points addObject:ikPoint];
-    }
-
-    currIndex = 0;
-    lastIndex = [self.points count];
-    
     state = RouteControllerIsIdle;
 
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -94,6 +91,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
            selector:@selector(readPointNotification:)
                name:MKReadPointNotification
              object:nil];
+    
   }
   return self;
 }
@@ -101,6 +99,9 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 - (void)dealloc {
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc removeObserver:self];
+  
+  [self.timeoutTimer invalidate];
+  self.timeoutTimer=nil;
 }
 
 
@@ -109,57 +110,76 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void)uploadRouteToNaviCtrlFrom:(NSUInteger)fromIndex to:(NSUInteger)toIndex {
 
-  currIndex = firstIndex = fromIndex-1;
-  lastIndex = toIndex-1;
-  uploadIndex = 1;
+  self.points = [NSMutableArray arrayWithCapacity:[self.route count]+1];
+  
+  [self.points addObject:[self buildClearPoint]];
+
+  NSInteger firstIndex = fromIndex-1;
+  NSInteger lastIndex = toIndex-1;
+  
+  uploadIndex = 0;
+  retryCounter = 0;
+  
+  NSArray* routePoints = [self.route orderedPoints];
+  
+  for (NSUInteger i=firstIndex;i<=lastIndex;i++) {
+    MKTPoint* p = [routePoints objectAtIndex:i];
+    IKPoint *ikPoint = [p toIKPoint];
+    [self.points addObject:ikPoint];
+  }
   
   state = RouteControllerIsUploading;
   
   DDLogInfo(@"Start uploading route  from %d to%d",currIndex,lastIndex);
   
-  [self uploadClearPoint];
+  [self uploadPoint:uploadIndex];
 
 }
 
-- (void)uploadClearPoint {
-
+- (IKPoint*)buildClearPoint {
+  
   IKPoint *p = [[IKPoint alloc] init];
-
   p.status = INVALID;
   p.index = 0;
-
-  DDLogInfo(@"Upload clear list point %@", p);
-  [[MKConnectionController sharedMKConnectionController] writePoint:p];
+  
+  return p;
 }
+
 
 - (void)uploadPoint:(NSUInteger)index {
 
   IKPoint *p = (IKPoint *) [self.points objectAtIndex:index];
   
-  p.index = uploadIndex++;
+  p.index = uploadIndex;
   
   DDLogInfo(@"Upload point (%d) %@", index, p);
   [[MKConnectionController sharedMKConnectionController] writePoint:p];
+  [self performSelector:@selector(uploadTimeout) withObject:self afterDelay:0.5];
 
   if ([self.delegate respondsToSelector:@selector(routeControllerStartUpload:forIndex:of:)])
-    [self.delegate routeControllerStartUpload:self forIndex:index-firstIndex of:lastIndex-firstIndex+1];
+    [self.delegate routeControllerStartUpload:self forIndex:p.index of:[self.points count]];
 }
 
 - (void)writePointNotification:(NSNotification *)aNotification {
+
+  [NSObject cancelPreviousPerformRequestsWithTarget:self];
 
   NSDictionary *d = [aNotification userInfo];
   NSInteger resultIndex = [[d objectForKey:kMKDataKeyIndex] integerValue];
   DDLogInfo(@"Upload point (%d) finished", resultIndex);
   
-    
-  if ([self.delegate respondsToSelector:@selector(routeControllerFinishedUpload:forIndex:of:)])
-    [self.delegate routeControllerFinishedUpload:self forIndex:currIndex-firstIndex of:lastIndex-firstIndex+1];
+  if (state != RouteControllerIsUploading || resultIndex!=uploadIndex) {
+    DDLogInfo(@"Ignore result from WP upload");
+    return;
+  }
 
+  if ([self.delegate respondsToSelector:@selector(routeControllerFinishedUpload:forIndex:of:)])
+    [self.delegate routeControllerFinishedUpload:self forIndex:uploadIndex of:[self.points count]];
   
-  if (state == RouteControllerIsUploading && currIndex <= lastIndex && resultIndex<254) {
-    [self uploadPoint:currIndex];
-    
-    currIndex++;
+  if (state == RouteControllerIsUploading && uploadIndex < ([self.points count]-1) && resultIndex<254) {
+    uploadIndex++;
+    retryCounter = 0;
+    [self uploadPoint:uploadIndex];
   }
   else {
     if( resultIndex>=254 ){
@@ -178,10 +198,30 @@ static int ddLogLevel = LOG_LEVEL_WARN;
         [self.delegate routeControllerFinishedUpload:self];
     }
     
-    if (state == RouteControllerIsUploading) {
-      state = RouteControllerIsIdle;
-    }
+    state = RouteControllerIsIdle;
   }
+}
+
+- (void) uploadTimeout {
+  
+  [NSObject cancelPreviousPerformRequestsWithTarget:self];
+  
+  if(++retryCounter>5){
+    
+    [self.timeoutTimer invalidate];
+    self.timeoutTimer=nil;
+    
+    NSString* description = NSLocalizedString(@"Thimeout while uploading waypoints", "WP Upload");
+    NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : description};
+    NSError *error = [[NSError alloc] initWithDomain:@"MK" code:1 userInfo:errorDictionary];
+    
+    state = RouteControllerIsIdle;
+    [self.delegate routeControllerFailedUpload:self WithError:error];
+  }
+  else{
+    [self uploadPoint:uploadIndex];
+  }
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////

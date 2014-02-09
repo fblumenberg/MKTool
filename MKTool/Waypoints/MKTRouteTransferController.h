@@ -37,9 +37,9 @@ typedef enum {
 @interface MKTRouteTransferController : NSObject {
 
   RouteControllerState state;
-  NSUInteger currIndex;
-  NSUInteger firstIndex;
-  NSUInteger lastIndex;
+  
+  NSUInteger retryCounter;
+  NSInteger currIndex;
   NSUInteger uploadIndex;
 }
 
