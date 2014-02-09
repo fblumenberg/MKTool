@@ -41,6 +41,7 @@
 @synthesize refreshProperties;
 
 - (id)initWithModel:(id)aModel {
+
   if ((self = [super initWithModel:aModel])) {
 
     self.refreshProperties = [NSArray arrayWithObjects:@"latitude", @"longitude", @"type", @"heading", @"toleranceRadius", nil];
@@ -50,9 +51,11 @@
 
     NSString *headerTitle = [self modelValueForKeyPath:@"name"];
 
-    NSNumber *heading = [aModel valueForKeyPath:@"heading"];
-    if ([heading integerValue] < 0) {
-      headerTitle = [headerTitle stringByAppendingFormat:NSLocalizedString(@" - Distance to POI %d m", @"Point editor extra header"), (NSUInteger) [((MKTPoint *) aModel) distanceToPoi]];
+    if([aModel isKindOfClass:[MKTPoint class]]){
+      NSNumber *heading = [aModel valueForKeyPath:@"heading"];
+      if ([heading integerValue] < 0) {
+        headerTitle = [headerTitle stringByAppendingFormat:NSLocalizedString(@" - Distance to POI %d m", @"Point editor extra header"), (NSUInteger) [((MKTPoint *) aModel) distanceToPoi]];
+      }
     }
 
     IBAFormSection *positionSection = [self addSectionWithHeaderTitle:headerTitle footerTitle:nil];
