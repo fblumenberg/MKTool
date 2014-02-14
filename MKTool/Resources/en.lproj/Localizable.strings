@@ -1141,3 +1141,12 @@
 /* Channels transformer */
 "WP" = "WP";
 
+/* MKParam Misc */
+"Autolanding voltage level" = "Autolanding voltage level";
+
+/* MKParam Misc */
+"CH voltage level" = "CH voltage level";
+
+/* WP Upload */
+"Thimeout while uploading waypoints" = "Thimeout while uploading waypoints";
+

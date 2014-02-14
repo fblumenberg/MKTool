@@ -961,7 +961,7 @@
 "Upload selected" = "Ausgewählte Wegpunkte";
 
 /* WP Upload */
-"Upload" = "Route Senden";
+"Upload" = "Route Übertragen";
 
 /* Upload routes HUD */
 "Uploading" = "Übertrage";
@@ -1022,7 +1022,52 @@
 "Carefree" = "Carefree";
 
 /* Channels transformer */
-"Ch. " = "Ch.";
+"Ch. " = "Kanal";
+
+/* Channels transformer */
+"Ch. 1" = "Kanal 1";
+
+/* Channels transformer */
+"Ch. 2" = "Kanal 2";
+
+/* Channels transformer */
+"Ch. 3" = "Kanal 3";
+
+/* Channels transformer */
+"Ch. 4" = "Kanal 4";
+
+/* Channels transformer */
+"Ch. 5" = "Kanal 5";
+
+/* Channels transformer */
+"Ch. 6" = "Kanal 6";
+
+/* Channels transformer */
+"Ch. 7" = "Kanal 7";
+
+/* Channels transformer */
+"Ch. 8" = "Kanal 8";
+
+/* Channels transformer */
+"Ch. 10" = "Kanal 10";
+
+/* Channels transformer */
+"Ch. 11" = "Kanal 11";
+
+/* Channels transformer */
+"Ch. 12" = "Kanal 12";
+
+/* Channels transformer */
+"Ch. 13" = "Kanal 13";
+
+/* Channels transformer */
+"Ch. 14" = "Kanal 14";
+
+/* Channels transformer */
+"Ch. 15" = "Kanal 15";
+
+/* Channels transformer */
+"Ch. 16" = "Kanal 16";
 
 /* Channels transformer */
 "CH" = "CH";
@@ -1044,4 +1089,13 @@
 
 /* MKParam Altitude */
 "StartLandChannel" = "Starten/Landen";
+
+/* MKParam Misc */
+"Autolanding voltage level" = "Auto-Landung Unterspannung";
+
+/* MKParam Misc */
+"CH voltage level" = "CH Unterspannung";
+
+/* WP Upload */
+"Thimeout while uploading waypoints" = "Zeitüberschreitung beim Upload";
 
