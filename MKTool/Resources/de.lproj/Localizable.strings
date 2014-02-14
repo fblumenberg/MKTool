@@ -961,7 +961,7 @@
 "Upload selected" = "Ausgewählte Wegpunkte";
 
 /* WP Upload */
-"Upload" = "Route Übertragen";
+"Upload" = "Route übertragen";
 
 /* Upload routes HUD */
 "Uploading" = "Übertrage";
@@ -1097,5 +1097,5 @@
 "CH voltage level" = "CH Unterspannung";
 
 /* WP Upload */
-"Thimeout while uploading waypoints" = "Zeitüberschreitung beim Upload";
+"Thimeout while uploading waypoints" = "Zeitüberschreitung bei der Übertragung";
 
