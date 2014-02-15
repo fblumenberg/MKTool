@@ -237,7 +237,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void)downloadRouteFromNaviCtrl {
-  [self.points removeAllObjects];
+
+  self.points = [NSMutableArray new];
 
   currIndex = 0;
   state = RouteControllerIsDownloading;
