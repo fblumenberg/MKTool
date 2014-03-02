@@ -146,10 +146,10 @@
 }
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)theMapView withError:(NSError *)error {
-  UIAlertView *alert = [[UIAlertView alloc]
-          initWithTitle:NSLocalizedString(@"Error loading map", @"Error loading map") message:[error localizedDescription]
-               delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay", @"Okay") otherButtonTitles:nil];
-  [alert show];
+//  UIAlertView *alert = [[UIAlertView alloc]
+//          initWithTitle:NSLocalizedString(@"Error loading map", @"Error loading map") message:[error localizedDescription]
+//               delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay", @"Okay") otherButtonTitles:nil];
+//  [alert show];
 }
 
 - (void)updateAnnotationForType:(IKMapLocationType)type coordinate:(CLLocationCoordinate2D)coordinate {
