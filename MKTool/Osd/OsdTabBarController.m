@@ -159,6 +159,8 @@
   [super viewWillAppear:animated];
 
   [self updateSelectedView];
+  
+  self.tabBar.backgroundColor = [UIColor whiteColor];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(dismissView)

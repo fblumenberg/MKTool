@@ -68,6 +68,12 @@
   self.navigationItem.hidesBackButton = IS_IPAD();
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  self.navigationController.navigationBar.translucent=NO;
+  self.navigationController.toolbar.translucent=NO;
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
 

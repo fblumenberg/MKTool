@@ -103,6 +103,9 @@
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self.navigationController setToolbarHidden:NO animated:NO];
+  
+  self.navigationController.navigationBar.translucent=NO;
+  self.navigationController.toolbar.translucent=NO;
 
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self
