@@ -3332,7 +3332,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "414BC777-37C2-4958-885D-B1ADD1FD173A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "594F253A-A4CA-49D5-884A-31855F981F20";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Testflight;
@@ -3490,7 +3490,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BDEC32DB-714A-45F0-8910-E2CF4B51E7A5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3533,7 +3533,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3ED0B28E-5424-410F-BDBF-AB26494DB8AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "594F253A-A4CA-49D5-884A-31855F981F20";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Testflight;
@@ -3555,7 +3555,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3A4A80BF-6DC6-4385-B6FA-7902387C9FC0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2BE34B7F-0BAB-4352-A9A8-9908F245B228";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
