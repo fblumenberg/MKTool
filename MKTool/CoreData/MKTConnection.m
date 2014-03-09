@@ -34,6 +34,8 @@
     return [UIImage imageNamed:@"icon-usb.png"];
   if ([self.connectionClass isEqualToString:@"MKBluetoothConnection"])
     return [UIImage imageNamed:@"icon-bluetooth.png"];
+  if ([self.connectionClass isEqualToString:@"MKBleConnection"])
+    return [UIImage imageNamed:@"icon-bluetooth.png"];
 
   return [UIImage imageNamed:@"icon-phone.png"];
 }

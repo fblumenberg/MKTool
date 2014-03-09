@@ -33,6 +33,12 @@
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"
 
+#import "MKBLEDiscoveryViewController.h"
+
+@interface MKTConnectionViewDataSource (BLE) <MKBLEDiscoveryDelegate>
+
+@end
+
 #ifdef CYDIA
 #import "BTDevice.h"
 #import "BTDiscoveryViewController.h"
@@ -43,11 +49,12 @@
 
 #endif
 
-@implementation MKTConnectionViewDataSource{
-  IBAFormField* address;
-  IBAFormField* infoWLAN;
-  IBAFormField* connectionData;
-  IBAFormField* discoveryButton;
+@implementation MKTConnectionViewDataSource {
+  IBAFormField *address;
+  IBAFormField *infoWLAN;
+  IBAFormField *connectionData;
+  IBAFormField *discoveryBleButton;
+  IBAFormField *discoveryButton;
 }
 
 - (id)initWithModel:(id)aModel {
@@ -75,18 +82,27 @@
                                                             selectionMode:IBAPickListSelectionModeSingle
                                                                   options:hostTransformer.pickListOptions]];
 
-  address=[[IBATextFormField alloc] initWithKeyPath:@"address" title:NSLocalizedString(@"Address", @"Host address")];
+  address = [[IBATextFormField alloc] initWithKeyPath:@"address" title:NSLocalizedString(@"Address", @"Host address")];
   [hostSection addFormField:address];
-  
+
   infoWLAN = [[IBATitleFormField alloc] initWithTitle:NSLocalizedString(@"Hostname:Port", @"Host address")];
   [hostSection addFormField:infoWLAN];
 
   connectionData = [[IBATextFormField alloc] initWithKeyPath:@"connectionData" title:NSLocalizedString(@"Pin", @"Host pin")];
   [hostSection addFormField:connectionData];
 
-  
-#ifdef CYDIA
+
   IBAFormSection *buttonSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+  buttonSection.formFieldStyle = [[SettingsButtonStyle alloc] init];
+
+  discoveryBleButton = [[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Scan Bluetooth LE", @"BT search BLE button") icon:nil executionBlock:^{
+    [self showDiscoveryBleView];
+  }];
+  [buttonSection addFormField:discoveryBleButton];
+
+
+#ifdef CYDIA
+  buttonSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
   buttonSection.formFieldStyle = [[SettingsButtonStyle alloc] init];
   
   discoveryButton = [[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Search Bluetooth", @"BT search button") icon:nil executionBlock:^{
@@ -95,45 +111,80 @@
   [buttonSection addFormField:discoveryButton];
   
 #endif
-  
+
   NSString *connectionClass = [self modelValueForKeyPath:@"connectionClass"];
   [self updateVisibility:connectionClass];
 }
 
-- (void)updateVisibility:(NSString*)connectionClass{
-  
-  if([connectionClass isEqualToString:@"MKSimConnection"]){
+- (void)updateVisibility:(NSString *)connectionClass {
+
+  if ([connectionClass isEqualToString:@"MKSimConnection"]) {
     [self setFormField:address hidden:YES];
     [self setFormField:connectionData hidden:YES];
     [self setFormField:infoWLAN hidden:YES];
     [self setFormField:discoveryButton hidden:YES];
+    [self setFormField:discoveryBleButton hidden:YES];
   }
-  else if ([connectionClass isEqualToString:@"MKBluetoothConnection"]){
+  else if ([connectionClass isEqualToString:@"MKBleConnection"]) {
+    [self setFormField:address hidden:NO];
+    [self setFormField:connectionData hidden:YES];
+    [self setFormField:infoWLAN hidden:YES];
+    [self setFormField:discoveryBleButton hidden:NO];
+    [self setFormField:discoveryButton hidden:YES];
+  }
+  else if ([connectionClass isEqualToString:@"MKBluetoothConnection"]) {
     [self setFormField:address hidden:NO];
     [self setFormField:connectionData hidden:NO];
     [self setFormField:infoWLAN hidden:YES];
     [self setFormField:discoveryButton hidden:NO];
+    [self setFormField:discoveryBleButton hidden:YES];
   }
-  else if ([connectionClass isEqualToString:@"MKIpConnection"]){
+  else if ([connectionClass isEqualToString:@"MKIpConnection"]) {
     [self setFormField:address hidden:NO];
     [self setFormField:connectionData hidden:YES];
     [self setFormField:infoWLAN hidden:NO];
     [self setFormField:discoveryButton hidden:YES];
+    [self setFormField:discoveryBleButton hidden:YES];
   }
-  else{
+  else {
+    [self.model setValue:@"/dev/tty.iap" forKey:@"address"];
     [self setFormField:address hidden:NO];
     [self setFormField:connectionData hidden:YES];
     [self setFormField:infoWLAN hidden:YES];
     [self setFormField:discoveryButton hidden:YES];
+    [self setFormField:discoveryBleButton hidden:YES];
+
   }
 }
 
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
   [super setModelValue:value forKeyPath:keyPath];
-  if([keyPath isEqualToString:@"connectionClass"]){
+  if ([keyPath isEqualToString:@"connectionClass"]) {
     [self updateVisibility:value];
   }
 }
+
+
+- (void)showDiscoveryBleView {
+
+  MKBLEDiscoveryViewController *controller = [[MKBLEDiscoveryViewController alloc] init];
+
+  UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+
+
+  navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+  controller.delegate = self;
+  [rootViewController presentModalViewController:navController animated:YES];
+}
+
+- (void)discoveryView:(MKBLEDiscoveryViewController *)discoveryView didSelectDeviceWithIdentifier:(NSString *)uuid
+                 name:(NSString *)name {
+
+  [self.model setValue:name forKey:@"name"];
+  [self.model setValue:uuid forKey:@"address"];
+}
+
 
 #ifdef CYDIA
 

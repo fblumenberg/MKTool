@@ -43,11 +43,13 @@
             @"MKSerialConnection",
             @"MKBluetoothConnection",
             @"MKSimConnection",
+            @"MKBleConnection",
             nil];
 #else
     keys = [[NSArray alloc] initWithObjects:
             @"MKIpConnection",
             @"MKSimConnection",
+            @"MKBleConnection",
             nil];
 #endif
     
@@ -56,6 +58,7 @@
     
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"WLAN Connection", @"WLAN Connection title") iconImage:[UIImage imageNamed:@"icon-wifi.png"]
                                                                       font:font]];
+
 #ifdef CYDIA
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Serial Connection", @"Serial Connection title") iconImage:[UIImage imageNamed:@"icon-usb.png"]
                                                                       font:font]];
@@ -64,7 +67,11 @@
     //    [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Redpark Serial Connection", @"Redpark Serial Connection title") iconImage:[UIImage imageNamed:@"icon-usb.png"]
     //                                                                    font:font]];
 #endif
+
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Fake Connection", @"Fake Connection title") iconImage:[UIImage imageNamed:@"icon-phone.png"]
+                                                                      font:font]];
+    
+    [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Bluetooth 4.0 LE Connection", @"BLE Connection title") iconImage:[UIImage imageNamed:@"icon-bluetooth.png"]
                                                                       font:font]];
   }
   return self;
