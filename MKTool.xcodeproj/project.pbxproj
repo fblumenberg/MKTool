@@ -3236,7 +3236,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3322,7 +3322,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3407,7 +3407,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3457,7 +3457,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3483,7 +3483,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3506,7 +3506,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3528,7 +3528,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3551,7 +3551,7 @@
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3643,7 +3643,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3669,7 +3669,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
