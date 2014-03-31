@@ -131,7 +131,8 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   state = RouteControllerIsUploading;
   
   DDLogInfo(@"Start uploading route  from %d to%d",currIndex,lastIndex);
-  
+  [[MKConnectionController sharedMKConnectionController] activateNaviCtrl];
+   
   [self uploadPoint:uploadIndex];
 
 }
@@ -154,7 +155,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   
   DDLogInfo(@"Upload point (%d) %@", index, p);
   [[MKConnectionController sharedMKConnectionController] writePoint:p];
-  [self performSelector:@selector(uploadTimeout) withObject:self afterDelay:0.5];
+  [self performSelector:@selector(uploadTimeout) withObject:self afterDelay:2.0];
 
   if ([self.delegate respondsToSelector:@selector(routeControllerStartUpload:forIndex:of:)])
     [self.delegate routeControllerStartUpload:self forIndex:p.index of:[self.points count]];
