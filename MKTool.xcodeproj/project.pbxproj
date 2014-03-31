@@ -89,6 +89,7 @@
 		BA27D543155EE2CE00C6B37E /* MKTSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D542155EE2CE00C6B37E /* MKTSettingsController.m */; };
 		BA27D54D155F1C2300C6B37E /* MKTRouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA27D54F155F1C2300C6B37E /* MKTRouteMapViewController.xib */; };
 		BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA52014E1559C26400719A58 /* AddressBookUI.framework */; };
+		BA56690718E9CC9F003019D1 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA56690618E9CC9F003019D1 /* libc++.dylib */; };
 		BA56918016F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */; };
 		BA56918116F8DF94007A33D0 /* MKTPoint+MKTPoint_IKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */; };
 		BA56918216F8E9B2007A33D0 /* userDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAF0CA22154877C900C31A02 /* userDefaults.plist */; };
@@ -782,6 +783,7 @@
 		BA27D550155F1C2F00C6B37E /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MKTRouteMapViewController.xib; sourceTree = "<group>"; };
 		BA52014C1559C1A400719A58 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BA52014E1559C26400719A58 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		BA56690618E9CC9F003019D1 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTPoint+MKTPoint_IKPoint.h"; sourceTree = "<group>"; };
 		BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTPoint+MKTPoint_IKPoint.m"; sourceTree = "<group>"; };
 		BA56918416F8EBFC007A33D0 /* MKTRouteTransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteTransferController.h; sourceTree = "<group>"; };
@@ -1219,6 +1221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA56690718E9CC9F003019D1 /* libc++.dylib in Frameworks */,
 				BAB430591704E3DA00BEC0B5 /* SystemConfiguration.framework in Frameworks */,
 				BA98C04116C29647000CA7EE /* CFNetwork.framework in Frameworks */,
 				BA52014F1559C26400719A58 /* AddressBookUI.framework in Frameworks */,
@@ -1665,6 +1668,7 @@
 		BAB2F1F815409C8C00ECE09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA56690618E9CC9F003019D1 /* libc++.dylib */,
 				BAB430581704E3DA00BEC0B5 /* SystemConfiguration.framework */,
 				BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */,
 				BAB430551704BF2200BEC0B5 /* Dropbox.framework */,
@@ -3241,7 +3245,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3327,7 +3331,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3412,7 +3416,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3466,6 +3470,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
@@ -3487,6 +3492,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
@@ -3509,6 +3515,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
@@ -3530,6 +3537,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
@@ -3552,6 +3560,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Cydia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = iKopter2;
@@ -3643,7 +3652,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3669,7 +3678,7 @@
 				GCC_PREFIX_HEADER = "MKTool/ApplicationBase/MKTool-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MKTool/ApplicationBase/MKTool-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

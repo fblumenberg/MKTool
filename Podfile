@@ -1,4 +1,4 @@
-platform :ios, '5.0'
+platform :ios, '6.0'
 pod 'BlocksKit'
 pod 'GHKit', '1.0.0'
 pod 'YelpKit', :git => 'https://github.com/fblumenberg/YelpKit'
