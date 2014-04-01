@@ -3457,6 +3457,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3482,6 +3484,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3505,6 +3509,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3527,6 +3533,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3550,6 +3558,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
