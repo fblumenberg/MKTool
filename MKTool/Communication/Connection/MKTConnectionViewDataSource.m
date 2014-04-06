@@ -37,6 +37,9 @@
 
 @interface MKTConnectionViewDataSource (BLE) <MKBLEDiscoveryDelegate>
 
+@property(strong) NSString *ipAddress;
+@property(assign) NSUInteger ipPort;
+
 @end
 
 #ifdef CYDIA
@@ -51,7 +54,8 @@
 
 @implementation MKTConnectionViewDataSource {
   IBAFormField *address;
-  IBAFormField *infoWLAN;
+  IBAFormField *ipAddressField;
+  IBAFormField *ipPortField;
   IBAFormField *connectionData;
   IBAFormField *discoveryBleButton;
   IBAFormField *discoveryButton;
@@ -85,8 +89,11 @@
   address = [[IBATextFormField alloc] initWithKeyPath:@"address" title:NSLocalizedString(@"Address", @"Host address")];
   [hostSection addFormField:address];
 
-  infoWLAN = [[IBATitleFormField alloc] initWithTitle:NSLocalizedString(@"Hostname:Port", @"Host address")];
-  [hostSection addFormField:infoWLAN];
+  ipAddressField = [[IBATextFormField alloc] initWithKeyPath:@"ipAddress" title:NSLocalizedString(@"Address", @"Host address")];
+  [hostSection addFormField:ipAddressField];
+
+  ipPortField = [[IBATextFormField alloc] initWithKeyPath:@"ipPort" title:NSLocalizedString(@"Port", @"Host IP Port")];
+  [hostSection addFormField:ipPortField];
 
   connectionData = [[IBATextFormField alloc] initWithKeyPath:@"connectionData" title:NSLocalizedString(@"Pin", @"Host pin")];
   [hostSection addFormField:connectionData];
@@ -118,50 +125,80 @@
 
 - (void)updateVisibility:(NSString *)connectionClass {
 
-  if ([connectionClass isEqualToString:@"MKSimConnection"]) {
-    [self setFormField:address hidden:YES];
-    [self setFormField:connectionData hidden:YES];
-    [self setFormField:infoWLAN hidden:YES];
-    [self setFormField:discoveryButton hidden:YES];
-    [self setFormField:discoveryBleButton hidden:YES];
-  }
-  else if ([connectionClass isEqualToString:@"MKBleConnection"]) {
-    [self setFormField:address hidden:NO];
-    [self setFormField:connectionData hidden:YES];
-    [self setFormField:infoWLAN hidden:YES];
-    [self setFormField:discoveryBleButton hidden:NO];
-    [self setFormField:discoveryButton hidden:YES];
-  }
-  else if ([connectionClass isEqualToString:@"MKBluetoothConnection"]) {
-    [self setFormField:address hidden:NO];
-    [self setFormField:connectionData hidden:NO];
-    [self setFormField:infoWLAN hidden:YES];
-    [self setFormField:discoveryButton hidden:NO];
-    [self setFormField:discoveryBleButton hidden:YES];
-  }
-  else if ([connectionClass isEqualToString:@"MKIpConnection"]) {
-    [self setFormField:address hidden:NO];
-    [self setFormField:connectionData hidden:YES];
-    [self setFormField:infoWLAN hidden:NO];
-    [self setFormField:discoveryButton hidden:YES];
-    [self setFormField:discoveryBleButton hidden:YES];
-  }
-  else {
-    [self.model setValue:@"/dev/tty.iap" forKey:@"address"];
-    [self setFormField:address hidden:NO];
-    [self setFormField:connectionData hidden:YES];
-    [self setFormField:infoWLAN hidden:YES];
-    [self setFormField:discoveryButton hidden:YES];
-    [self setFormField:discoveryBleButton hidden:YES];
+  NSDictionary *data = @{
+      @"MKSimConnection"       : @[],
+      @"MKBleConnection"       : @[address, discoveryBleButton],
+      @"MKBluetoothConnection" : @[address, discoveryButton, connectionData],
+      @"MKIpConnection"        : @[ipAddressField, ipPortField],
+      @"MKSerialConnection"    : @[address]
 
+  };
+
+  NSArray *visible = data[connectionClass];
+
+  [self setFormField:address hidden:![visible containsObject:address]];
+  [self setFormField:ipAddressField hidden:![visible containsObject:ipAddressField]];
+  [self setFormField:ipPortField hidden:![visible containsObject:ipPortField]];
+  [self setFormField:connectionData hidden:![visible containsObject:connectionData]];
+  [self setFormField:discoveryBleButton hidden:![visible containsObject:discoveryBleButton]];
+  [self setFormField:discoveryButton hidden:![visible containsObject:discoveryButton]];
+  [self setFormField:address hidden:![visible containsObject:address]];
+
+}
+
+- (id)modelValueForKeyPath:(NSString *)keyPath {
+  if ([keyPath isEqualToString:@"ipAddress"] || [keyPath isEqualToString:@"ipPort"]) {
+    return [self valueForKeyPath:keyPath];
   }
+
+  return [super modelValueForKeyPath:keyPath];
 }
 
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
-  [super setModelValue:value forKeyPath:keyPath];
+  if ([keyPath isEqualToString:@"ipAddress"] || [keyPath isEqualToString:@"ipPort"]) {
+    [self setValue:value forKeyPath:keyPath];
+  }
+  else
+    [super setModelValue:value forKeyPath:keyPath];
+
   if ([keyPath isEqualToString:@"connectionClass"]) {
+
+    if ([value isEqualToString:@"MKSerialConnection"]) {
+      [self.model setValue:@"/dev/tty.iap" forKey:@"address"];
+    }
+
     [self updateVisibility:value];
   }
+}
+
+
+- (NSArray *)adressItemsIP{
+  NSString* modelAdress =[self.model valueForKeyPath:@"address"];
+  NSArray *hostItems = [modelAdress componentsSeparatedByString:@":"];
+  if ([hostItems count] != 2) {
+    return @[modelAdress,@"2000"];
+  }
+  return hostItems;
+}
+
+- (NSString *)ipAddress {
+  NSArray *hostItems = [self adressItemsIP];
+  return hostItems[0];
+}
+
+- (void)setIpAddress:(NSString *)ipAddress {
+  NSArray *hostItems = [self adressItemsIP];
+  [self.model setValue: [NSString stringWithFormat:@"%@:%@",ipAddress,hostItems[1]] forKeyPath:@"address"];
+}
+
+- (NSUInteger)ipPort {
+  NSArray *hostItems = [self adressItemsIP];
+  return [hostItems[1] intValue];
+}
+
+- (void)setIpPort:(NSUInteger)ipPort {
+  NSArray *hostItems = [self adressItemsIP];
+  [self.model setValue: [NSString stringWithFormat:@"%@:%d",hostItems[0],ipPort] forKeyPath:@"address"];
 }
 
 
