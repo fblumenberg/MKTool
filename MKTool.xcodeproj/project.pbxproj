@@ -581,6 +581,7 @@
 		BAB532201594E99500AC1BD8 /* icon-pagecurl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5321E1594E99500AC1BD8 /* icon-pagecurl@2x.png */; };
 		BAB86AA01709CC9D0096C957 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */; };
 		BAB86AA21709D35E0096C957 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB86A9F1709CC9C0096C957 /* Crashlytics.framework */; };
+		BABBE50818F04C6100C6B277 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA56690618E9CC9F003019D1 /* libc++.dylib */; };
 		BAC7B42F155EC79100FA37DA /* DBSession+MKT.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B42E155EC79100FA37DA /* DBSession+MKT.m */; };
 		BAC8B06F15531C6200080225 /* MKTRouteSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B06D15531C6100080225 /* MKTRouteSyncViewController.m */; };
 		BAC8B0991559AAD200080225 /* RecentSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC8B0981559AAD200080225 /* RecentSearchesController.m */; };
@@ -1197,6 +1198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABBE50818F04C6100C6B277 /* libc++.dylib in Frameworks */,
 				BA94CAB01706FE1400AC0934 /* SystemConfiguration.framework in Frameworks */,
 				BA94CAB11706FE1400AC0934 /* CFNetwork.framework in Frameworks */,
 				BA94CAB21706FE1400AC0934 /* AddressBookUI.framework in Frameworks */,
@@ -3457,8 +3459,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3484,8 +3486,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3509,8 +3511,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3533,8 +3535,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3558,8 +3560,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				CURRENT_PROJECT_VERSION = 191;
 				FRAMEWORK_SEARCH_PATHS = (
