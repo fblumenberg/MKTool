@@ -32,6 +32,8 @@
 	<false/>
 	<key>IKOSDSoundActive</key>
 	<true/>
+	<key>MKParamsExpertMode</key>
+	<false/>
 	<key>MKTRouteMapViewShowFences</key>
 	<true/>
 </dict>

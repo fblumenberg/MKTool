@@ -82,10 +82,6 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-#ifdef CYDIA
-//  [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://frankblumenberg.de/crashlog/crash_v200.php"];
-#endif
-  
   [Crashlytics startWithAPIKey:kCRASHLYTICS_KEY];
     
   [[DDLog registeredClassNames] enumerateObjectsUsingBlock:^(NSString *class, NSUInteger i, BOOL *stop) {

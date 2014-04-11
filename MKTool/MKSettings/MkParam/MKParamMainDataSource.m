@@ -25,6 +25,9 @@
 
 
 #import <IBAForms/IBAForms.h>
+
+#import "BlocksKit/NSArray+BlocksKit.h"
+
 #import "MGSplitViewController.h"
 #import "MKParamMainDataSource.h"
 
@@ -48,7 +51,10 @@
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"
 
+
 @interface MKParamMainDataSource ()
+
+@property(assign) BOOL expertMode;
 
 - (void)showDetailViewForKey:(Class)nsclass withTitle:(NSString *)title;
 
@@ -60,11 +66,15 @@
   self = [super initWithModel:aModel];
   if (self) {
 
+    self.expertMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"MKParamsExpertMode"];
+
+
     // Some basic form fields that accept text input
     IBAFormSection *basicFieldSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     basicFieldSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
     [basicFieldSection addFormField:[[IBATextFormField alloc] initWithKeyPath:@"Name" title:NSLocalizedString(@"Name", @"MKParam Name")]];
+    [basicFieldSection addFormField:[[IBABooleanFormField alloc] initWithKeyPath:@"expertMode" title:NSLocalizedString(@"Expert mode", @"MKParam Main")]];
 
     //------------------------------------------------------------------------------------------------------------------------
 
@@ -74,56 +84,103 @@
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Channels", @"MKParam Channels button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamChannelsDataSource class]
                        withTitle:NSLocalizedString(@"Channels", @"MKParam Channels button")];
-    }]];
+    }]].keyPath = @"channels";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Compass", @"MKParam Compass button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamCompassDataSource class]
                        withTitle:NSLocalizedString(@"Compass", @"MKParam Compass button")];
-    }]];
+    }]].keyPath = @"compass";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Navi Control", @"MKParam Navi Control button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamNaviControlDataSource class]
                        withTitle:NSLocalizedString(@"Navi Control", @"MKParam Navi Control button")];
-    }]];
+    }]].keyPath = @"naviCtrl";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Stick", @"MKParam Stick button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamStickDataSource class]
                        withTitle:NSLocalizedString(@"Stick", @"MKParam Stick button")];
-    }]];
+    }]].keyPath = @"stick";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Altitude control", @"MKParam Altitude button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamAltitudeDataSource class]
                        withTitle:NSLocalizedString(@"Altitude control", @"MKParam Altitude button")];
-    }]];
+    }]].keyPath = @"altitude";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Camera", @"MKParam Camera button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamCameraDataSource class]
                        withTitle:NSLocalizedString(@"Camera", @"MKParam Camera button")];
-    }]];
+    }]].keyPath = @"camera";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Gyro", @"MKParam Gyro button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamGyroDataSource class]
                        withTitle:NSLocalizedString(@"Gyro", @"MKParam Gyro button")];
-    }]];
+    }]].keyPath = @"gyro";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Coupling", @"MKParam Coupling button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamCouplingDataSource class]
                        withTitle:NSLocalizedString(@"Coupling", @"MKParam Coupling button")];
-    }]];
+    }]].keyPath = @"coupling";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Looping", @"MKParam Looping button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamLoopingDataSource class]
                        withTitle:NSLocalizedString(@"Looping", @"MKParam Looping button")];
-    }]];
+    }]].keyPath = @"looping";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Output", @"MKParam Output button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamOutputDataSource class]
                        withTitle:NSLocalizedString(@"Output", @"MKParam Output button")];
-    }]];
+    }]].keyPath = @"output";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Misc", @"MKParam Misc button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamMiscDataSource class]
                        withTitle:NSLocalizedString(@"Misc", @"MKParam Misc button")];
-    }]];
+    }]].keyPath = @"misc";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"User", @"MKParam User button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamUserDataSource class]
                        withTitle:NSLocalizedString(@"User", @"MKParam User button")];
-    }]];
+    }]].keyPath = @"user";
+    
+    [self updateButtons];
   }
 
   return self;
 }
 
+- (void)updateButtons {
+
+  NSArray *fields = @[
+      @"channels",
+      @"compass",
+      @"naviCtrl",
+      @"stick",
+      @"altitude",
+      @"camera",
+      @"gyro",
+      @"coupling",
+      @"looping",
+      @"output",
+      @"misc",
+      @"user"
+  ];
+
+
+  if (self.expertMode) {
+    [fields bk_each:^(id obj) {
+      IBAFormField *f = [self formFieldForKeyPath:obj];
+      f.hidden = NO;
+    }];
+  }
+  else {
+    NSArray *fieldsVisible = @[
+        @"channels",
+        @"camera",
+        @"user"
+    ];
+
+    [fields bk_each:^(id obj) {
+      IBAFormField *f = [self formFieldForKeyPath:obj];
+      f.hidden = YES;
+    }];
+
+    [fieldsVisible bk_each:^(id obj) {
+      IBAFormField *f = [self formFieldForKeyPath:obj];
+      f.hidden = NO;
+    }];
+  }
+
+  [self.delegate updateSection:1 animated:true];
+
+}
 
 - (void)showDetailViewForKey:(Class)nsclass withTitle:(NSString *)title {
 
@@ -153,9 +210,22 @@
   }
 }
 
+- (id)modelValueForKeyPath:(NSString *)keyPath {
+  if ([keyPath isEqualToString:@"expertMode"]) {
+    return [self valueForKeyPath:keyPath];
+  }
+
+  return [super modelValueForKeyPath:keyPath];
+}
 
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
-  [super setModelValue:value forKeyPath:keyPath];
+  if ([keyPath isEqualToString:@"expertMode"]) {
+    [self setValue:value forKeyPath:keyPath];
+    [[NSUserDefaults standardUserDefaults] setBool:[value boolValue] forKey:@"MKParamsExpertMode"];
+    [self updateButtons];
+  }
+  else
+    [super setModelValue:value forKeyPath:keyPath];
 
   NSLog(@"%@", [self.model description]);
 }
