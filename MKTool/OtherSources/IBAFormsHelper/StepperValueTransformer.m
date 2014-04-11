@@ -22,28 +22,50 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
 
+#import "StepperValueTransformer.h"
 
-@interface StringToNumberTransformer : NSValueTransformer {
+@implementation CHAltitudeTransformer
 
++ (id)instance {
+  return [[[self class] alloc] init];
 }
 
-+ (id)instance;
-
-@end;
-
-@interface StringToDoubleNumberTransformer : NSValueTransformer {
-
-  NSNumberFormatter *formatter;
++ (BOOL)allowsReverseTransformation {
+  return NO;
 }
 
-+ (id)instance;
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+
+  if ([value integerValue] < 1)
+    return NSLocalizedString(@"OFF", @"CHAltitudeTransformer");
+
+  return [NSString stringWithFormat:@"%@ m",value];
+}
 
 @end
 
-@interface IndexToStringTransformer : NSValueTransformer
+@implementation OrientationTransformer
 
-- (instancetype)initWithArray:(NSArray*)strings;
++ (id)instance {
+  return [[[self class] alloc] init];
+}
 
-@end;
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  return [NSString stringWithFormat:@"%d °",[value integerValue]*15];
+}
+
+@end

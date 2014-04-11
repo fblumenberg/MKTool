@@ -22,28 +22,14 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
-
-
-@interface StringToNumberTransformer : NSValueTransformer {
-
-}
-
-+ (id)instance;
-
-@end;
-
-@interface StringToDoubleNumberTransformer : NSValueTransformer {
-
-  NSNumberFormatter *formatter;
-}
+@interface CHAltitudeTransformer : NSValueTransformer
 
 + (id)instance;
 
 @end
 
-@interface IndexToStringTransformer : NSValueTransformer
+@interface OrientationTransformer : NSValueTransformer
 
-- (instancetype)initWithArray:(NSArray*)strings;
++ (id)instance;
 
-@end;
+@end

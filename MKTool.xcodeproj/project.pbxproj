@@ -597,6 +597,10 @@
 		BADBC278173C2C3300B5EE4A /* MKTGpxSession+GPX.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */; };
 		BADBC27B173C41CA00B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
 		BADBC27C173C446700B5EE4A /* MKTGPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */; };
+		BADDDB4F18F840AA00660606 /* MKParamEasySetupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB4E18F840AA00660606 /* MKParamEasySetupDataSource.m */; };
+		BADDDB5018F840AA00660606 /* MKParamEasySetupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB4E18F840AA00660606 /* MKParamEasySetupDataSource.m */; };
+		BADDDB5318F8529F00660606 /* StepperValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB5218F8529F00660606 /* StepperValueTransformer.m */; };
+		BADDDB5418F8529F00660606 /* StepperValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB5218F8529F00660606 /* StepperValueTransformer.m */; };
 		BAEE24FD17F0C3EF002453C9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEE24FC17F0C3EF002453C9 /* Media.xcassets */; };
 		BAEE24FE17F0C3EF002453C9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEE24FC17F0C3EF002453C9 /* Media.xcassets */; };
 		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
@@ -1075,6 +1079,10 @@
 		BADBC276173C2B1C00B5EE4A /* MKTGpxSession+GPX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTGpxSession+GPX.m"; sourceTree = "<group>"; };
 		BADBC279173C41C900B5EE4A /* MKTGPXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGPXExtensions.h; sourceTree = "<group>"; };
 		BADBC27A173C41C900B5EE4A /* MKTGPXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGPXExtensions.m; sourceTree = "<group>"; };
+		BADDDB4D18F840AA00660606 /* MKParamEasySetupDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParamEasySetupDataSource.h; sourceTree = "<group>"; };
+		BADDDB4E18F840AA00660606 /* MKParamEasySetupDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParamEasySetupDataSource.m; sourceTree = "<group>"; };
+		BADDDB5118F8529F00660606 /* StepperValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperValueTransformer.h; sourceTree = "<group>"; };
+		BADDDB5218F8529F00660606 /* StepperValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperValueTransformer.m; sourceTree = "<group>"; };
 		BAEE24FC17F0C3EF002453C9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		BAEE75CA1542D59600A92FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteContainerViewController.h; sourceTree = "<group>"; };
@@ -1475,6 +1483,8 @@
 				BA98BF6816C288A5000CA7EE /* MKParamCompassDataSource.m */,
 				BA98BF6916C288A5000CA7EE /* MKParamCouplingDataSource.h */,
 				BA98BF6A16C288A5000CA7EE /* MKParamCouplingDataSource.m */,
+				BADDDB4D18F840AA00660606 /* MKParamEasySetupDataSource.h */,
+				BADDDB4E18F840AA00660606 /* MKParamEasySetupDataSource.m */,
 				BA98BF6B16C288A5000CA7EE /* MKParamGyroDataSource.h */,
 				BA98BF6C16C288A5000CA7EE /* MKParamGyroDataSource.m */,
 				BA98BF6D16C288A5000CA7EE /* MKParamLoopingDataSource.h */,
@@ -1624,6 +1634,8 @@
 		BAA22A041541FB48004F92AA /* IBAFormsHelper */ = {
 			isa = PBXGroup;
 			children = (
+				BADDDB5118F8529F00660606 /* StepperValueTransformer.h */,
+				BADDDB5218F8529F00660606 /* StepperValueTransformer.m */,
 				76DB5A57154A824A002FFA78 /* IBAFormSection+Create.h */,
 				76DB5A58154A824A002FFA78 /* IBAFormSection+Create.m */,
 				76DB5A5A154A8302002FFA78 /* MKParamPotiValueTransformer.h */,
@@ -2766,6 +2778,7 @@
 				BA94CA3E1706FE1400AC0934 /* StringToNumberTransformer.m in Sources */,
 				BA94CA3F1706FE1400AC0934 /* WPCamAngleTransformer.m in Sources */,
 				BA94CA401706FE1400AC0934 /* MKTRouteContainerViewController.m in Sources */,
+				BADDDB5418F8529F00660606 /* StepperValueTransformer.m in Sources */,
 				BA94CA411706FE1400AC0934 /* MKTRouteMapViewController.m in Sources */,
 				BA94CA421706FE1400AC0934 /* FDCurlViewControl.m in Sources */,
 				BA94CA431706FE1400AC0934 /* MKTPointAnnotationView.m in Sources */,
@@ -2793,6 +2806,7 @@
 				BA94CA591706FE1400AC0934 /* WPGenAreaDataSource.m in Sources */,
 				BA94CA5A1706FE1400AC0934 /* WPGenAreaView.m in Sources */,
 				BA94CA5B1706FE1400AC0934 /* WPGenAreaViewController.m in Sources */,
+				BADDDB5018F840AA00660606 /* MKParamEasySetupDataSource.m in Sources */,
 				BA94CA5C1706FE1400AC0934 /* WPGenBaseDataSource.m in Sources */,
 				BA94CA5D1706FE1400AC0934 /* WPGenBaseView.m in Sources */,
 				BA94CA5E1706FE1400AC0934 /* WPGenBaseViewController.m in Sources */,
@@ -2920,6 +2934,7 @@
 				BAA22A0F1541FB49004F92AA /* StringToNumberTransformer.m in Sources */,
 				BAA22A101541FB49004F92AA /* WPCamAngleTransformer.m in Sources */,
 				BAEE75D21543062300A92FA4 /* MKTRouteContainerViewController.m in Sources */,
+				BADDDB5318F8529F00660606 /* StepperValueTransformer.m in Sources */,
 				BAEE75D81543EB8500A92FA4 /* MKTRouteMapViewController.m in Sources */,
 				BAEE75F91544088200A92FA4 /* FDCurlViewControl.m in Sources */,
 				BAEE75FC15442B0300A92FA4 /* MKTPointAnnotationView.m in Sources */,
@@ -2947,6 +2962,7 @@
 				76DB5A49154A7E47002FFA78 /* WPGenAreaDataSource.m in Sources */,
 				76DB5A4A154A7E47002FFA78 /* WPGenAreaView.m in Sources */,
 				76DB5A4B154A7E47002FFA78 /* WPGenAreaViewController.m in Sources */,
+				BADDDB4F18F840AA00660606 /* MKParamEasySetupDataSource.m in Sources */,
 				76DB5A4C154A7E47002FFA78 /* WPGenBaseDataSource.m in Sources */,
 				76DB5A4D154A7E47002FFA78 /* WPGenBaseView.m in Sources */,
 				76DB5A4E154A7E47002FFA78 /* WPGenBaseViewController.m in Sources */,

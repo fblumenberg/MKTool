@@ -82,3 +82,47 @@
 }
 
 @end
+
+#pragma mark -
+
+@interface IndexToStringTransformer ()
+
+@property(strong) NSArray* strings;
+
+@end
+
+@implementation IndexToStringTransformer : NSValueTransformer
+
+- (instancetype)initWithArray:(NSArray*)strings
+{
+  self = [super init];
+  if (self) {
+    self.strings=strings;
+  }
+  return self;
+}
+
++ (BOOL)allowsReverseTransformation {
+  return YES;
+}
+
++ (Class)transformedValueClass {
+  return [NSNumber class];
+}
+
+- (NSNumber *)transformedValue:(NSString *)value {
+  
+  return @([self.strings indexOfObject:value]);
+}
+
+- (NSString *)reverseTransformedValue:(NSNumber *)value {
+
+  NSUInteger idx = [value unsignedIntegerValue];
+  if(idx > [self.strings count]){
+    return nil;
+  }
+  
+  return self.strings[idx];
+}
+
+@end;

@@ -1049,6 +1049,9 @@
 "Ch. 8" = "Kanal 8";
 
 /* Channels transformer */
+"Ch. 9" = "Kanal 9";
+
+/* Channels transformer */
 "Ch. 10" = "Kanal 10";
 
 /* Channels transformer */
@@ -1087,6 +1090,9 @@
 /* Channels transformer */
 "OFF" = "AUS";
 
+/* Channels transformer */
+"ON" = "EIN";
+
 /* MKParam Altitude */
 "StartLandChannel" = "Starten/Landen";
 
@@ -1098,4 +1104,26 @@
 
 /* WP Upload */
 "Thimeout while uploading waypoints" = "Zeitüberschreitung bei der Übertragung";
+
+/* BLE Connection title */
+"Bluetooth 4.0 LE Connection" = "Bluetooth 4.0 LE Verbindung";
+
+/* Host IP Port */
+"Port" = "Portnummer";
+
+/* BT search BLE button */
+"Scan Bluetooth LE" = "Bluetooth LE suchen";
+
+/* MKParam EasySetup Altitude
+   MKParam NaviCtrl */
+"Enable" = "Aktiv";
+
+/* MKParam Main */
+"Expert mode" = "Expertenmodus";
+
+/* RC-Channel */
+"Middle" = "Mitte";
+
+/* MKParam Altitude */
+"Orientation" = "Ausrichtung";
 

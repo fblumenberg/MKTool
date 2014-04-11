@@ -1150,3 +1150,37 @@
 /* WP Upload */
 "Thimeout while uploading waypoints" = "Thimeout while uploading waypoints";
 
+/* BLE Connection title */
+"Bluetooth 4.0 LE Connection" = "Bluetooth 4.0 LE Connection";
+
+/* Host IP Port */
+"Port" = "Port";
+
+/* BT search BLE button */
+"Scan Bluetooth LE" = "Scan Bluetooth LE";
+
+/* MKParam Easy Setup button */
+"Easy Setup" = "Easy Setup";
+
+/* MKParam EasySetup Altitude
+   MKParam NaviCtrl */
+"Enable" = "Enable";
+
+/* MKParam Main */
+"Expert mode" = "Expert mode";
+
+/* MKParam EasySetup Altitude */
+"GPS" = "GPS";
+
+/* RC-Channel */
+"Maximum" = "Maximum";
+
+/* RC-Channel */
+"Middle" = "Middle";
+
+/* RC-Channel */
+"Minimum" = "Minimum";
+
+/* MKParam Altitude */
+"Orientation" = "Orientation";
+

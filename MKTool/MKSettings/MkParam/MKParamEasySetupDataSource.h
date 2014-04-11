@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,28 +22,13 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
 
+#import <IBAForms/IBAFormDataSource.h>
 
-@interface StringToNumberTransformer : NSValueTransformer {
+@interface MKParamEasySetupDataSource : IBAFormDataSource {
 
 }
 
-+ (id)instance;
-
-@end;
-
-@interface StringToDoubleNumberTransformer : NSValueTransformer {
-
-  NSNumberFormatter *formatter;
-}
-
-+ (id)instance;
+- (id)initWithModel:(id)aModel;
 
 @end
-
-@interface IndexToStringTransformer : NSValueTransformer
-
-- (instancetype)initWithArray:(NSArray*)strings;
-
-@end;

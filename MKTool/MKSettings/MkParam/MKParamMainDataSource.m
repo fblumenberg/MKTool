@@ -34,6 +34,7 @@
 #import "MKParamViewController.h"
 
 #import "MKParamAltitudeDataSource.h"
+#import "MKParamEasySetupDataSource.h"
 #import "MKParamCameraDataSource.h"
 #import "MKParamChannelsDataSource.h"
 #import "MKParamCompassDataSource.h"
@@ -81,6 +82,10 @@
     IBAFormSection *buttonsSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     buttonsSection.formFieldStyle = [[SettingsButtonIndicatorStyle alloc] init];
 
+    [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Easy Setup", @"MKParam Easy Setup button") icon:nil executionBlock:^{
+      [self showDetailViewForKey:[MKParamEasySetupDataSource class]
+                       withTitle:NSLocalizedString(@"Easy Setup", @"MKParam Easy Setup button")];
+    }]].keyPath = @"easySetup";
     [buttonsSection addFormField:[[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Channels", @"MKParam Channels button") icon:nil executionBlock:^{
       [self showDetailViewForKey:[MKParamChannelsDataSource class]
                        withTitle:NSLocalizedString(@"Channels", @"MKParam Channels button")];
@@ -129,7 +134,7 @@
       [self showDetailViewForKey:[MKParamUserDataSource class]
                        withTitle:NSLocalizedString(@"User", @"MKParam User button")];
     }]].keyPath = @"user";
-    
+
     [self updateButtons];
   }
 
@@ -139,6 +144,7 @@
 - (void)updateButtons {
 
   NSArray *fields = @[
+      @"easySetup",
       @"channels",
       @"compass",
       @"naviCtrl",
@@ -162,6 +168,7 @@
   }
   else {
     NSArray *fieldsVisible = @[
+        @"easySetup",
         @"channels",
         @"camera",
         @"user"
