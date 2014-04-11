@@ -101,7 +101,7 @@
 
   NSMutableArray *values = [NSMutableArray arrayWithCapacity:12];
   [values addObject:NSLocalizedString(@"Off", @"RC-Channel")];
-  for (int i = 0; i < 12; i++)
+  for (int i = 0; i < 16; i++)
     [values addObject:[NSString stringWithFormat:NSLocalizedString(@"RC Channel %d", @"RC-Channel"), i + 1]];
 
   NSArray *pickListOptions = [IBAPickListFormOption pickListOptionsForStrings:values];
@@ -119,13 +119,16 @@
 
   NSMutableArray *values = [NSMutableArray arrayWithCapacity:25];
   [values addObject:NSLocalizedString(@"Off", @"RC-Channel")];
-  for (int i = 0; i < 12; i++)
+  for (int i = 0; i < 16; i++)
     [values addObject:[NSString stringWithFormat:NSLocalizedString(@"RC Channel %d", @"RC-Channel"), i + 1]];
 
   for (int i = 0; i < 12; i++)
     [values addObject:[NSString stringWithFormat:NSLocalizedString(@"Serial Channel %d", @"RC-Channel"), i + 1]];
 
   [values addObject:NSLocalizedString(@"WP Event Channel", @"RC-Channel")];
+  [values addObject:NSLocalizedString(@"Maximum", @"RC-Channel")];
+  [values addObject:NSLocalizedString(@"Middle", @"RC-Channel")];
+  [values addObject:NSLocalizedString(@"Minimum", @"RC-Channel")];
 
   NSArray *pickListOptions = [IBAPickListFormOption pickListOptionsForStrings:values];
 
