@@ -128,7 +128,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 25;
+  return 16 + 12 + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,10 +155,10 @@
       cell = [[ChannelsViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
 
-    if (indexPath.row < 13)
+    if (indexPath.row < 17)
       cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RC Channel %d", "Channel test"), indexPath.row];
     else
-      cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Serial %d", "Channel test"), indexPath.row-12];
+      cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Serial %d", "Channel test"), indexPath.row-16];
 
     [(ChannelsViewCell *) cell setChannelValue:channelValues[indexPath.row]];
 //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",channelValues[indexPath.row]];

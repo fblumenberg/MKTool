@@ -26,7 +26,7 @@
 
 @interface ChannelsViewController : UITableViewController {
 
-  int16_t channelValues[26];
+  int16_t channelValues[1+16+12];
 
   NSTimer *_updateTimer;
 }
