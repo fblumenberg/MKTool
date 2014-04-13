@@ -128,10 +128,11 @@
   NSDictionary *data = @{
       @"MKSimConnection"       : @[],
       @"MKBleConnection"       : @[address, discoveryBleButton],
-      @"MKBluetoothConnection" : @[address, discoveryButton, connectionData],
       @"MKIpConnection"        : @[ipAddressField, ipPortField],
+#ifdef CYDIA
+      @"MKBluetoothConnection" : @[address, discoveryButton, connectionData],
       @"MKSerialConnection"    : @[address]
-
+#endif
   };
 
   NSArray *visible = data[connectionClass];
