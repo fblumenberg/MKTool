@@ -34,58 +34,32 @@
 #import "SettingsButtonStyle.h"
 
 #import "ChannelsViewController.h"
+#import "MKTParamChannelValueTransformer.h"
 
 @implementation MKParamChannelsDataSource
 
 - (id)initWithModel:(id)aModel {
   self = [super initWithModel:aModel];
   if (self) {
+    NSInteger revision = ((IKParamSet *) aModel).Revision.integerValue;
+
+    [self initReceiverSection:revision];
+    
+    BOOL expertMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"MKParamsExpertMode"];
+    if(expertMode)
+      [self initMotorSection:revision];
+
     //------------------------------------------------------------------------------------------------------------------------
     IBAFormSection *paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
-    paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init] ;
+    paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    NSArray *pickListOptions = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:
-            NSLocalizedString(@"Multisignal(PPM)", @"MKParam Channels"),
-            NSLocalizedString(@"Spectrum", @"MKParam Channels"),
-            NSLocalizedString(@"Spectrum (HighRes)", @"MKParam Channels"),
-            NSLocalizedString(@"Spectrum (LowRes)", @"MKParam Channels"),
-            NSLocalizedString(@"Jeti Sattelite", @"MKParam Channels"),
-            NSLocalizedString(@"ACT DSL", @"MKParam Channels"),
-            NSLocalizedString(@"Graupner HoTT", @"MKParam Channels"),
-            NSLocalizedString(@"Futaba S.BUS", @"MKParam Channels"),
-            NSLocalizedString(@"User", @"MKParam Channels"),
-            nil]];
-
-    IBASingleIndexTransformer *transformer = [[IBASingleIndexTransformer alloc] initWithPickListOptions:pickListOptions] ;
-
-    [paramSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"Receiver"
-                                                                        title:NSLocalizedString(@"Receiver", @"MKParam Channels") valueTransformer:transformer
-                                                                selectionMode:IBAPickListSelectionModeSingle
-                                                                      options:pickListOptions] ];
-
-    [paramSection addSwitchFieldForKeyPath:@"ExtraConfig_SENSITIVE_RC"
-                                     title:NSLocalizedString(@"Sensitive receiver signal validation", @"MKParam Channels")];
-
-    if (((IKParamSet *)aModel).Revision.integerValue >= 92){
-      [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_SPEAK_ALL"
-                                       title:NSLocalizedString(@"Telemetry: Speak all events", @"MKParam Channels")];
-    }
-    
-    ChannelsViewController *channelsTest = [[ChannelsViewController alloc] initWithStyle:UITableViewStylePlain] ;
-    
+    ChannelsViewController *channelsTest = [[ChannelsViewController alloc] initWithStyle:UITableViewStylePlain];
     IBAButtonFormField *button = [[IBAButtonFormField alloc] initWithTitle:NSLocalizedString(@"Channels test", @"MKParam Channels button") icon:nil detailViewController:channelsTest];
-    button.formFieldStyle = [[SettingsButtonIndicatorStyle alloc] init] ;
+    button.formFieldStyle = [[SettingsButtonIndicatorStyle alloc] init];
     [paramSection addFormField:button];
-    [paramSection addChannelsForKeyPath:@"MotorSafetySwitch" title:NSLocalizedString(@"Motor safety swich", @"MKParam Channels")];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 91){
-      [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_MOTOR_SWITCH_MODE"
-                                       title:NSLocalizedString(@"Motor start/stop -> gas 0 && motor switch on/off", @"MKParam Channels")];
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------
     paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
-    paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init] ;
+    paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
     [paramSection addChannelsForKeyPath:@"Kanalbelegung_02" title:NSLocalizedString(@"Gas", @"MKParam Channels")];
     [paramSection addChannelsForKeyPath:@"Kanalbelegung_03" title:NSLocalizedString(@"Yaw", @"MKParam Channels")];
@@ -104,6 +78,62 @@
   return self;
 }
 
+- (void)initReceiverSection:(NSInteger)revision {
+  IBAFormSection *paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+  paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
+
+  NSArray *pickListOptions = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:
+      NSLocalizedString(@"Multisignal(PPM)", @"MKParam Channels"),
+      NSLocalizedString(@"Spectrum", @"MKParam Channels"),
+      NSLocalizedString(@"Spectrum (HighRes)", @"MKParam Channels"),
+      NSLocalizedString(@"Spectrum (LowRes)", @"MKParam Channels"),
+      NSLocalizedString(@"Jeti Sattelite", @"MKParam Channels"),
+      NSLocalizedString(@"ACT DSL", @"MKParam Channels"),
+      NSLocalizedString(@"Graupner HoTT", @"MKParam Channels"),
+      NSLocalizedString(@"Futaba S.BUS", @"MKParam Channels"),
+      NSLocalizedString(@"User", @"MKParam Channels"),
+      nil]];
+
+  IBASingleIndexTransformer *transformer = [[IBASingleIndexTransformer alloc] initWithPickListOptions:pickListOptions];
+
+  [paramSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"Receiver"
+                                                                     title:NSLocalizedString(@"Receiver", @"MKParam Channels") valueTransformer:transformer
+                                                             selectionMode:IBAPickListSelectionModeSingle
+                                                                   options:pickListOptions]];
+
+  [paramSection addSwitchFieldForKeyPath:@"ExtraConfig_SENSITIVE_RC"
+                                   title:NSLocalizedString(@"Sensitive receiver signal validation", @"MKParam Channels")
+                                   style:[SettingsFieldStyleSwitch style]];
+
+  if (revision >= 92) {
+    [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_SPEAK_ALL"
+                                     title:NSLocalizedString(@"Telemetry: Speak all events", @"MKParam Channels")
+                                     style:[SettingsFieldStyleSwitch style]];
+  }
+
+}
+
+- (void)initMotorSection:(NSInteger)revision {
+  IBAFormSection *paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+  paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
+
+  [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+    builder.keyPath = @"MotorSafetySwitch";
+    builder.title = NSLocalizedString(@"Motor safety swich", @"MKParam Channels");
+    builder.minimumValue = 0;
+    builder.maximumValue = 30;
+    builder.displayValueTransformer = [[MKTParamChannelValueTransformer alloc] initForAltitude];
+    builder.formFieldStyle = [SettingsFieldStyleStepper style];
+  }]];
+
+  if (revision >= 91) {
+    [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_MOTOR_SWITCH_MODE"
+                                     title:NSLocalizedString(@"Motor start/stop -> gas 0 && motor switch on/off", @"MKParam Channels")
+                                     style:[SettingsFieldStyleSwitch style]];
+  }
+
+
+}
 
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
   [super setModelValue:value forKeyPath:keyPath];
