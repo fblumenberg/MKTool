@@ -30,7 +30,10 @@
 + (id)instance;
 
 - (id)initForAltitude;
+
 - (id)initForGps;
+
+- (id)initForMotorSafety;
 
 
 @end

@@ -100,7 +100,6 @@
 - (void)addChannelsForKeyPath:(NSString *)keyPath title:(NSString *)title {
 
   NSMutableArray *values = [NSMutableArray arrayWithCapacity:12];
-  [values addObject:NSLocalizedString(@"Off", @"RC-Channel")];
   for (int i = 0; i < 16; i++)
     [values addObject:[NSString stringWithFormat:NSLocalizedString(@"RC Channel %d", @"RC-Channel"), i + 1]];
 

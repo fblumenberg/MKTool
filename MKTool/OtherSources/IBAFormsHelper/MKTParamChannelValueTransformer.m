@@ -116,7 +116,7 @@
                    @26:NSLocalizedString(@"SCh. 10", @"Channels transformer"),
                    @27:NSLocalizedString(@"SCh. 11", @"Channels transformer"),
                    @28:NSLocalizedString(@"SCh. 12", @"Channels transformer"),
-                   @29:NSLocalizedString(@"WP", @"Channels transformer"),
+                   @29:NSLocalizedString(@"WP-Event", @"Channels transformer"),
                    @30:NSLocalizedString(@"OFF", @"Channels transformer"),
                    @31:NSLocalizedString(@"ON", @"Channels transformer"),
                    @32:NSLocalizedString(@"128", @"Channels transformer")
@@ -124,6 +124,48 @@
   }
   return self;
 }
+
+
+- (id)initForMotorSafety {
+  self = [super init];
+  if (self) {
+    _converter = @{
+        @0:NSLocalizedString(@"Inactive", @"Channels transformer"),
+        @1:NSLocalizedString(@"Ch. 1", @"Channels transformer"),
+        @2:NSLocalizedString(@"Ch. 2", @"Channels transformer"),
+        @3:NSLocalizedString(@"Ch. 3", @"Channels transformer"),
+        @4:NSLocalizedString(@"Ch. 4", @"Channels transformer"),
+        @5:NSLocalizedString(@"Ch. 5", @"Channels transformer"),
+        @6:NSLocalizedString(@"Ch. 6", @"Channels transformer"),
+        @7:NSLocalizedString(@"Ch. 7", @"Channels transformer"),
+        @8:NSLocalizedString(@"Ch. 8", @"Channels transformer"),
+        @9:NSLocalizedString(@"Ch. 9", @"Channels transformer"),
+        @10:NSLocalizedString(@"Ch. 10", @"Channels transformer"),
+        @11:NSLocalizedString(@"Ch. 11", @"Channels transformer"),
+        @12:NSLocalizedString(@"Ch. 12", @"Channels transformer"),
+        @13:NSLocalizedString(@"Ch. 13", @"Channels transformer"),
+        @14:NSLocalizedString(@"Ch. 14", @"Channels transformer"),
+        @15:NSLocalizedString(@"Ch. 15", @"Channels transformer"),
+        @16:NSLocalizedString(@"Ch. 16", @"Channels transformer"),
+        @17:NSLocalizedString(@"SCh. 1", @"Channels transformer"),
+        @18:NSLocalizedString(@"SCh. 2", @"Channels transformer"),
+        @19:NSLocalizedString(@"SCh. 3", @"Channels transformer"),
+        @20:NSLocalizedString(@"SCh. 4", @"Channels transformer"),
+        @21:NSLocalizedString(@"SCh. 5", @"Channels transformer"),
+        @22:NSLocalizedString(@"SCh. 6", @"Channels transformer"),
+        @23:NSLocalizedString(@"SCh. 7", @"Channels transformer"),
+        @24:NSLocalizedString(@"SCh. 8", @"Channels transformer"),
+        @25:NSLocalizedString(@"SCh. 9", @"Channels transformer"),
+        @26:NSLocalizedString(@"SCh. 10", @"Channels transformer"),
+        @27:NSLocalizedString(@"SCh. 11", @"Channels transformer"),
+        @28:NSLocalizedString(@"SCh. 12", @"Channels transformer"),
+        @29:NSLocalizedString(@"WP-Event", @"Channels transformer"),
+        @30:NSLocalizedString(@"OFF", @"Channels transformer"),
+    };
+  }
+  return self;
+}
+
 
 - (id)initForGps {
   self = [super init];
@@ -158,7 +200,7 @@
                    @26:NSLocalizedString(@"SCh. 10", @"Channels transformer"),
                    @27:NSLocalizedString(@"SCh. 11", @"Channels transformer"),
                    @28:NSLocalizedString(@"SCh. 12", @"Channels transformer"),
-                   @29:NSLocalizedString(@"WP", @"Channels transformer"),
+                   @29:NSLocalizedString(@"WP-Event", @"Channels transformer"),
                    @30:NSLocalizedString(@"Free", @"Channels transformer"),
                    @31:NSLocalizedString(@"CH", @"Channels transformer"),
                    @32:NSLocalizedString(@"PH", @"Channels transformer")
