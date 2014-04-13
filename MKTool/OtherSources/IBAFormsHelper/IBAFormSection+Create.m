@@ -96,6 +96,28 @@
 
 }
 
+- (void)addPotiFieldForKeyPath:(NSString *)keyPath title:(NSString *)title format:(NSString*) format{
+  MKParamPotiValueTransformer *potiTransformer = nil;
+  potiTransformer = [MKParamPotiValueTransformer transformerWithFormat:format];
+  [self addFormField:[[IBAPickListFormField alloc] initWithKeyPath:keyPath
+                                                             title:title
+                                                  valueTransformer:potiTransformer
+                                                     selectionMode:IBAPickListSelectionModeSingle
+                                                           options:potiTransformer.pickListOptions]];
+  
+}
+
+- (void)addPotiFieldForKeyPath:(NSString *)keyPath title:(NSString *)title block:(MKParamPotiValueTransformerBlock) block{
+  MKParamPotiValueTransformer *potiTransformer = nil;
+  potiTransformer = [MKParamPotiValueTransformer transformerWithBlock:block];
+  [self addFormField:[[IBAPickListFormField alloc] initWithKeyPath:keyPath
+                                                             title:title
+                                                  valueTransformer:potiTransformer
+                                                     selectionMode:IBAPickListSelectionModeSingle
+                                                           options:potiTransformer.pickListOptions]];
+  
+}
+
 
 - (void)addChannelsForKeyPath:(NSString *)keyPath title:(NSString *)title {
 

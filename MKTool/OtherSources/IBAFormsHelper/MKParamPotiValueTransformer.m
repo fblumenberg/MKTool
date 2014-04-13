@@ -28,8 +28,6 @@
 
 @interface MKParamPotiValueTransformer ()
 
-- (id)initWithOut:(BOOL)withOut;
-
 @property(nonatomic, readwrite, retain) NSArray *pickListOptions;
 
 @end
@@ -39,23 +37,41 @@
 @synthesize pickListOptions = pickListOptions_;
 
 + (MKParamPotiValueTransformer *)transformer {
-  return [[MKParamPotiValueTransformer alloc]initWithOut:NO];
+  return [[MKParamPotiValueTransformer alloc] initWithOut:NO format:@"%d"];
 }
+
 + (MKParamPotiValueTransformer *)transformerWithOut {
-  return [[MKParamPotiValueTransformer alloc]initWithOut:YES];
+  return [[MKParamPotiValueTransformer alloc] initWithOut:YES format:@"%d"];
 }
 
++ (MKParamPotiValueTransformer *)transformerWithFormat:(NSString *)format {
+  return [[MKParamPotiValueTransformer alloc] initWithOut:NO format:format];
+}
 
-- (id)initWithOut:(BOOL)withOut {
++ (MKParamPotiValueTransformer *)transformerWithBlock:(MKParamPotiValueTransformerBlock)block {
+  return [[MKParamPotiValueTransformer alloc] initWithOut:NO format:nil block:block];
+}
+
+- (id)initWithOut:(BOOL)withOut format:(NSString *)format {
+  return [self initWithOut:withOut format:format block:nil];
+}
+
+- (id)initWithOut:(BOOL)withOut format:(NSString *)format block:(MKParamPotiValueTransformerBlock)block {
+
+  NSParameterAssert(format || block);
+
   self = [super init];
   if (self) {
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:256];
     for (int i = 0; i < 248; i++) {
-      if (withOut && i>=246) {
-        [values addObject:[NSString stringWithFormat:@"->Out%d", 248-i]];
+      if (withOut && i >= 246) {
+        [values addObject:[NSString stringWithFormat:@"->Out%d", 248 - i]];
       }
       else {
-        [values addObject:[NSString stringWithFormat:@"%d", i]];
+        if(format)
+          [values addObject:[NSString stringWithFormat:format, i]];
+        else
+          [values addObject:block(i)];
       }
     }
 

@@ -1208,3 +1208,18 @@
 /* MKParam Camera */
 "Servo4OnValue" = "On Value";
 
+/* MKParam Output */
+"(Distance) AutoTrigger every" = "(Distance) AutoTrigger every";
+
+/* MKParam Output */
+"(Height) AutoTrigger every" = "(Height) AutoTrigger every";
+
+/* MKParam Output */
+"Bitmask Output 1" = "Bitmask Output 1";
+
+/* MKParam Output */
+"Bitmask Output 2" = "Bitmask Output 2";
+
+/* MKParam Output */
+"Untervoltage warning" = "Untervoltage warning";
+

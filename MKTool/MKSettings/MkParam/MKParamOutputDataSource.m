@@ -39,6 +39,8 @@
 - (id)initWithModel:(id)aModel {
   self = [super initWithModel:aModel];
   if (self) {
+    
+    NSInteger revision =((IKParamSet *) aModel).Revision.integerValue;
 
     IBAFormSection *paramSection = nil;
     //------------------------------------------------------------------------------------------------------------------------
@@ -46,33 +48,58 @@
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
     [paramSection addFormField:[[IKOutputFormField alloc] initWithKeyPath:@"J16Bitmask"
-                                                                     title:NSLocalizedString(@"Bitmask", @"MKParam Output")]];
-    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_OFF_LED1" title:NSLocalizedString(@"Motor off, LED level", @"MKParam Output")];
-    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_BLINK1" title:NSLocalizedString(@"Active after Motor start", @"MKParam Output")];
-    [paramSection addPotiFieldForKeyPath:@"J16Timing" title:NSLocalizedString(@"Timing", @"MKParam Output")];
+                                                                    title:NSLocalizedString(@"Bitmask", @"MKParam Output")
+                                                                 showIdle:YES]];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 92){
-      [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_USE_NC_FOR_OUT1" title:NSLocalizedString(@"Combine with WP-Event", @"MKParam Output")];
-      [paramSection addPotiFieldForKeyPath:@"NaviOut1Parameter" title:NSLocalizedString(@"AutoTrigger every (m)", @"MKParam Output")];
+    [paramSection addPotiFieldForKeyPath:@"J16Timing" title:NSLocalizedString(@"Timing", @"MKParam Output") block:^NSString *(NSInteger value) {
+      return [NSString stringWithFormat:@"%d ms",value*10];
+    }];
+    
+    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_BLINK1" title:NSLocalizedString(@"Active after Motor start", @"MKParam Output") style:[SettingsFieldStyleSwitch style]];
+    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_OFF_LED1" title:NSLocalizedString(@"Motor off, LED level", @"MKParam Output") style:[SettingsFieldStyleSwitch style]];
+    
+    if (revision >= 92) {
+      [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_USE_NC_FOR_OUT1"
+                                       title:NSLocalizedString(@"Combine with WP-Event", @"MKParam Output")
+                                       style:[SettingsFieldStyleSwitch style]];
+      
+      [paramSection addPotiFieldForKeyPath:@"AutoPhotoDistance"
+                                     title:NSLocalizedString(@"(Distance) AutoTrigger every", @"MKParam Output")
+                                    format:@"%d m"];
     }
     
-    [paramSection addFormField:[[IKOutputFormField alloc] initWithKeyPath:@"WARN_J16_Bitmask"
-                                                                     title:NSLocalizedString(@"Untervoltage warn. Bitmask", @"MKParam Output")]];
+    if(revision >= 100){
+      [paramSection addPotiFieldForKeyPath:@"AutoPhotoAtitudes"
+                                     title:NSLocalizedString(@"(Height) AutoTrigger every", @"MKParam Output")
+                                    format:@"%d m"];
+    }
 
     //------------------------------------------------------------------------------------------------------------------------
     paramSection = [self addSectionWithHeaderTitle:NSLocalizedString(@"Output 2 (J17 / SV2.5)", @"MKParam Output") footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
     [paramSection addFormField:[[IKOutputFormField alloc] initWithKeyPath:@"J17Bitmask"
-                                                                     title:NSLocalizedString(@"Bitmask", @"MKParam Output")]];
-    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_OFF_LED2" title:NSLocalizedString(@"Motor off, LED level", @"MKParam Output")];
-    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_BLINK2" title:NSLocalizedString(@"Active after Motor start", @"MKParam Output")];
-    [paramSection addPotiFieldForKeyPath:@"J17Timing" title:NSLocalizedString(@"Timing", @"MKParam Output")];
+                                                                    title:NSLocalizedString(@"Bitmask", @"MKParam Output")
+                                                                 showIdle:YES]];
+    
+    [paramSection addPotiFieldForKeyPath:@"J17Timing" title:NSLocalizedString(@"Timing", @"MKParam Output") block:^NSString *(NSInteger value) {
+      return [NSString stringWithFormat:@"%d ms",value*10];
+    }];
 
+    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_BLINK2" title:NSLocalizedString(@"Active after Motor start", @"MKParam Output") style:[SettingsFieldStyleSwitch style]];
+    [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_OFF_LED2" title:NSLocalizedString(@"Motor off, LED level", @"MKParam Output") style:[SettingsFieldStyleSwitch style]];
+
+
+    //------------------------------------------------------------------------------------------------------------------------
+    paramSection = [self addSectionWithHeaderTitle:NSLocalizedString(@"Untervoltage warning", @"MKParam Output") footerTitle:nil];
+    paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
+
+    [paramSection addFormField:[[IKOutputFormField alloc] initWithKeyPath:@"WARN_J16_Bitmask"
+                                                                    title:NSLocalizedString(@"Bitmask Output 1", @"MKParam Output")]];
+    
     [paramSection addFormField:[[IKOutputFormField alloc] initWithKeyPath:@"WARN_J17_Bitmask"
-                                                                     title:NSLocalizedString(@"Untervoltage warn. Bitmask", @"MKParam Output")]];
-
-  }
+                                                                    title:NSLocalizedString(@"Bitmask Output 2", @"MKParam Output")]];
+}
 
   return self;
 }

@@ -25,11 +25,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NSString *(^MKParamPotiValueTransformerBlock)(NSInteger value);
+
 @interface MKParamPotiValueTransformer : NSValueTransformer
 
 @property(nonatomic, readonly, retain) NSArray *pickListOptions;
 
 + (MKParamPotiValueTransformer *)transformer;
+
++ (MKParamPotiValueTransformer *)transformerWithBlock:(MKParamPotiValueTransformerBlock)block;
+
++ (MKParamPotiValueTransformer *)transformerWithFormat:(NSString *)format;
+
 + (MKParamPotiValueTransformer *)transformerWithOut;
 
 @end

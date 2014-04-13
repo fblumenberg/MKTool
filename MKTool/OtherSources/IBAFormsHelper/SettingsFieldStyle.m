@@ -107,9 +107,9 @@
     self.valueAutoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     self.activeColor = [UIColor whiteColor];
       
-      self.labelBackgroundColor=[UIColor yellowColor];
-      self.valueBackgroundColor=[UIColor greenColor];
-      
+//      self.labelBackgroundColor=[UIColor yellowColor];
+//      self.valueBackgroundColor=[UIColor greenColor];
+    
   }
   return self;
 }
@@ -154,7 +154,7 @@
     self.labelTextAlignment = NSTextAlignmentLeft;
     self.labelFrame = CGRectMake(IBAFormFieldLabelX, 8, 210, IBAFormFieldLabelHeight);
     self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.labelBackgroundColor = [UIColor yellowColor];
+//    self.labelBackgroundColor = [UIColor yellowColor];
 
     self.valueTextAlignment = NSTextAlignmentLeft;
     self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];

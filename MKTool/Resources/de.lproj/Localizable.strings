@@ -1139,3 +1139,18 @@
 /* MKParam Camera */
 "Servo4OnValue" = "On Wert";
 
+/* MKParam Output */
+"(Distance) AutoTrigger every" = "(Höhe) Autotrigger alle";
+
+/* MKParam Output */
+"(Height) AutoTrigger every" = "(Entf.) Autotrigger alle";
+
+/* MKParam Output */
+"Bitmask Output 1" = "Bitmaske Ausgang 1";
+
+/* MKParam Output */
+"Bitmask Output 2" = "Bitmaske Ausgang 2";
+
+/* MKParam Output */
+"Untervoltage warning" = "Unterspannungswarnung";
+

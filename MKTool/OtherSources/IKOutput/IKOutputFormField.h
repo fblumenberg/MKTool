@@ -30,8 +30,10 @@
 }
 
 @property (nonatomic, readonly) IKOutputCell *settingCell;
+@property (assign) BOOL showIdle;
 
 - (id)initWithKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (id)initWithKeyPath:(NSString *)keyPath title:(NSString *)title showIdle:(BOOL)showIdle;
 - (id)initWithKeyPath:(NSString *)keyPath title:(NSString *)title valueTransformer:(NSValueTransformer *)valueTransformer;
 
 @end

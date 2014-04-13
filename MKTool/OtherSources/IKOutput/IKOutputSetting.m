@@ -82,6 +82,8 @@
   [aCoder encodeBool:self.doDrawFrame forKey:@"doDrawFrame"];
   [aCoder encodeObject:self.insetColorOn forKey:@"insetColorOn"];
   [aCoder encodeObject:self.insetColorOff forKey:@"insetColorOff"];
+  [aCoder encodeObject:self.insetColorIdleOn forKey:@"insetColorIdleOn"];
+  [aCoder encodeObject:self.insetColorIdleOff forKey:@"insetColorIdleOff"];
   [aCoder encodeDouble:self.cornerRoundness forKey:@"cornerRoundness"];
   [aCoder encodeBool:self.shining forKey:@"shining"];
 }
@@ -92,6 +94,8 @@
     self.doDrawFrame = [aDecoder decodeBoolForKey:@"doDrawFrame"];
     self.insetColorOn = [aDecoder decodeObjectForKey:@"insetColorOn"];
     self.insetColorOff = [aDecoder decodeObjectForKey:@"insetColorOff"];
+    self.insetColorIdleOn = [aDecoder decodeObjectForKey:@"insetColorIdleOn"];
+    self.insetColorIdleOff = [aDecoder decodeObjectForKey:@"insetColorIdleOff"];
     self.cornerRoundness = [aDecoder decodeDoubleForKey:@"cornerRoundness"];
     self.shining = [aDecoder decodeBoolForKey:@"shining"];
   }
@@ -105,10 +109,12 @@
   self.backgroundColor = [UIColor clearColor];
   self.frameColor = [UIColor whiteColor];
   self.doDrawFrame = YES;
+  self.insetColorIdleOn = [UIColor colorWithRed:0.884 green:0.897 blue:0.294 alpha:1.000];
+  self.insetColorIdleOff = [UIColor colorWithRed:0.596 green:0.608 blue:0.367 alpha:1.000];
   self.insetColorOn = [UIColor redColor];
   self.insetColorOff = [UIColor grayColor];
   self.cornerRoundness = 0.1;
-  self.shining = YES;
+  self.shining = NO;
 }
 
 
@@ -146,9 +152,19 @@
   CGFloat minY = CGRectGetMinY(rect) + puffer;
 
   BOOL isOn = (self.value & (1 << index)) != 0;
+  BOOL isIdle = self.showIdle && index==7;
+  
+  UIColor* color =self.insetColorOff;
+  if(isIdle){
+    color = isOn?self.insetColorIdleOn:self.insetColorIdleOff;
+  }
+  else{
+    color = isOn?self.insetColorOn:self.insetColorOff;
+  }
+  
 
   CGContextBeginPath(context);
-  CGContextSetFillColorWithColor(context, isOn ? [self.insetColorOn CGColor] : [self.insetColorOff CGColor]);
+  CGContextSetFillColorWithColor(context, [color CGColor]);
   CGContextAddArc(context, maxX - radius, minY + radius, radius, M_PI+ (M_PI/ 2), 0, 0);
   CGContextAddArc(context, maxX - radius, maxY - radius, radius, 0, M_PI/ 2, 0);
   CGContextAddArc(context, minX + radius, maxY - radius, radius, M_PI/ 2, M_PI, 0);

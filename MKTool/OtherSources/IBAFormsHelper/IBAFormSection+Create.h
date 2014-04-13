@@ -23,6 +23,7 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import <IBAForms/IBAForms.h>
+#import "MKParamPotiValueTransformer.h"
 
 @interface IBAFormSection (Creation)
 
@@ -33,6 +34,8 @@
 - (void)addSwitchFieldForKeyPath:(NSString *)keyPath title:(NSString *)title style:(IBAFormFieldStyle *)style;
 - (void)addTextFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
 - (void)addPotiFieldForKeyPath:(NSString *)keyPath title:(NSString *)title;
+- (void)addPotiFieldForKeyPath:(NSString *)keyPath title:(NSString *)title format:(NSString*) format;
+- (void)addPotiFieldForKeyPath:(NSString *)keyPath title:(NSString *)title block:(MKParamPotiValueTransformerBlock) block;
 - (void)addPotiFieldWithOutForKeyPath:(NSString *)keyPath title:(NSString *)title;
 
 - (void)addChannelsForKeyPath:(NSString *)keyPath title:(NSString *)title;

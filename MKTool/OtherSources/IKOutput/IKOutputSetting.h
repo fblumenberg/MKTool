@@ -29,12 +29,16 @@
 
 @property(nonatomic, readwrite) NSInteger value;
 
+@property(nonatomic, retain) UIColor *insetColorIdleOn;
+@property(nonatomic, retain) UIColor *insetColorIdleOff;
 @property(nonatomic, retain) UIColor *insetColorOn;
 @property(nonatomic, retain) UIColor *insetColorOff;
 @property(nonatomic, retain) UIColor *frameColor;
 
 @property(nonatomic, readwrite) BOOL doDrawFrame;
 @property(nonatomic, readwrite) BOOL shining;
+
+@property(nonatomic, readwrite) BOOL showIdle;
 
 @property(nonatomic, readwrite) CGFloat cornerRoundness;
 

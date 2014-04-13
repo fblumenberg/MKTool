@@ -46,6 +46,14 @@
 	return [self initWithKeyPath:keyPath title:title valueTransformer:nil] ;
 }
 
+- (id)initWithKeyPath:(NSString *)keyPath title:(NSString *)title showIdle:(BOOL)showIdle{
+  
+	self = [self initWithKeyPath:keyPath title:title];
+  self.showIdle = showIdle;
+  
+  return self;
+}
+
 
 #pragma mark -
 #pragma mark Cell management
@@ -61,8 +69,9 @@
     if (settingsCell_ == nil) {
         settingsCell_ = [[IKOutputCell alloc] initWithFormFieldStyle:self.formFieldStyle 
                                                    reuseIdentifier:@"IKOutputCell"];
-        
-        [settingsCell_.settingControl addTarget:self action:@selector(switchValueChanged:) 
+        settingsCell_.settingControl.showIdle = self.showIdle;
+      
+        [settingsCell_.settingControl addTarget:self action:@selector(switchValueChanged:)
                              forControlEvents:UIControlEventValueChanged];
     }
     
