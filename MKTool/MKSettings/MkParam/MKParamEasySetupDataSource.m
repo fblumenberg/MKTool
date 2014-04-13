@@ -53,13 +53,14 @@
     IBAFormSection *paramSection3 = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection3.formFieldStyle = [[SettingsFieldStyle alloc] init];
     
-    IBAStepperFormField *stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"OrientationAngle"
-                                                                               title:NSLocalizedString(@"Orientation", @"MKParam Altitude")];
-    
-    stepperField.displayValueTransformer = [OrientationTransformer instance];
-    stepperField.minimumValue = 0;
-    stepperField.maximumValue = 23;
-    [paramSection3 addFormField:stepperField];
+    [paramSection3 addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"HoeheChannel";
+      builder.title=NSLocalizedString(@"OrientationAngle", @"MKParam Altitude");
+      builder.minimumValue=0;
+      builder.maximumValue=23;
+      builder.displayValueTransformer = [OrientationTransformer instance];
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
   }
 
   return self;
@@ -71,7 +72,9 @@
 
   altitudeSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-  [altitudeSection addSwitchFieldForKeyPath:@"GlobalConfig_HOEHENREGELUNG" title:NSLocalizedString(@"Enable", @"MKParam EasySetup Altitude")];
+  [altitudeSection addSwitchFieldForKeyPath:@"GlobalConfig_HOEHENREGELUNG"
+                                      title:NSLocalizedString(@"Enable", @"MKParam EasySetup Altitude")
+                                      style:[SettingsFieldStyleSwitch style]];
 
 
   NSArray *modeNames = @[
@@ -83,18 +86,19 @@
 
   // IBAReadOnlyTextFormField displays the value the field is bound in a read-only text view. The title is displayed as the field's label.
   [altitudeSection addFormField:[[IBAReadOnlyTextFormField alloc] initWithKeyPath:@"ExtraConfig_HEIGHT_LIMIT"
-                                                                            title:NSLocalizedString(@"Control mode", @"MKParam Altitude") valueTransformer:transformer]];
+                                                                            title:NSLocalizedString(@"Control mode", @"MKParam Altitude")
+                                                                  valueTransformer:transformer]];
 
 
   if (revision >= 95) {
-    IBAStepperFormField *stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"HoeheChannel"
-                                                                               title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
-
-    stepperField.displayValueTransformer = [[MKTParamChannelValueTransformer alloc] initForAltitude];
-    stepperField.minimumValue = 0;
-    stepperField.maximumValue = 31;
-
-    [altitudeSection addFormField:stepperField];
+    [altitudeSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"HoeheChannel";
+      builder.title=NSLocalizedString(@"Setpoint", @"MKParam Altitude");
+      builder.minimumValue=0;
+      builder.maximumValue=31;
+      builder.displayValueTransformer = [[MKTParamChannelValueTransformer alloc] initForAltitude];
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
   }
   else
     [altitudeSection addPotiFieldForKeyPath:@"HoeheChannel" title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
@@ -103,13 +107,14 @@
 
   if (revision >= 95) {
 
-    IBAStepperFormField *stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"StartLandChannel"
-                                                                               title:NSLocalizedString(@"StartLandChannel", @"MKParam Altitude")];
-
-    stepperField.displayValueTransformer = [MKTParamChannelValueTransformer instance];
-    stepperField.minimumValue = 0;
-    stepperField.maximumValue = 32;
-    [altitudeSection addFormField:stepperField];
+    [altitudeSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"StartLandChannel";
+      builder.title=NSLocalizedString(@"StartLandChannel", @"MKParam Altitude");
+      builder.minimumValue=0;
+      builder.maximumValue=32;
+      builder.displayValueTransformer = [MKTParamChannelValueTransformer instance];
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
   }
 }
 
@@ -122,27 +127,32 @@
 
 
   if (revision >= 95) {
-    IBAStepperFormField *stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"NaviGpsModeChannel"
-                                                                               title:NSLocalizedString(@"GPS Mode", @"MKParam NaviCtrl")];
-
-    stepperField.displayValueTransformer = [[MKTParamChannelValueTransformer alloc] initForGps];
-    stepperField.minimumValue = 0;
-    stepperField.maximumValue = 32;
-    [gpsSection addFormField:stepperField];
+    [gpsSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"NaviGpsModeChannel";
+      builder.title=NSLocalizedString(@"GPS Mode", @"MKParam NaviCtrl");
+      builder.minimumValue=0;
+      builder.maximumValue=32;
+      builder.displayValueTransformer = [MKTParamChannelValueTransformer instance];
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
   }
   else
     [gpsSection addPotiFieldForKeyPath:@"NaviGpsModeChannel" title:NSLocalizedString(@"GPS Mode control", @"MKParam NaviCtrl")];
 
   if (revision >= 88) {
-    [gpsSection addSwitchFieldForKeyPath:@"ExtraConfig_GPS_AID" title:NSLocalizedString(@"Dynamic PH", @"MKParam NaviCtrl")];
+    [gpsSection addSwitchFieldForKeyPath:@"ExtraConfig_GPS_AID"
+                                   title:NSLocalizedString(@"Dynamic PH", @"MKParam NaviCtrl")
+                                   style:[SettingsFieldStyleSwitch style]];
 
-    IBAStepperFormField *stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"ComingHomeAltitude"
-                                                                               title:NSLocalizedString(@"CH Altitude", @"MKParam NaviCtrl")];
 
-    stepperField.displayValueTransformer = [CHAltitudeTransformer instance];
-    stepperField.minimumValue = 0;
-    stepperField.maximumValue = 255;
-    [gpsSection addFormField:stepperField];
+    [gpsSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"ComingHomeAltitude";
+      builder.title=NSLocalizedString(@"CH Altitude", @"MKParam NaviCtrl");
+      builder.minimumValue=0;
+      builder.maximumValue=255;
+      builder.displayValueTransformer = [CHAltitudeTransformer instance];
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
   }
 
 }
@@ -152,20 +162,22 @@
   carefreeSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
   if (revision >= 95) {
-    IBAStepperFormField *stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"CareFreeChannel"
-                                                                               title:NSLocalizedString(@"Carefree", @"MKParam Misc")];
-
-    stepperField.displayValueTransformer = [MKTParamChannelValueTransformer instance];
-    stepperField.minimumValue = 0;
-    stepperField.maximumValue = 32;
-    [carefreeSection addFormField:stepperField];
-
+    [carefreeSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"CareFreeChannel";
+      builder.title=NSLocalizedString(@"Carefree", @"MKParam NaviCtrl");
+      builder.minimumValue=0;
+      builder.maximumValue=32;
+      builder.displayValueTransformer = [MKTParamChannelValueTransformer instance];
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
   }
   else
     [carefreeSection addPotiFieldForKeyPath:@"CareFreeChannel" title:NSLocalizedString(@"Carefree control", @"MKParam Misc")];
 
   if (revision >= 88)
-    [carefreeSection addSwitchFieldForKeyPath:@"ExtraConfig_LEARNABLE_CAREFREE" title:NSLocalizedString(@"Teachable Carefree", @"MKParam Misc")];
+    [carefreeSection addSwitchFieldForKeyPath:@"ExtraConfig_LEARNABLE_CAREFREE"
+                                        title:NSLocalizedString(@"Teachable Carefree", @"MKParam Misc")
+                                        style:[SettingsFieldStyleSwitch style]];
 
 }
 
