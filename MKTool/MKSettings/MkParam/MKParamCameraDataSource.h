@@ -23,12 +23,7 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 
-#import <IBAForms/IBAFormDataSource.h>
+#import "MKParamBaseDataSource.h"
 
-@interface MKParamCameraDataSource : IBAFormDataSource {
-
-}
-
-- (id)initWithModel:(id)aModel;
-
+@interface MKParamCameraDataSource : MKParamBaseDataSource
 @end

@@ -449,7 +449,7 @@
 "Camera" = "Kamera";
 
 /* MKParam Camera */
-"CamOrientation" = "Ausrichtung [°]";
+"CamOrientation" = "Ausrichtung";
 
 /* MKParam Misc */
 "Carefree control" = "Carefree Steuerung";
@@ -1126,4 +1126,16 @@
 
 /* MKParam Altitude */
 "Orientation" = "Ausrichtung";
+
+/* MKParam Camera */
+"Servo3OffValue" = "Off Wert";
+
+/* MKParam Camera */
+"Servo3OnValue" = "On Wert";
+
+/* MKParam Camera */
+"Servo4OffValue" = "Off Wert";
+
+/* MKParam Camera */
+"Servo4OnValue" = "On Wert";
 

@@ -449,7 +449,7 @@
 "Camera" = "Camera";
 
 /* MKParam Camera */
-"CamOrientation" = "Orientation [°]";
+"CamOrientation" = "Orientation";
 
 /* MKParam Misc */
 "Carefree control" = "Carefree control";
@@ -1183,4 +1183,28 @@
 
 /* MKParam Altitude */
 "Orientation" = "Orientation";
+
+/* MKParam Camera */
+"Compensation OFF" = "Compensation OFF";
+
+/* MKParam Camera */
+"Servo filter" = "Servo filter";
+
+/* MKParam Camera */
+"Servo max" = "Servo max";
+
+/* MKParam Camera */
+"Servo min" = "Servo min";
+
+/* MKParam Camera */
+"Servo3OffValue" = "Off value";
+
+/* MKParam Camera */
+"Servo3OnValue" = "On Value";
+
+/* MKParam Camera */
+"Servo4OffValue" = "Off value";
+
+/* MKParam Camera */
+"Servo4OnValue" = "On Value";
 

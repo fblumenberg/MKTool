@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,20 +22,13 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-@interface CHAltitudeTransformer : NSValueTransformer
 
-+ (id)instance;
+#import <IBAForms/IBAFormDataSource.h>
 
-@end
+@class IKParamSet;
 
-@interface OrientationTransformer : NSValueTransformer
+@interface MKParamBaseDataSource : IBAFormDataSource
 
-+ (id)instance;
-
-@end
-
-@interface ZeroOffTransformer : NSValueTransformer
-
-+ (id)instance;
+-(void) initWithParameter:(IKParamSet*)paramSet;
 
 @end

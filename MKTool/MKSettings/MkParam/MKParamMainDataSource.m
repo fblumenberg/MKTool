@@ -171,7 +171,7 @@
         @"easySetup",
         @"channels",
         @"camera",
-        @"user"
+        @"output"
     ];
 
     [fields bk_each:^(id obj) {

@@ -42,7 +42,7 @@
   [view addSubview:formTableView];
   [self setView:view];
 
-  [self.formDataSource addObserver:self forKeyPath:@"model" options:NSKeyValueObservingOptionNew context:nil];
+  //[self.formDataSource addObserver:self forKeyPath:@"model" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

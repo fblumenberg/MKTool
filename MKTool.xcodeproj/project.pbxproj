@@ -601,6 +601,8 @@
 		BADDDB5018F840AA00660606 /* MKParamEasySetupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB4E18F840AA00660606 /* MKParamEasySetupDataSource.m */; };
 		BADDDB5318F8529F00660606 /* StepperValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB5218F8529F00660606 /* StepperValueTransformer.m */; };
 		BADDDB5418F8529F00660606 /* StepperValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB5218F8529F00660606 /* StepperValueTransformer.m */; };
+		BADDDB6118FAD1AC00660606 /* MKParamBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB6018FAD1AC00660606 /* MKParamBaseDataSource.m */; };
+		BADDDB6218FAD1AC00660606 /* MKParamBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDDB6018FAD1AC00660606 /* MKParamBaseDataSource.m */; };
 		BAEE24FD17F0C3EF002453C9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEE24FC17F0C3EF002453C9 /* Media.xcassets */; };
 		BAEE24FE17F0C3EF002453C9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEE24FC17F0C3EF002453C9 /* Media.xcassets */; };
 		BAEE75CB1542D59600A92FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE75CA1542D59600A92FA4 /* MapKit.framework */; };
@@ -1083,6 +1085,8 @@
 		BADDDB4E18F840AA00660606 /* MKParamEasySetupDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParamEasySetupDataSource.m; sourceTree = "<group>"; };
 		BADDDB5118F8529F00660606 /* StepperValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperValueTransformer.h; sourceTree = "<group>"; };
 		BADDDB5218F8529F00660606 /* StepperValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperValueTransformer.m; sourceTree = "<group>"; };
+		BADDDB5F18FAD1AC00660606 /* MKParamBaseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParamBaseDataSource.h; sourceTree = "<group>"; };
+		BADDDB6018FAD1AC00660606 /* MKParamBaseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParamBaseDataSource.m; sourceTree = "<group>"; };
 		BAEE24FC17F0C3EF002453C9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		BAEE75CA1542D59600A92FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAEE75D01543062300A92FA4 /* MKTRouteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteContainerViewController.h; sourceTree = "<group>"; };
@@ -1505,6 +1509,8 @@
 				BA98BF7C16C288A5000CA7EE /* MKParamUserDataSource.m */,
 				BA98BF7D16C288A5000CA7EE /* MKParamViewController.h */,
 				BA98BF7E16C288A5000CA7EE /* MKParamViewController.m */,
+				BADDDB5F18FAD1AC00660606 /* MKParamBaseDataSource.h */,
+				BADDDB6018FAD1AC00660606 /* MKParamBaseDataSource.m */,
 			);
 			path = MkParam;
 			sourceTree = "<group>";
@@ -2864,6 +2870,7 @@
 				BA94CA921706FE1400AC0934 /* IKOutputCell.m in Sources */,
 				BA94CA931706FE1400AC0934 /* IKOutputFormField.m in Sources */,
 				BA94CA941706FE1400AC0934 /* IKOutputSetting.m in Sources */,
+				BADDDB6218FAD1AC00660606 /* MKParamBaseDataSource.m in Sources */,
 				BA94CA951706FE1400AC0934 /* MKTCommonColors.m in Sources */,
 				BA94CA961706FE1400AC0934 /* MKTTableSection.m in Sources */,
 				BA94CA971706FE1400AC0934 /* TPMultiLayoutViewController.m in Sources */,
@@ -3020,6 +3027,7 @@
 				BA98BFD216C29079000CA7EE /* IKOutputCell.m in Sources */,
 				BA98BFD416C29079000CA7EE /* IKOutputFormField.m in Sources */,
 				BA98BFD616C29079000CA7EE /* IKOutputSetting.m in Sources */,
+				BADDDB6118FAD1AC00660606 /* MKParamBaseDataSource.m in Sources */,
 				BA98BFD816C29079000CA7EE /* MKTCommonColors.m in Sources */,
 				BA98BFDA16C29079000CA7EE /* MKTTableSection.m in Sources */,
 				BA98BFDC16C29079000CA7EE /* TPMultiLayoutViewController.m in Sources */,

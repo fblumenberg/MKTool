@@ -1,5 +1,5 @@
 // ///////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 2012, Frank Blumenberg
+// Copyright (C) 2011, Frank Blumenberg
 //
 // See License.txt for complete licensing and attribution information.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,20 +22,20 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-@interface CHAltitudeTransformer : NSValueTransformer
+#import "MKParamBaseDataSource.h"
+#import "IKParamSet.h"
 
-+ (id)instance;
+@implementation MKParamBaseDataSource
 
-@end
+- (id)initWithModel:(id)model {
+  self = [super initWithModel:model];
+  if (self) {
+    [self initWithParameter:((IKParamSet *) model)];
+  }
+  return self;
+}
 
-@interface OrientationTransformer : NSValueTransformer
-
-+ (id)instance;
-
-@end
-
-@interface ZeroOffTransformer : NSValueTransformer
-
-+ (id)instance;
+- (void)initWithParameter:(IKParamSet *)paramSet {
+}
 
 @end

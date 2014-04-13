@@ -69,3 +69,27 @@
 }
 
 @end
+
+@implementation ZeroOffTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  if ([value integerValue] < 1)
+    return NSLocalizedString(@"OFF", @"CHAltitudeTransformer");
+  
+  return [NSString stringWithFormat:@"%@",value];
+}
+
+@end

@@ -54,8 +54,8 @@
     paramSection3.formFieldStyle = [[SettingsFieldStyle alloc] init];
     
     [paramSection3 addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
-      builder.keyPath=@"HoeheChannel";
-      builder.title=NSLocalizedString(@"OrientationAngle", @"MKParam Altitude");
+      builder.keyPath=@"OrientationAngle";
+      builder.title=NSLocalizedString(@"Orientation", @"MKParam Altitude");
       builder.minimumValue=0;
       builder.maximumValue=23;
       builder.displayValueTransformer = [OrientationTransformer instance];
