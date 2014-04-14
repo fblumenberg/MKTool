@@ -28,18 +28,14 @@
 +(id)style;
 @end
 
-@interface SettingsFieldStyleStepper : IBAFormFieldStyle 
+@interface SettingsFieldStyleStepper : SettingsFieldStyle
 +(id)style;
 @end
 
-@interface SettingsFieldStyleDisabled : IBAFormFieldStyle
+@interface SettingsFieldStyleSwitch : SettingsFieldStyle
 +(id)style;
 @end
 
-@interface SettingsFieldStyleSwitch : IBAFormFieldStyle 
-+(id)style;
-@end
-
-@interface SettingsFieldStyleText : IBAFormFieldStyle 
+@interface SettingsFieldStyleText : SettingsFieldStyle 
 +(id)style;
 @end

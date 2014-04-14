@@ -26,6 +26,45 @@
 #import "SettingsFieldStyle.h"
 
 
+
+@implementation SettingsFieldStyle
++ (id)style {
+  return [[[self class] alloc] init];
+}
+
+- (id)init {
+  self = [super init];
+  if (self) {
+    self.labelTextColor = [UIColor blackColor];
+    if([UIFont respondsToSelector:@selector(preferredFontForTextStyle:)])
+      self.labelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    else
+      self.labelFont = [UIFont boldSystemFontOfSize:18];
+    
+    self.labelTextAlignment = NSTextAlignmentLeft;
+    self.labelFrame = CGRectMake(IBAFormFieldLabelX, 8, 190, IBAFormFieldLabelHeight);
+    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    self.valueTextAlignment = NSTextAlignmentLeft;
+    self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];
+    if([UIFont respondsToSelector:@selector(preferredFontForTextStyle:)])
+      self.labelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    else
+      self.valueFont = [UIFont boldSystemFontOfSize:16];
+    self.valueFrame = CGRectMake(210, 13, 100, IBAFormFieldValueHeight);
+    self.valueAutoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    self.activeColor = [UIColor whiteColor];
+    
+    //      self.labelBackgroundColor=[UIColor yellowColor];
+    //      self.valueBackgroundColor=[UIColor greenColor];
+    
+  }
+  return self;
+}
+
+@end
+
+
 @implementation SettingsFieldStyleText
 
 + (id)style {
@@ -35,19 +74,9 @@
 - (id)init {
   self = [super init];
   if (self) {
-    self.labelTextColor = [UIColor blackColor];
-    self.labelFont = [UIFont boldSystemFontOfSize:18];
-    self.labelTextAlignment = NSTextAlignmentLeft;
     self.labelFrame = CGRectMake(IBAFormFieldLabelX, 8, 90, IBAFormFieldLabelHeight);
-    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-    self.valueTextAlignment = NSTextAlignmentLeft;
-    self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];
-    self.valueFont = [UIFont systemFontOfSize:16];
     self.valueFrame = CGRectMake(110, 13, 200, IBAFormFieldValueHeight);
-    self.valueAutoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-
-    self.activeColor = [UIColor whiteColor];
   }
   return self;
 }
@@ -68,73 +97,8 @@
 - (id)init {
   self = [super init];
   if (self) {
-    self.labelTextColor = [UIColor blackColor];
-    self.labelFont = [UIFont boldSystemFontOfSize:18];
-    self.labelTextAlignment = NSTextAlignmentLeft;
     self.labelFrame = CGRectMake(IBAFormFieldLabelX, 8, 150, IBAFormFieldLabelHeight);
-    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
-    
-    self.valueTextAlignment = NSTextAlignmentLeft;
-    self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];
-    self.valueFont = [UIFont systemFontOfSize:16];
     self.valueFrame = CGRectMake(210, 13, 100, IBAFormFieldValueHeight);
-    self.valueAutoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-    self.activeColor = [UIColor whiteColor];
-  }
-  return self;
-}
-
-@end
-
-@implementation SettingsFieldStyle
-+ (id)style {
-  return [[[self class] alloc] init];
-}
-
-- (id)init {
-  self = [super init];
-  if (self) {
-    self.labelTextColor = [UIColor blackColor];
-    self.labelFont = [UIFont boldSystemFontOfSize:18];
-    self.labelTextAlignment = NSTextAlignmentLeft;
-    self.labelFrame = CGRectMake(IBAFormFieldLabelX, 8, 190, IBAFormFieldLabelHeight);
-    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
-
-    self.valueTextAlignment = NSTextAlignmentLeft;
-    self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];
-    self.valueFont = [UIFont systemFontOfSize:16];
-    self.valueFrame = CGRectMake(210, 13, 100, IBAFormFieldValueHeight);
-    self.valueAutoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-    self.activeColor = [UIColor whiteColor];
-      
-//      self.labelBackgroundColor=[UIColor yellowColor];
-//      self.valueBackgroundColor=[UIColor greenColor];
-    
-  }
-  return self;
-}
-
-@end
-
-@implementation SettingsFieldStyleDisabled
-+ (id)style {
-  return [[[self class] alloc] init];
-}
-
-- (id)init {
-  self = [super init];
-  if (self) {
-    self.labelTextColor = [UIColor grayColor];
-    self.labelFont = [UIFont boldSystemFontOfSize:18];
-    self.labelTextAlignment = NSTextAlignmentLeft;
-    self.labelFrame = CGRectMake(IBAFormFieldLabelX, 8, 190, IBAFormFieldLabelHeight);
-    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
-
-    self.valueTextAlignment = NSTextAlignmentLeft;
-    self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];
-    self.valueFont = [UIFont systemFontOfSize:16];
-    self.valueFrame = CGRectMake(210, 13, 100, IBAFormFieldValueHeight);
-    self.activeColor = [UIColor whiteColor];
   }
   return self;
 }
@@ -149,18 +113,9 @@
 - (id)init {
   self = [super init];
   if (self) {
-    self.labelTextColor = [UIColor blackColor];
-    self.labelFont = [UIFont boldSystemFontOfSize:18];
-    self.labelTextAlignment = NSTextAlignmentLeft;
     self.labelFrame = CGRectMake(IBAFormFieldLabelX, 8, 210, IBAFormFieldLabelHeight);
-    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    self.labelBackgroundColor = [UIColor yellowColor];
 
-    self.valueTextAlignment = NSTextAlignmentLeft;
-    self.valueTextColor = [UIColor colorWithRed:0.220 green:0.329 blue:0.529 alpha:1.0];
-    self.valueFont = [UIFont systemFontOfSize:16];
     self.valueFrame = CGRectMake(160, 13, 150, IBAFormFieldValueHeight);
-    self.activeColor = [UIColor whiteColor];
   }
   return self;
 }

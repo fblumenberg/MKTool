@@ -29,12 +29,7 @@
 - (id)init {
   self = [super init];
   if (self) {
-    self.labelTextColor = [UIColor blackColor];
-    self.labelFont = [UIFont boldSystemFontOfSize:18];
     self.labelFrame = CGRectMake(10, 8, 300, 30);
-    self.labelTextAlignment = UITextAlignmentLeft;
-    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.activeColor = [UIColor whiteColor];
   }
   return self;
 }
@@ -46,7 +41,7 @@
 - (id)init {
   self = [super init];
   if (self) {
-    self.labelTextAlignment = UITextAlignmentCenter;
+    self.labelTextAlignment = NSTextAlignmentCenter;
   }
   return self;
 }
@@ -59,11 +54,7 @@
   self = [super init];
   if (self) {
     self.labelTextColor = [UIColor grayColor];
-    self.labelFont = [UIFont boldSystemFontOfSize:18];
     self.labelFrame = CGRectMake(10, 8, 300, 30);
-    self.labelTextAlignment = UITextAlignmentLeft;
-    self.labelAutoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.activeColor = [UIColor whiteColor];
   }
   return self;
 }

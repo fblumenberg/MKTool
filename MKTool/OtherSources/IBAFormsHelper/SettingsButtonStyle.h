@@ -23,10 +23,10 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import <IBAForms/IBAFormFieldStyle.h>
+#import "SettingsFieldStyle.h"
 
 
-@interface SettingsButtonStyle : IBAFormFieldStyle
+@interface SettingsButtonStyle : SettingsFieldStyle
 @end
 
 @interface SettingsButtonIndicatorStyle : SettingsButtonStyle
@@ -35,5 +35,5 @@
 @interface SettingsButtonStyleCenter : SettingsButtonStyle
 @end
 
-@interface SettingsButtonStyleDisabled : IBAFormFieldStyle
+@interface SettingsButtonStyleDisabled : SettingsButtonStyle
 @end
