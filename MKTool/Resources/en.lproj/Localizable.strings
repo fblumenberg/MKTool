@@ -468,7 +468,7 @@
 "Channels" = "Channels";
 
 /* MKParam Misc */
-"Comming Home time (s)" = "Comming Home time (s)";
+"Comming Home time (s)" = "Comming Home time";
 
 /* MKParam Compass */
 "Compass active" = "Compass active";
@@ -501,7 +501,7 @@
 "Dynamic Stability" = "Dynamic Stability";
 
 /* MKParam Misc */
-"Emergency time (0.1s)" = "Emergency time (0.1s)";
+"Emergency time (0.1s)" = "Emergency time";
 
 /* MKParam Misc */
 "Emergency-Gas" = "Emergency-Gas";

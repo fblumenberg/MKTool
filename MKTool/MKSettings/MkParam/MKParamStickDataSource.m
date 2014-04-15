@@ -44,8 +44,23 @@
     paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    [paramSection addNumberFieldForKeyPath:@"Stick_P" title:NSLocalizedString(@"Nick-/Roll-P", @"MKParam Stick")];
-    [paramSection addNumberFieldForKeyPath:@"Stick_D" title:NSLocalizedString(@"Nick-/Roll-D", @"MKParam Stick")];
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+      builder.keyPath = @"Stick_P";
+      builder.title = NSLocalizedString(@"Nick-/Roll-P", @"MKParam Stick");
+      builder.minimumValue = 0;
+      builder.maximumValue = 20;
+      builder.formFieldStyle = [SettingsFieldStyleStepper style];
+    }]];
+
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+      builder.keyPath = @"Stick_D";
+      builder.title = NSLocalizedString(@"Nick-/Roll-D", @"MKParam Stick");
+      builder.minimumValue = 0;
+      builder.maximumValue = 20;
+      builder.formFieldStyle = [SettingsFieldStyleStepper style];
+    }]];
+    
+
     [paramSection addPotiFieldForKeyPath:@"StickGier_P" title:NSLocalizedString(@"Yaw-P", @"MKParam Stick")];
 
     //------------------------------------------------------------------------------------------------------------------------

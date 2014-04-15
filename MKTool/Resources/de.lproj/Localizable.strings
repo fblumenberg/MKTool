@@ -501,7 +501,7 @@
 "Dynamic Stability" = "Dynamische Stabilität";
 
 /* MKParam Misc */
-"Emergency time (0.1s)" = "NOT-Gas Zeit [0.1s]";
+"Emergency time (0.1s)" = "NOT-Gas Zeit";
 
 /* MKParam Misc */
 "Emergency-Gas" = "NOT-Gas";

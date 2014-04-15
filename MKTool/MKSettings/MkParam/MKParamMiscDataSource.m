@@ -33,6 +33,8 @@
 #import "StringToNumberTransformer.h"
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"
+#import "StepperValueTransformer.h"
+#import "MKTParamChannelValueTransformer.h"
 
 @interface MKParamMiscDataSource ()
 
@@ -48,6 +50,8 @@
   self = [super initWithModel:aModel];
   if (self) {
 
+    NSInteger revision = ((IKParamSet *) aModel).Revision.integerValue;
+
     IBAFormFieldStyle *switchStyle = [[SettingsFieldStyleSwitch alloc] init];
 
     IBAFormSection *paramSection = nil;
@@ -62,11 +66,34 @@
     paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    [paramSection addNumberFieldForKeyPath:@"UnterspannungsWarnung" title:NSLocalizedString(@"Low voltage level", @"MKParam Misc")];
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+      builder.keyPath = @"UnterspannungsWarnung";
+      builder.title = NSLocalizedString(@"Low voltage level", @"MKParam Misc");
+      builder.minimumValue = 0;
+      builder.maximumValue = 50;
+      builder.displayValueTransformer = [VoltageTransformer instance];
+      builder.formFieldStyle = [SettingsFieldStyleStepper style];
+    }]];
+    
+    if (revision >= 88){
+      [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+        builder.keyPath = @"AutoLandingVoltage";
+        builder.title = NSLocalizedString(@"Autolanding voltage level", @"MKParam Misc");
+        builder.minimumValue = 0;
+        builder.maximumValue = 50;
+        builder.displayValueTransformer = [VoltageTransformer instance];
+        builder.formFieldStyle = [SettingsFieldStyleStepper style];
+      }]];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 88){
-      [paramSection addNumberFieldForKeyPath:@"AutoLandingVoltage" title:NSLocalizedString(@"Autolanding voltage level", @"MKParam Misc")];
-      [paramSection addNumberFieldForKeyPath:@"ComingHomeVoltage" title:NSLocalizedString(@"CH voltage level", @"MKParam Misc")];
+      [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+        builder.keyPath = @"ComingHomeVoltage";
+        builder.title = NSLocalizedString(@"CH voltage level", @"MKParam Misc");
+        builder.minimumValue = 0;
+        builder.maximumValue = 50;
+        builder.displayValueTransformer = [VoltageTransformer instance];
+        builder.formFieldStyle = [SettingsFieldStyleStepper style];
+      }]];
+
     }
     
 
@@ -86,7 +113,7 @@
     paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
+    if (revision >= 95){
       IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"CareFreeChannel"
                                                                                  title:NSLocalizedString(@"Carefree", @"MKParam Misc")];
       
@@ -99,14 +126,22 @@
     else
       [paramSection addPotiFieldForKeyPath:@"CareFreeChannel" title:NSLocalizedString(@"Carefree control", @"MKParam Misc")];
     
-    if (((IKParamSet *)aModel).Revision.integerValue >= 88)
+    if (revision >= 88)
     [paramSection addSwitchFieldForKeyPath:@"ExtraConfig_LEARNABLE_CAREFREE" title:NSLocalizedString(@"Teachable Carefree", @"MKParam Misc") style:switchStyle];
 
     //------------------------------------------------------------------------------------------------------------------------
     paramSection = [self addSectionWithHeaderTitle:NSLocalizedString(@"Sender signal lost", @"MKParam Misc") footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    [paramSection addNumberFieldForKeyPath:@"NotGasZeit" title:NSLocalizedString(@"Emergency time (0.1s)", @"MKParam Misc")];
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+      builder.keyPath = @"NotGasZeit";
+      builder.title = NSLocalizedString(@"Emergency time (0.1s)", @"MKParam Misc");
+      builder.minimumValue = 0;
+      builder.maximumValue = 255;
+      builder.displayValueTransformer = [TenthSecondTransformer instance];
+      builder.formFieldStyle = [SettingsFieldStyleStepper style];
+    }]];
+
     self.fieldNotGas = [paramSection addNumberFieldForKeyPath:@"NotGas" title:NSLocalizedString(@"Emergency-Gas", @"MKParam Misc")];
     [self updateFieldNotGas];
     
@@ -114,30 +149,45 @@
     paramSection = [self addSectionWithHeaderTitle:NSLocalizedString(@"Failsafe", @"MKParam Misc") footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 88)
-    [paramSection addNumberFieldForKeyPath:@"FailSafeTime" title:NSLocalizedString(@"Comming Home time (s)", @"MKParam Misc")];
+    if (revision >= 88)
+      [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+        builder.keyPath = @"FailSafeTime";
+        builder.title = NSLocalizedString(@"Comming Home time (s)", @"MKParam Misc");
+        builder.minimumValue = 0;
+        builder.maximumValue = 247;
+        builder.displayValueTransformer = [SecondTransformer instance];
+        builder.formFieldStyle = [SettingsFieldStyleStepper style];
+      }]];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 90){
+    if (revision >= 90){
       [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_VARIO_FAILSAFE" title:NSLocalizedString(@"Use vario for altitude", @"MKParam Misc") style:switchStyle];
 
-      [paramSection addChannelsForKeyPath:@"FailsafeChannel" title:NSLocalizedString(@"Channel", @"MKParam Misc")];
+      [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+        builder.keyPath = @"FailsafeChannel";
+        builder.title = NSLocalizedString(@"Channel", @"MKParam Misc");
+        builder.minimumValue = 0;
+        builder.maximumValue = 16;
+        builder.displayValueTransformer = [MKTParamChannelValueTransformer instance];
+        builder.formFieldStyle = [SettingsFieldStyleStepper style];
+      }]];
+
     }
 
 
     //------------------------------------------------------------------------------------------------------------------------
     paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
-    if (((IKParamSet *)aModel).Revision.integerValue >= 88)
+    if (revision >= 88)
     [paramSection addSwitchFieldForKeyPath:@"ExtraConfig_NO_RCOFF_BEEPING" title:NSLocalizedString(@"No Beep w.o. active sender", @"MKParam Misc") style:switchStyle];
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 88)
+    if (revision >= 88)
     [paramSection addSwitchFieldForKeyPath:@"ExtraConfig_IGNORE_MAG_ERR_AT_STARTUP"
                                      title:NSLocalizedString(@"Ignore magnet error at startup", @"MKParam Misc") style:switchStyle];
-    if (((IKParamSet *)aModel).Revision.integerValue >= 90){
+    if (revision >= 90){
       [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_NO_SDCARD_NO_START" title:NSLocalizedString(@"No start without SD card", @"MKParam Misc") style:switchStyle];
     }
 
-    if (((IKParamSet *)aModel).Revision.integerValue >= 91){
+    if (revision >= 91){
       [paramSection addSwitchFieldForKeyPath:@"GlobalConfig3_CFG3_MOTOR_SWITCH_MODE" title:NSLocalizedString(@"No start without GPS fix", @"MKParam Misc") style:switchStyle];
     }
 

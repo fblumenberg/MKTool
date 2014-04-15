@@ -49,6 +49,30 @@
 
 @end
 
+@implementation SecondTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  if ([value integerValue] < 1)
+    return NSLocalizedString(@"Inactive", @"RadiusTransformer");
+  
+  return [NSString stringWithFormat:@"%@ s",value];
+}
+
+@end
+
 @implementation RadiusTransformer
 
 + (id)instance {
@@ -90,6 +114,48 @@
 - (NSString *)transformedValue:(NSNumber *)value {
   
   return [NSString stringWithFormat:@"%.1f m/s",[value floatValue]/10.0 ];
+}
+
+@end
+
+@implementation VoltageTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  return [NSString stringWithFormat:@"%.1f V",[value floatValue]/10.0 ];
+}
+
+@end
+
+@implementation TenthSecondTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  return [NSString stringWithFormat:@"%.1f s",[value floatValue]/10.0 ];
 }
 
 @end

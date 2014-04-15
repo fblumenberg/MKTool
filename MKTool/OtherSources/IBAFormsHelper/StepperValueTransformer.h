@@ -58,3 +58,21 @@
 
 @end
 
+@interface VoltageTransformer : NSValueTransformer
+
++ (id)instance;
+
+@end
+
+@interface TenthSecondTransformer : NSValueTransformer
+
++ (id)instance;
+
+@end
+
+@interface SecondTransformer : NSValueTransformer
+
++ (id)instance;
+
+@end
+
