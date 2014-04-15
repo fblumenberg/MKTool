@@ -103,7 +103,13 @@
   else
     [altitudeSection addPotiFieldForKeyPath:@"HoeheChannel" title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
 
-  [altitudeSection addNumberFieldForKeyPath:@"Hoehe_StickNeutralPoint" title:NSLocalizedString(@"Stick neutral point", @"MKParam Altitude")];
+  [altitudeSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+    builder.keyPath=@"Hoehe_StickNeutralPoint";
+    builder.title=NSLocalizedString(@"Stick neutral point", @"MKParam Altitude");
+    builder.minimumValue=0;
+    builder.maximumValue=160;
+    builder.formFieldStyle=[SettingsFieldStyleStepper style];
+  }]];
 
   if (revision >= 95) {
 
@@ -111,8 +117,8 @@
       builder.keyPath=@"StartLandChannel";
       builder.title=NSLocalizedString(@"StartLandChannel", @"MKParam Altitude");
       builder.minimumValue=0;
-      builder.maximumValue=32;
-      builder.displayValueTransformer = [MKTParamChannelValueTransformer instance];
+      builder.maximumValue=31;
+      builder.displayValueTransformer = [[MKTParamChannelValueTransformer alloc] initForAltitude];
       builder.formFieldStyle=[SettingsFieldStyleStepper style];
     }]];
   }

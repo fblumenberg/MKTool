@@ -33,6 +33,7 @@
 #import "StringToNumberTransformer.h"
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"
+#import "StepperValueTransformer.h"
 
 @implementation MKParamAltitudeDataSource
 
@@ -40,6 +41,8 @@
   self = [super initWithModel:aModel];
   if (self) {
     
+    NSInteger revision = ((IKParamSet *) aModel).Revision.integerValue;
+
     //------------------------------------------------------------------------------------------------------------------------
     IBAFormSection *basicFieldSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
     basicFieldSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
@@ -66,52 +69,93 @@
     [mainSection addSwitchFieldForKeyPath:@"GlobalConfig_HOEHEN_SCHALTER" title:NSLocalizedString(@"Acoustic vario", @"MKParam Altitude")];
     
     //------------------------------------------------------------------------------------------------------------------------
-    IBAFormSection *paramSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
+    IBAFormSection *paramSection = [self addSectionWithHeaderTitle:nil footerTitle:NSLocalizedString(@"0 - automatic / 127 - middle position", @"MKParam Altitude")];
     paramSection.formFieldStyle = [[SettingsFieldStyle alloc] init];
     
-    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
-      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"HoeheChannel"
-                                                                                 title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
-      
-      stepperField.displayValueTransformer=[[MKTParamChannelValueTransformer alloc] initForAltitude];
-      stepperField.minimumValue = 0;
-      stepperField.maximumValue = 31;
-      
-      [paramSection addFormField:stepperField];
+    
+    if (revision >= 95) {
+      [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+        builder.keyPath=@"HoeheChannel";
+        builder.title=NSLocalizedString(@"Setpoint", @"MKParam Altitude");
+        builder.minimumValue=0;
+        builder.maximumValue=31;
+        builder.displayValueTransformer = [[MKTParamChannelValueTransformer alloc] initForAltitude];
+        builder.formFieldStyle=[SettingsFieldStyleStepper style];
+      }]];
     }
     else
       [paramSection addPotiFieldForKeyPath:@"HoeheChannel" title:NSLocalizedString(@"Setpoint", @"MKParam Altitude")];
+
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"Hoehe_Verstaerkung";
+      builder.title=NSLocalizedString(@"Gain/Rate", @"MKParam Altitude");
+      builder.minimumValue=0;
+      builder.maximumValue=247;
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
     
-    [paramSection addNumberFieldForKeyPath:@"Hoehe_MinGas" title:NSLocalizedString(@"Min. Gas", @"MKParam Altitude")];
-    [paramSection addNumberFieldForKeyPath:@"Hoehe_HoverBand" title:NSLocalizedString(@"Hover variation", @"MKParam Altitude")];
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"Hoehe_MinGas";
+      builder.title=NSLocalizedString(@"Min. Gas", @"MKParam Altitude");
+      builder.minimumValue=0;
+      builder.maximumValue=247;
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
+    
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"Hoehe_HoverBand";
+      builder.title=NSLocalizedString(@"Hover variation", @"MKParam Altitude");
+      builder.minimumValue=0;
+      builder.maximumValue=247;
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
+    
     [paramSection addPotiFieldForKeyPath:@"Hoehe_P" title:NSLocalizedString(@"Altitude-P", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Hoehe_GPS_Z" title:NSLocalizedString(@"GPS-Z", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Luftdruck_D" title:NSLocalizedString(@"Barometric-D", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Hoehe_ACC_Wirkung" title:NSLocalizedString(@"Z-ACC", @"MKParam Altitude")];
     
-    //------------------------------------------------------------------------------------------------------------------------
-    IBAFormSection *paramSection2 = [self addSectionWithHeaderTitle:nil footerTitle:NSLocalizedString(@"0 - automatic / 127 - middle position", @"MKParam Altitude")];
-    paramSection2.formFieldStyle = [[SettingsFieldStyle alloc] init];
+    if (revision >= 88)
+      [paramSection addPotiFieldForKeyPath:@"MaxAltitude"
+                                     title:NSLocalizedString(@"Max. Altitude", @"MKParam Altitude")
+                                     block:^NSString *(NSInteger value) {
+                                       if (value==0) {
+                                         return NSLocalizedString(@"Inactive", @"Channels transformer");
+                                       }
+                                       return [NSString stringWithFormat:@"%d m", value ];
+                                     }];
+
     
-    [paramSection2 addNumberFieldForKeyPath:@"Hoehe_Verstaerkung" title:NSLocalizedString(@"Gain/Rate", @"MKParam Altitude")];
-    if (((IKParamSet *)aModel).Revision.integerValue >= 88)
-      [paramSection2 addNumberFieldForKeyPath:@"MaxAltitude" title:NSLocalizedString(@"Max. Altitude", @"MKParam Altitude")];
-    [paramSection2 addNumberFieldForKeyPath:@"Hoehe_StickNeutralPoint" title:NSLocalizedString(@"Stick neutral point", @"MKParam Altitude")];
+    [paramSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+      builder.keyPath=@"Hoehe_StickNeutralPoint";
+      builder.title=NSLocalizedString(@"Stick neutral point", @"MKParam Altitude");
+      builder.minimumValue=0;
+      builder.maximumValue=160;
+      builder.formFieldStyle=[SettingsFieldStyleStepper style];
+    }]];
     
     //------------------------------------------------------------------------------------------------------------------------
-    if (((IKParamSet *)aModel).Revision.integerValue >= 95){
-      IBAFormSection *paramSection3 = [self addSectionWithHeaderTitle:nil footerTitle:NSLocalizedString(@"0 - automatic / 127 - middle position", @"MKParam Altitude")];
+    if (revision >= 95){
+      IBAFormSection *paramSection3 = [self addSectionWithHeaderTitle:nil footerTitle:nil];
       paramSection3.formFieldStyle = [[SettingsFieldStyle alloc] init];
       
-      IBAStepperFormField* stepperField = [[IBAStepperFormField alloc] initWithKeyPath:@"StartLandChannel"
-                                                                                 title:NSLocalizedString(@"StartLandChannel", @"MKParam Altitude")];
+      [paramSection3 addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+        builder.keyPath=@"StartLandChannel";
+        builder.title=NSLocalizedString(@"StartLandChannel", @"MKParam Altitude");
+        builder.minimumValue=0;
+        builder.maximumValue=31;
+        builder.displayValueTransformer = [[MKTParamChannelValueTransformer alloc] initForAltitude];
+        builder.formFieldStyle=[SettingsFieldStyleStepper style];
+      }]];
       
-      stepperField.displayValueTransformer=[MKTParamChannelValueTransformer instance];
-      stepperField.minimumValue = 0;
-      stepperField.maximumValue = 32;
-      [paramSection3 addFormField:stepperField];
-      
-      [paramSection3 addStepperFieldForKeyPath:@"LandingSpeed" title:NSLocalizedString(@"LandingSpeed", @"MKParam Altitude")];
+      [paramSection3 addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder* builder){
+        builder.keyPath=@"LandingSpeed";
+        builder.title=NSLocalizedString(@"LandingSpeed", @"MKParam Altitude");
+        builder.minimumValue=0;
+        builder.maximumValue=247;
+        builder.displayValueTransformer = [LandingSpeedTransformer instance];
+        builder.formFieldStyle=[SettingsFieldStyleStepper style];
+      }]];
     }
     
     

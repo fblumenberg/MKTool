@@ -39,3 +39,10 @@
 + (id)instance;
 
 @end
+
+@interface LandingSpeedTransformer : NSValueTransformer
+
++ (id)instance;
+
+@end
+

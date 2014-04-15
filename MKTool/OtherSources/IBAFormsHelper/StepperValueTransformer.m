@@ -25,6 +25,28 @@
 
 #import "StepperValueTransformer.h"
 
+@implementation LandingSpeedTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  return [NSString stringWithFormat:@"%.1f m/s",[value floatValue]/10.0 ];
+}
+
+@end
+
+
 @implementation CHAltitudeTransformer
 
 + (id)instance {
