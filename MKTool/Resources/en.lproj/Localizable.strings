@@ -1223,3 +1223,12 @@
 /* MKParam Output */
 "Untervoltage warning" = "Untervoltage warning";
 
+/* MKParam NaviCtrl */
+"Single Wp Speed" = "Single Wp Speed";
+
+/* MKParam NaviCtrl */
+"Decent Range" = "Decent Range";
+
+/* MKParam NaviCtrl */
+"Max. Flying Range" = "Max. Flying Range";
+

@@ -46,3 +46,15 @@
 
 @end
 
+@interface RadiusTransformer : NSValueTransformer
+
++ (id)instance;
+
+@end
+
+@interface TimeTransformer : NSValueTransformer
+
++ (id)instance;
+
+@end
+

@@ -1154,3 +1154,12 @@
 /* MKParam Output */
 "Untervoltage warning" = "Unterspannungswarnung";
 
+/* MKParam NaviCtrl */
+"Single Wp Speed" = "Single WP Geschw.";
+
+/* MKParam NaviCtrl */
+"Decent Range" = "Fail Sink-Radius";
+
+/* MKParam NaviCtrl */
+"Max. Flying Range" = "Max. Flugradius";
+

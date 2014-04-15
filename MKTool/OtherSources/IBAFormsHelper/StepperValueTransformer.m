@@ -25,6 +25,54 @@
 
 #import "StepperValueTransformer.h"
 
+@implementation TimeTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  if ([value integerValue] < 1)
+    return NSLocalizedString(@"Inactive", @"RadiusTransformer");
+  
+  return [NSString stringWithFormat:@"%@ s",value];
+}
+
+@end
+
+@implementation RadiusTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+
+  if ([value integerValue] < 1)
+    return NSLocalizedString(@"Inactive", @"RadiusTransformer");
+
+  return [NSString stringWithFormat:@"%d m",[value unsignedIntegerValue]*10 ];
+}
+
+@end
+
 @implementation LandingSpeedTransformer
 
 + (id)instance {
