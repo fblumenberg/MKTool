@@ -46,11 +46,19 @@
             @"MKBleConnection",
             nil];
 #else
-    keys = [[NSArray alloc] initWithObjects:
-            @"MKIpConnection",
-            @"MKSimConnection",
-            @"MKBleConnection",
-            nil];
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+      keys = [[NSArray alloc] initWithObjects:
+              @"MKIpConnection",
+              @"MKSimConnection",
+              @"MKBleConnection",
+              nil];
+    }
+    else{
+      keys = [[NSArray alloc] initWithObjects:
+              @"MKIpConnection",
+              @"MKSimConnection",
+                nil];
+    }
 #endif
     
     pickListOptions = [NSMutableArray array];
@@ -71,8 +79,11 @@
     [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Fake Connection", @"Fake Connection title") iconImage:[UIImage imageNamed:@"icon-phone.png"]
                                                                       font:font]];
     
-    [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Bluetooth 4.0 LE Connection", @"BLE Connection title") iconImage:[UIImage imageNamed:@"icon-bluetooth.png"]
-                                                                      font:font]];
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+      [pickListOptions addObject:[[IBAPickListFormOption alloc] initWithName:NSLocalizedString(@"Bluetooth 4.0 LE Connection", @"BLE Connection title")
+                                                                   iconImage:[UIImage imageNamed:@"icon-bluetooth.png"]
+                                                                        font:font]];
+    }
   }
   return self;
 }
