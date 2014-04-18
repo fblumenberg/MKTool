@@ -58,6 +58,12 @@
 
 @end
 
+@interface AngleTransformer : NSValueTransformer
+
++ (id)instance;
+
+@end
+
 @interface VoltageTransformer : NSValueTransformer
 
 + (id)instance;

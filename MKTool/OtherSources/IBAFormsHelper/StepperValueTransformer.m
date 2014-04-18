@@ -25,6 +25,27 @@
 
 #import "StepperValueTransformer.h"
 
+@implementation AngleTransformer
+
++ (id)instance {
+  return [[[self class] alloc] init];
+}
+
++ (BOOL)allowsReverseTransformation {
+  return NO;
+}
+
++ (Class)transformedValueClass {
+  return [NSString class];
+}
+
+- (NSString *)transformedValue:(NSNumber *)value {
+  
+  return [NSString stringWithFormat:@"%@ °",value];
+}
+
+@end
+
 @implementation TimeTransformer
 
 + (id)instance {

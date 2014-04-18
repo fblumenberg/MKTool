@@ -31,12 +31,15 @@
 #import "StringToNumberTransformer.h"
 #import "SettingsFieldStyle.h"
 #import "SettingsButtonStyle.h"
+#import "StepperValueTransformer.h"
 
 @implementation MKParamCompassDataSource
 
 - (id)initWithModel:(id)aModel {
   self = [super initWithModel:aModel];
   if (self) {
+
+    NSInteger revision = ((IKParamSet *) aModel).Revision.integerValue;
 
     //------------------------------------------------------------------------------------------------------------------------
     IBAFormSection *basicFieldSection = [self addSectionWithHeaderTitle:nil footerTitle:nil];
@@ -49,6 +52,24 @@
 
     [basicFieldSection addNumberFieldForKeyPath:@"KompassWirkung"
                                           title:NSLocalizedString(@"Compass effect", @"MKParam Compass")];
+    
+    if (revision >= 97){
+      [basicFieldSection addFormField:[IBAStepperFormField fieldWithBlock:^(IBAFormFieldBuilder *builder) {
+        builder.keyPath = @"CompassOffset";
+        builder.title = NSLocalizedString(@"Compass offset", @"MKParam Compass");
+        builder.minimumValue = -60;
+        builder.maximumValue = 60;
+        builder.displayValueTransformer = [AngleTransformer instance];
+        builder.formFieldStyle = [SettingsFieldStyleStepper style];
+      }]];
+      
+      [basicFieldSection addSwitchFieldForKeyPath:@"CompassOffset_DisableDeclCalc"
+                                            title:NSLocalizedString(@"Disable declination calc.", @"MKParam Compass")
+                                            style:[SettingsFieldStyleSwitch style]];
+      
+      
+    }
+    
   }
 
   return self;
