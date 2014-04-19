@@ -368,7 +368,7 @@
   if (!cell) {
     cell = [[MKTTextFormFieldCell alloc] initWithFormFieldStyle:[SettingsFieldStyleText new] reuseIdentifier:CellIdentifier];
 
-    cell.textField.textAlignment = UITextAlignmentLeft;
+    cell.textField.textAlignment = NSTextAlignmentLeft;
     cell.textField.returnKeyType = UIReturnKeyDone;
     cell.accessoryType = UITableViewCellAccessoryNone;
   }
@@ -663,10 +663,10 @@
 
   if (IS_IPAD()) {
     aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self.splitViewController presentModalViewController:aNavController animated:YES];
+    [self.splitViewController presentViewController:aNavController animated:YES completion:nil];
   }
   else
-    [self presentModalViewController:aNavController animated:YES];
+    [self presentViewController:aNavController animated:YES completion:nil];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -720,8 +720,8 @@
     UINavigationController *modalNavController = [[UINavigationController alloc]
             initWithRootViewController:controller];
 
-    [self.navigationController presentModalViewController:modalNavController
-                                                 animated:YES];
+    [self.navigationController presentViewController:modalNavController
+                                                 animated:YES completion:nil];
   }
 }
 
@@ -738,10 +738,10 @@
 
   if (IS_IPAD()) {
     naviController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self.splitViewController presentModalViewController:naviController animated:YES];
+    [self.splitViewController presentViewController:naviController animated:YES completion:nil];
   }
   else
-    [self presentModalViewController:naviController animated:YES];
+    [self presentViewController:naviController animated:YES completion:nil];
 }
 
 

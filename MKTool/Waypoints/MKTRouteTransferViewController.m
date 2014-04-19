@@ -116,7 +116,7 @@ NSString *const kMKTRouteTransferMax = @"kMKTRouteTransferMax";
 }
 
 - (IBAction)dismiss:(id)sender {
-  [self dismissModalViewControllerAnimated:YES];
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////

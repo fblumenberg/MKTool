@@ -544,7 +544,7 @@
 		self.opaque = NO;
 		self.textColor = [UIColor blackColor];
 		self.linkColor = [UIColor blueColor];
-		self.textAlignment = UITextAlignmentLeft;
+		self.textAlignment = NSTextAlignmentLeft;
     }
 
     return self;
@@ -556,7 +556,7 @@
 		self.opaque = NO;
 		self.textColor = [UIColor blackColor];
 		self.linkColor = [UIColor blueColor];
-		self.textAlignment = UITextAlignmentLeft;
+		self.textAlignment = NSTextAlignmentLeft;
     }
     
     return self;
@@ -608,7 +608,7 @@
 		case UITextAlignmentRight:
 			htmlAlignmentValue = @"right";
 			break;
-		case UITextAlignmentCenter:
+		case NSTextAlignmentCenter:
 			htmlAlignmentValue = @"center";
 			break;
 		default:

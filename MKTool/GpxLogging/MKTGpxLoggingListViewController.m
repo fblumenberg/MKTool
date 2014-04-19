@@ -224,11 +224,11 @@
   
   MKTGpxSession *session = [self.fetchedResultsController objectAtIndexPath:indexPath];
   
-  cell.textLabel.text = [NSDateFormatter localizedStringFromDate:session.startTime dateStyle:kCFDateFormatterShortStyle timeStyle:kCFDateFormatterNoStyle];
+  cell.textLabel.text = [NSDateFormatter localizedStringFromDate:session.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
   
   cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ –– %@ (%d)",
-                               [NSDateFormatter localizedStringFromDate:session.startTime dateStyle:kCFDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle],
-                               [NSDateFormatter localizedStringFromDate:session.endTime dateStyle:kCFDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle],
+                               [NSDateFormatter localizedStringFromDate:session.startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle],
+                               [NSDateFormatter localizedStringFromDate:session.endTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle],
                                [session.records count]];
   
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

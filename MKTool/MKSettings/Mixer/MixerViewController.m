@@ -155,7 +155,7 @@
 - (void)createTextCell {
   textCell = [[MixerTextFormFieldCell alloc] initWithFormFieldStyle:[SettingsFieldStyleText new] reuseIdentifier:@"MixerTextFormFieldCell"];
 
-  textCell.textField.textAlignment = UITextAlignmentLeft;
+  textCell.textField.textAlignment = NSTextAlignmentLeft;
   textCell.textField.returnKeyType = UIReturnKeyDone;
   textCell.accessoryType = UITableViewCellAccessoryNone;
   textCell.label.text = NSLocalizedString(@"Name", @"Mixer name label");

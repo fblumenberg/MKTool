@@ -134,7 +134,7 @@
 }
 
 - (IBAction)dismiss:(id)sender {
-  [self dismissModalViewControllerAnimated:YES];
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)uploadSelected:(id)sender {

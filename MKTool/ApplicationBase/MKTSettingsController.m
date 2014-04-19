@@ -43,14 +43,14 @@
   
   if (IS_IPAD()) {
     aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [viewController presentModalViewController:aNavController animated:YES];
+    [viewController presentViewController:aNavController animated:YES completion:nil];
   }
   else
-    [viewController presentModalViewController:aNavController animated:YES];
+    [viewController presentViewController:aNavController animated:YES completion:nil];
 }
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender{
-  [sender dismissModalViewControllerAnimated:YES];
+  [sender dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForSpecifier:(IASKSpecifier*)specifier {

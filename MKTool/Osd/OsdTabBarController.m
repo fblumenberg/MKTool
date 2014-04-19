@@ -187,7 +187,7 @@
 }
 
 - (void)dismissView {
-  [self dismissModalViewControllerAnimated:YES];
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL) prefersStatusBarHidden {

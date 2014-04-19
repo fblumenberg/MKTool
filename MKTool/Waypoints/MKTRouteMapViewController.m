@@ -553,10 +553,10 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
   if (IS_IPAD()) {
     naviController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self.splitViewController presentModalViewController:naviController animated:YES];
+    [self.splitViewController presentViewController:naviController animated:YES completion:nil];
   }
   else
-    [self presentModalViewController:naviController animated:YES];
+    [self presentViewController:naviController animated:YES completion:nil];
 }
 
 
@@ -1011,14 +1011,14 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     UINavigationController *modalNavController = [[UINavigationController alloc]
             initWithRootViewController:controller];
 
-    [self.navigationController presentModalViewController:modalNavController
-                                                 animated:YES];
+    [self.navigationController presentViewController:modalNavController
+                                                 animated:YES completion:nil];
   }
 }
 
 
 - (void)dismiss {
-  [self.navigationController dismissModalViewControllerAnimated:YES];
+  [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

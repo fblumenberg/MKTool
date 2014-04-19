@@ -213,7 +213,7 @@
 
   navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
   controller.delegate = self;
-  [rootViewController presentModalViewController:navController animated:YES];
+  [rootViewController presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)discoveryView:(MKBLEDiscoveryViewController *)discoveryView didSelectDeviceWithIdentifier:(NSString *)uuid
@@ -236,7 +236,7 @@
   
   navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
   controller.delegate = self;
-  [rootViewController presentModalViewController:navController animated:YES];
+  [rootViewController presentViewController:navController animated:YES completion:nil];
 }
 
 
@@ -247,7 +247,7 @@
   [self.model setValue:[device nameOrAddress] forKey:@"name"];
   [self.model setValue:[device addressString] forKey:@"address"];
   
-  [discoveryView.navigationController dismissModalViewControllerAnimated:YES];
+  [discoveryView.navigationController dismissViewControllerAnimated:YES completion:nil];
   return YES;
 }
 #endif

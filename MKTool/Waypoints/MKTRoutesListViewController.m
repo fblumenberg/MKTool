@@ -156,9 +156,9 @@
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender{
   if (IS_IPAD())
-    [self.splitViewController dismissModalViewControllerAnimated:YES];
+    [self.splitViewController dismissViewControllerAnimated:YES completion:nil];
   else
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -411,10 +411,10 @@
   
   if (IS_IPAD()) {
     naviController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self.splitViewController presentModalViewController:naviController animated:YES];
+    [self.splitViewController presentViewController:naviController animated:YES completion:nil];
   }
   else
-    [self presentModalViewController:naviController animated:YES];
+    [self presentViewController:naviController animated:YES completion:nil];
 }
 
 - (void)controller:(MKTRouteDropboxController*)crontroller dropboxInitFailedWithError:(NSError*)error{

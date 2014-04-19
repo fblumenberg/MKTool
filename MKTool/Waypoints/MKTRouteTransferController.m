@@ -41,8 +41,6 @@
 
 @property(strong) MKTRoute* route;
 
-- (void)uploadClearPoint;
-
 - (void)uploadPoint:(NSUInteger)index;
 
 - (void)downloadPoint:(NSUInteger)index;
