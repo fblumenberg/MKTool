@@ -119,7 +119,7 @@
       [p setValue:[model valueForKey:key] forKey:key];
     }];
   }
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 
   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }

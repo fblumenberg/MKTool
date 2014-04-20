@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 //
 // ///////////////////////////////////////////////////////////////////////////////
+#import "CJAMacros.h"
 #import "InnerBand.h"
 #import "MKTMainMenuController.h"
 #import "SBTableAlert.h"
@@ -123,7 +124,7 @@
 }
 
 - (void)showSettingsModal{
-  [[MKTSettingsController sharedController] showFromController:IS_IPAD()?self.splitViewController:self];
+  [[MKTSettingsController sharedController] showFromController:IB_IS_IPAD()?self.splitViewController:self];
 }
 
 #pragma mark - Table view data source

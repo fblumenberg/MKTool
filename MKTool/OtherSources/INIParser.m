@@ -41,13 +41,6 @@
   return [self initWithString:data];
 }
 
-- (void)dealloc {
-  SAFE_ARC_RELEASE(sectionRegex);
-  SAFE_ARC_RELEASE(lineRegex);
-  SAFE_ARC_RELEASE(sections);
-  SAFE_ARC_SUPER_DEALLOC();
-}
-
 #pragma mark - Parsing
 
 - (void)parseString:(NSString *)data {

@@ -1,6 +1,9 @@
 platform :ios, '6.0'
 pod 'BlocksKit'
 pod 'GHKit', '1.0.0'
+pod 'InnerBand', :git => 'https://github.com/fblumenberg/InnerBand.git'
+
+
 pod 'YelpKit', :git => 'https://github.com/fblumenberg/YelpKit'
 pod 'IBAForms', :git => 'https://github.com/fblumenberg/IBAForms'
 pod 'MKCommunication', :git => 'https://github.com/fblumenberg/MKCommunication'

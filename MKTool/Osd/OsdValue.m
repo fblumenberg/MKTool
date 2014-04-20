@@ -511,7 +511,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     IKDeviceVersion *fcVersion = [[MKConnectionController sharedMKConnectionController] versionForAddress:kIKMkAddressFC];
 
     self.gpxLogSession.descr = [NSString stringWithFormat:@"%@ %@", ncVersion.versionString, fcVersion.versionString];
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
 
     logTimer = [NSTimer scheduledTimerWithTimeInterval:_logInterval
                                                 target:self
@@ -531,7 +531,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     self.gpxLogSession.endTime = [NSDate date];
     [self.gpxLogSession calculateCoordinateRegionForRecords];
 
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
 
     self.gpxLogSession = nil;
   }

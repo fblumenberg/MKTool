@@ -41,7 +41,7 @@
   //  controller.file = @"waypoints";
   controller.delegate = self;
   
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
     aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
     [viewController presentViewController:aNavController animated:YES completion:nil];
   }

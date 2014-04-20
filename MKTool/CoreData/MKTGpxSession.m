@@ -115,7 +115,7 @@
 
 + (NSFetchedResultsController *)fetchedResultsController {
   
-  CoreDataStore *store = [CoreDataStore mainStore];
+  IBCoreDataStore *store = [IBCoreDataStore mainStore];
   
   // Create the fetch request for the entity.
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];

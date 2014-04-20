@@ -130,7 +130,7 @@ static NSUInteger kNumberOfSettings = 5;
 - (void)viewWillDisappear:(BOOL)animated {
 
   if (self.navigationController.topViewController != self) {
-    if (IS_IPAD())
+    if (IB_IS_IPAD())
       [self.detailViewController popToRootViewControllerAnimated:YES];
   }
 
@@ -319,7 +319,7 @@ static NSUInteger kNumberOfSettings = 5;
   }
   else {
     
-    if (!IS_IPAD())
+    if (!IB_IS_IPAD())
       [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     UIViewController *extraView = nil;
@@ -336,7 +336,7 @@ static NSUInteger kNumberOfSettings = 5;
         break;
     }
     
-    if (IS_IPAD()) {
+    if (IB_IS_IPAD()) {
       BOOL animated = self.isRootForDetailViewController;
       extraView.navigationItem.hidesBackButton = YES;
       [self.detailViewController popToRootViewControllerAnimated:NO];

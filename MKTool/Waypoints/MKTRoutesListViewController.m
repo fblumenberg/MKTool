@@ -142,7 +142,7 @@
   MKTRoute *r = [MKTRoute create];
   r.name = NSLocalizedString(@"Route", @"Route default name");
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
   
   [self showRouteViewController:r];
   
@@ -151,11 +151,11 @@
 
 - (void)showSettingsModal{
   
-  [[MKTSettingsController sharedController] showFromController:IS_IPAD()?self.splitViewController:self];
+  [[MKTSettingsController sharedController] showFromController:IB_IS_IPAD()?self.splitViewController:self];
 }
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender{
-  if (IS_IPAD())
+  if (IB_IS_IPAD())
     [self.splitViewController dismissViewControllerAnimated:YES completion:nil];
   else
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -245,7 +245,7 @@
 
     [[self.fetchedResultsController objectAtIndexPath:indexPath] destroy];
     [self doReindex];
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
 
 
   } else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -275,7 +275,7 @@
   if (!success) {
   }
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 
   userDrivenDataModelChange = NO;
 
@@ -291,7 +291,7 @@
 
 
 - (void)showRouteViewController:(MKTRoute *)route {
-    if(IS_IPAD()){
+    if(IB_IS_IPAD()){
         MKTRouteMasterViewController *routeController = [[MKTRouteMasterViewController alloc] initWithRoute:route];
         [self.navigationController pushViewController:routeController animated:YES];
     }
@@ -409,7 +409,7 @@
   MKTRouteSyncViewController* controller = [[MKTRouteSyncViewController alloc] initWithNibName:nil bundle:nil];
   UINavigationController* naviController = [[UINavigationController alloc] initWithRootViewController:controller];
   
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
     naviController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self.splitViewController presentViewController:naviController animated:YES completion:nil];
   }

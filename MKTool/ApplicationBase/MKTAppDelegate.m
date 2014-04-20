@@ -121,7 +121,7 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
   NSUndoManager* contextUndoManager = [NSUndoManager new];
   contextUndoManager.levelsOfUndo = 20;
                                        
-  [CoreDataStore mainStore].context.undoManager = contextUndoManager;
+  [IBCoreDataStore mainStore].context.undoManager = contextUndoManager;
   
   
   // Load the default values for the user defaults
@@ -171,7 +171,7 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
   
   if([[MKConnectionController sharedMKConnectionController] isRunning]){
     [[MKConnectionController sharedMKConnectionController] stop];
@@ -197,7 +197,7 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 }
 
 @end

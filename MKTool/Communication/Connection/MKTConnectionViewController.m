@@ -65,7 +65,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.navigationItem.hidesBackButton = IS_IPAD();
+  self.navigationItem.hidesBackButton = IB_IS_IPAD();
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -77,7 +77,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

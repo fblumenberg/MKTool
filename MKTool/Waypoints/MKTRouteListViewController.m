@@ -228,7 +228,7 @@
   [super setEditing:NO animated:NO];
   [self.tableView setEditing:NO animated:NO];
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -254,11 +254,11 @@
       [tbArray addObject:self.ulButton];
     }
 
-    if (IS_IPHONE()) {
+    if (IB_IS_IPHONE()) {
       [tbArray addObject:self.wpGenButton];
     }
 
-    if (IS_GPS_ENABLED())
+    if (IB_IS_GPS_ENABLED())
       [tbArray addObject:self.addWithGpsButton];
 
     [tbArray addObject:self.addButton];
@@ -299,7 +299,7 @@
 
   }
   else {
-    self.addWithGpsButton.enabled = IS_GPS_ENABLED();
+    self.addWithGpsButton.enabled = IB_IS_GPS_ENABLED();
   }
 }
 
@@ -413,7 +413,7 @@
     if (indexPath.section > 0) {
 
       MKTPoint *p = [self.fetchedResultsController objectAtIndexPath:[self correctedIndexPath:indexPath]];
-      if (IS_IPHONE()) {
+      if (IB_IS_IPHONE()) {
         [self showViewControllerForPoint:p];
       }
       else {
@@ -478,7 +478,7 @@
   if (!success) {
   }
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 
   userDrivenDataModelChange = NO;
 
@@ -661,7 +661,7 @@
 
   [self updateToolbarState];
 
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
     aNavController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self.splitViewController presentViewController:aNavController animated:YES completion:nil];
   }
@@ -683,7 +683,7 @@
 
   MKTPointViewController *controller = [[MKTPointViewController alloc] initWithPoint:point];
 
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
 
     NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:point];
     indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section + 1];
@@ -696,10 +696,10 @@
     CGRect rect = [self.view convertRect:cell.bounds fromView:cell.contentView];
 
     if (CGRectGetHeight(rect) == 0)
-      rect = RECT_WITH_HEIGHT(rect, 1);
+      rect = IB_RECT_WITH_HEIGHT(rect, 1);
 
     if (CGRectGetWidth(rect) == 0)
-      rect = RECT_WITH_WIDTH(rect, 1);
+      rect = IB_RECT_WITH_WIDTH(rect, 1);
 
     [self.popoverController presentPopoverFromRect:rect inView:self.view
                           permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
@@ -711,7 +711,7 @@
 }
 
 - (void)showWpGenerator {
-  if (IS_IPHONE()) {
+  if (IB_IS_IPHONE()) {
 
     MKTRouteMapViewController *controller = [[MKTRouteMapViewController alloc] initWithRoute:self.route];
 
@@ -736,7 +736,7 @@
   MKTRouteTransferViewController2 *controller = [[MKTRouteTransferViewController2 alloc] initWithRoute:self.route];
   UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:controller];
 
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
     naviController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self.splitViewController presentViewController:naviController animated:YES completion:nil];
   }
@@ -777,7 +777,7 @@
   [alert show];
 
   waitForLocation = NO;
-  self.addWithGpsButton.enabled = IS_GPS_ENABLED();
+  self.addWithGpsButton.enabled = IB_IS_GPS_ENABLED();
   self.lm = nil;
 }
 

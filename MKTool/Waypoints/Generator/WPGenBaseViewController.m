@@ -302,7 +302,7 @@ DEFINE_KEY_WITH_VALUE(WPclosed, @"closed");
   
   WPGenConfigViewController *controller = [[WPGenConfigViewController alloc] initWithFormDataSource:self.dataSource];
   
-  if(IS_IPAD()){
+  if(IB_IS_IPAD()){
     
     if (self.popOverController) {
       [self.popOverController dismissPopoverAnimated:YES];

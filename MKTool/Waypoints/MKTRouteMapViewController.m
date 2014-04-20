@@ -249,7 +249,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
-  if (IS_IPAD())
+  if (IB_IS_IPAD())
     self.navigationItem.hidesBackButton = YES;
 
   [self updateToolbar];
@@ -312,7 +312,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
   [self.curlBarItem setHidesWhenAnimating:NO];
   [self.curlBarItem setTargetView:self.mapView];
 
-  self.curlBarItem.curlAnimationShouldStopAfter = IS_IPAD() ? 0.65 : 0.73;
+  self.curlBarItem.curlAnimationShouldStopAfter = IB_IS_IPAD() ? 0.65 : 0.73;
 
   UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self.curlBarItem
                                                                               action:@selector(curlViewDown)];
@@ -377,7 +377,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
     self.navigationItem.leftBarButtonItem = doneButton;
   }
 
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
     self.undoButton = [[UIBarButtonItem alloc]
             initWithImage:[UIImage imageNamed:@"icon-back.png"]
                     style:UIBarButtonItemStyleBordered
@@ -408,7 +408,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
 - (void)undo {
 
-  NSUndoManager *undoManager = [CoreDataStore mainStore].context.undoManager;
+  NSUndoManager *undoManager = [IBCoreDataStore mainStore].context.undoManager;
   if (undoManager.canUndo)
     [undoManager undo];
 
@@ -417,7 +417,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
 - (void)redo {
 
-  NSUndoManager *undoManager = [CoreDataStore mainStore].context.undoManager;
+  NSUndoManager *undoManager = [IBCoreDataStore mainStore].context.undoManager;
   if (undoManager.canRedo)
     [undoManager redo];
 
@@ -439,7 +439,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
   [tbArray addObject:self.spacer];
 
-  if (IS_IPAD() || self.forWpGenModal) {
+  if (IB_IS_IPAD() || self.forWpGenModal) {
 
     if (isLandscape)
       [tbArray addObject:self.wpGenerateConfigItem];
@@ -477,7 +477,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
   self.wpGenerateConfigItem.enabled = wpgen;
   self.wpGeneratorSelection.enabled = !wpgen;
 
-  NSUndoManager *undoManager = [CoreDataStore mainStore].context.undoManager;
+  NSUndoManager *undoManager = [IBCoreDataStore mainStore].context.undoManager;
   self.redoButton.enabled = undoManager.canRedo;
   self.undoButton.enabled = undoManager.canUndo;
 }
@@ -521,7 +521,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
   MKTPointViewController *controller = [[MKTPointViewController alloc] initWithPoint:point];
 
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
 
     [self clearAllSelections];
     [self.popoverController dismissPopoverAnimated:NO];
@@ -551,7 +551,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
   MKTRouteTransferViewController2 *controller = [[MKTRouteTransferViewController2 alloc] initWithRoute:self.route];
   UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:controller];
 
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
     naviController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self.splitViewController presentViewController:naviController animated:YES completion:nil];
   }
@@ -597,7 +597,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
       cancelButtonTitle:NSLocalizedString(@"OK", @"Okay") otherButtonTitles:nil];
   [alert show];
 
-  self.addWithGpsButton.enabled = IS_GPS_ENABLED();
+  self.addWithGpsButton.enabled = IB_IS_GPS_ENABLED();
   self.lm = nil;
   waitForLocationForAddPoint = NO;
 }
@@ -714,7 +714,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 
 
   if (newState == MKAnnotationViewDragStateEnding) {
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
     [self updateRouteOverlay];
 
     //    [self performSelector:@selector(clearAllSelections) withObject:self afterDelay:0.1];
@@ -1002,7 +1002,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 }
 
 - (void)showWpGenerator {
-  if (IS_IPHONE()) {
+  if (IB_IS_IPHONE()) {
 
     MKTRouteMapViewController *controller = [[MKTRouteMapViewController alloc] initWithRoute:self.route];
 
@@ -1052,7 +1052,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
   //  
   //  [Route sendChangedNotification:self];
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 
 }
 
