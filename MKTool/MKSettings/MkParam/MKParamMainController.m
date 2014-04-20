@@ -22,7 +22,7 @@
 //
 // ///////////////////////////////////////////////////////////////////////////////
 
-
+#import <InnerBand.h>
 #import "MKParamMainController.h"
 #import "MKParamMainDataSource.h"
 
@@ -67,6 +67,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  IKParamSet *setting = self.formDataSource.model;
+
+  self.title = [NSString stringWithFormat:NSLocalizedString(@"Setting #%d", @"Setting i"), [setting.Index intValue]];
 
   UIBarButtonItem *renameButton;
   renameButton = [[UIBarButtonItem alloc]
@@ -174,7 +178,10 @@
   
   self.formDataSource = [[MKParamMainDataSource alloc] initWithModel:paramSet];
 
-  [self.detailViewController popToRootViewControllerAnimated:YES];
+  if(IB_IS_IPAD()){
+    [self.detailViewController popToRootViewControllerAnimated:YES];
+  }
+  
   [self.tableView reloadData];
 
   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

@@ -73,20 +73,21 @@ static NSUInteger kNumberOfSettings = 5;
   return self;
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-
+- (void)initNotifications {
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self
          selector:@selector(readSettingNotification:)
              name:MKReadSettingNotification
            object:nil];
-
+  
   [nc addObserver:self
          selector:@selector(changeSettingNotification:)
              name:MKChangeSettingNotification
            object:nil];
+}
 
+- (void)viewDidLoad {
+  [super viewDidLoad];
 
   NSMutableArray *settings = [[NSMutableArray alloc] init];
   for (unsigned i = 0; i < kNumberOfSettings; i++) {
@@ -108,8 +109,7 @@ static NSUInteger kNumberOfSettings = 5;
 }
 
 - (void)viewDidUnload {
-  NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-  [nc removeObserver:self];
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 
   self.settings = nil;
 }
@@ -118,6 +118,9 @@ static NSUInteger kNumberOfSettings = 5;
 #pragma mark -
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  
+  [self initNotifications];
+  
   [[MKConnectionController sharedMKConnectionController] activateFlightCtrl];
 }
 
@@ -133,6 +136,8 @@ static NSUInteger kNumberOfSettings = 5;
     if (IB_IS_IPAD())
       [self.detailViewController popToRootViewControllerAnimated:YES];
   }
+
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 
   [super viewWillDisappear:animated];
 }
