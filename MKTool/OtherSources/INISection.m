@@ -20,12 +20,6 @@
   return self;
 }
 
-- (void)dealloc {
-  SAFE_ARC_RELEASE(assignments);
-  SAFE_ARC_RELEASE(sname);
-  SAFE_ARC_SUPER_DEALLOC();
-}
-
 - (NSString *)name{
   return sname;
 }

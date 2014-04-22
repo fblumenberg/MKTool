@@ -275,7 +275,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     }
 
     
-    if (IS_IPAD()) 
+    if (IB_IS_IPAD())
       [self.splitViewController presentViewController:nc animated:YES completion:nil];
     else
       [self presentViewController:nc animated:YES completion:nil];

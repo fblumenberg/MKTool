@@ -76,18 +76,18 @@
 
 - (NSUInteger)count {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"route=%@", self];
-  return [MKTPoint countForPredicate:predicate];
+  return [[MKTPoint allForPredicate:predicate] count];
 }
 
 
 - (NSUInteger)countWP{
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(route=%@) and (type=%d)", self,MKTPointTypeWP];
-  return [MKTPoint countForPredicate:predicate];
+  return [[MKTPoint allForPredicate:predicate] count];
 }
 
 - (NSUInteger)countPOI{
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(route=%@) and (type=%d)", self,MKTPointTypePOI];
-  return [MKTPoint countForPredicate:predicate];
+  return [[MKTPoint allForPredicate:predicate] count];
 }
 
 
@@ -118,7 +118,7 @@
   [self addPointsObject:p];
   [self updatePointsOrder];
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
   return p;
 }
 
@@ -146,18 +146,18 @@
 
   NSMutableDictionary *headingMap = [NSMutableDictionary dictionaryWithCapacity:[array count]];
   [array enumerateObjectsUsingBlock:^(MKTPoint *p, NSUInteger idx, BOOL *stop) {
-    [headingMap setObject:BOX_INT(idx + 1) forKey:p.index];
+    [headingMap setObject:IB_BOX_INT(idx + 1) forKey:p.index];
     p.indexValue = idx + 1;
   }];
 
   for (MKTPoint *pointToMove in array) {
     if (pointToMove.headingValue < 0) {
-      NSNumber *key = BOX_INT(-pointToMove.headingValue);
+      NSNumber *key = IB_BOX_INT(-pointToMove.headingValue);
       pointToMove.headingValue = -[[headingMap objectForKey:key] integerValue];
     }
   }
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 }
 
 - (void)deletePoint:(MKTPoint*)p{
@@ -172,7 +172,7 @@
   }
   
   [self updatePointsOrder];
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 }
 
 - (void)deletePointAtIndexPath:(NSIndexPath *)indexPath {
@@ -201,7 +201,7 @@
     }
     
     [self updatePointsOrder];
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
   }
 }
 
@@ -320,7 +320,7 @@
 
 + (NSFetchedResultsController *)fetchedResultsController {
 
-  CoreDataStore *store = [CoreDataStore mainStore];
+  IBCoreDataStore *store = [IBCoreDataStore mainStore];
 
   // Create the fetch request for the entity.
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -341,7 +341,7 @@
 }
 
 + (NSDictionary *)attributesForRoute {
-  NSEntityDescription *descr = [MKTRoute entityInManagedObjectContext:[CoreDataStore mainStore].context];
+  NSEntityDescription *descr = [MKTRoute entityInManagedObjectContext:[IBCoreDataStore mainStore].context];
   return descr.attributesByName;
 }
 

@@ -86,14 +86,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 + (NSDictionary *)attributesForPoint {
-  NSEntityDescription *descr = [MKTPoint entityInManagedObjectContext:[CoreDataStore mainStore].context];
+  NSEntityDescription *descr = [MKTPoint entityInManagedObjectContext:[IBCoreDataStore mainStore].context];
   return descr.attributesByName;
 }
 
 
 + (NSFetchedResultsController *)fetchedResultsControllerForRoute:(MKTRoute *)r {
 
-  CoreDataStore *store = [CoreDataStore mainStore];
+  IBCoreDataStore *store = [IBCoreDataStore mainStore];
 
   // Create the fetch request for the entity.
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];

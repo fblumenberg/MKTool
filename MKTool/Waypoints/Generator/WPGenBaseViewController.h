@@ -26,6 +26,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+#import "CJAMacros.h"
 #import "InnerBand.h"
 
 #import "WPGenBaseDataSource.h"

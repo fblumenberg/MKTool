@@ -109,7 +109,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
 
-  if (IS_IPAD())
+  if (IB_IS_IPAD())
     [self.detailViewController popToRootViewControllerAnimated:YES];
 }
 
@@ -131,7 +131,7 @@
   conn.address = @"127.0.0.1";
   conn.connectionData=@"";
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 
   [self showConnectionViewController:conn];
 
@@ -193,7 +193,7 @@
 
     [[self.fetchedResultsController objectAtIndexPath:indexPath] destroy];
     [self doReindex];
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
 
 
   } else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -223,7 +223,7 @@
   if (!success) {
   }
 
-  [[CoreDataStore mainStore] save];
+  [[IBCoreDataStore mainStore] save];
 
   userDrivenDataModelChange = NO;
 
@@ -242,7 +242,7 @@
   MKTConnectionViewController *controller = [[MKTConnectionViewController alloc] initWithConnection:connection];
 
 
-  if (IS_IPAD()) {
+  if (IB_IS_IPAD()) {
     BOOL animated = self.isRootForDetailViewController;
     [self.detailViewController popToRootViewControllerAnimated:NO];
     [self.detailViewController pushViewController:controller animated:animated];

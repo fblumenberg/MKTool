@@ -244,7 +244,7 @@
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     
     [[self.fetchedResultsController objectAtIndexPath:indexPath] destroy];
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
     
   }
   else if (editingStyle == UITableViewCellEditingStyleInsert) {

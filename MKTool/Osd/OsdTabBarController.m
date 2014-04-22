@@ -64,25 +64,25 @@
 
     NSString *nibName;
     nibName = @"ValueOsdViewController";
-    if (IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
+    if (IB_IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
     ValueOsdViewController *valueViewController = [[ValueOsdViewController alloc] initWithNibName:nibName bundle:nil];
     valueViewController.tabBarItem.title = NSLocalizedString(@"Values", @"Values tab item");
     valueViewController.tabBarItem.image = [UIImage imageNamed:@"tabValues.png"];
 
     nibName = @"RawOsdViewController";
-//    if(IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
+//    if(IB_IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
     RawOsdViewController *rawViewController = [[RawOsdViewController alloc] initWithNibName:nibName bundle:nil];
     rawViewController.tabBarItem.title = NSLocalizedString(@"Raw Values", @"Raw Values tab item");
     rawViewController.tabBarItem.image = [UIImage imageNamed:@"tabRawValues.png"];
 
     nibName = @"MapOsdViewController";
-    if (IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
+    if (IB_IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
     MapOsdViewController *mapViewController = [[MapOsdViewController alloc] initWithNibName:nibName bundle:nil];
     mapViewController.tabBarItem.title = NSLocalizedString(@"Map", @"Map tab item");
     mapViewController.tabBarItem.image = [UIImage imageNamed:@"tabMap.png"];
 
     nibName = @"FollowMeOsdViewController";
-    if (IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
+    if (IB_IS_IPAD()) nibName = [nibName stringByAppendingString:@"-iPad"];
     self.followMeViewController = [[FollowMeOsdViewController alloc] initWithNibName:nibName bundle:nil];
     self.followMeViewController.tabBarItem.title = NSLocalizedString(@"Follow Me", @"Follow me tab item");
     self.followMeViewController.tabBarItem.image = [UIImage imageNamed:@"tabFollowMe.png"];

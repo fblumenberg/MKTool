@@ -133,8 +133,8 @@
 
   NSArray *ordPoints = [self orderedPoints];
 
-  [p setNumber:BOX_INT(3) forName:@"FileVersion" section:@"General"];
-  [p setNumber:BOX_INT(ordPoints.count) forName:@"NumberOfWaypoints" section:@"General"];
+  [p setNumber:@(3) forName:@"FileVersion" section:@"General"];
+  [p setNumber:@(ordPoints.count) forName:@"NumberOfWaypoints" section:@"General"];
   [p set:self.name forName:@"Name" section:@"General"];
 
   [ordPoints enumerateObjectsUsingBlock:^(MKTPoint *pt, NSUInteger i, BOOL *stop) {

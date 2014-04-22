@@ -90,7 +90,7 @@
 - (void) viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
   
-  if (IS_IPAD())
+  if (IB_IS_IPAD())
     self.navigationItem.hidesBackButton = YES;
   
   self.mapView.mapType = MKMapTypeHybrid;

@@ -92,7 +92,7 @@
   MKConnectionController *cCtrl = [MKConnectionController sharedMKConnectionController];
 
   NSData *data = [NSData dataWithCommand:MKCommandEngineTestRequest
-                              forAddress:kIKMkAddressAll
+                              forAddress:kIKMkAddressFC
                         payloadWithBytes:values
                                   length:16];
 

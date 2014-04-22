@@ -123,7 +123,6 @@
 		BA94CA291706FE1400AC0934 /* MKTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F20F15409C8C00ECE09A /* MKTDetailViewController.m */; };
 		BA94CA2A1706FE1400AC0934 /* INIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F27E1540A5B600ECE09A /* INIParser.m */; };
 		BA94CA2B1706FE1400AC0934 /* INISection.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2801540A5B600ECE09A /* INISection.m */; };
-		BA94CA2C1706FE1400AC0934 /* InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2821540A5B600ECE09A /* InnerBand.m */; };
 		BA94CA2D1706FE1400AC0934 /* MKModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */; };
 		BA94CA2E1706FE1400AC0934 /* MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2911540A6B100ECE09A /* MKTPoint.m */; };
 		BA94CA2F1706FE1400AC0934 /* MKTRoute+WPL.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2931540A6B100ECE09A /* MKTRoute+WPL.m */; };
@@ -536,7 +535,6 @@
 		BAB2F26D15409F1600ECE09A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F26C15409F1600ECE09A /* Security.framework */; };
 		BAB2F2831540A5B600ECE09A /* INIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F27E1540A5B600ECE09A /* INIParser.m */; };
 		BAB2F2841540A5B600ECE09A /* INISection.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2801540A5B600ECE09A /* INISection.m */; };
-		BAB2F2851540A5B600ECE09A /* InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2821540A5B600ECE09A /* InnerBand.m */; };
 		BAB2F2871540A5DD00ECE09A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F2861540A5DD00ECE09A /* CoreText.framework */; };
 		BAB2F2961540A6B100ECE09A /* MKModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F28E1540A6B100ECE09A /* MKModel.xcdatamodeld */; };
 		BAB2F2971540A6B100ECE09A /* MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2911540A6B100ECE09A /* MKTPoint.m */; };
@@ -555,7 +553,6 @@
 		BAB2F2DC1540AA6C00ECE09A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24E15409E4500ECE09A /* CoreLocation.framework */; };
 		BAB2F2DD1540AA7800ECE09A /* INIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F27E1540A5B600ECE09A /* INIParser.m */; };
 		BAB2F2DE1540AA7800ECE09A /* INISection.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2801540A5B600ECE09A /* INISection.m */; };
-		BAB2F2DF1540AA7800ECE09A /* InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F2821540A5B600ECE09A /* InnerBand.m */; };
 		BAB2F2E01540AA9600ECE09A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F24D15409E4500ECE09A /* CoreData.framework */; };
 		BAB2F2E11540AA9600ECE09A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2F2861540A5DD00ECE09A /* CoreText.framework */; };
 		BAB2F2E21540AAD300ECE09A /* _MKTPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB2F29C1540A73D00ECE09A /* _MKTPoint.m */; };
@@ -991,6 +988,7 @@
 		BAA22A0C1541FB49004F92AA /* WPCamAngleTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCamAngleTransformer.m; sourceTree = "<group>"; };
 		BAA2C930177B15B700119E63 /* MKTParamChannelValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTParamChannelValueTransformer.h; sourceTree = "<group>"; };
 		BAA2C931177B15B700119E63 /* MKTParamChannelValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTParamChannelValueTransformer.m; sourceTree = "<group>"; };
+		BAB28D3A1902D24A008812E6 /* CJAMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJAMacros.h; sourceTree = "<group>"; };
 		BAB2F1F515409C8C00ECE09A /* MKTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB2F1F915409C8C00ECE09A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BAB2F1FB15409C8C00ECE09A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1015,8 +1013,6 @@
 		BAB2F27E1540A5B600ECE09A /* INIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIParser.m; sourceTree = "<group>"; };
 		BAB2F27F1540A5B600ECE09A /* INISection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INISection.h; sourceTree = "<group>"; };
 		BAB2F2801540A5B600ECE09A /* INISection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INISection.m; sourceTree = "<group>"; };
-		BAB2F2811540A5B600ECE09A /* InnerBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerBand.h; sourceTree = "<group>"; };
-		BAB2F2821540A5B600ECE09A /* InnerBand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerBand.m; sourceTree = "<group>"; };
 		BAB2F2861540A5DD00ECE09A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		BAB2F28F1540A6B100ECE09A /* MKModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MKModel.xcdatamodel; sourceTree = "<group>"; };
 		BAB2F2901540A6B100ECE09A /* MKTPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPoint.h; sourceTree = "<group>"; };
@@ -1766,6 +1762,7 @@
 		BAB2F27C1540A5B600ECE09A /* OtherSources */ = {
 			isa = PBXGroup;
 			children = (
+				BAB28D3A1902D24A008812E6 /* CJAMacros.h */,
 				BA98BFBD16C29079000CA7EE /* CustomBadge.h */,
 				BA98BFBE16C29079000CA7EE /* CustomBadge.m */,
 				BAC7B42D155EC79100FA37DA /* DBSession+MKT.h */,
@@ -1774,8 +1771,6 @@
 				BA98BFBF16C29079000CA7EE /* IKOutput */,
 				BAF0CA38154885B900C31A02 /* InAppSettingsKit */,
 				BAD501691541DFFA004BA9A6 /* INIFile */,
-				BAB2F2811540A5B600ECE09A /* InnerBand.h */,
-				BAB2F2821540A5B600ECE09A /* InnerBand.m */,
 				BAF0CA841549CED900C31A02 /* MBProgressHUD.h */,
 				BAF0CA851549CEDA00C31A02 /* MBProgressHUD.m */,
 				BAD5015F1541DA63004BA9A6 /* MGSplitView */,
@@ -2763,7 +2758,6 @@
 				BA94CA2A1706FE1400AC0934 /* INIParser.m in Sources */,
 				BA70DF671896BC8400DF3694 /* MKTRouteTransferViewController2.m in Sources */,
 				BA94CA2B1706FE1400AC0934 /* INISection.m in Sources */,
-				BA94CA2C1706FE1400AC0934 /* InnerBand.m in Sources */,
 				BA94CA2D1706FE1400AC0934 /* MKModel.xcdatamodeld in Sources */,
 				BA94CA2E1706FE1400AC0934 /* MKTPoint.m in Sources */,
 				BA94CA2F1706FE1400AC0934 /* MKTRoute+WPL.m in Sources */,
@@ -2920,7 +2914,6 @@
 				BAB2F2831540A5B600ECE09A /* INIParser.m in Sources */,
 				BA70DF661896BC8400DF3694 /* MKTRouteTransferViewController2.m in Sources */,
 				BAB2F2841540A5B600ECE09A /* INISection.m in Sources */,
-				BAB2F2851540A5B600ECE09A /* InnerBand.m in Sources */,
 				BAB2F2961540A6B100ECE09A /* MKModel.xcdatamodeld in Sources */,
 				BAB2F2971540A6B100ECE09A /* MKTPoint.m in Sources */,
 				BAB2F2981540A6B100ECE09A /* MKTRoute+WPL.m in Sources */,
@@ -3076,7 +3069,6 @@
 				BAB2F2DB1540AA5200ECE09A /* MKTPointTest.m in Sources */,
 				BAB2F2DD1540AA7800ECE09A /* INIParser.m in Sources */,
 				BAB2F2DE1540AA7800ECE09A /* INISection.m in Sources */,
-				BAB2F2DF1540AA7800ECE09A /* InnerBand.m in Sources */,
 				BAB2F2E21540AAD300ECE09A /* _MKTPoint.m in Sources */,
 				BAB2F2E31540AAD300ECE09A /* _MKTRoute.m in Sources */,
 				BAB2F2E41540AAD300ECE09A /* MKTPoint.m in Sources */,
@@ -3262,7 +3254,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3348,7 +3340,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg (Q5RXQNK24L)";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3433,7 +3425,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3485,7 +3477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3513,7 +3505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3538,7 +3530,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3562,7 +3554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3587,7 +3579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3679,7 +3671,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3705,7 +3697,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 196;
+				CURRENT_PROJECT_VERSION = 200;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3719,7 +3711,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0813BE00-8E2F-4D21-99BE-381811D342FD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A48C2205-D662-4055-A538-2EBA5FA3380D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

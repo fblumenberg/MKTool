@@ -50,9 +50,9 @@
 
   CGFloat arcRadius = MIN(self.bounds.size.width, self.bounds.size.height);
 
-  CGFloat angle = DEG_TO_RAD(self.overlay.angle);
-  CGFloat startAngle = angle - DEG_TO_RAD(15);
-  CGFloat endAngle = angle + DEG_TO_RAD(15);
+  CGFloat angle = IB_DEG_TO_RAD(self.overlay.angle);
+  CGFloat startAngle = angle - IB_DEG_TO_RAD(15);
+  CGFloat endAngle = angle + IB_DEG_TO_RAD(15);
 
   CGPoint center = [self pointForMapPoint:MKMapPointForCoordinate(self.overlay.coordinate)];
 

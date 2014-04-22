@@ -273,7 +273,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 //  DDLogVerbose(@"Uploaded route %@ to file %@",route,destPath);
 //  route.parentRev = metadata.rev;
 //  route.lastUpdated = [NSDate distantPast]; //we need a definite change for last update
-//  [[CoreDataStore mainStore] save];
+//  [[IBCoreDataStore mainStore] save];
   
   NSError* error=nil;
   DBFile* dbFile;
@@ -291,12 +291,12 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [dbFile writeContentsOfFile:localPath shouldSteal:YES error:nil];
     
     route.lastUpdated = [NSDate distantPast]; //we need a definite change for last update
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
     
     route.lastUpdated = dbFile.info.modifiedTime;
     DDLogVerbose(@"Set date:%@",dbFile.info.modifiedTime);
     
-    [[CoreDataStore mainStore] save];
+    [[IBCoreDataStore mainStore] save];
 
     [dbFile close];
 
@@ -322,16 +322,16 @@ static int ddLogLevel = LOG_LEVEL_WARN;
       
       DDLogVerbose(@"Loaded route %@ from file %@",route,metaData.path.name);
       route.lastUpdated = [NSDate distantPast]; //we need a definite change for last update
-      [[CoreDataStore mainStore] save];
+      [[IBCoreDataStore mainStore] save];
       
       route.lastUpdated = metaData.modifiedTime;
       DDLogVerbose(@"Set date:%@",metaData.modifiedTime);
       
-      [[CoreDataStore mainStore] save];
+      [[IBCoreDataStore mainStore] save];
     }
     else {
       DDLogWarn(@"Faile to load the route %@ from file %@",route,metaData.path.name);
-      [[CoreDataStore mainStore].context rollback];
+      [[IBCoreDataStore mainStore].context rollback];
     }
     [self performSelector:@selector(startSynchronization) withObject:self afterDelay:0.5];
   }

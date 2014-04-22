@@ -7,7 +7,7 @@
 //
 
 #import <Dropbox/Dropbox.h>
-#import "InnerBand.h"
+#import "CJAMacros.h"
 
 //typedef void (^DBSession_MKT_Block)(void);
 
