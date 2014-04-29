@@ -30,22 +30,22 @@
 #import "WPGenConfigViewController.h"
 #import "UIViewController+MGSplitViewController.h"
 
-DEFINE_KEY_WITH_VALUE(WPaltitude, @"altitude");
-DEFINE_KEY_WITH_VALUE(WPprefix, @"prefix");
-DEFINE_KEY_WITH_VALUE(WPtoleranceRadius, @"toleranceRadius");
-DEFINE_KEY_WITH_VALUE(WPholdTime, @"holdTime");
-DEFINE_KEY_WITH_VALUE(WPcamAngle, @"camAngle");
-DEFINE_KEY_WITH_VALUE(WPheading, @"heading");
-DEFINE_KEY_WITH_VALUE(WPaltitudeRate, @"altitudeRate");
-DEFINE_KEY_WITH_VALUE(WPspeed, @"speed");
-DEFINE_KEY_WITH_VALUE(WPwpEventChannelValue, @"wpEventChannelValue");
-DEFINE_KEY_WITH_VALUE(WPclearWpList, @"clearWpList");
-DEFINE_KEY_WITH_VALUE(WPnoPointsX, @"noPointsX");
-DEFINE_KEY_WITH_VALUE(WPnoPointsY, @"noPointsY");
-DEFINE_KEY_WITH_VALUE(WPnoPoints, @"noPoints");
-DEFINE_KEY_WITH_VALUE(WPstartangle, @"startangle");
-DEFINE_KEY_WITH_VALUE(WPclockwise, @"clockwise");
-DEFINE_KEY_WITH_VALUE(WPclosed, @"closed");
+DEFINE_KEY_WITH_VALUE(WPaltitude, "altitude");
+DEFINE_KEY_WITH_VALUE(WPprefix, "prefix");
+DEFINE_KEY_WITH_VALUE(WPtoleranceRadius, "toleranceRadius");
+DEFINE_KEY_WITH_VALUE(WPholdTime, "holdTime");
+DEFINE_KEY_WITH_VALUE(WPcamAngle, "camAngle");
+DEFINE_KEY_WITH_VALUE(WPheading, "heading");
+DEFINE_KEY_WITH_VALUE(WPaltitudeRate, "altitudeRate");
+DEFINE_KEY_WITH_VALUE(WPspeed, "speed");
+DEFINE_KEY_WITH_VALUE(WPwpEventChannelValue, "wpEventChannelValue");
+DEFINE_KEY_WITH_VALUE(WPclearWpList, "clearWpList");
+DEFINE_KEY_WITH_VALUE(WPnoPointsX, "noPointsX");
+DEFINE_KEY_WITH_VALUE(WPnoPointsY, "noPointsY");
+DEFINE_KEY_WITH_VALUE(WPnoPoints, "noPoints");
+DEFINE_KEY_WITH_VALUE(WPstartangle, "startangle");
+DEFINE_KEY_WITH_VALUE(WPclockwise, "clockwise");
+DEFINE_KEY_WITH_VALUE(WPclosed, "closed");
 
 
 @interface WPGenBaseViewController () <UIGestureRecognizerDelegate, UIPopoverControllerDelegate> {
