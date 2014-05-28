@@ -321,7 +321,7 @@
         double angle = p.heading;
         if (p.heading < 0) {
           
-          int idx = (-p.heading) - 1;
+          NSInteger idx = (-p.heading) - 1;
           if (idx >= 0 && idx < points.count) {
             
             IKPoint *poi = [points objectAtIndex:idx];

@@ -114,7 +114,7 @@
 
 - (void)updateFollowMe:(OsdValue *)value {
   if (value.canFollowMe && value.followMe) {
-    self.followMeBadge.badgeText = [NSString stringWithFormat:@"%d", value.followMeRequests];
+    self.followMeBadge.badgeText = [NSString stringWithFormat:@"%ld", (long)value.followMeRequests];
     self.followMeBadge.badgeInsetColor = value.followMeActive ? self.gpsOkColor : [UIColor redColor];
   }
   else {

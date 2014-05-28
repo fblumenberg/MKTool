@@ -427,7 +427,7 @@ DEFINE_KEY(MKTRouteMapViewShowFences);
 
 - (void)updateToolbar {
 
-  NSLog(@"updateToolbar %d", [UIApplication sharedApplication].statusBarOrientation);
+  NSLog(@"updateToolbar %ld", (long)[UIApplication sharedApplication].statusBarOrientation);
 
   BOOL isLandscape = [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft ||
           [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight;
@@ -1143,7 +1143,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 
 
 - (void)moveMapToPlacemark:(CLPlacemark *)placemark {
-  MKCoordinateRegion region;
+  MKCoordinateRegion region = {0};
   region.center.latitude = placemark.region.center.latitude;
   region.center.longitude = placemark.region.center.longitude;
   MKCoordinateSpan span;

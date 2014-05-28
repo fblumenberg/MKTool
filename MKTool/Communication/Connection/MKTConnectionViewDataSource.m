@@ -199,7 +199,7 @@
 
 - (void)setIpPort:(NSUInteger)ipPort {
   NSArray *hostItems = [self adressItemsIP];
-  [self.model setValue: [NSString stringWithFormat:@"%@:%d",hostItems[0],ipPort] forKeyPath:@"address"];
+  [self.model setValue: [NSString stringWithFormat:@"%@:%lu",hostItems[0],(unsigned long)ipPort] forKeyPath:@"address"];
 }
 
 

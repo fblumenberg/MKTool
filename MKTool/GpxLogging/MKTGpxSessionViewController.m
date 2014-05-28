@@ -58,7 +58,7 @@
   self.title = [NSDateFormatter localizedStringFromDate:self.session.startTime dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
   self.startTime.text = [NSDateFormatter localizedStringFromDate:self.session.startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
   self.endTime.text = [NSDateFormatter localizedStringFromDate:self.session.endTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
-  self.recordsCount.text = [NSString stringWithFormat:@"%d", [self.session.records count]];
+  self.recordsCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.session.records count]];
   
   self.mapView.delegate = self;
   

@@ -243,7 +243,6 @@
 		BA94CAA21706FE1400AC0934 /* ValueBaseOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFFA16C290AD000CA7EE /* ValueBaseOsdViewController.m */; };
 		BA94CAA31706FE1400AC0934 /* ValueOsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98BFFD16C290AD000CA7EE /* ValueOsdViewController.m */; };
 		BA94CAA41706FE1400AC0934 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02516C29609000CA7EE /* Common.m */; };
-		BA94CAA51706FE1400AC0934 /* CoolPatternView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02716C29609000CA7EE /* CoolPatternView.m */; };
 		BA94CAA61706FE1400AC0934 /* IKAttitudeIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02916C29609000CA7EE /* IKAttitudeIndicator.m */; };
 		BA94CAA71706FE1400AC0934 /* IKCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02B16C29609000CA7EE /* IKCompass.m */; };
 		BA94CAA81706FE1400AC0934 /* IKInstrumentsCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02D16C29609000CA7EE /* IKInstrumentsCommon.m */; };
@@ -484,8 +483,6 @@
 		BA98C02216C290AD000CA7EE /* ValueOsdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA98BFFE16C290AD000CA7EE /* ValueOsdViewController.xib */; };
 		BA98C03216C29609000CA7EE /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02516C29609000CA7EE /* Common.m */; };
 		BA98C03316C29609000CA7EE /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02516C29609000CA7EE /* Common.m */; };
-		BA98C03416C29609000CA7EE /* CoolPatternView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02716C29609000CA7EE /* CoolPatternView.m */; };
-		BA98C03516C29609000CA7EE /* CoolPatternView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02716C29609000CA7EE /* CoolPatternView.m */; };
 		BA98C03616C29609000CA7EE /* IKAttitudeIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02916C29609000CA7EE /* IKAttitudeIndicator.m */; };
 		BA98C03716C29609000CA7EE /* IKAttitudeIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02916C29609000CA7EE /* IKAttitudeIndicator.m */; };
 		BA98C03816C29609000CA7EE /* IKCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98C02B16C29609000CA7EE /* IKCompass.m */; };
@@ -942,8 +939,6 @@
 		BA98BFFE16C290AD000CA7EE /* ValueOsdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValueOsdViewController.xib; sourceTree = "<group>"; };
 		BA98C02416C29609000CA7EE /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		BA98C02516C29609000CA7EE /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
-		BA98C02616C29609000CA7EE /* CoolPatternView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoolPatternView.h; sourceTree = "<group>"; };
-		BA98C02716C29609000CA7EE /* CoolPatternView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoolPatternView.m; sourceTree = "<group>"; };
 		BA98C02816C29609000CA7EE /* IKAttitudeIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKAttitudeIndicator.h; sourceTree = "<group>"; };
 		BA98C02916C29609000CA7EE /* IKAttitudeIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKAttitudeIndicator.m; sourceTree = "<group>"; };
 		BA98C02A16C29609000CA7EE /* IKCompass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKCompass.h; sourceTree = "<group>"; };
@@ -1592,8 +1587,6 @@
 			children = (
 				BA98C02416C29609000CA7EE /* Common.h */,
 				BA98C02516C29609000CA7EE /* Common.m */,
-				BA98C02616C29609000CA7EE /* CoolPatternView.h */,
-				BA98C02716C29609000CA7EE /* CoolPatternView.m */,
 				BA98C02816C29609000CA7EE /* IKAttitudeIndicator.h */,
 				BA98C02916C29609000CA7EE /* IKAttitudeIndicator.m */,
 				BA98C02A16C29609000CA7EE /* IKCompass.h */,
@@ -2881,7 +2874,6 @@
 				BA94CAA21706FE1400AC0934 /* ValueBaseOsdViewController.m in Sources */,
 				BA94CAA31706FE1400AC0934 /* ValueOsdViewController.m in Sources */,
 				BA94CAA41706FE1400AC0934 /* Common.m in Sources */,
-				BA94CAA51706FE1400AC0934 /* CoolPatternView.m in Sources */,
 				BA94CAA61706FE1400AC0934 /* IKAttitudeIndicator.m in Sources */,
 				BA94CAA71706FE1400AC0934 /* IKCompass.m in Sources */,
 				BA94CAA81706FE1400AC0934 /* IKInstrumentsCommon.m in Sources */,
@@ -3037,7 +3029,6 @@
 				BA98C01B16C290AD000CA7EE /* ValueBaseOsdViewController.m in Sources */,
 				BA98C01F16C290AD000CA7EE /* ValueOsdViewController.m in Sources */,
 				BA98C03216C29609000CA7EE /* Common.m in Sources */,
-				BA98C03416C29609000CA7EE /* CoolPatternView.m in Sources */,
 				BA98C03616C29609000CA7EE /* IKAttitudeIndicator.m in Sources */,
 				BA98C03816C29609000CA7EE /* IKCompass.m in Sources */,
 				BA98C03A16C29609000CA7EE /* IKInstrumentsCommon.m in Sources */,
@@ -3107,7 +3098,6 @@
 				BA98C01C16C290AD000CA7EE /* ValueBaseOsdViewController.m in Sources */,
 				BA98C02016C290AD000CA7EE /* ValueOsdViewController.m in Sources */,
 				BA98C03316C29609000CA7EE /* Common.m in Sources */,
-				BA98C03516C29609000CA7EE /* CoolPatternView.m in Sources */,
 				BA98C03716C29609000CA7EE /* IKAttitudeIndicator.m in Sources */,
 				BA98C03916C29609000CA7EE /* IKCompass.m in Sources */,
 				BA98C03B16C29609000CA7EE /* IKInstrumentsCommon.m in Sources */,

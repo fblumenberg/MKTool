@@ -109,7 +109,7 @@
 
     CGPoint p = [obj CGPointValue];
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:p toCoordinateFromView:self.shapeView];
-    NSLog(@"%d lat:%f long:%f", idx, coordinate.latitude, coordinate.longitude);
+    NSLog(@"%lu lat:%f long:%f", (unsigned long)idx, coordinate.latitude, coordinate.longitude);
     [points addObject:[self pointOfType:MKTPointTypeWP forCoordinate:coordinate]];
   }];
 

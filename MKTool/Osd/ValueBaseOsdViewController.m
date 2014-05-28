@@ -138,10 +138,10 @@
   IKMkNaviData *data = value.data.data;
 
   NSUInteger headingHome = (data->HomePositionDeviation.Bearing + 360 - data->CompassHeading) % 360;
-  self.homePosDevBearing.text = [NSString stringWithFormat:@"%d°", headingHome];
+  self.homePosDevBearing.text = [NSString stringWithFormat:@"%ld°", (long)headingHome];
   self.homePosDevDistance.text = [NSString stringWithFormat:@"%d m", data->HomePositionDeviation.Distance / 10];
 
-  self.homePosDev.text = [NSString stringWithFormat:@"%d° / %d m", headingHome, data->HomePositionDeviation.Distance / 10];
+  self.homePosDev.text = [NSString stringWithFormat:@"%ld° / %d m", (long)headingHome, data->HomePositionDeviation.Distance / 10];
 
   NSUInteger headingTarget = (data->TargetPositionDeviation.Bearing + 360 - data->CompassHeading) % 360;
   if (value.isTargetReached && data->TargetHoldTime > 0)
@@ -149,8 +149,8 @@
   else
     self.targetTime.text = @"";
 
-  self.targetPosDev.text = [NSString stringWithFormat:@"%d° / %d m ", headingHome, data->TargetPositionDeviation.Distance / 10];
-  self.targetPosDevBearing.text = [NSString stringWithFormat:@"%d°", headingTarget];
+  self.targetPosDev.text = [NSString stringWithFormat:@"%ld° / %d m ", (long)headingHome, data->TargetPositionDeviation.Distance / 10];
+  self.targetPosDevBearing.text = [NSString stringWithFormat:@"%ld°",(long) headingTarget];
   self.targetPosDevDistance.text = [NSString stringWithFormat:@"%d m", data->TargetPositionDeviation.Distance / 10];
 
   self.targetIcon.image = value.isTargetReached ? self.targetReached : self.targetReachedPending;
@@ -164,10 +164,10 @@
 - (void)updateSpeedViews:(OsdValue *)value {
   IKMkNaviData *data = value.data.data;
 
-  self.waypoint.text = [NSString stringWithFormat:@"%d / %d (%d)", data->WaypointIndex, data->WaypointNumber, value.poiIndex];
+  self.waypoint.text = [NSString stringWithFormat:@"%d / %d (%ld)", data->WaypointIndex, data->WaypointNumber, (long)value.poiIndex];
   self.waypointIndex.text = [NSString stringWithFormat:@"%d", data->WaypointIndex];
   self.waypointCount.text = [NSString stringWithFormat:@"/ %d", data->WaypointNumber];
-  self.waypointPOI.text = [NSString stringWithFormat:@"%d", value.poiIndex];
+  self.waypointPOI.text = [NSString stringWithFormat:@"%ld", (long)value.poiIndex];
 }
 
 @end

@@ -122,7 +122,7 @@
                                        if (value == 0) {
                                          return NSLocalizedString(@"Inactive", @"Channels transformer");
                                        }
-                                       return [NSString stringWithFormat:@"%d m", value];
+                                       return [NSString stringWithFormat:@"%ld m", (long)value];
                                      }];
 
 
