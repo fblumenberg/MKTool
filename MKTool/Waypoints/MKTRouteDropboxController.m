@@ -261,6 +261,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     else {
       DDLogInfo(@"Synchronize complete");
       _isSyncing = NO;
+      [MKTRoute clearFetchedResultsControllerCache];
       [self.delegate controllerSyncCompleted:self];
     }
   }

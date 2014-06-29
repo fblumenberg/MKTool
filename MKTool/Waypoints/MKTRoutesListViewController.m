@@ -278,7 +278,7 @@
   [[IBCoreDataStore mainStore] save];
 
   userDrivenDataModelChange = NO;
-
+  [MKTRoute clearFetchedResultsControllerCache];
   [self.tableView reloadData];
 }
 

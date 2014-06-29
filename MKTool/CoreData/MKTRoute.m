@@ -340,6 +340,11 @@
   return aFetchedResultsController;
 }
 
++ (void) clearFetchedResultsControllerCache {
+  [NSFetchedResultsController deleteCacheWithName:@"Root"];
+}
+
+
 + (NSDictionary *)attributesForRoute {
   NSEntityDescription *descr = [MKTRoute entityInManagedObjectContext:[IBCoreDataStore mainStore].context];
   return descr.attributesByName;
