@@ -157,6 +157,7 @@
 
 - (void)setModelValue:(id)value forKeyPath:(NSString *)keyPath {
   if ([keyPath isEqualToString:@"ipAddress"] || [keyPath isEqualToString:@"ipPort"]) {
+    CLS_LOG(@"Self:%@ keyPath:%@",self,keyPath);
     [self setValue:value forKeyPath:keyPath];
   }
   else
