@@ -313,27 +313,29 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   [section.items enumerateObjectsUsingBlock:^(MKTTableItem* item, NSUInteger index, BOOL *stop) {
     IKMkAddress addresses[] = {kIKMkAddressNC,kIKMkAddressFC,kIKMkAddressMK3MAg,kIKMkAddressBL};
     
-    CustomBadge *badge = (CustomBadge*)item.accessoryView;
-    
-    switch ([_debugData statusTypeForAddress:addresses[index]]) {
-      case IKStatusGreen:
-        badge.badgeInsetColor = [MKTCommonColors okColor];
-        badge.badgeText = @"OK";
-        item.selectionStyle = UITableViewCellSelectionStyleNone;
-        break;
-      case IKStatusRed:
-        badge.badgeInsetColor = [MKTCommonColors errorColor];
-        badge.badgeText = @"ERR";
-        item.selectionStyle = UITableViewCellSelectionStyleBlue;
-        break;
-      default:
-        badge.badgeInsetColor = [MKTCommonColors functionOffColor];
-        badge.badgeText = @"UNK";
-        item.selectionStyle = UITableViewCellSelectionStyleNone;
-        break;
+    if([item.accessoryView isKindOfClass:[CustomBadge class]]){
+      CustomBadge *badge = (CustomBadge*)item.accessoryView;
+      
+      switch ([_debugData statusTypeForAddress:addresses[index]]) {
+        case IKStatusGreen:
+          badge.badgeInsetColor = [MKTCommonColors okColor];
+          badge.badgeText = @"OK";
+          item.selectionStyle = UITableViewCellSelectionStyleNone;
+          break;
+        case IKStatusRed:
+          badge.badgeInsetColor = [MKTCommonColors errorColor];
+          badge.badgeText = @"ERR";
+          item.selectionStyle = UITableViewCellSelectionStyleBlue;
+          break;
+        default:
+          badge.badgeInsetColor = [MKTCommonColors functionOffColor];
+          badge.badgeText = @"UNK";
+          item.selectionStyle = UITableViewCellSelectionStyleNone;
+          break;
+      }
+      
+      [badge setNeedsDisplay];
     }
-    
-    [badge setNeedsDisplay];
   }];
 }
 

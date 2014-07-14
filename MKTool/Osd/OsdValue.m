@@ -488,7 +488,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   motorTemp[index] = NSIntegerMin;
 
   if ((motorValue.state & 0x80) == 0x80){
-    motorData[index] = [NSString stringWithFormat:@"BL%-2d: %d°C %.0fA", index + 1, motorValue.temperature,
+    motorData[index] = [NSString stringWithFormat:@"BL%-2ld: %ld°C %.0fA", (long)index + 1, (long)motorValue.temperature,
                                                   motorValue.current / 10.0 /*, motorValue.maxPWM, motorValue.state*/];
     
     motorCurrent[index] = motorValue.current;

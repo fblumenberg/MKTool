@@ -101,7 +101,7 @@
   // Assume we're given a set with a single IBAPickListFormOption and convert it to an NSNumber representing the option
   // index in to pickListOptions
   IBAPickListFormOption *option = [value anyObject];
-  NSNumber *index = [NSNumber numberWithInt:[self.pickListOptions indexOfObject:option]];
+  NSNumber *index = [NSNumber numberWithUnsignedInteger:[self.pickListOptions indexOfObject:option]];
 
   return index;
 }

@@ -204,7 +204,7 @@
   
   NSUInteger numWP=[route countWP];
   NSUInteger numPOI=[route countPOI];
-  NSLog(@"configureCell WP %d POI %d",numWP,numPOI);
+  NSLog(@"configureCell WP %lu POI %lu",(unsigned long)numWP,(unsigned long)numPOI);
   if(numWP==0 && numPOI==0){
     cell.detailTextLabel.text = NSLocalizedString(@"No Points", @"Route descr. no points");
   }
@@ -278,7 +278,7 @@
   [[IBCoreDataStore mainStore] save];
 
   userDrivenDataModelChange = NO;
-
+  [MKTRoute clearFetchedResultsControllerCache];
   [self.tableView reloadData];
 }
 

@@ -137,7 +137,7 @@
   }
   else {
 
-    cell.textLabel.text = [NSString stringWithFormat:@"Motor %d", [indexPath row] + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Motor %ld", (long)[indexPath row] + 1];
     cell.valueSlider.tag = indexPath.row;
 
     [cell.valueSlider addTarget:self

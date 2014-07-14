@@ -69,7 +69,7 @@
 
   if ((self = [super initWithNibName:nil bundle:nil formDataSource:dataSource])) {
     self.points = points;
-    self.title = [NSString stringWithFormat:@"%@ (%d)", NSLocalizedString(@"Waypoints", @"Waypoint bulk view title"), points.count];
+    self.title = [NSString stringWithFormat:@"%@ (%lu)", NSLocalizedString(@"Waypoints", @"Waypoint bulk view title"), (unsigned long)points.count];
   }
   return self;
 }

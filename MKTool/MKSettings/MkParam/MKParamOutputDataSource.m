@@ -52,7 +52,7 @@
                                                                  showIdle:YES]];
 
     [paramSection addPotiFieldForKeyPath:@"J16Timing" title:NSLocalizedString(@"Timing", @"MKParam Output") block:^NSString *(NSInteger value) {
-      return [NSString stringWithFormat:@"%d ms",value*10];
+      return [NSString stringWithFormat:@"%ld ms",(long)value*10];
     }];
     
     [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_BLINK1" title:NSLocalizedString(@"Active after Motor start", @"MKParam Output") style:[SettingsFieldStyleSwitch style]];
@@ -83,7 +83,7 @@
                                                                  showIdle:YES]];
     
     [paramSection addPotiFieldForKeyPath:@"J17Timing" title:NSLocalizedString(@"Timing", @"MKParam Output") block:^NSString *(NSInteger value) {
-      return [NSString stringWithFormat:@"%d ms",value*10];
+      return [NSString stringWithFormat:@"%ld ms",(long)value*10];
     }];
 
     [paramSection addSwitchFieldForKeyPath:@"BitConfig_MOTOR_BLINK2" title:NSLocalizedString(@"Active after Motor start", @"MKParam Output") style:[SettingsFieldStyleSwitch style]];

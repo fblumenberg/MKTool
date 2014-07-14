@@ -139,7 +139,7 @@
 
   [ordPoints enumerateObjectsUsingBlock:^(MKTPoint *pt, NSUInteger i, BOOL *stop) {
 
-    NSString *sectionName = [NSString stringWithFormat:@"Point%d", i + 1];
+    NSString *sectionName = [NSString stringWithFormat:@"Point%lu", (unsigned long)i + 1];
 
     [p setNumber:pt.latitude forName:@"Latitude" section:sectionName];
     [p setNumber:pt.longitude forName:@"Longitude" section:sectionName];

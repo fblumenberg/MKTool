@@ -67,7 +67,7 @@
   [[UIColor whiteColor] set];
   CGContextAddEllipseInRect(context, pointRect);
   CGContextStrokePath(context);
-  NSString *text = [NSString stringWithFormat:@"%d", idx + 1];
+  NSString *text = [NSString stringWithFormat:@"%ld", (long)idx + 1];
 
   CGSize textSize = [text sizeWithFont:self.wpTextFont];
   CGRect textRect = CGRectMake(p.x, p.y, textSize.width, textSize.height);

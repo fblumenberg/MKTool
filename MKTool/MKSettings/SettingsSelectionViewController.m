@@ -108,12 +108,6 @@ static NSUInteger kNumberOfSettings = 5;
   // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
-
-  self.settings = nil;
-}
-
 // ////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 - (void)viewWillAppear:(BOOL)animated {
@@ -174,7 +168,7 @@ static NSUInteger kNumberOfSettings = 5;
   [self.settings replaceObjectAtIndex:index withObject:paramSet];
 
   if (activeSetting == 0xFF) {
-    activeSetting = index;
+    activeSetting = (int)index;
   }
   else {
     [self showControllerForSetting:paramSet];
@@ -289,7 +283,7 @@ static NSUInteger kNumberOfSettings = 5;
 
   NSInteger index = [[d objectForKey:kMKDataKeyIndex] integerValue] - 1;
 
-  activeSetting = index;
+  activeSetting = (int)index;
 
 //  [self cancelEditActiveSetting:self];
 }

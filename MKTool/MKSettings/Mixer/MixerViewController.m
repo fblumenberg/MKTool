@@ -185,7 +185,7 @@
     return textCell;
 
   MixerTableViewCell *cell = [cells objectAtIndex:indexPath.row];
-  cell.cellLabel.text = [NSString stringWithFormat:@"Motor %d", [indexPath row] + 1];
+  cell.cellLabel.text = [NSString stringWithFormat:@"Motor %ld", (long)[indexPath row] + 1];
   return cell;
 }
 
@@ -252,10 +252,10 @@
 
   [cells enumerateObjectsUsingBlock:^(MixerTableViewCell *cell, NSUInteger i, BOOL *stop) {
     IKMixerMotorData *data = [mixer dataForMotor:i];
-    cell.cellTextGas.text = [NSString stringWithFormat:@"%d", data.gas];
-    cell.cellTextNick.text = [NSString stringWithFormat:@"%d", data.nick];
-    cell.cellTextRoll.text = [NSString stringWithFormat:@"%d", data.roll];
-    cell.cellTextYaw.text = [NSString stringWithFormat:@"%d", data.yaw];
+    cell.cellTextGas.text = [NSString stringWithFormat:@"%ld", (long)data.gas];
+    cell.cellTextNick.text = [NSString stringWithFormat:@"%ld", (long)data.nick];
+    cell.cellTextRoll.text = [NSString stringWithFormat:@"%ld", (long)data.roll];
+    cell.cellTextYaw.text = [NSString stringWithFormat:@"%ld", (long)data.yaw];
   }];
 
   [self.tableView reloadData];

@@ -111,7 +111,7 @@
 
       CLLocationCoordinate2D coordinate = [self.mapView convertPoint:p toCoordinateFromView:self.shapeView];
 
-      NSLog(@"%d,%d lat:%f long:%f", idxX, idxY, coordinate.latitude, coordinate.longitude);
+      NSLog(@"%lu,%lu lat:%f long:%f", (unsigned long)idxX, (unsigned long)idxY, coordinate.latitude, coordinate.longitude);
 
       MKTPoint *newPoint = [MKTPoint create];
 

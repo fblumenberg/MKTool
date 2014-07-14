@@ -113,7 +113,7 @@
   if ([value integerValue] < 1)
     return NSLocalizedString(@"Inactive", @"RadiusTransformer");
 
-  return [NSString stringWithFormat:@"%d m",[value unsignedIntegerValue]*10 ];
+  return [NSString stringWithFormat:@"%lu m",(unsigned long)[value unsignedIntegerValue]*10 ];
 }
 
 @end

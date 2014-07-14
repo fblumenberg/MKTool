@@ -33,6 +33,7 @@
 
 + (NSDictionary *)attributesForRoute;
 + (NSFetchedResultsController *)fetchedResultsController;
++ (void) clearFetchedResultsControllerCache;
 + (CLLocationCoordinate2D)defaultCoordinate;
 
 - (NSArray *)orderedPoints;

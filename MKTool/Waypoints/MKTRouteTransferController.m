@@ -128,7 +128,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   
   state = RouteControllerIsUploading;
   
-  DDLogInfo(@"Start uploading route  from %d to%d",currIndex,lastIndex);
+  DDLogInfo(@"Start uploading route  from %ld to%ld",(long)currIndex,(long)lastIndex);
   [[MKConnectionController sharedMKConnectionController] activateNaviCtrl];
    
   [self uploadPoint:uploadIndex];
@@ -151,7 +151,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
   
   p.index = uploadIndex;
   
-  DDLogInfo(@"Upload point (%d) %@", index, p);
+  DDLogInfo(@"Upload point (%lu) %@", (unsigned long)index, p);
   [[MKConnectionController sharedMKConnectionController] writePoint:p];
   [self performSelector:@selector(uploadTimeout) withObject:self afterDelay:2.0];
 
@@ -165,7 +165,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
   NSDictionary *d = [aNotification userInfo];
   NSInteger resultIndex = [[d objectForKey:kMKDataKeyIndex] integerValue];
-  DDLogInfo(@"Upload point (%d) finished", resultIndex);
+  DDLogInfo(@"Upload point (%ld) finished", (long)resultIndex);
   
   if (state != RouteControllerIsUploading || resultIndex!=uploadIndex) {
     DDLogInfo(@"Ignore result from WP upload");
@@ -228,7 +228,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void)downloadPoint:(NSUInteger)index {
 
-  DDLogInfo(@"Download point (%d)", index);
+  DDLogInfo(@"Download point (%lu)", (unsigned long)index);
   [[MKConnectionController sharedMKConnectionController] requestPointForIndex:index + 1];
 
   if ([self.delegate respondsToSelector:@selector(routeControllerStartDownload:forIndex:)])
@@ -254,7 +254,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
 
   if ([d objectForKey:kMKDataKeyIndex]) {
     NSInteger index = [[d objectForKey:kMKDataKeyIndex] integerValue] - 1;
-    DDLogInfo(@"Download point (NC index %d) finished", index);
+    DDLogInfo(@"Download point (NC index %ld) finished", (long)index);
 
     if ([self.delegate respondsToSelector:@selector(routeControllerFinishedUpload:forIndex:of:)])
       [self.delegate routeControllerFinishedUpload:self forIndex:index of:[self.points count]];
@@ -272,7 +272,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     }
   }
   else {
-    DDLogError(@"No point for the NC index %d. Count is %d", currIndex, count);
+    DDLogError(@"No point for the NC index %ld. Count is %ld", (long)currIndex, (long)count);
     downloadFinished = YES;
   }
 

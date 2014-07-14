@@ -154,7 +154,7 @@
   BOOL isOn = (self.value & (1 << index)) != 0;
   BOOL isIdle = self.showIdle && index==7;
   
-  UIColor* color =self.insetColorOff;
+  UIColor* color;
   if(isIdle){
     color = isOn?self.insetColorIdleOn:self.insetColorIdleOff;
   }

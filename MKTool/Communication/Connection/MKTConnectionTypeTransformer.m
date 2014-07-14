@@ -100,7 +100,7 @@
 
   IBAPickListFormOption *option = [value anyObject];
 
-  int idx = [self.pickListOptions indexOfObject:option];
+  NSUInteger idx = [self.pickListOptions indexOfObject:option];
 
   return idx != NSNotFound ? [keys objectAtIndex:idx] : nil;
 }
@@ -110,9 +110,9 @@
   // single IBAPickListFormOption
   NSMutableSet *options = [[NSMutableSet alloc] init];
 
-  int index = [keys indexOfObject:value];
+  NSUInteger index = [keys indexOfObject:value];
 
-  if ((index >= 0) && (index < [self.pickListOptions count])) {
+  if ((index != NSNotFound) && (index < [self.pickListOptions count])) {
     IBAPickListFormOption *option = [self.pickListOptions objectAtIndex:index];
     if (option != nil) {
       [options addObject:option];
@@ -120,8 +120,6 @@
   }
 
   return options;
-
-
 }
 
 @end
