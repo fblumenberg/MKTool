@@ -111,7 +111,11 @@
     }]];
 
     [paramSection addPotiFieldForKeyPath:@"Hoehe_P" title:NSLocalizedString(@"Altitude-P", @"MKParam Altitude")];
-    [paramSection addPotiFieldForKeyPath:@"Hoehe_GPS_Z" title:NSLocalizedString(@"GPS-Z", @"MKParam Altitude")];
+    if (revision >= 103){
+      [paramSection addPotiFieldForKeyPath:@"Hoehe_TiltCompensation" title:NSLocalizedString(@"Tilt Compensation", @"MKParam Altitude") format:@"%ld %%"];
+    }
+    else
+      [paramSection addPotiFieldForKeyPath:@"Hoehe_GPS_Z" title:NSLocalizedString(@"GPS-Z", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Luftdruck_D" title:NSLocalizedString(@"Barometric-D", @"MKParam Altitude")];
     [paramSection addPotiFieldForKeyPath:@"Hoehe_ACC_Wirkung" title:NSLocalizedString(@"Z-ACC", @"MKParam Altitude")];
 
