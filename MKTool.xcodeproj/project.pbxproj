@@ -696,11 +696,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		01537FA27BFA3AD8B268330A /* Pods.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.testflight.xcconfig; path = "Pods/Target Support Files/Pods/Pods.testflight.xcconfig"; sourceTree = "<group>"; };
+		0A40F1DDC5D9E1750BDD4C1B /* Pods-MKToolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolTests/Pods-MKToolTests.release.xcconfig"; sourceTree = "<group>"; };
+		0DD53599A423C7E7A62B68DA /* Pods-MKToolTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolTests/Pods-MKToolTests.testflight.xcconfig"; sourceTree = "<group>"; };
+		1A31B6A7EB597C51DDC75601 /* Pods-MKToolCydia.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolCydia/Pods-MKToolCydia.testflight.xcconfig"; sourceTree = "<group>"; };
 		24E250CB12DE487FA07D3053 /* libPods-MKTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.xcconfig"; path = "Pods/Pods-MKToolTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		2EE7099102D062A9092AFAEA /* Pods-MKToolTests.cydia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.cydia.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolTests/Pods-MKToolTests.cydia.xcconfig"; sourceTree = "<group>"; };
+		3926CC05E97612E30D087DAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3DDCE549DCA0185E552233CB /* Pods-MKToolCydia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolCydia/Pods-MKToolCydia.release.xcconfig"; sourceTree = "<group>"; };
 		4953AA427A9D42B298C88051 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CDD9D2D2C94C02E9A254223 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5109A5E54AFC4C0193D94DFD /* libPods-MKToolCydia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKToolCydia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5477E18DC374844D930DB137 /* Pods-MKToolCydia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolCydia/Pods-MKToolCydia.debug.xcconfig"; sourceTree = "<group>"; };
+		5BD3BDAB083038984FC4D48C /* Pods-MKToolTests.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.appstore.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolTests/Pods-MKToolTests.appstore.xcconfig"; sourceTree = "<group>"; };
+		61ED02ED4DD3458AFE8224D4 /* Pods.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.appstore.xcconfig; path = "Pods/Target Support Files/Pods/Pods.appstore.xcconfig"; sourceTree = "<group>"; };
 		760A1CD6155413FB00EDDBC5 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
 		760A1CD7155413FB00EDDBC5 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
 		760A1CD8155413FB00EDDBC5 /* icon-forth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forth.png"; sourceTree = "<group>"; };
@@ -772,6 +781,7 @@
 		76FAA0F51553C61F00419D77 /* darkGreyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkGreyButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		76FAA0FA1553CF6F00419D77 /* UIButton+Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Images.h"; sourceTree = "<group>"; };
 		76FAA0FB1553CF6F00419D77 /* UIButton+Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Images.m"; sourceTree = "<group>"; };
+		AD7253F13AE7879A44BC64F1 /* Pods-MKToolCydia.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.appstore.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolCydia/Pods-MKToolCydia.appstore.xcconfig"; sourceTree = "<group>"; };
 		BA0E48F915869056000F382C /* icon-locate-gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps.png"; sourceTree = "<group>"; };
 		BA0E48FA15869056000F382C /* icon-locate-gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-locate-gps@2x.png"; sourceTree = "<group>"; };
 		BA18C41E154B1301005C882A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -788,7 +798,7 @@
 		BA56917E16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTPoint+MKTPoint_IKPoint.h"; sourceTree = "<group>"; };
 		BA56917F16F8DD66007A33D0 /* MKTPoint+MKTPoint_IKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTPoint+MKTPoint_IKPoint.m"; sourceTree = "<group>"; };
 		BA56918416F8EBFC007A33D0 /* MKTRouteTransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteTransferController.h; sourceTree = "<group>"; };
-		BA56918516F8EBFC007A33D0 /* MKTRouteTransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTransferController.m; sourceTree = "<group>"; };
+		BA56918516F8EBFC007A33D0 /* MKTRouteTransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MKTRouteTransferController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BA56918716F9068F007A33D0 /* MKTRouteTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteTransferViewController.h; sourceTree = "<group>"; };
 		BA56918816F9068F007A33D0 /* MKTRouteTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteTransferViewController.m; sourceTree = "<group>"; };
 		BA56918A16F9103E007A33D0 /* icon-ul1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ul1.png"; sourceTree = "<group>"; };
@@ -822,7 +832,7 @@
 		BA98BEE616C28666000CA7EE /* MKTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTConnection.h; sourceTree = "<group>"; };
 		BA98BEE716C28666000CA7EE /* MKTConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTConnection.m; sourceTree = "<group>"; };
 		BA98BEEC16C2885F000CA7EE /* MKTConnectedMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTConnectedMenuController.h; path = ApplicationBase/MKTConnectedMenuController.h; sourceTree = "<group>"; };
-		BA98BEED16C2885F000CA7EE /* MKTConnectedMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTConnectedMenuController.m; path = ApplicationBase/MKTConnectedMenuController.m; sourceTree = "<group>"; };
+		BA98BEED16C2885F000CA7EE /* MKTConnectedMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MKTConnectedMenuController.m; path = ApplicationBase/MKTConnectedMenuController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BA98BEEE16C2885F000CA7EE /* MKTMainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTMainMenuController.h; path = ApplicationBase/MKTMainMenuController.h; sourceTree = "<group>"; };
 		BA98BEEF16C2885F000CA7EE /* MKTMainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTMainMenuController.m; path = ApplicationBase/MKTMainMenuController.m; sourceTree = "<group>"; };
 		BA98BEFF16C28886000CA7EE /* MKTConnection+MKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTConnection+MKConnection.h"; sourceTree = "<group>"; };
@@ -926,7 +936,7 @@
 		BA98BFF116C290AD000CA7EE /* OsdTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OsdTabBarController.h; sourceTree = "<group>"; };
 		BA98BFF216C290AD000CA7EE /* OsdTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OsdTabBarController.m; sourceTree = "<group>"; };
 		BA98BFF316C290AD000CA7EE /* OsdValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OsdValue.h; sourceTree = "<group>"; };
-		BA98BFF416C290AD000CA7EE /* OsdValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OsdValue.m; sourceTree = "<group>"; };
+		BA98BFF416C290AD000CA7EE /* OsdValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OsdValue.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BA98BFF516C290AD000CA7EE /* OsdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OsdViewController.xib; sourceTree = "<group>"; };
 		BA98BFF616C290AD000CA7EE /* RawOsdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawOsdViewController.h; sourceTree = "<group>"; };
 		BA98BFF716C290AD000CA7EE /* RawOsdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawOsdViewController.m; sourceTree = "<group>"; };
@@ -993,7 +1003,7 @@
 		BAB2F20515409C8C00ECE09A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ApplicationBase/main.m; sourceTree = "<group>"; };
 		BAB2F20715409C8C00ECE09A /* MKTool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MKTool-Prefix.pch"; path = "ApplicationBase/MKTool-Prefix.pch"; sourceTree = "<group>"; };
 		BAB2F20815409C8C00ECE09A /* MKTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKTAppDelegate.h; path = ApplicationBase/MKTAppDelegate.h; sourceTree = "<group>"; };
-		BAB2F20915409C8C00ECE09A /* MKTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKTAppDelegate.m; path = ApplicationBase/MKTAppDelegate.m; sourceTree = "<group>"; };
+		BAB2F20915409C8C00ECE09A /* MKTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MKTAppDelegate.m; path = ApplicationBase/MKTAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BAB2F20E15409C8C00ECE09A /* MKTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTDetailViewController.h; sourceTree = "<group>"; };
 		BAB2F20F15409C8C00ECE09A /* MKTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTDetailViewController.m; sourceTree = "<group>"; };
 		BAB2F21215409C8C00ECE09A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTMasterViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -1026,7 +1036,7 @@
 		BAB2F2B11540A7F800ECE09A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BAB2F2B31540A7F800ECE09A /* MKToolTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKToolTests-Prefix.pch"; sourceTree = "<group>"; };
 		BAB2F2B41540A7F800ECE09A /* MKTTestAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTTestAppDelegate.h; sourceTree = "<group>"; };
-		BAB2F2B51540A7F800ECE09A /* MKTTestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTTestAppDelegate.m; sourceTree = "<group>"; };
+		BAB2F2B51540A7F800ECE09A /* MKTTestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MKTTestAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BAB2F2D71540A9AE00ECE09A /* ExternalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalData.h; path = ApplicationBase/ExternalData.h; sourceTree = "<group>"; };
 		BAB2F2DA1540AA5200ECE09A /* MKTPointTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointTest.m; sourceTree = "<group>"; };
 		BAB2F2EA1540AD7500ECE09A /* INIParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIParserTest.m; sourceTree = "<group>"; };
@@ -1177,7 +1187,7 @@
 		BAF0CA841549CED900C31A02 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		BAF0CA851549CEDA00C31A02 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BAF0CA881549D1F400C31A02 /* MKTRouteDropboxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteDropboxController.h; sourceTree = "<group>"; };
-		BAF0CA891549D1F400C31A02 /* MKTRouteDropboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteDropboxController.m; sourceTree = "<group>"; };
+		BAF0CA891549D1F400C31A02 /* MKTRouteDropboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MKTRouteDropboxController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BAF0CA8A1549D1F400C31A02 /* MKTRouteSyncModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRouteSyncModel.h; sourceTree = "<group>"; };
 		BAF0CA8B1549D1F400C31A02 /* MKTRouteSyncModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteSyncModel.m; sourceTree = "<group>"; };
 		BAF0CA8E1549D23300C31A02 /* MKTRouteSyncModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRouteSyncModelTest.m; sourceTree = "<group>"; };
@@ -1190,10 +1200,12 @@
 		BAFC63091740368300BC0252 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MKTGpxSessionViewController.xib; sourceTree = "<group>"; };
 		BAFC630B1740368E00BC0252 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MKTGpxSessionViewController.xib; sourceTree = "<group>"; };
 		BAFC630C17454F0200BC0252 /* MKTGpxDropboxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTGpxDropboxController.h; sourceTree = "<group>"; };
-		BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTGpxDropboxController.m; sourceTree = "<group>"; };
+		BAFC630D17454F0200BC0252 /* MKTGpxDropboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MKTGpxDropboxController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BAFD64E3171F2A14000767F0 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		C4105E8D80B92F8FBCA5D878 /* Pods-MKToolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolTests/Pods-MKToolTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D862014E9574B785A8C2640C /* Pods.cydia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.cydia.xcconfig; path = "Pods/Target Support Files/Pods/Pods.cydia.xcconfig"; sourceTree = "<group>"; };
 		E6F37D2A77AF4BC799D7F9E3 /* libPods-MKToolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKToolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.xcconfig"; path = "Pods/Pods-MKToolCydia.xcconfig"; sourceTree = SOURCE_ROOT; };
+		E8E5526F2495CE0861D98C32 /* Pods-MKToolCydia.cydia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKToolCydia.cydia.xcconfig"; path = "Pods/Target Support Files/Pods-MKToolCydia/Pods-MKToolCydia.cydia.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1270,6 +1282,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28720A28FC098F8730974C32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CDD9D2D2C94C02E9A254223 /* Pods.debug.xcconfig */,
+				3926CC05E97612E30D087DAA /* Pods.release.xcconfig */,
+				D862014E9574B785A8C2640C /* Pods.cydia.xcconfig */,
+				01537FA27BFA3AD8B268330A /* Pods.testflight.xcconfig */,
+				61ED02ED4DD3458AFE8224D4 /* Pods.appstore.xcconfig */,
+				5477E18DC374844D930DB137 /* Pods-MKToolCydia.debug.xcconfig */,
+				3DDCE549DCA0185E552233CB /* Pods-MKToolCydia.release.xcconfig */,
+				E8E5526F2495CE0861D98C32 /* Pods-MKToolCydia.cydia.xcconfig */,
+				1A31B6A7EB597C51DDC75601 /* Pods-MKToolCydia.testflight.xcconfig */,
+				AD7253F13AE7879A44BC64F1 /* Pods-MKToolCydia.appstore.xcconfig */,
+				C4105E8D80B92F8FBCA5D878 /* Pods-MKToolTests.debug.xcconfig */,
+				0A40F1DDC5D9E1750BDD4C1B /* Pods-MKToolTests.release.xcconfig */,
+				2EE7099102D062A9092AFAEA /* Pods-MKToolTests.cydia.xcconfig */,
+				0DD53599A423C7E7A62B68DA /* Pods-MKToolTests.testflight.xcconfig */,
+				5BD3BDAB083038984FC4D48C /* Pods-MKToolTests.appstore.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		76DB5A2D154A7E47002FFA78 /* Generator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1656,9 +1690,7 @@
 				BAB2F2AB1540A7F800ECE09A /* MKToolTests */,
 				BAB2F1F815409C8C00ECE09A /* Frameworks */,
 				BAB2F1F615409C8C00ECE09A /* Products */,
-				01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */,
-				2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */,
-				F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */,
+				28720A28FC098F8730974C32 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -2280,7 +2312,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MKT;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				TargetAttributes = {
 					BAB2F1F415409C8C00ECE09A = {
 						DevelopmentTeam = Q5RXQNK24L;
@@ -2614,7 +2646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-MKToolTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MKToolTests/Pods-MKToolTests-resources.sh\"\n";
 		};
 		9DCF902A8D45430B8F1066C5 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2628,7 +2660,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E30B6E5841F427F803914C8 /* Check Pods Manifest.lock */ = {
@@ -2683,7 +2715,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MKToolCydia/Pods-MKToolCydia-resources.sh\"\n";
 		};
 		BAB2F28C1540A68800ECE09A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2736,7 +2768,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-MKToolCydia-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MKToolCydia/Pods-MKToolCydia-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3216,9 +3248,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3238,7 +3272,7 @@
 		};
 		BA27D55C155F294F00C6B37E /* AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 61ED02ED4DD3458AFE8224D4 /* Pods.appstore.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3272,7 +3306,7 @@
 		};
 		BA27D55E155F294F00C6B37E /* AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
+			baseConfigurationReference = 5BD3BDAB083038984FC4D48C /* Pods-MKToolTests.appstore.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3301,9 +3335,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = "TESTING=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3324,7 +3360,7 @@
 		};
 		BA4E5C25170605F600669C67 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 01537FA27BFA3AD8B268330A /* Pods.testflight.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3358,7 +3394,7 @@
 		};
 		BA4E5C27170605F600669C67 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
+			baseConfigurationReference = 0DD53599A423C7E7A62B68DA /* Pods-MKToolTests.testflight.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3387,9 +3423,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = "CYDIA=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3409,7 +3447,7 @@
 		};
 		BA4E5C291706169700669C67 /* Cydia */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = D862014E9574B785A8C2640C /* Pods.cydia.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3442,7 +3480,7 @@
 		};
 		BA4E5C2B1706169700669C67 /* Cydia */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
+			baseConfigurationReference = 2EE7099102D062A9092AFAEA /* Pods-MKToolTests.cydia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3463,7 +3501,7 @@
 		};
 		BA94CB691706FE1400AC0934 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
+			baseConfigurationReference = 5477E18DC374844D930DB137 /* Pods-MKToolCydia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3490,7 +3528,7 @@
 		};
 		BA94CB6A1706FE1400AC0934 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
+			baseConfigurationReference = 3DDCE549DCA0185E552233CB /* Pods-MKToolCydia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3515,7 +3553,7 @@
 		};
 		BA94CB6B1706FE1400AC0934 /* Cydia */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
+			baseConfigurationReference = E8E5526F2495CE0861D98C32 /* Pods-MKToolCydia.cydia.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3539,7 +3577,7 @@
 		};
 		BA94CB6C1706FE1400AC0934 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
+			baseConfigurationReference = 1A31B6A7EB597C51DDC75601 /* Pods-MKToolCydia.testflight.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3564,7 +3602,7 @@
 		};
 		BA94CB6D1706FE1400AC0934 /* AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2B275A3486B445F8A47087C /* Pods-MKToolCydia.xcconfig */;
+			baseConfigurationReference = AD7253F13AE7879A44BC64F1 /* Pods-MKToolCydia.appstore.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3597,9 +3635,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3633,9 +3673,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Frank Blumenberg";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3655,7 +3697,7 @@
 		};
 		BAB2F22015409C8D00ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 4CDD9D2D2C94C02E9A254223 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3681,7 +3723,7 @@
 		};
 		BAB2F22115409C8D00ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E4BDCAAE914B37913F3EA8 /* Pods.xcconfig */;
+			baseConfigurationReference = 3926CC05E97612E30D087DAA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3722,7 +3764,7 @@
 		};
 		BAB2F2B81540A7F800ECE09A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
+			baseConfigurationReference = C4105E8D80B92F8FBCA5D878 /* Pods-MKToolTests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3743,7 +3785,7 @@
 		};
 		BAB2F2B91540A7F800ECE09A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AFF77F2501B48B19C2A169F /* Pods-MKToolTests.xcconfig */;
+			baseConfigurationReference = 0A40F1DDC5D9E1750BDD4C1B /* Pods-MKToolTests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
