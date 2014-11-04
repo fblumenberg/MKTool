@@ -25,7 +25,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 
-#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import "OsdValue.h"
 #import "MKConnectionController.h"
 #import "MKDataConstants.h"
