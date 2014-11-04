@@ -27,7 +27,7 @@
 
 #import "NSArray+BlocksKit.h"
 
-#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #import "MKTGpxDropboxController.h"
 

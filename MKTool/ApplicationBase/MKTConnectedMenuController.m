@@ -40,7 +40,7 @@
 
 #import "InnerBand.h"
 
-#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import "MBProgressHUD.h"
 
 #import "CustomBadge.h"

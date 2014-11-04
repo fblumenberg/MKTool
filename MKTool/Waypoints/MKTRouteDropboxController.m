@@ -25,7 +25,7 @@
 #import "Dropbox/Dropbox.h"
 #import "DBSession+MKT.h"
 
-#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #import "InnerBand.h"
 #import "NSArray+BlocksKit.h"
@@ -304,7 +304,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self performSelector:@selector(startSynchronization) withObject:self afterDelay:0.5];
   }
   else{
-    DDLogCError(@"The Dropbox upload failed with error %@",error);
+    DDLogError(@"The Dropbox upload failed with error %@",error);
     _isSyncing = NO;
     [self.delegate controller:self syncFailedWithError:error];
   }
@@ -337,7 +337,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self performSelector:@selector(startSynchronization) withObject:self afterDelay:0.5];
   }
   else{
-    DDLogCError(@"The Dropbox download failed with error %@",error);
+    DDLogError(@"The Dropbox download failed with error %@",error);
     _isSyncing = NO;
     [self.delegate controller:self syncFailedWithError:error];
   }
@@ -401,7 +401,7 @@ static int ddLogLevel = LOG_LEVEL_WARN;
     [self performSelector:@selector(startSynchronization) withObject:self afterDelay:0.5];
   }
   else{
-    DDLogCError(@"The Dropbox delete failed with error %@",error);
+    DDLogError(@"The Dropbox delete failed with error %@",error);
     _isSyncing = NO;
     [self.delegate controller:self syncFailedWithError:error];
   }

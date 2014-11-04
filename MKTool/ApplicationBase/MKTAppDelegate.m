@@ -44,7 +44,7 @@ NSString* const NSURLIsExcludedFromBackupKey = @"NSURLIsExcludedFromBackupKey";
 
 #import "MBProgressHUD.h"
 
-#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import "DDTTYLogger.h"
 
 #import "Dropbox/Dropbox.h"

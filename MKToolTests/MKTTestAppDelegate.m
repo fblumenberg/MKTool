@@ -30,7 +30,7 @@
 // Here we import the Dropbox credentials. You have to get your own to compile.
 //#import "ExternalData.h"
 
-#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import "DDTTYLogger.h"
 
 #ifndef kDROPBOX_APP_KEY
